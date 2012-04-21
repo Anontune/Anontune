@@ -19,10 +19,8 @@ $cphp_memcache_port			= 11211;		// The port number of memcached
 $cphp_memcache_compressed	= true;			// Whether to compress memcache objects
 
 $cphp_mysql_enabled = true;
-$cphp_mysql_host = "localhost";
-$cphp_mysql_user = "anontune2";
-$cphp_mysql_pass = "8NRehW5t6pRwLxuV";
-$cphp_mysql_db 	= "anontune2";
+
+require("config.mysql.php");
 
 $cphp_components = array(
 	"router",
