@@ -1,0 +1,119 @@
+<html>
+<head>
+<title>netjs Example</title>
+<script>
+function test() {
+	//Create thread to handle socket functions.
+	var tran = netjs.create_transaction("netjs_example");
+	if(tran == -1) {
+		alert("Failed to create transaction.");
+		return;
+	}
+
+	//Create socket.
+	var sock = netjs.socket(tran, netjs.af_inet, netjs.sock_stream, netjs.tcp_proto);
+	if(sock == -1) {
+		alert("Failed to create socket.");
+		return;
+	}
+
+	//Connect the socket.
+	var con = netjs.connect(tran, sock, "www.google.com", 80);
+	if(con == -1) {
+		alert("Failed to connect.");
+		return;
+	}
+
+	//Send a HTTP request to google.com.
+	var send_buf = "malformed\r\n";
+	var send = netjs.send(tran, sock, send_buf, send_buf.len, null);
+	if(send == -1) {
+		alert("Failed to send data.");
+		return;
+	}
+
+	//Recv the response.
+	var recv_buf = ""; var temp;
+	while((temp = netjs.recv(tran, sock, 1024, null))[0] > 0) {
+		recv_buf = recv_buf + temp[1];
+	}
+	if(recv_buf == "") {
+		alert("Failed to recv data.");
+		return;
+	}
+
+	//Output it.
+	alert(recv_buf);
+
+	//Cleanup.
+	netjs.close(tran, sock);
+	netjs.destroy_transaction("netjs_example");
+}
+
+//alert(netjs.http.post_encode([["lename&&", "v*al"], ["sdfdsf@#", "val3"]]));
+
+//var data = netjs.http.post_encode([["vara", "vala"], ["varb", "valb"]]);
+//alert(netjs.http.open("http://localhost/post_test.php", data, null)[1]);
+//4.5 sec ^ for above
+
+function do_sex() {
+	document.myform.httprep.value = netjs.http.recv_buffer;
+	//alert(netjs.http.recv_buffer.length);
+}
+
+function test2() {
+	netjs.http.open("http://www.google.com/", null, null, "do_sex");
+}
+
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30429650-1']);
+  _gaq.push(['_setDomainName', 'none']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+<body>
+<center>
+<h1>netjs Example</h1>
+<script language="Javascript" src="netjs.js"></script>
+<applet id="netjs_applet" code="netjs.class" name="netjs" archive="netjs.jar" width="1" height="1"><param name="bgcolor" value="ffffff">Your browser is not Java enabled.</applet>
+<script type="text/javascript">
+netjs.applet = document.getElementById("netjs_applet");
+</script>
+<script>
+/*
+
+xxx = "v";
+x = netjs.http.open("http://docstore.mik.ua/orelly/web/jscript/ch19_06.html", null, null, null)[1];
+x = netjs.http.open("http://docstore.mik.ua/orelly/web/jscript/ch19_06.html", null, null, null)[1];
+x = netjs.http.open("http://docstore.mik.ua/orelly/web/jscript/ch19_06.html", null, null, null)[1];
+x = netjs.http.open("http://docstore.mik.ua/orelly/web/jscript/ch19_06.html", null, null, null)[1];
+*/
+//netjs.http.read.recv_ret = "0";
+//alert(netjs.http.read.vh);
+//alert(document.netjs);
+//alert(xxx);
+</script>
+<p>
+<a href="#" onClick="test();">Get HTTP response from Google.com (we send a malformed request, that's not an error) using netjs.</a>
+<p>
+<a href="#" onClick="test2();">Use HTTP open to get valid response from Google.</a>
+<form name="myform">
+<textarea name="httprep"></textarea>
+</form> 
+<script></script>
+</center>
+</body>
+</html>

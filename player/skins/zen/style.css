@@ -1,0 +1,29 @@
+#atp-main
+{
+	margin: 0px;
+	padding: 0px;
+	width: 300px;
+	height: 400px;
+}
+
+#atp-main-middle-music-content
+{
+	height: 150px;
+	overflow: hidden;
+}
+
+#atp-main td
+{
+    margin: 0;
+	padding: 0px;
+}
+
+#atp-main-middle-nav
+{
+	display: block;
+	height: 250px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+

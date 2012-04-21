@@ -1,0 +1,342 @@
+<html>
+<head>
+<title>Documentation netjs</title>
+<style>
+.desc
+{
+    color: white;
+    background: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.warning
+{
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+}
+</style>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30429650-1']);
+  _gaq.push(['_setDomainName', 'none']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+<h1>Documentation netjs</h1>
+
+<h2>Introduction</h2>
+
+You are reading the documentation for <a href="http://www.anontune.com/netjs/">netjs</a> -- an experimental library providing real socket support for Javascript developers. Netjs consists of two main parts: the Javascript part, and the Java part. The Javascript part is a BSD-style socket interface to the Java application. (This isn't an introduction to sockets if you've never used them before.)
+<p>In order to use the socket functions, you must first create what is known as a "transaction." On the Java side, a transaction means creating a new thread. All socket functions take place in this new thread, or transaction. This allows netjs the freedom to move between concurrent networking interactions, leaving the Javascript thread free. It also supports the possibility of threaded design being available to Javascript developers in the future. In which case, the Java side would also need to be thread-based, which it is.
+<p>
+Once a transaction has been created, you can then do API calls which will be processed in the transaction. A valid transaction must have perfect error checking. It must also destroy the transaction when finished working with the transaction or if an error occurs which can't be recovered from.
+<p>
+The API calls themselves are mostly blocking. This means that when you call them it will halt your application until they are finished. This is because Javascript runs in one thread, and does everything sequentially. Thus, to create a truly perfect networking application, it is necessary to use two means . . . Timeouts and callbacks.
+<p>
+Timeouts ensure that really slow networking interactions won't haul your application. Netjs forces a timeout of 1 second be used when waiting for data, 2 seconds for sending data, and 1 second for waiting on a socket to connect. Callbacks are a way of doing messy asynchronous programming. Typically, you call a function and instruct it to call another function when it's done. It will return straight away so it won't block your application and some time in the future the "callback" is called and you can take the next step.
+<p>
+Netjs uses callbacks only where it counts: For send and recv. Developers are recommended to use callbacks for these functions and construct your code in an asynchronous manner. If callbacks are used, the function is said to be "non-blocking" as in, it will return straight away and not block your application. When it's done, the callback functions are called.
+<p>
+That is how you use netjs in an application. I will now introduce the functions and then follow up with some examples.
+
+<h2>Prototypes</h2>
+
+<h3>create_transaction(name);</h3>
+
+<blockquote>
+<b>name</b> = The name of the transaction to create. Must be unique.
+<p>
+<span class="desc">
+This function creates a new transaction.
+</span>
+<p>
+<b>Returns:</b> -1 on error, otherwise returning transaction index.
+</blockquote>
+
+<h3>destroy_transaction(name);</h3>
+
+<blockquote>
+<b>name</b> = The name of the transaction to destroy.
+<p>
+<span class="desc">
+This function destroys a transaction by name. Make sure to call it when finished with a transaction.
+</span>
+<p>
+<b>Returns:</b> -1 on error, otherwise destroying the transaction.
+</blockquote>
+
+<h3>socket(tran_index, family, type, proto);</h3>
+
+<blockquote>
+<b>tran_index</b> = A transaction index returned from create_transaction.<br>
+<b>family</b> = An address family to use for the socket. <b>Protip:</b> Use netjs.af_inet.<br>
+<b>type</b> = The type of the socket to create. <b>Protip:</b> Use netjs.sock_stream.<br>
+<b>proto</b> = The protocol for the socket to use for data delivery. <b>Protip:</b> Use netjs.tcp_proto.
+<p>
+<span class="desc">
+Creates a new TCP stream socket.
+</span>
+<p>
+<b>Returns:</b> -1 on error, otherwise returning a socket index.
+</blockquote>
+
+<h3>connect(tran_index, sock_index, addr, port);</h3>
+
+<blockquote>
+<b>tran_index</b> = A transaction index returned from create_transaction.<br>
+<b>sock_index</b> = A socket index returned from socket.<br>
+<b>addr</b> = An IP address or host name to connect to.<br>
+<b>port</b> = The port to connect on.
+<p>
+<span class="desc">
+Connects the socket identified by sock_index.
+</span>
+<p>
+<b>Returns:</b> -1 on error, 0 on success.
+</blockquote>
+
+<h3>send(tran_index, sock_index, buf, len, callback);</h3>
+
+<blockquote>
+<b>tran_index</b> = A transaction index returned from create_transaction.<br>
+<b>sock_index</b> = A socket index returned from socket.<br>
+<b>buf</b> = A string with the data you want to send down the socket.<br>
+<b>len</b> = The length of the data to send.<br>
+<b>callback</b> = A string containing the name of the function to call when the data has been sent. This may be null.<br>
+If it is, then this function is blocking. <br>
+If it isn't, this function returns straight away and when the task has complete callback is called.<br>
+<b>Please note:</b> I don't think when this function calls the callback it means the data has been sent since send is buffered.
+<p>
+<span class="desc">
+Sends data down the socket identified by sock_index.
+</span>
+<p>
+<b>Returns:</b> If used in blocking mode -- -1 on error, otherwise returning the number of bytes sent on success (may be 0.),<br>
+if used in non-blocking mode the callback has to check netjs_cb_send_ret (-1 on error bla bla bla.)
+</blockquote>
+
+<h3>recv(tran_index, sock_index, len, callback);</h3>
+
+<blockquote>
+<b>tran_index</b> = A transaction index returned from the create_transaction function.<br>
+<b>sock_index</b> = A socket index returned from the socket function.<br>
+<b>len</b> = The amount of data to recv. On the Java side, recv will block until it receives this amount of data or a timeout/error occurs.<br>
+<b>callback</b> = A string specifying the function to call when this operation has completed. This may be null.<br>
+If it is, then the function will block until the operation has been completed.<br>
+Otherwise, the function returns straight away and some time in the future the callback is called.
+<p>
+<span class="desc">
+Tries to receive len amount of data from the socket specified by sock_index.
+</span>
+<p>
+<b>Returns:</b> If used in blocking mode [-1, null] on error or [bytes_read, data_recv] on success; If used in non-blocking mode the callback will have to check netjs_cb_recv_ret which will indicate -1 on error or bytes read on success.
+</blockquote>
+
+<h3>close(tran_index, sock_index);</h3>
+
+<blockquote>
+<b>tran_index</b> = A transaction index returned from create_transaction.<br>
+<b>sock_index</b> = A socket index returned from socket.
+<p>
+<span class="desc">
+Closes the socket denoted by sock_index.<br>
+It's good practice to call this function if an error occurs on a connected socket.<br>
+Not required, however. Since destroy transaction closes all sockets anyway.
+</span>
+<p>
+<b>Returns:</b> 0 on success, -1 on failure.
+</blockquote>
+
+<h3>setsotimeout(tran_index, sock_index, timeout);</h3>
+
+<blockquote>
+<b>tran_index</b> = A transaction index returned from create_transaction.<br>
+<b>sock_index</b> = A socket index returned from socket.<br>
+<b>timeout</b> = Amount of time in milliseconds to set the timout to.
+<p>
+<span class="desc">
+Sets a timeout on the recv operation.
+Once set, recv will wait up to timeout before giving up trying to receive data.<br>
+A time of 1 second is recommended.<br>
+<b>Please note:</b> A timeout of 1 second has been hard-coded for connect, and send has<br>
+a timeout of 2 seconds -- You cannot yet change this.
+</span>
+<p>
+<b>Returns:</b> 0 on success, -1 on failure.
+</blockquote>
+
+<h3>http.open(url, data, timeout, callback);</h3>
+
+<blockquote>
+<b>url</b> = A normal url specifying what resource to download. The URL may specify a port. If not specified, it defaults to 80.<br>
+<b>data</b> = A list of name value pairs specifying data to send in a HTTP POST request. Usage will be shown in the examples section. This may be null if you want to do a HTTP GET request.<br>
+<b>timeout</b> = Amount of time to allow for networking operations to complete. Use null to use the recommended defaults.<br>
+<b>callback</b> = As discussed in other functions.
+<p>
+<span class="desc">
+This function downloads the resource specified by the URL.<br>
+It supports POST requests and GET requests.<br>
+It does not handle cookies, redirects, http error messages, or the like.<br> Callbacks are supported to make the function asynchronous.
+</span>
+<p>
+<b>Returns:</b> When using callbacks it returns 1 on success with failure denoted by returning [-1, null].<br>
+If not using callbacks it returns [recv_buf.length, recv_buf] on success which means element 0 should be true<br>
+otherwise [-1, null] is returned on failure.<br>
+Callbacks should check netjs.http.recv_buffer isn't null.<br>
+This would also indicate error.
+</blockquote>
+
+<h3>Notes</h3>
+
+<span class="warning">All strings should be null terminated. This is because there is a memory leak in Google Chrome and Chromium on Linux.<br> Null termination looks like this "mai null terminated string\0";</span>
+
+<h2>Examples</h2>
+
+For this code to run you need to include the applet and the Javascript file in your application.
+
+<pre>
+&lt;!-- Include the netjs bridge. --&gt;
+&lt;script language=&quot;Javascript&quot; src=&quot;netjs.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- Include the applet that the bridge connects to. --&gt;
+&lt;applet id=&quot;netjs_applet&quot; code=&quot;netjs.class&quot; name=&quot;netjs&quot; archive=&quot;netjs.jar&quot; width=&quot;1&quot; height=&quot;1&quot;&gt;
+&lt;param name=&quot;bgcolor&quot; value=&quot;ffffff&quot;&gt;
+Your browser is not Java enabled.
+&lt;/applet&gt;
+    
+&lt;!-- Initialize netjs for use. --&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+netjs.applet = document.getElementById(&quot;netjs_applet&quot;);
+&lt;/script&gt;
+
+&lt;!-- Start using netjs. --&gt;
+if(netjs_ready){
+    . . . your code here
+}
+else{
+    alert(&quot;Netjs can't be reached at this time.&quot;);
+}
+</pre>
+
+<h3>Connect to an echo server, send stuff, and get the echo.</h3>
+
+<pre>
+function main(){
+
+    //config for echo server addr info
+    addr = &quot;www.example.com\0&quot;;
+    port = 80;
+    data = &quot;test\0&quot;; //Data to echo.
+    len = 4; //Data length.
+    
+    //create transaction
+    tran_name = &quot;echo serv transaction\0&quot;;
+    tran_index = create_transaction(tran_name);
+    if(tran_index == -1){
+        alert(&quot;Failed to create transaction.&quot;);
+        return;
+    }
+    
+    //create socket
+    sock_index = netjs.socket(tran_index, netjs.af_inet, netjs.sock_stream, netjs.tcp_proto);
+    if(sock_index == -1){
+        alert(&quot;Failed to create socket.&quot;);
+        netjs.destroy_transaction(tran_name);
+        return;
+    }
+    
+    //set timeout (highly recommended)
+    netjs.setsotimeout(tran_index, sock_index, 1000);
+    
+    //connect socket
+    ret = netjs.connect(tran_index, sock_index, addr, port);
+    if(ret == -1){
+        alert(&quot;Failed to connect.&quot;);
+        netjs.destroy_transaction(tran_name);
+        return;
+    }
+    
+    //send data to echo (blocking)
+    ret = netjs.send(tran_index, sock_index, data, len, null);
+    if(ret == -1){
+        alert(&quot;Failed to send data.&quot;);
+        netjs.destroy_transaction(tran_name);
+        return;
+    }
+    
+    //recv response
+    //notice we use callbacks (recommended.)
+    ret = netjs.recv(tran_index, sock_index, len, &quot;proc&quot;);
+}
+
+//asynch callback
+function proc(){
+    if(netjs_cb_recv_ret == -1){
+        alert(&quot;Failed to recv data.&quot;);
+        netjs.destroy_transaction(&quot;echo serv transaction\0&quot;);
+        return;
+    }
+    alert(netjs_cb_recv_buffer);
+    
+    //cleanup
+    netjs.destroy_transaction(&quot;echo serv transaction\0&quot;);
+}
+</pre>
+
+<h3>HTTP POST request to google.com (non-blocking.)</h3>
+
+<pre>
+//asynch callback
+function proc(){
+    if(netjs.http.recv_buffer == null){
+        alert(&quot;Could not receive response.&quot;);
+        return;
+    }
+    alert(netjs.http.recv_buffer);
+}
+
+data = netjs.http.post_encode([[&quot;q&quot;, &quot;my query&quot;], [&quot;x&quot;, &quot;some other data&quot;]];
+ret = netjs.http.open(&quot;http://www.google.com/search&quot;, data, null, &quot;proc&quot;); 
+if(ret != 1){
+    alert(&quot;Could not create connection.&quot;);
+}
+</pre>
+
+<h3>HTTP GET request to example.com (blocking.)</h3>
+
+<pre>
+ret = netjs.http.open(&quot;http://www.example.com/&quot;, null, null, null);
+if(ret[0] == -1){
+    alert(&quot;Something went wrong.&quot;);
+}
+else{
+    alert(ret[1]);
+}
+</pre>
+
+<h2>Credits</h2>
+
+Y0, I would like to thank my mom for creating this wicked software.
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+
+">
+<input type="image" src="https://www.paypalobjects.com/en_AU/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal — The safer, easier way to pay online.">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1">to support this project.
+</form>
+
+</body>
+</html>

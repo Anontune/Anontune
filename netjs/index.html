@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>About netjs</title>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30429650-1']);
+  _gaq.push(['_setDomainName', 'none']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+<!--
+Version: 0.1
+Author: Anontune
+Date: 11/02/2012 dd/mm/yyy
+-->
+<h1>About netjs</h1>
+
+<font color="red">Offline for now. We're going to fix the crashes in this code and then Open Source it. The developer release is still here.</font>
+
+<h3>What?</h3>
+
+Netjs is a library written in Javascript and Java. It provides Javascript applications networking functionality via a special Java applet. Netjs is based on <a href="http://stephengware.com/proj/javasocketbridge/">Java Socket Bridge</a> by Steven Ware. It has been rewritten from scratch to support the modern web, in particular adding the ability for con-current socket connections, and asynchronous callbacks.
+<p>
+In the future we hope to expose all or most of Java's networking capability to Javascript developers. Currently only TCP stream sockets with connect, send, recv, and close are supported. (Imagine a client-side web server written in Javascript. That would be interesting.)
+<p>
+To enable users who don't have Java installed to use netjs a P2P system could be developed. Users who run netjs could have the option of helping out by becoming proxies. They would act as a router for AJAX socket requests for users who just have Javascript enabled. This requires they act as a HTTP server providing a JSON socket API which is theoretically possible with netjs. It's an interesting thought, that's for sure.
+
+<h3>Why?</h3>
+
+Currently the only tools web developers have for client-side networking are very limited. They often rely on non-standard contrived hack jobs that are very different to the way developers are used to working. These methods are also time consuming because the server needs to be specially coded for the methods to work. The alternatives also aren't a lot better . . . Web sockets aren't even real sockets.
+<p>
+We needed to solve this problem as a large portion of our code runs in the user's browser and needs to talks with other applications and services on the internet. Netjs makes that possible. By using netjs Javascript chat clients, torrent downloaders, even servers are possible, and it will all run cross-platform.
+
+<h3>How?</h3>
+
+Java applets have long since been able to use standard networking functions. They also have the capacity to call Javascript functions in the browser. Javascript, on the other hand, doesn't have a very flexible set of networking functions. You have the Ajax functions with their cross-domain restrictions . . . but not much else. Javascript can also call Java functions inside applets. You put them together and you get a crude BSD style socket API for Javascript applications.
+<p>
+Because unsigned Javascript code cannot call signed Java code directly an API queue approach is used. The calls are passed to a function which schedules them for execution by a privileged Java thread. In this way the security restrictions are bypassed. 
+
+<h3>Where?</h3>
+
+Netjs is free for non-profit use. For commercial use contact <a href="mailto:anontune@gmail.com">anontune@gmail.com</a>. Currently we provide an <a href="http://www.anontune.com/netjs/netjs.zip">experimental distribution of netjs</a> for developers. This includes the <a href="docs.html">documentation</a> and everything you need to get started. 
+<p>
+For a stand-alone example see <a href="example.html">here</a>.
+
+<h3>Who?</h3>
+
+Netjs is part of the <a href="http://www.anontune.com/">Anontune</a> project. It was invented and implemented by Anonymous.
+<p>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+
+">
+<input type="image" src="https://www.paypalobjects.com/en_AU/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal — The safer, easier way to pay online.">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1">to support this project.
+</form>
+<p>
+<hr>
+<p>
+<a href="http://www.anontune.com/netjs/">Most up to date version of this document</a>.
+</body>
+</html>
