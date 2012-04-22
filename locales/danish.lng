@@ -63,8 +63,8 @@ contribute-h1;								Er du en udvikler?
 contribute-p1;								Vi modtager meget gerne hjælp fra udviklere. Hvis du ved, hvordan man håndterer HTML, CSS, Javascript, PHP eller Python, så send os en linje. Hvis du har erfaring af parsing af data, så skynd dig at kontakte os. Du kan finde os i vores <a href="/irc/">IRC kanal</ a>, eller ved at <a href="mailto:anontune@gmail.com">at sende os en e-mail</a>.
 contribute-h2;								Brugerfeedback
 contribute-p2;								Er der noget du kan lide, noget du ville have væk, eller noget du ønsker at se tilføjet? Eller har du nogen anden form for feedback til udviklerne? Så kontakt os i vores <a href="/irc/">IRC kanal</a>, eller ved at <a href="mailto:anontune@gmail.com">at sende os en e-mail</a>.
-contribute-h3;								Finansielle donationer
-contribute-p3;								Ønsker du at yde økonomisk støtte til AnonTune? Vi accepterer i øjeblikket <a href="http://www.bitcoin.org/">Bitcoin</a> donationer på følgende adresse: <em>1Cw88g4o9n9Fpj8NchR4Lovp69A7yBgLJY</ em>
+contribute-h3;								Donationer
+contribute-p3;								Ønsker du at yde økonomisk støtte til AnonTune? Vi accepterer i øjeblikket <a href="http://www.bitcoin.org/">Bitcoin</a> donationer via <a href="http://laybit.com/" title="Laybit">Laybit</a> og på følgende adresse: <em>1Cw88g4o9n9Fpj8NchR4Lovp69A7yBgLJY</em>
 demo-header;								Prøv AnonTune uden registrering.
 demo-intro;									Ønsker du at afprøve AnonTune, men ønsker ikke at registrere, indtil du er sikker på, du kan lide det? Vælg en af de eksempel profiler nedenfor for en hurtig testkørsel. Glem ikke, at du ikke kan ændre disse profiler som demo bruger, tilmelding er gratis!
 demo-h1;									Top 100
@@ -79,7 +79,7 @@ demo-button3;								Lyt til denne demo &gt;&gt;
 irc-header;									Tal med os på IRC!
 irc-intro;									Har du forslag, kritik, funktion anmodninger eller spørgsmål - eller har du bare ønsker om at chatte lidt med AnonTune udviklere eller andre AnonTune brugere? Besøg os på IRC!
 irc-h1;										Webchat
-irc-p1;										Hvis du ikke har en IRC-klient (eller ikke ved, hvad IRC er), så kan du bruge vores webchat. Du behøver ikke at downloade eller installere noget, det kører i din browser.
+irc-p1;										Hvis du ikke har en IRC-klient (eller ikke ved, hvad IRC er), så kan du bruge vores webchat. Du behøver ikke at downloade eller installere noget. Det kører i din browser.
 irc-button1;								Brug webchat
 irc-h2;										Med din egen klient
 irc-p2;										Hvis du allerede har en IRC-klient, så kan du bare oprette forbindelse til <em>irc.cryto.net</em>, og deltag i #anontune kanalen. Regelmæssige forbindelser er accepteret på port 6667, og SSL-forbindelser er accepteret på port 6697. Du kan også få mere information om Cryto IRC-netværket, såsom netværksmøder regler eller en liste over blade, du kan oprette forbindelse til.
