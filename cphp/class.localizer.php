@@ -13,9 +13,14 @@ class Localizer
 	
 	public function Load($locale)
 	{
-		global $cphp_locale_path, $cphp_locale_ext;
-		
 		$this->strings = array();
+		$this->LoadInternal("english");
+		$this->LoadInternal($locale);
+	}
+	
+	public function LoadInternal($locale)
+	{
+		global $cphp_locale_path, $cphp_locale_ext;
 		$lng_contents = file_get_contents("{$cphp_locale_path}/{$locale}.{$cphp_locale_ext}");
 		if($lng_contents !== false)
 		{
