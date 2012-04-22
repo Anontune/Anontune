@@ -64,7 +64,16 @@ contribute-p1;								Hulp van ontwikkelaars is erg welkom. Als je met HTML, CSS
 contribute-h2;								Geef je mening.
 contribute-p2;								Is er iets wat je erg op prijs stelt, iets waar je je aan ergert, of is er iets nieuws dat je graag op AnonTune ziet? Neem dan contact met ons op via het <a href="/irc/">IRC-kanaal</a>, of <a href="mailto:anontune@gmail.com">e-mail ons</a>.
 contribute-h3;								Financiele bijdragen
-contribute-p3;								Wil je AnonTune financieel ondersteunen? Momenteel kun je via <a href="http://www.bitcoin.org/">Bitcoin</a> doneren op het adres <em>1Cw88g4o9n9Fpj8NchR4Lovp69A7yBgLJY</em>.
+contribute-h3a;								Bitcoin
+contribute-p3a1;							Behoorlijk anoniem
+contribute-p3a2;							1Cw88g4o9n9Fpj8NchR4Lovp69A7yBgLJY
+contribute-h3b;								Flattr
+contribute-p3b1;							Redelijk anoniem
+contribute-h3c;								PayPal
+contribute-p3c1;							Helemaal niet anoniem
+contribute-p3c2;							De mogelijkheid om via PayPal te doneren komt binnenkort.
+contribute-h3d;								Andere mogelijkheden
+contribute-p3d;								Om op een andere manier aan AnonTune te doneren, <a href="/irc/">neem contact met ons op</a>.
 demo-header;								Probeer AnonTune zonder te registreren.
 demo-intro;									Wil je AnonTune uitproberen, maar wil je niet registreren tot je zeker weet dat het bevalt? Kies dan een van de onderstaande voorbeeldprofielen om AnonTune uit te testen. Vergeet niet dat je als demo-gebruiker de profielen niet aan kunt passen; om je eigen profiel te krijgen, kun je je gratis registreren.
 demo-h1;									Top 100
