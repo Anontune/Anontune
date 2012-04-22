@@ -41,6 +41,7 @@ main-button-about;							Over
 main-button-tools;							Extra
 main-button-contribute;						Bijdragen
 main-button-irc;							Praat met ons!
+main-footer;								Ben je een ontwikkelaar? Fork AnonTune en draag bij aan het project! Je vindt onze developer-wiki <a href="http://dev.anontune.com/">hier</a>.
 
 home-header;								De nieuwe manier om muziek te vinden.
 home-button1;								Probeer AnonTune zonder te registreren
@@ -60,7 +61,7 @@ about-header;								Over AnonTune
 tools-header;								AnonTune-hulpmiddelen
 contribute-header;							Bijdragen aan AnonTune
 contribute-h1;								Ben je een ontwikkelaar?
-contribute-p1;								Hulp van ontwikkelaars is erg welkom. Als je met HTML, CSS, Javascript, PHP, of Python om kunt gaan - laat het ons dan weten. Als je ervaring hebt met het interpreteren van data, neem dan zeker contact met ons op! Je kunt ons vinden in het <a href="/irc/">IRC-kanaal</a>, of door een <a href="mailto:anontune@gmail.com">emailtje te sturen</a>.
+contribute-p1;								Hulp van ontwikkelaars is erg welkom. Als je met HTML, CSS, Javascript, PHP, of Python om kunt gaan - laat het ons dan weten. Als je ervaring hebt met het interpreteren van data, neem dan zeker contact met ons op! Je kunt ons vinden in het <a href="/irc/">IRC-kanaal</a>, of door een <a href="mailto:anontune@gmail.com">emailtje te sturen</a>. We hebben inmiddels ook een GIT-repository en bijbehorende Trac - deze vind je op <a href="http://dev.anontune.com/">dev.anontune.com</a>.
 contribute-h2;								Geef je mening.
 contribute-p2;								Is er iets wat je erg op prijs stelt, iets waar je je aan ergert, of is er iets nieuws dat je graag op AnonTune ziet? Neem dan contact met ons op via het <a href="/irc/">IRC-kanaal</a>, of <a href="mailto:anontune@gmail.com">e-mail ons</a>.
 contribute-h3;								Financiele bijdragen
