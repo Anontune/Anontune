@@ -13,6 +13,12 @@
 	<body>
 		<div class="wrapper top">
 			<div class="locale">
+				<a href="http://www.facebook.com/Anontune"><img src="images/facebook.png"></a>
+				<a href="http://www.twitter.com/Anontune"><img src="images/twitter.png"></a>
+				<a href="http://www.youtube.com/anontune"><img src="images/youtube.png"></a>
+				<a href="http://flattr.com/thing/562402/Anontune"><img src="images/flattr.png"></a>
+				<a href="#" onclick='alert("1Cw88g4o9n9Fpj8NchR4Lovp69A7yBgLJY");'><img src="images/bitcoin.png"></a>
+				<br>
 				<a href="/setlocale/english/">English</a> &nbsp;
 				<a href="/setlocale/danish/">Dansk</a> &nbsp;
 				<a href="/setlocale/dutch/">Nederlands</a>
