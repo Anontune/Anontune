@@ -7,5 +7,5 @@ $template['page']->Localize($locale->strings);
 $sPageContents = $template['page']->Render();
 
 $sSelectedDemo = "class=\"current\"";
-$sPageTitle = "Demo";
+$sPageTitle = $locale->strings['title-demo'];
 ?>

@@ -30,5 +30,6 @@ $template['page']->Compile(array(
 	'items'		=> $sItems
 ));
 
+$sPageTitle = $sPageTitle = $locale->strings['title-about'];
 $sPageContents = $template['page']->Render();
 ?>

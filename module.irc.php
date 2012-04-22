@@ -7,5 +7,5 @@ $template['page']->Localize($locale->strings);
 $sPageContents = $template['page']->Render();
 
 $sSelectedIrc = "class=\"current\"";
-$sPageTitle = "IRC";
+$sPageTitle = $locale->strings['title-irc'];
 ?>

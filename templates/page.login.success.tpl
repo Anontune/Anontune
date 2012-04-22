@@ -1,5 +1,5 @@
-<h2>You have been logged in.</h2>
+<h2><%!login-success-header></h2>
 <%?error>
 <div class="right">
-	<a class="button large" href="/user/<%?username>/">Continue to the player &gt;&gt;</a>
+	<a class="button large" href="/user/<%?username>/"><%!login-success-button></a>
 </div>

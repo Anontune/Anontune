@@ -1,5 +1,5 @@
-<h2>Thank you for registering!</h2>
+<h2><%!register-success-header></h2>
 <%?error>
 <div class="right">
-	<a class="button large" href="/user/<%?username>/">Continue to the player &gt;&gt;</a>
+	<a class="button large" href="/user/<%?username>/"><%!register-success-button></a>
 </div>

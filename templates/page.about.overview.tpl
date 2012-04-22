@@ -1,4 +1,4 @@
 <div class="article">
-	<h2>About AnonTune</h2>
+	<h2><%!about-header></h2>
 	<%?items>
 </div>

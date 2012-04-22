@@ -7,5 +7,5 @@ $template['page']->Localize($locale->strings);
 $sPageContents = $template['page']->Render();
 
 $sSelectedContribute = "class=\"current\"";
-$sPageTitle = "Contribute";
+$sPageTitle = $locale->strings['title-contribute'];
 ?>

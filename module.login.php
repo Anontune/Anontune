@@ -17,13 +17,12 @@ if(!empty($_POST['submit']))
 	if(empty($_POST['username']) || empty($_POST['password']))
 	{
 		// not all fields filled in
-		$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_ERROR, "Required fields missing", "One or more fields were not filled in. All fields are required in this form.");
+		$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_ERROR, $locale->strings['login-error-missing-title'], $locale->strings['login-error-missing-message']);
 		$sError .= $err->Render();
 	}
 	elseif(!$result)
 	{
-		$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_ERROR, "User does not exist", "Sorry, that username does not exist. If you want to register,
-		then <a href=\"/register/\">click here</a>.");
+		$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_ERROR, $locale->strings['login-error-user-title'], $locale->strings['login-error-user-message']);
 		$sError .= $err->Render();
 	}
 	else
@@ -32,14 +31,14 @@ if(!empty($_POST['submit']))
 		
 		if(!$sUser->VerifyPassword($_POST['password']))
 		{
-			$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_ERROR, "Password incorrect", "Sorry, that password was incorrect. Please try again.");
+			$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_ERROR, $locale->strings['login-error-password-title'], $locale->strings['login-error-password-message']);
 			$sError .= $err->Render();
 		}
 		else
 		{
 			login($_POST['username'], $_POST['password']);
 				
-			$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_SUCCESS, "Successfully logged in!", "You have been successfully logged into your AnonTune account.");
+			$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_SUCCESS, $locale->strings['login-success-title'], $locale->strings['login-success-message']);
 			$sError .= $err->Render();
 			
 			$display_form = false;
@@ -74,5 +73,5 @@ else
 
 
 $sSelectedLogin = "class=\"current\"";
-$sPageTitle = "Log in";
+$sPageTitle = $locale->strings['title-login'];
 ?>
