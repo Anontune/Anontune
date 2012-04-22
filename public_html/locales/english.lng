@@ -41,6 +41,7 @@ main-button-about;							About
 main-button-tools;							Tools
 main-button-contribute;						Contribute
 main-button-irc;							Talk to us!
+main-footer;								Are you a developer? Fork AnonTune and contribute to the project! You can find our developer wiki <a href="http://dev.anontune.com/">here</a>.
 
 home-header;								The new way to find music.
 home-button1;								Try Anontune without registering
@@ -60,7 +61,7 @@ about-header;								About Anontune
 tools-header;								Anontune Tools
 contribute-header;							Contributing to Anontune
 contribute-h1;								Are you a developer?
-contribute-p1;								We very much welcome help from developers. If you know how to handle HTML, CSS, Javascript, PHP, or Python, then drop us a line. If you are experienced at parsing data, then definitely contact us. You can find us in our <a href="/irc/">IRC channel</a>, or by <a href="mailto:Anontune@gmail.com">sending us an email</a>. Git and Trac will be up soon.
+contribute-p1;								We very much welcome help from developers. If you know how to handle HTML, CSS, Javascript, PHP, or Python, then drop us a line. If you are experienced at parsing data, then definitely contact us. You can find us in our <a href="/irc/">IRC channel</a>, or by <a href="mailto:anontune@gmail.com">sending us an email</a>. We also have a GIT repository and corresponding Trac setup at <a href="http://dev.anontune.com/">dev.anontune.com</a>.
 contribute-h2;								User feedback
 contribute-p2;								Is there something you really like, something you want gone, or something you want to see added? Or do you have any other kind of feedback for the developers? Then contact us in our <a href="/irc/">IRC channel</a>, or by <a href="mailto:Anontune@gmail.com">sending us an email</a>.
 contribute-h3;								Financial donations

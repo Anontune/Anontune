@@ -327,3 +327,10 @@ button.column .inner
 {
 	margin: 2px 0px;
 }
+
+.footer
+{
+	color: #3D3D3D;
+	padding: 12px 0px;
+	font-size: 15px;
+}
