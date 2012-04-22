@@ -318,3 +318,14 @@ button.column .inner
 {
 	padding: 13px 19px;
 }
+
+.article h4
+{
+	font-size: 20px;
+	margin-top: 12px;
+}
+
+.donate p
+{
+	margin: 2px 0px;
+}
