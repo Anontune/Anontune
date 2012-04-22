@@ -334,3 +334,8 @@ button.column .inner
 	padding: 12px 0px;
 	font-size: 15px;
 }
+
+.ribbon p
+{
+	margin-top: 0px;
+}

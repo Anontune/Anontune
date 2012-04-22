@@ -54,7 +54,8 @@ home-p2;									Ever wanted to instantly share the music on your iPod with your
 home-h3;									Listen to music from multiple sources.
 home-p3;									Anontune itself does not host any music files. It simply searches for music on YouTube, Soundcloud, and other websites. The development of Anontune never stops, and in the future many more sources will be added!
 notfound-header;							This page is not here.
-notfound-p1;								You step in the stream,<br>but the water has moved on.<p>If you believe something is supposed to be here, then please <a href="/irc/">contact us</a>.
+notfound-p1a;								You step in the stream, but the water has moved on.
+notfound-p1b;								If you believe something is supposed to be here, then please <a href="/irc/">contact us</a>.
 notfound-p2;								Want to know more?
 notfound-button;							Go to Anontune!
 about-header;								About Anontune
