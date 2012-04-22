@@ -28,7 +28,7 @@ title-login;								Log ind
 title-register;								Register
 title-logout;								Logget ud
 title-demo;									Demo
-title-about;								Om AnonTune
+title-about;								Om Anontune
 title-contribute;							Bidrag
 title-irc;									Tal med os på IRC
 
@@ -43,30 +43,30 @@ main-button-contribute;						Bidrag
 main-button-irc;							Tal med os!
 
 home-header;								Den nye vej til at finde musik
-home-button1;								Prøv AnonTune uden registering
-home-button2;								Register for AnonTune - Det er gratis!
-home-button3;								Log ind til din AnonTune konto
+home-button1;								Prøv Anontune uden registering
+home-button2;								Register for Anontune - Det er gratis!
+home-button3;								Log ind til din Anontune konto
 home-h1;									Helt gratis, uden beregning.
-home-p1;									Vi debitere dig ikke noget for brugen af AnonTune. Det er helt og aldeles gratis at bruge. Ingen skjulte omkostninger, ingen »premium« abonnementer.
+home-p1;									Vi debitere dig ikke noget for brugen af Anontune. Det er helt og aldeles gratis at bruge. Ingen skjulte omkostninger, ingen »premium« abonnementer.
 home-h2;									Importer spillelister direkte fra din iPod.
-home-p2;									Har du nogensinde ønsket at øjeblikkeligt dele musik på din iPod med dine venner, uden at skulle uploade det hele et sted? Du skal blot uploade din iPod-musik database og AnonTune vil gøre resten - og det tager kun et par minutter!
+home-p2;									Har du nogensinde ønsket at øjeblikkeligt dele musik på din iPod med dine venner, uden at skulle uploade det hele et sted? Du skal blot uploade din iPod-musik database og Anontune vil gøre resten - og det tager kun et par minutter!
 home-h3;									Lyt til musik fra flere kilder.
-home-p3;									AnonTune er ikke selv host for nogen musikfiler. Vi søger ganske enkelt efter musik på YouTube, Soundcloud, og andre steder. Udviklingen af ​​AnonTune stopper aldrig, og i fremtiden ville mange flere kilder blive tilføjet!
+home-p3;									Anontune er ikke selv host for nogen musikfiler. Vi søger ganske enkelt efter musik på YouTube, Soundcloud, og andre steder. Udviklingen af ​​Anontune stopper aldrig, og i fremtiden ville mange flere kilder blive tilføjet!
 notfound-header;							Den ønskede side er ikke tilgængelig.
 notfound-p1;								Den kunne være blevet fjernet eller omdøbt - eller måske aldrig har eksisteret. Hvis du mener noget skulle være her, så kan du <a href="/irc/">kontakte os</a>.
 notfound-p2;								Vil du vide mere?
-notfound-button;							Go til AnonTune!
-about-header;								Om AnonTune
-tools-header;								AnonTune Værktøjer
-contribute-header;							Bidrag til AnonTune
+notfound-button;							Go til Anontune!
+about-header;								Om Anontune
+tools-header;								Anontune Værktøjer
+contribute-header;							Bidrag til Anontune
 contribute-h1;								Er du en udvikler?
 contribute-p1;								Vi modtager meget gerne hjælp fra udviklere. Hvis du ved, hvordan man håndterer HTML, CSS, Javascript, PHP eller Python, så send os en linje. Hvis du har erfaring af parsing af data, så skynd dig at kontakte os. Du kan finde os i vores <a href="/irc/">IRC kanal</ a>, eller ved at <a href="mailto:anontune@gmail.com">at sende os en e-mail</a>.
 contribute-h2;								Brugerfeedback
 contribute-p2;								Er der noget du kan lide, noget du ville have væk, eller noget du ønsker at se tilføjet? Eller har du nogen anden form for feedback til udviklerne? Så kontakt os i vores <a href="/irc/">IRC kanal</a>, eller ved at <a href="mailto:anontune@gmail.com">at sende os en e-mail</a>.
 contribute-h3;								Donationer
-contribute-p3;								Ønsker du at yde økonomisk støtte til AnonTune? Vi accepterer i øjeblikket <a href="http://www.bitcoin.org/">Bitcoin</a> donationer på følgende adresse: <br><em>1Cw88g4o9n9Fpj8NchR4Lovp69A7yBgLJY</em>
-demo-header;								Prøv AnonTune uden registrering.
-demo-intro;									Ønsker du at afprøve AnonTune, men ønsker ikke at registrere, indtil du er sikker på, du kan lide det? Vælg en af de eksempel profiler nedenfor for en hurtig testkørsel. Glem ikke, at du ikke kan ændre disse profiler som demo bruger, tilmelding er gratis!
+contribute-p3;								Ønsker du at yde økonomisk støtte til Anontune? Vi accepterer i øjeblikket <a href="http://www.bitcoin.org/">Bitcoin</a> donationer på følgende adresse: <br><em>1Cw88g4o9n9Fpj8NchR4Lovp69A7yBgLJY</em>
+demo-header;								Prøv Anontune uden registrering.
+demo-intro;									Ønsker du at afprøve Anontune, men ønsker ikke at registrere, indtil du er sikker på, du kan lide det? Vælg en af de eksempel profiler nedenfor for en hurtig testkørsel. Glem ikke, at du ikke kan ændre disse profiler som demo bruger, tilmelding er gratis!
 demo-h1;									Top 100
 demo-p1;									For en simpel demo af en profil med en spilleliste, og et par numre, tag et kig på <em>demo</em> konto.
 demo-button1;								Lyt til denne demo &gt;&gt;
@@ -77,7 +77,7 @@ demo-h3;									Classical
 demo-p3;									For en spilleliste med klassisk musik, besøge <em>classical</em> kontoen.
 demo-button3;								Lyt til denne demo &gt;&gt;
 irc-header;									Tal med os på IRC!
-irc-intro;									Har du forslag, kritik, funktion anmodninger eller spørgsmål - eller har du bare ønsker om at chatte lidt med AnonTune udviklere eller andre AnonTune brugere? Besøg os på IRC!
+irc-intro;									Har du forslag, kritik, funktion anmodninger eller spørgsmål - eller har du bare ønsker om at chatte lidt med Anontune udviklere eller andre Anontune brugere? Besøg os på IRC!
 irc-h1;										Webchat
 irc-p1;										Hvis du ikke har en IRC-klient (eller ikke ved, hvad IRC er), så kan du bruge vores webchat. Du behøver ikke at downloade eller installere noget. Det kører i din browser.
 irc-button1;								Brug webchat
@@ -85,21 +85,21 @@ irc-h2;										Med din egen klient
 irc-p2;										Hvis du allerede har en IRC-klient, så kan du bare oprette forbindelse til <em>irc.cryto.net</em>, og deltag i #anontune kanalen. Regelmæssige forbindelser er accepteret på port 6667, og SSL-forbindelser er accepteret på port 6697. Du kan også få mere information om Cryto IRC-netværket, såsom netværksmøder regler eller en liste over blade, du kan oprette forbindelse til.
 irc-button2a;								Mere information &gt;&gt;
 irc-button2b;								Tilslut
-login-header;								Log ind til AnonTune.
+login-header;								Log ind til Anontune.
 login-label-username;						Brugernavn
 login-label-password;						Adgangskode
 login-button;								Log ind
 login-success-header;						Du er blevet logget ind.
 login-success-button;						Fortsæt til afspilleren &gt;&gt;
 login-success-title;						Logget ind!
-login-success-message;						Du er blevet logget ind på din AnonTune konto.
+login-success-message;						Du er blevet logget ind på din Anontune konto.
 login-error-missing-title;					Krævede felter mangler
 login-error-missing-message;				Et eller flere felter er ikke blevet udfyldt. Alle felter er påkrævet i denne form.
 login-error-user-title;						Bruger eksisterer ikke
 login-error-user-message;					Beklager, dette brugernavn eksisterer ikke. Hvis du ønsker at registrere, <a href=\"/register/\">klik her</a>.
 login-error-password-title;					Adgangskode forkert
 login-error-password-message;				Beklager, adgangskoden var forkert. Prøv venligst igen.
-register-header;							Register for AnonTune.
+register-header;							Register for Anontune.
 register-label-username;					Brugernavn
 register-label-password;					Adgangskode
 register-label-verify;						Bekræft
@@ -133,5 +133,5 @@ register-error-taken-message;				Brugernavnet du indtastede er allerede optaget,
 
 logout-header;								Logget ud.
 logout-title;								Succesfuld logget ud.
-logout-message;								Du er blevet logget ud af AnonTune, og du besøger nu sitet som gæst.
+logout-message;								Du er blevet logget ud af Anontune, og du besøger nu sitet som gæst.
 
