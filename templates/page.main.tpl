@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title>AnonTune - <%?title></title>
+		<title>Anontune - <%?title></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link href='http://fonts.googleapis.com/css?family=Paytone+One|Cantarell:400,700|PT+Sans+Caption:400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="/css/kickstart.css">
@@ -17,7 +17,7 @@
 				<a href="/setlocale/danish/">Dansk</a> &nbsp;
 				<a href="/setlocale/dutch/">Nederlands</a>
 			</div>
-			<h1>AnonTune <sup><%!main-sup></sup></h1>
+			<h1>Anontune <sup><%!main-sup></sup></h1>
 		</div>
 		<div class="menu-style">
 			<div class="wrapper">
