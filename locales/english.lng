@@ -28,7 +28,7 @@ title-login;								Log in
 title-register;								Register
 title-logout;								Logged out
 title-demo;									Demo
-title-about;								About AnonTune
+title-about;								About Anontune
 title-contribute;							Contribute
 title-irc;									Talk to us on IRC
 
@@ -43,63 +43,63 @@ main-button-contribute;						Contribute
 main-button-irc;							Talk to us!
 
 home-header;								The new way to find music.
-home-button1;								Try AnonTune without registering
-home-button2;								Register for AnonTune - it's free!
-home-button3;								Log in to your AnonTune account
+home-button1;								Try Anontune without registering
+home-button2;								Register for Anontune - It's free!
+home-button3;								Log in to your Anontune account
 home-h1;									Completely free, no charge.
-home-p1;									We don't charge you anything for the use of AnonTune. It's completely and entirely free	to use. No catch, no hidden costs, no 'premium' subscriptions.
+home-p1;									We don't charge you anything for the use of Anontune. It's completely and entirely free	to use. No catch, no hidden costs, no "premium" subscriptions.
 home-h2;									Import playlists right from your iPod.
-home-p2;									Ever wanted to instantly share the music on your iPod with your friends, without having	to upload all of it somewhere? Simply upload your iPod music database and AnonTune will do the rest - and it will only take a few minutes!
+home-p2;									Ever wanted to instantly share the music on your iPod with your friends, without having	to upload all of it somewhere? Simply upload your iPod music database and Anontune will do the rest - and it will only take a few minutes!
 home-h3;									Listen to music from multiple sources.
-home-p3;									AnonTune itself does not host any music files. It simply searches for music on YouTube, Soundcloud, and other sites. The development of AnonTune never stops, and in the future	many more sources will be added!
-notfound-header;							The page you requested is unavailable.
-notfound-p1;								It might have been removed or renamed - or maybe it never existed. If you believe something	is supposed to be here, then please <a href="/irc/">contact us</a>.
+home-p3;									Anontune itself does not host any music files. It simply searches for music on YouTube, Soundcloud, and other websites. The development of Anontune never stops, and in the future many more sources will be added!
+notfound-header;							This page is not here.
+notfound-p1;								You step in the stream,<br>but the water has moved on.<p>If you believe something is supposed to be here, then please <a href="/irc/">contact us</a>.
 notfound-p2;								Want to know more?
-notfound-button;							Go to AnonTune!
-about-header;								About AnonTune
-tools-header;								AnonTune Tools
-contribute-header;							Contributing to AnonTune
+notfound-button;							Go to Anontune!
+about-header;								About Anontune
+tools-header;								Anontune Tools
+contribute-header;							Contributing to Anontune
 contribute-h1;								Are you a developer?
-contribute-p1;								We very much welcome help from developers. If you know how to handle HTML, CSS, Javascript, PHP, or Python, then drop us a line. If you are experienced at parsing data, then definitely contact us. You can find us in our <a href="/irc/">IRC channel</a>, or by <a href="mailto:anontune@gmail.com">sending us an email</a>.
+contribute-p1;								We very much welcome help from developers. If you know how to handle HTML, CSS, Javascript, PHP, or Python, then drop us a line. If you are experienced at parsing data, then definitely contact us. You can find us in our <a href="/irc/">IRC channel</a>, or by <a href="mailto:Anontune@gmail.com">sending us an email</a>. Git and Trac will be up soon.
 contribute-h2;								User feedback
-contribute-p2;								Is there something you really like, something you want gone, or something you want to see added? Or do you have any other kind of feedback for the developers? Then contact us in our <a href="/irc/">IRC channel</a>, or by <a href="mailto:anontune@gmail.com">sending us an email</a>.
+contribute-p2;								Is there something you really like, something you want gone, or something you want to see added? Or do you have any other kind of feedback for the developers? Then contact us in our <a href="/irc/">IRC channel</a>, or by <a href="mailto:Anontune@gmail.com">sending us an email</a>.
 contribute-h3;								Financial donations
-contribute-p3;								<table border="1" ><tr><th><center>What<center></th><th><center>Where<center></th><th><center>Anonymity<center></th></tr><tr><td><a href="http://www.bitcoin.org/">Bitcoin</a></td><td>1Cw88g4o9n9Fpj8NchR4Lovp69A7yBgLJY</td><td>Exemplary</td></tr><tr><td><a href="http://www.flattr.com/">Flattr</a></td><td><center><a target="_blank" href="http://flattr.com/thing/562402/Anontune"><img border="0" title="Flattr this" alt="Flattr this" src="http://api.flattr.com/button/flattr-badge-large.png"></a></center></td><td><center>Acceptable</center></td></tr><tr><td><a href="http://www.paypal.com/">Paypal</a></td><td><center>Coming soon . . .<center></td><td><center>Poor</center></td></tr><tr><td><center>?</center></td><td><center>Get <a href="mailto:anontune@gmail.com">in contact</a> with us.</center></td><td><center>?</center></td></tr></table>
-demo-header;								Try out AnonTune without registering.
-demo-intro;									Looking to test out AnonTune, but don't want to register until you're sure you like it? Pick one of the example profiles below for a quick test run. Don't forget that you can't change these profiles as a demo user; registering is free!
+contribute-p3;								<table border="1" ><tr><th><center>What<center></th><th><center>Where<center></th><th><center>Anonymity<center></th></tr><tr><td><a href="http://www.bitcoin.org/">Bitcoin</a></td><td>1Cw88g4o9n9Fpj8NchR4Lovp69A7yBgLJY</td><td>Exemplary</td></tr><tr><td><a href="http://www.flattr.com/">Flattr</a></td><td><center><a target="_blank" href="http://flattr.com/thing/562402/Anontune"><img border="0" title="Flattr this" alt="Flattr this" src="http://api.flattr.com/button/flattr-badge-large.png"></a></center></td><td><center>Acceptable</center></td></tr><tr><td><a href="http://www.paypal.com/">Paypal</a></td><td><center>Coming soon . . .<center></td><td><center>Poor</center></td></tr><tr><td><center>?</center></td><td><center>Get <a href="mailto:Anontune@gmail.com">in contact</a> with us.</center></td><td><center>?</center></td></tr></table>
+demo-header;								Try out Anontune without registering.
+demo-intro;									Looking to test out Anontune, but don't want to register until you're sure you like it? Pick one of the example profiles below for a quick test run. Don't forget that you can't change these profiles as a demo user; Registering is free!
 demo-h1;									Top 100
 demo-p1;									For a simple demo of a profile with one playlist, and a few tracks, have a look at the <em>demo</em> account.
 demo-button1;								Listen to this demo &gt;&gt;
-demo-h2;									Pop and electronic
-demo-p2;									For a profile with mostly pop, dance, and trance, spread out over several playlists, try the <em>Sooty</em> account.
+demo-h2;									Pop & Electronic
+demo-p2;									For a profile with mostly pop, dance, and trance try the <em>Sooty</em> account.
 demo-button2;								Listen to this demo &gt;&gt;
 demo-h3;									Classical
 demo-p3;									For a playlist with classical music, visit the <em>classical</em> account.
 demo-button3;								Listen to this demo &gt;&gt;
 irc-header;									Talk to us on IRC!
-irc-intro;									Do you have suggestions, criticisms, feature requests, or questions - or do you just want to chat for a bit with the AnonTune developers or other AnonTune users? Join us on IRC!
+irc-intro;									Do you have suggestions, criticisms, feature requests, or questions - or do you just want to chat for a bit with the Anontune developers or other Anontune users? Join us on IRC!
 irc-h1;										Webchat
-irc-p1;										If you don't have an IRC client (or don't know what IRC is), then you can use our webchat. You don't need to download or install anything, it will run in your browser.
+irc-p1;										If you don't have an IRC client (or don't know what IRC is) then you can use our webchat. You don't need to download or install anything, it will run in your browser.
 irc-button1;								Use the webchat
 irc-h2;										With your own client
 irc-p2;										If you already have an IRC client, then you can simply connect to <em>irc.cryto.net</em>, and join the #anontune channel. Regular connections are accepted on port 6667, and SSL connections are accepted on port 6697. You can also get more information about the Cryto IRC network, such as network rules or a list of leafs you can connect to.
 irc-button2a;								More information &gt;&gt;
 irc-button2b;								Connect
-login-header;								Log in to AnonTune.
+login-header;								Log in to Anontune.
 login-label-username;						Username
 login-label-password;						Password
 login-button;								Log in
 login-success-header;						You have been logged in.
 login-success-button;						Continue to the player &gt;&gt;
 login-success-title;						Successfully logged in!
-login-success-message;						You have been successfully logged into your AnonTune account.
+login-success-message;						You have been successfully logged into your Anontune account.
 login-error-missing-title;					Required fields missing
 login-error-missing-message;				One or more fields were not filled in. All fields are required in this form.
 login-error-user-title;						User does not exist
 login-error-user-message;					Sorry, that username does not exist. If you want to register, then <a href=\"/register/\">click here</a>.
 login-error-password-title;					Password incorrect
 login-error-password-message;				Sorry, that password was incorrect. Please try again.
-register-header;							Register for AnonTune.
+register-header;							Register for Anontune.
 register-label-username;					Username
 register-label-password;					Password
 register-label-verify;						Verify
@@ -133,4 +133,4 @@ register-error-taken-message;				The username you entered is already taken, and 
 
 logout-header;								Logged out.
 logout-title;								Successfully logged out.
-logout-message;								You have been logged out of AnonTune, and you are now browsing the site as a guest.
+logout-message;								You have been logged out of Anontune, and you are now browsing the site as a guest.
