@@ -163,7 +163,7 @@ function at_player_ready(){
 
 function prepare(){
     //Initialize netjs.
-    //setTimeout(get_netjs, 1000);
+    setTimeout(get_netjs, 1000);
     //netjs.applet = document.getElementById("netjs_applet");
     
     /*
@@ -174,7 +174,7 @@ Don't remove it.
     //netjs.http.user_agent = "Mozilla/5.0 (X11; Linux x86_64; rv:9.0.1) Gecko/20100101 Firefox/9.0.1";
     
     //Initialize diff engine.
-    //dmp = new diff_match_patch();
+    dmp = new diff_match_patch();
     
     //Set height of container.
     var body = document.body,
