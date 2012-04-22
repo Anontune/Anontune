@@ -306,3 +306,15 @@ button.column .inner
 {
 	margin-top: 22px;
 }
+
+.locale
+{
+	float: right;
+	margin-right: 16px;
+	margin-top: 64px;
+}
+
+.menu li a
+{
+	padding: 13px 19px;
+}

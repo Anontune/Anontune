@@ -30,6 +30,7 @@ if(empty($force_index))
 			'^/register/?$'							=> "module.register.php",
 			'^/about/?$'							=> "module.about.overview.php",
 			'^/about/([^/]+)/?$'					=> "module.about.page.php",
+			'^/setlocale/([^/]+)/?$'				=> "module.setlocale.php",
 			'^/tools/?$'							=> "module.tools.overview.php",
 			'^/tools/([^/]+)/?$'					=> "module.tools.page.php",
 			'^/user/([^/]+)/?$'						=> "wrapper.player.php",

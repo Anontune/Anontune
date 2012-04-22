@@ -12,6 +12,11 @@
 	</head>
 	<body>
 		<div class="wrapper top">
+			<div class="locale">
+				<a href="/setlocale/english/">English</a> &nbsp;
+				<a href="/setlocale/danish/">Dansk</a> &nbsp;
+				<a href="/setlocale/dutch/">Nederlands</a>
+			</div>
 			<h1>AnonTune <sup><%!main-sup></sup></h1>
 		</div>
 		<div class="menu-style">
