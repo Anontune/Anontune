@@ -22,3 +22,115 @@ event-1month-ago;							1 month ago
 event-months-ago;							%1$d months ago
 event-1year-ago;							1 year ago
 event-years-ago;							%1$d years ago
+
+title-home;									Home
+title-login;								Log in
+title-register;								Register
+title-logout;								Logged out
+title-demo;									Demo
+title-about;								About AnonTune
+title-contribute;							Contribute
+title-irc;									Talk to us on IRC
+
+main-sup;									(very beta)
+main-button-home;							Home
+main-button-login;							Log in
+main-button-register;						Register
+main-button-demo;							Demo
+main-button-about;							About
+main-button-tools;							Tools
+main-button-contribute;						Contribute
+main-button-irc;							Talk to us!
+
+home-header;								The new way to find music.
+home-button1;								Try AnonTune without registering
+home-button2;								Register for AnonTune - it's free!
+home-button3;								Log in to your AnonTune account
+home-h1;									Completely free, no charge.
+home-p1;									We don't charge you anything for the use of AnonTune. It's completely and entirely free	to use. No catch, no hidden costs, no 'premium' subscriptions.
+home-h2;									Import playlists right from your iPod.
+home-p2;									Ever wanted to instantly share the music on your iPod with your friends, without having	to upload all of it somewhere? Simply upload your iPod music database and AnonTune will do the rest - and it will only take a few minutes!
+home-h3;									Listen to music from multiple sources.
+home-p3;									AnonTune itself does not host any music files. It simply searches for music on YouTube, Soundcloud, and other sites. The development of AnonTune never stops, and in the future	many more sources will be added!
+notfound-header;							The page you requested is unavailable.
+notfound-p1;								It might have been removed or renamed - or maybe it never existed. If you believe something	is supposed to be here, then please <a href="/irc/">contact us</a>.
+notfound-p2;								Want to know more?
+notfound-button;							Go to AnonTune!
+about-header;								About AnonTune
+tools-header;								AnonTune Tools
+contribute-header;							Contributing to AnonTune
+contribute-h1;								Are you a developer?
+contribute-p1;								We very much welcome help from developers. If you know how to handle HTML, CSS, Javascript, PHP, or Python, then drop us a line. If you are experienced at parsing data, then definitely contact us. You can find us in our <a href="/irc/">IRC channel</a>, or by <a href="mailto:anontune@gmail.com">sending us an email</a>.
+contribute-h2;								User feedback
+contribute-p2;								Is there something you really like, something you want gone, or something you want to see added? Or do you have any other kind of feedback for the developers? Then contact us in our <a href="/irc/">IRC channel</a>, or by <a href="mailto:anontune@gmail.com">sending us an email</a>.
+contribute-h3;								Financial donations
+contribute-p3;								Do you want to financially support AnonTune? We currently accept <a href="http://www.bitcoin.org/">Bitcoin</a> donations at the	following address: <em>1Cw88g4o9n9Fpj8NchR4Lovp69A7yBgLJY</em>
+demo-header;								Try out AnonTune without registering.
+demo-intro;									Looking to test out AnonTune, but don't want to register until you're sure you like it? Pick one of the example profiles below for a quick test run. Don't forget that you can't change these profiles as a demo user; registering is free!
+demo-h1;									Top 100
+demo-p1;									For a simple demo of a profile with one playlist, and a few tracks, have a look at the <em>demo</em> account.
+demo-button1;								Listen to this demo &gt;&gt;
+demo-h2;									Pop and electronic
+demo-p2;									For a profile with mostly pop, dance, and trance, spread out over several playlists, try the <em>Sooty</em> account.
+demo-button2;								Listen to this demo &gt;&gt;
+demo-h3;									Classical
+demo-p3;									For a playlist with classical music, visit the <em>classical</em> account.
+demo-button3;								Listen to this demo &gt;&gt;
+irc-header;									Talk to us on IRC!
+irc-intro;									Do you have suggestions, criticisms, feature requests, or questions - or do you just want to chat for a bit with the AnonTune developers or other AnonTune users? Join us on IRC!
+irc-h1;										Webchat
+irc-p1;										If you don't have an IRC client (or don't know what IRC is), then you can use our webchat. You don't need to download or install anything, it will run in your browser.
+irc-button1;								Use the webchat
+irc-h2;										With your own client
+irc-p2;										If you already have an IRC client, then you can simply connect to <em>irc.cryto.net</em>, and join the #anontune channel. Regular connections are accepted on port 6667, and SSL connections are accepted on port 6697. You can also get more information about the Cryto IRC network, such as network rules or a list of leafs you can connect to.
+irc-button2a;								More information &gt;&gt;
+irc-button2b;								Connect
+login-header;								Log in to AnonTune.
+login-label-username;						Username
+login-label-password;						Password
+login-button;								Log in
+login-success-header;						You have been logged in.
+login-success-button;						Continue to the player &gt;&gt;
+login-success-title;						Successfully logged in!
+login-success-message;						You have been successfully logged into your AnonTune account.
+login-error-missing-title;					Required fields missing
+login-error-missing-message;				One or more fields were not filled in. All fields are required in this form.
+login-error-user-title;						User does not exist
+login-error-user-message;					Sorry, that username does not exist. If you want to register, then <a href=\"/register/\">click here</a>.
+login-error-password-title;					Password incorrect
+login-error-password-message;				Sorry, that password was incorrect. Please try again.
+register-header;							Register for AnonTune.
+register-label-username;					Username
+register-label-password;					Password
+register-label-verify;						Verify
+register-label-captcha;						Captcha
+register-hint-username;						a-z, A-Z, 0-9, max. 30 characters
+register-hint-password;						min. 8 characters
+register-hint-verify;						type the same password again
+register-button;							Register
+register-success-header;					Thank you for registering!
+register-success-button;					Continue to the player &gt;&gt;
+register-success-title;						Successfully registered!
+register-success-message;					Your account was successfully created, and you are now logged in.
+register-error-nocaptcha-title;				Missing captcha
+register-error-nocaptcha-message;			You did not enter a captcha. Please try again.
+register-error-captcha-title;				Invalid captcha
+register-error-captcha-message;				You did not enter the correct captcha. Please try again.
+register-error-missing-title;				Required fields missing
+register-error-missing-message;				One or more fields were not filled in. All fields are required in this form.
+register-error-toolong-title;				Username too long
+register-error-toolong-message;				The username you entered is too long. It can not be longer than 30 characters.
+register-error-tooshort-title;				Password too short
+register-error-tooshort-message;			Your password is too short. It must be at least 8 characters long.
+register-error-nomatch-title;				Passwords don't match
+register-error-nomatch-message;				The passwords you entered don't match. Please try again.
+register-error-begin-title;					Invalid username
+register-error-begin-message;				Your username must begin with a letter or a number.
+register-error-username-title;				Invalid username
+register-error-username-message;			The username you entered contains invalid characters. Please only use characters a-z, A-Z, 0-9, and the special characters -_[]{}\|`^
+register-error-taken-title;					Username already taken
+register-error-taken-message;				The username you entered is already taken, and is not available for registration. Please pick a different username.
+
+logout-header;								Logged out.
+logout-title;								Successfully logged out.
+logout-message;								You have been logged out of AnonTune, and you are now browsing the site as a guest.

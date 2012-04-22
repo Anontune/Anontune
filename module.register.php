@@ -13,7 +13,7 @@ if(!empty($_POST['submit']))
 	if(empty($_POST["recaptcha_challenge_field"]) || empty($_POST["recaptcha_response_field"]))
 	{
 		// no captcha entered
-		$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_ERROR, "Missing captcha", "You did not enter a captcha. Please try again.");
+		$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_ERROR, $locale->strings['register-error-nocaptcha-title'], $locale->strings['register-error-nocaptcha-message']);
 		$sError .= $err->Render();
 	}
 	else
@@ -22,44 +22,43 @@ if(!empty($_POST['submit']))
 		if(!$resp->is_valid)
 		{
 			// invalid captcha
-			$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_ERROR, "Invalid captcha", "You did not enter the correct captcha. Please try again.");
+			$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_ERROR, $locale->strings['register-error-captcha-title'], $locale->strings['register-error-captcha-message']);
 			$sError .= $err->Render();
 		}
 		elseif(empty($_POST['username']) || empty($_POST['password']) || empty($_POST['verify']))
 		{
 			// not all fields filled in
-			$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_ERROR, "Required fields missing", "One or more fields were not filled in. All fields are required in this form.");
+			$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_ERROR, $locale->strings['register-error-missing-title'], $locale->strings['register-error-missing-message']);
 			$sError .= $err->Render();
 		}
 		elseif(strlen($_POST['username']) > 30)
 		{
 			// username too long
-			$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_ERROR, "Username too long", "The username you entered is too long. It can not be longer than 30 characters.");
+			$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_ERROR, $locale->strings['register-error-toolong-title'], $locale->strings['register-error-toolong-message']);
 			$sError .= $err->Render();
 		}
 		elseif(strlen($_POST['password']) < 8)
 		{
 			// password too short
-			$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_ERROR, "Password too short", "Your password is too short. It must be at least 8 characters long.");
+			$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_ERROR, $locale->strings['register-error-tooshort-title'], $locale->strings['register-error-tooshort-message']);
 			$sError .= $err->Render();
 		}
 		elseif($_POST['password'] != $_POST['verify'])
 		{
 			// password doesn't match
-			$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_ERROR, "Passwords don't match", "The passwords you entered don't match. Please try again.");
+			$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_ERROR, $locale->strings['register-error-nomatch-title'], $locale->strings['register-error-nomatch-message']);
 			$sError .= $err->Render();
 		}
 		elseif(!(is_numeric($_POST['username'][0]) || ctype_alpha($_POST['username'][0])))
 		{
 			// username must begin with number or letter
-			$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_ERROR, "Invalid username", "Your username must begin with a letter or a number.");
+			$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_ERROR, $locale->strings['register-error-begin-title'], $locale->strings['register-error-begin-message']);
 			$sError .= $err->Render();
 		}
 		elseif(!preg_match('/[0-9a-zA-Z-_\[\]{}\\|`^]+$/', $_POST['username']))
 		{
 			// username contains invalid characters
-			$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_ERROR, "Invalid username", "The username you entered contains invalid characters. Please
-			only use characters a-z, A-Z, 0-9, and the special characters -_[]{}\|`^");
+			$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_ERROR, $locale->strings['register-error-username-title'], $locale->strings['register-error-username-message']);
 			$sError .= $err->Render();
 		}
 		else
@@ -70,8 +69,7 @@ if(!empty($_POST['submit']))
 			if($result)
 			{
 				// user already exists
-				$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_ERROR, "Username already taken", "The username you entered is already taken, and is not
-				available for registration. Please pick a different username.");
+				$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_ERROR, $locale->strings['register-error-taken-title'], $locale->strings['register-error-taken-message']);
 				$sError .= $err->Render();
 			}
 			else
@@ -94,8 +92,7 @@ if(!empty($_POST['submit']))
 				
 				login($_POST['username'], $_POST['password']);
 				
-				$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_SUCCESS, "Successfully registered!", "Your account was successfully created, and you
-				are now logged in.");
+				$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_SUCCESS, $locale->strings['register-success-title'], $locale->strings['register-success-message']);
 				$sError .= $err->Render();
 				
 				$display_form = false;
@@ -132,5 +129,5 @@ else
 
 
 $sSelectedRegister = "class=\"current\"";
-$sPageTitle = "Register";
+$sPageTitle = $locale->strings['title-register'];
 ?>

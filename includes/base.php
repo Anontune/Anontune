@@ -17,4 +17,11 @@ function login($username, $password)
     setcookie("auth_password", $password, time() + ((3600 * 24) * 365), "/");
 }
 
+if(empty($_SESSION['prefered_locale']))
+{
+	$_SESSION['prefered_locale'] = "english";
+}
+
+$locale->Load($_SESSION['prefered_locale']);
+
 ?>

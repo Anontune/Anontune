@@ -12,7 +12,12 @@
 	</head>
 	<body>
 		<div class="wrapper top">
-			<h1>AnonTune <sup>(very beta)</sup></h1>
+			<div class="locale">
+				<a href="/setlocale/english/">English</a> &nbsp;
+				<a href="/setlocale/danish/">Dansk</a> &nbsp;
+				<a href="/setlocale/dutch/">Nederlands</a>
+			</div>
+			<h1>AnonTune <sup><%!main-sup></sup></h1>
 		</div>
 		<div class="menu-style">
 			<div class="wrapper">
@@ -20,20 +25,20 @@
 					<li <%?set-home>><a href="/">Home</a></li>
 					<li <%?set-demo>><a href="/demo/">
 						<span class="icon small" data-icon="A"></span>
-						Demo
+						<%!main-button-demo>
 					</a></li>
 					<li <%?set-login>><a href="/login/">
 						<span class="icon small" data-icon="O"></span>
-						Log in
+						<%!main-button-login>
 					</a></li>
 					<li <%?set-register>><a href="/register/">
 						<span class="icon small" data-icon="7"></span>
-						Register
+						<%!main-button-register>
 					</a></li>
 					<li <%?set-about>>
 						<a href="/about/">
 							<span class="icon small" data-icon="i"></span>
-							About
+							<%!main-button-about>
 						</a>
 						<ul>
 							<%?menu-about>
@@ -42,7 +47,7 @@
 					<li <%?set-tools>>
 						<a href="/tools/">
 							<span class="icon small" data-icon="Z"></span>
-							Tools
+							<%!main-button-tools>
 						</a>
 						<ul>
 							<%?menu-tools>
@@ -50,11 +55,11 @@
 					</li>
 					<li <%?set-contribute>><a href="/contribute/">
 						<span class="icon small" data-icon="h"></span>
-						Contribute
+						<%!main-button-contribute>
 					</a></li>
 					<li <%?set-irc>><a href="/irc/" class="highlighted">
 						<span class="icon small" data-icon='"'></span>
-						Talk to us!
+						<%!main-button-irc>
 					</a></li>
 				</ul>
 			</div>

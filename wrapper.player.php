@@ -1,4 +1,6 @@
 <?php
+if($_ANONTUNE !== true) { die(); }
+
 $sUsername = mysql_real_escape_string($router->uParameters[1]);
 $result = mysql_query_cached("SELECT * FROM user WHERE `username` = '{$sUsername}'");
 
