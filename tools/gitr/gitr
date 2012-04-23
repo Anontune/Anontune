@@ -35,6 +35,7 @@ do
 				;;
 				"import")
 					BRANCHNAME="$3"
+					git fetch
 					git branch -D $BRANCHNAME
 					git branch --track $BRANCHNAME origin/$BRANCHNAME
 					git checkout $BRANCHNAME
