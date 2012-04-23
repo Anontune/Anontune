@@ -1,3 +1,4 @@
+/* Main styles */
 
 html, body
 {
@@ -29,11 +30,60 @@ a:hover
 	color: #0002A3;
 }
 
+h3
+{
+	font-size: 40px;
+}
+
+/* Layout */
+
 .wrapper
 {
 	width: 960px;
 	margin: 0px auto;
 }
+
+/* Header styles */
+
+.top h1
+{
+	font-size: 52px;
+}
+
+.top h1 sup
+{
+	color: #E50200;
+	font-size: 38px;
+}
+
+.locale
+{
+	float: right;
+	margin-right: 16px;
+	margin-top: 10px;
+}
+
+/* Menu styles */
+
+.menu li a
+{
+	color: #2A2A2A;
+	font-size: 16px;
+	padding: 13px 19px;
+}
+
+.menu li a.highlighted
+{
+	color: #A90100;
+}
+
+.menu .icon
+{
+	vertical-align: -55%;
+	margin-right: 3px;
+}
+
+/* Ribbon styles */
 
 .ribbon, .top
 {
@@ -61,19 +111,7 @@ a:hover
 
 .ribbon h1, .ribbon h2, .ribbon h3, .ribbon h4, .ribbon h5, .top h1
 {
-	/* font-family: "Paytone One", sans-serif; */
 	margin: 0px;
-}
-
-.top h1
-{
-	font-size: 52px;
-}
-
-.top h1 sup
-{
-	color: #E50200;
-	font-size: 38px;
 }
 
 .ribbon h2, .top h1 sup
@@ -87,17 +125,37 @@ a:hover
 	margin-bottom: 15px;
 }
 
-.menu li a
+.ribbon p
 {
-	color: #2A2A2A;
-	/* font-weight: bold; */
-	font-size: 16px;
+	color: #DEDEDE;
 }
 
-.menu li a.highlighted
+.ribbon p
 {
-	color: #A90100;
+	margin-top: 0px;
 }
+
+.ribbon .important
+{
+	font-weight: bold;
+	color: #FF2929;
+}
+
+.ribbon .article h3
+{
+	margin-top: 22px;
+}
+
+/* Footer styles */
+
+.footer
+{
+	color: #3D3D3D;
+	padding: 12px 0px;
+	font-size: 15px;
+}
+
+/* Slideshow styles */
 
 .slideshow-inner, .slideshow-buttons li a
 {
@@ -123,16 +181,6 @@ a:hover
 	margin: 24px;
 }
 
-h3
-{
-	font-size: 40px;
-}
-
-.padder
-{
-	padding: 14px 32px;
-}
-
 .slideshow .padder, .ribbon h2
 {
 	text-shadow: 4px 3px 9px #000000;
@@ -140,11 +188,6 @@ h3
 	-moz-text-shadow: 4px 3px 9px #000000;
 	-o-text-shadow: 4px 3px 9px #000000;
 	-ms-text-shadow: 4px 3px 9px #000000;
-}
-
-.ribbon p
-{
-	color: #DEDEDE;
 }
 
 .slideshow-buttons li a
@@ -157,17 +200,12 @@ h3
 	background-color: #282828;
 }
 
-.menu .icon
-{
-	vertical-align: -55%;
-	margin-right: 3px;
-}
+/* Form styles */
 
 button.column .inner
 {
 	padding: 0px 10px;
 }
-
 
 .fake-label .inner
 {
@@ -180,7 +218,93 @@ button.column .inner
 	padding: 4px !important;
 }
 
-/* ErrorHandler styles start here */
+/* Article styles */
+
+.article h3
+{
+	font-size: 26px;
+}
+
+.article h4
+{
+	font-size: 20px;
+	margin-top: 4px;
+}
+
+.article .column
+{
+	text-align: justify;
+}
+
+.article a
+{
+	color: #A2B5FF;
+}
+
+.article a:hover
+{
+	color: #738FFF;
+}
+
+.article a.button:hover
+{
+	color: #666666;
+}
+
+.article a.button.red:hover
+{
+	color: #E7E7E7;
+}
+
+.article strong
+{
+	background: none;
+	color: white;
+}
+
+/* Overview styles */
+
+.overview-item
+{
+	display: block;
+	padding: 9px;
+	margin: 7px;
+	color: #DCDCDC !important;
+	text-decoration: none;
+	font-size: 26px;
+	border: 2px solid transparent;
+}
+
+.overview-item:hover
+{
+	border: 2px solid #616161;
+	color: white !important;
+}
+
+/* Specific page styles */
+
+	/* Contribution page */
+	
+	.donate p
+	{
+		margin: 2px 0px;
+	}
+
+/* Miscellaneous */
+
+.padder
+{
+	padding: 14px 32px;
+}
+
+.right
+{
+	text-align: right;
+}
+
+/* CPHP styles */
+
+	/* ErrorHandler */
 	
 	.errorhandler
 	{
@@ -233,115 +357,3 @@ button.column .inner
 		margin: 0px;
 		padding-left: 24px;
 	}
-	
-	.errorhandler li
-	{
-	
-	}
-/* ErrorHandler styles end here */
-
-
-.right
-{
-	text-align: right;
-}
-
-.article h3
-{
-	font-size: 26px;
-}
-
-.article .column
-{
-	text-align: justify;
-}
-
-.article a
-{
-	color: #A2B5FF;
-}
-
-.article a:hover
-{
-	color: #738FFF;
-}
-
-.article a.button:hover
-{
-	color: #666666;
-}
-
-.article a.button.red:hover
-{
-	color: #E7E7E7;
-}
-
-.overview-item
-{
-	display: block;
-	padding: 9px;
-	margin: 7px;
-	color: #DCDCDC !important;
-	text-decoration: none;
-	font-size: 26px;
-	border: 2px solid transparent;
-}
-
-.overview-item:hover
-{
-	/* background-color: #161616; */
-	border: 2px solid #616161;
-	color: white !important;
-}
-
-.article strong
-{
-	background: none;
-	color: white;
-}
-
-.ribbon .article h3
-{
-	margin-top: 22px;
-}
-
-.locale
-{
-	float: right;
-	margin-right: 16px;
-	margin-top: 10px;
-}
-
-.menu li a
-{
-	padding: 13px 19px;
-}
-
-.article h4
-{
-	font-size: 20px;
-	margin-top: 4px;
-}
-
-.donate p
-{
-	margin: 2px 0px;
-}
-
-.footer
-{
-	color: #3D3D3D;
-	padding: 12px 0px;
-	font-size: 15px;
-}
-
-.ribbon p
-{
-	margin-top: 0px;
-}
-
-.ribbon .important
-{
-	font-weight: bold;
-	color: #FF2929;
-}
