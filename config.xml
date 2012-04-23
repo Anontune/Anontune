@@ -814,6 +814,7 @@
         <home_directory>/home/anontune</home_directory>
         <url_root_part>/</url_root_part>
         <users>
+			test
         </users>
         <ipod_db>
             <max_size>1073741824</max_size>
