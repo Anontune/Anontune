@@ -55,7 +55,7 @@ if(!empty($_POST['submit']))
 			$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_ERROR, $locale->strings['register-error-begin-title'], $locale->strings['register-error-begin-message']);
 			$sError .= $err->Render();
 		}
-		elseif(!preg_match('/[0-9a-zA-Z-_\[\]{}\\|`^]+$/', $_POST['username']))
+		elseif(!preg_match('/^[0-9a-zA-Z-_\[\]{}\\|`^]+$/', $_POST['username']))
 		{
 			// username contains invalid characters
 			$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_ERROR, $locale->strings['register-error-username-title'], $locale->strings['register-error-username-message']);
