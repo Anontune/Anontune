@@ -33,7 +33,7 @@ if(empty($_GET["username"]))
 {
 	$_GET["username"] = $_GET["auth_username"];
 }
-
+var_dump($_GET, $_COOKIE);
 //Import functions that aren't API calls.
 function api_success($value="", $c="")
 {
