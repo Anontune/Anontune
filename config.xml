@@ -814,22 +814,6 @@
         <home_directory>/home/anontune</home_directory>
         <url_root_part>/</url_root_part>
         <users>
-            <administrator>
-                <username>admin</username>
-                <password>sdfw$%WEFFFREGTE%6waefSDGFDQqw4wr4we45SDFGWQ3Q2434!@#@#%#W$%</password>
-                <signature>Don't treat life so seriously</signature>
-                <email>admin@anontune.com</email>
-                <group>4</group>
-                <description>Administrator account.</description>
-            </administrator>
-            <testing>
-                <username>test</username>
-                <password>t3stp4ssw0rd</password>
-                <email>no-reply@anontune.com</email>
-                <signature/>
-                <group>4</group>
-                <description>Account used for unit testing.</description>
-            </testing>
         </users>
         <ipod_db>
             <max_size>1073741824</max_size>
@@ -842,11 +826,11 @@
     <developer>
         <api>
             <name>last.fm</name>
-            <key>3ea61f990c35861456f4c710e7727f8a</key>
+            <key></key>
         </api>
         <api>
             <name>youtube.com</name>
-            <key>AI39si62F3Qu87tXoVjhS8mmh7OjdPPXXLOoQzcpIskszHlsAyLrkyVeKz88aNiQokLWq8XD1qODvKvFb8iyQBRoiZ9HbovLdw</key>
+            <key></key>
         </api>
     </developer>
 </config>
