@@ -126,6 +126,9 @@ if($render_template === true)
 	{
 		// User is logged in.
 		$template['user-menu']->Load("page.main.menu.user");
+		$template['user-menu']->Compile(array(
+			'username'			=> $_COOKIE['auth_username']
+		));
 	}
 	
 	$template['user-menu']->Localize($locale->strings);

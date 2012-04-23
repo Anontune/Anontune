@@ -36,6 +36,7 @@ main-sup;									(very beta)
 main-button-home;							Home
 main-button-login;							Log in
 main-button-logout;							Log out
+main-button-player;							Go to player
 main-button-register;						Register
 main-button-demo;							Demo
 main-button-about;							About
