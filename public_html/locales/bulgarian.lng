@@ -1,0 +1,148 @@
+_locale;									bg_US.UTF-8,bg_US
+_datetime_short;							%d/%m/%Y %H:%M:%S
+_datetime_long;								%A %B %d, %Y %H:%M:%S
+_date_short;								%d/%m/%Y
+_date_long;									%A %B %d, %Y
+_time;										%H:%M:%S
+		
+event-now;									сега
+event-future;								в бъдеще
+event-past;									в миналото
+event-1second-ago;							Преди 1 секунда
+event-seconds-ago;							%1$d преди секунди
+event-1minutes-ago;							Преди 1 минута
+event-minutes-ago;							%1$d преди минути
+event-1hour-ago;							Преди 1 час
+event-hours-ago;							%1$d преди час
+event-1day-ago;								Преди 1 ден
+event-days-ago;								%1$d преди ден
+event-1week-ago;							Преди 1 седмица
+event-weeks-ago;							%1$d преди седмица
+event-1month-ago;							Преди 1 месец
+event-months-ago;							%1$d преди месец
+event-1year-ago;							Преди 1 година
+event-years-ago;							%1$d преди година
+
+title-home;									Начало
+title-login;								Вход
+title-register;								Регистрация
+title-logout;								Излез
+title-demo;									Демо
+title-about;								За Сайта
+title-contribute;							Принос
+title-irc;									Свържете се с нас чрез IRC чата
+
+main-sup;									(много бета)
+main-button-home;							Начало
+main-button-login;							Вход
+main-button-logout;							Изход
+main-button-register;						Регистрация
+main-button-demo;							Демо
+main-button-about;							За Нас
+main-button-tools;							Инструменти
+main-button-contribute;						Принос
+main-button-irc;							Говорете с нас!
+main-footer;								Вие сте предприемач? И искате да допренесете за проекта! Можете да намерите нашият wiki разработчик <a href="http://dev.Anontune.com/">тук</a>.
+
+home-header;								Новият начин да намерите музика.
+home-button1;								Опитайте Autotune без да се регистрирате
+home-button2;								Регистрирайте в Tune - Това е безплатно!
+home-button3;								Влезте в Anontune профила си
+home-h1;									Напълно безплатно, без такса.
+home-p1;									Ние не ви таксуваме за използването на Anontune. Това е напълно и изцяло безплатно за използване. Без улов, без скрити разходи, без абонамент "Премия".
+home-h2;									Импортирайте на плейлисти от вашите iPod.
+home-p2;									Искали ли сте някога за незабавно споделяне на музика от вашите iPod с приятелите си, без да се налага да качвате всичко някъде? Просто качете вашата база данни IPod музика в Anontune,и ние ще направим останалото - и то ще отнеме само няколко минути!
+home-h3;									Слушайте музика от множество източници.
+home-p3;									Anontune сам по себе си не е домакин на всякакви музикални файлове. Тя просто търси за музика в YouTube, Soundcloud и други сайтове. Развитие на Anontune никога няма да спира, и в бъдещите много повече източници ще бъдат добавени!
+notfound-header;							Тази страница не е тук.
+notfound-p1a;								Ви сте стъпили в потока, но водата се е преместила.
+notfound-p1b;								Ако смятате че нещо е трябвало да бъда тук, тогава моля <a href="/irc/">свържете се с нас</a>.
+notfound-p2;								Искате ли да научите повече?
+notfound-button;							Отидете на Anontune!
+about-header;								За Anontune
+tools-header;								Anontune Инструменти
+contribute-header;							Принос към Anontune
+contribute-h1;								Вие сте разработчик?
+contribute-p1;								Ние приветстваме всякъква помощ от разработчици. Ако знаете как да се справяте с HTML, CSS, Javascript, PHP, или Python, пишете ни. Ако имате опит в разбор данни, тогава определено се свържете с нас. Можете да ни намерите в нашия <a href="/irc/">IRC чат канал</a>, или от <a href="mailto:anontune@gmail.com">ни изпратите имейл</a>. Ние също имаме Git хранилище и съответната настройка на Trac <a href="http://dev.Anontune.com/">dev.anontune.com</a>.
+contribute-h2;								Обратна информация от потребителите
+contribute-p2;								Има ли нещо което наистина харесвате, нещо което искате да си отиде, или да видите нещо добавено? Или имате друга идея във връзка с разработката на сайта? Тогава се свържете с нас в <a href="/irc/">IRC канала</a>, или от <a href="mailto:anontune@gmail.com">ни изпратите имейл</a>.
+contribute-h3;								финансови дарения
+contribute-h3a;								Бит монета
+contribute-p3a1;							Доста анонимен
+contribute-p3a2;							1Cw88g4o9n9Fpj8NchR4Lovp69A7yBgLJY
+contribute-h3b;								плосък tr
+contribute-p3b1;							Донякъде анонимен
+contribute-h3c;							    PayPal
+contribute-p3c1;							Не е анонимен изобщо
+contribute-p3c2;							Възможността да дарят чрез PayPal идва скоро.
+contribute-h3d;								Други методи
+contribute-p3d;								За да дарите чрез други методи, <a href="/irc/">свържете се с нас</a>.
+demo-header;								Опитайте в Anontune без регистрация.
+demo-intro;									Да тествате Anontune, но не искате да се регистрирате, докато сте сигурни, че ви харесва? Изберете един от примерите профили по-долу за бърз план за изпитване. Не забравяйте, че не можете да промените тези профили като демо потребител; Регистрирането е безплатно!
+demo-h1;									Топ 100
+demo-p1;									За опростено демо на профил с един списък за изпълнение, и няколко парчета, виж <em>демото</em> account.
+demo-button1;								Чуйте тази демонстрация &gt;&gt;
+demo-h2;									Поп & Електронен
+demo-p2;									За профил с предимно поп, денс и транс опитайте <em>Черен</em> акаунт.
+demo-button2;								Чуйте тази демонстрация &gt;&gt;
+demo-h3;									Класика
+demo-p3;									За плейлиста с класическа музика, посетете <em>класически</em> акаунт.
+demo-button3;								Чуйте тази демонстрация &gt;&gt;
+irc-header;									Говорете с нас в IRC!
+irc-intro;									Имате предложения, критики, с изисквания на функции или въпроси - или просто искате да говорите малко с Anontune разработчиците или други потребители от Anontune? Присъединете се към нас в IRC!
+irc-h1;										Веб Чат
+irc-p1;										Ако не разполагате с IRC клиент (или не знаете какво е IRC) тогава можете да използвате нашият веб чат Не ви трабва да изтегляте или инстлалирате каквото и да е, той ще работи във вашия браузър.
+irc-button1;								Използване на Веб Чата
+irc-h2;										Със свой собствен клиент
+irc-p2;										Ако вече имате IRC клиент, тогава можете просто да се свържете с <em>irc.cryto.net</em>, и да влезете в #Anontune канала. Редовни връзки се приемат на порт 6667, и SSL връзки се приемат на порт 6697. Можете също така да получите повече информация за мрежата на Cryto IRC, като мрежови правилата или списък на листата, можете да се свържете.
+irc-button2a;								Повече Информация &gt;&gt;
+irc-button2b;								Свържете се
+login-header;								Вход към Anontune.
+login-label-username;						Потребителско име
+login-label-password;						Парола
+login-button;								Вход
+login-success-header;						Вие сте влезли в системата.
+login-success-button;						Продължаване към плеъра &gt;&gt;
+login-success-title;						Успешно сте влезли в системата!
+login-success-message;						Вие успешно сте влезли във вашия Anontune акаунт.
+login-error-missing-title;					Липсват задължителни полета
+login-error-missing-message;				Едно или повече полета не са попълнени. Всички полета са задължителни в тази форма.
+login-error-user-title;						Потребителят не съществува
+login-error-user-message;					Съжаляваме но потребителското име не съществува. Ако искате да се регистрирате, след това <a href=\"/register/\">кликнете тук</a>.
+login-error-password-title;					Неправилна парола
+login-error-password-message;				Съжаляваме но паролата е неправилна.Моля, опитайте отново.
+register-header;							Регистър за Anontune.
+register-label-username;					Потребителско име
+register-label-password;					Парола
+register-label-verify;						Потвърдете
+register-label-captcha;						Captcha
+register-hint-username;						a-z, A-Z, 0-9, макс. 30 символа
+register-hint-password;						мин. 8 символа
+register-hint-verify;						въведете същата парола отново
+register-button;							Регистрация
+register-success-header;					Благодаря ви че се регистрирахте!
+register-success-button;					Пръдължете към плеъра &gt;&gt;
+register-success-title;						Регистриран успешно!
+register-success-message;					Вашият акаунт бе създаден успешно, а сега влезте в системата.
+register-error-nocaptcha-title;				Липсва Captcha
+register-error-nocaptcha-message;			Вие не сте въвели Captcha. Моля, опитайте отново.
+register-error-captcha-title;				Невалиден Captcha
+register-error-captcha-message;				Не сте въвели правилния Captcha.Моля, опитайте отново.
+register-error-missing-title;				Липсват Задължителни полета
+register-error-missing-message;				Едно или повече полета не са попълнени. Всички полета са задължителни в тази форма.
+register-error-toolong-title;				Потребителско име е твърде дълго
+register-error-toolong-message;				Потребителското име което сте въвели е твърде дълъго. То неможе да бъде по дълъго от 30 знака.
+register-error-tooshort-title;				Паролата е много кратка
+register-error-tooshort-message;			Вашата парола е твърде кратъка. Тя трябва да бъде не по-малко от 8 символа.
+register-error-nomatch-title;				Паролите не съвпадат
+register-error-nomatch-message;				Пароли които сте въвели не съвпадат.Моля опитайте отново.
+register-error-begin-title;					Невалидно потребителско име
+register-error-begin-message;				Потребителското име трябва да започват с буква или цифра.
+register-error-username-title;				Невалидно потребителско име
+register-error-username-message;			Потребителското име което сте въвели съдържа невалидни символи. Моля, използвайте само символи a-z, A-Z, 0-9, и специални символи -_[]{}\|`^
+register-error-taken-title;					Потребителското име вече е заето
+register-error-taken-message;				Потребителското име което сте въвели вече е заето, и неможе да продължите с регистрацията. Моля използвайте друго потребителско име.
+
+logout-header;								Отписани.
+logout-title;								Успешно сте излезли.
+logout-message;								Вие сте излезли от Anontune, и сега ще ползвате сайта като гост.
