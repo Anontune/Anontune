@@ -29,6 +29,11 @@ $_GET["username"] = isset($_COOKIE["username"]) ? $_COOKIE["username"] : $_GET["
 $_GET["auth_username"] = isset($_COOKIE["auth_username"]) ? $_COOKIE["auth_username"] : $_GET["auth_username"];
 $_GET["auth_password"] = isset($_COOKIE["auth_password"]) ? $_COOKIE["auth_password"] : $_GET["auth_password"];
 
+if(empty($_GET["username"]))
+{
+	$_GET["username"] = $_GET["auth_username"];
+}
+
 //Import functions that aren't API calls.
 function api_success($value="", $c="")
 {
