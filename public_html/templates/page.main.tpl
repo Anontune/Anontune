@@ -21,7 +21,7 @@
 				<br>
 				<a href="/setlocale/english/">English</a> &nbsp;
 				<a href="/setlocale/spanish/">Español</a> &nbsp;
-				<a href="/setlocale/danish/">Dansk</a> &nbsp;
+				<a href="/setlocale/danish/">Dansk</a> <br>
 				<a href="/setlocale/bulgarian/">български</a> &nbsp;
 				<a href="/setlocale/dutch/">Nederlands</a>
 			</div>
