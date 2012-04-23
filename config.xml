@@ -826,7 +826,7 @@
     <developer>
         <api>
             <name>last.fm</name>
-            <key></key>
+            <key>bogus</key>
         </api>
         <api>
             <name>youtube.com</name>
