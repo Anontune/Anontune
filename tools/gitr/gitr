@@ -1,5 +1,20 @@
 #!/bin/sh
 
+# remote
+#	create - creates a new remote branch and imports it into the local repository (use this for collaborative feature/hotfix branches)
+#	delete - deletes a remote branch (NO CONFIRMATION ASKED)
+#	list - lists the available remote branches
+#	switch - switches to a remote branch (use sparingly)
+#	import - imports a remote branch into an identically named local branch
+# local
+#	create - creates a new local branch (use this for normal feature/hotfix branches)
+#	delete - deletes a local branch (NO CONFIRMATION ASKED)
+#	list - lists the available local branches
+#	switch - switches to a local branch
+# both
+#	delete - deletes both a remote branch and the local equivalent
+#	list - lists both remote and local branches
+
 while :
 do
 	case "$1" in
@@ -24,6 +39,7 @@ do
 					exit 0
 				;;
 				"list")
+					git fetch
 					echo "List of currently available REMOTE branches:"
 					git branch -r
 					exit 0
