@@ -20,6 +20,7 @@
 				<a href="/contribute/"><img src="/images/bitcoin.png"></a>
 				<br>
 				<a href="/setlocale/english/">English</a> &nbsp;
+				<a href="/setlocale/spanish/">Español</a> &nbsp;
 				<a href="/setlocale/danish/">Dansk</a> &nbsp;
 				<a href="/setlocale/dutch/">Nederlands</a>
 			</div>
