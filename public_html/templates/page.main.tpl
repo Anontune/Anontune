@@ -5,7 +5,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link href='http://fonts.googleapis.com/css?family=Paytone+One|Cantarell:400,700|PT+Sans+Caption:400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="/css/kickstart.css">
-		<link rel="stylesheet" type="text/css" href="/css/style.css?6">
+		<link rel="stylesheet" type="text/css" href="/css/style.css?8">
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script type="text/javascript" src="/js/prettify.js"></script>
 		<script type="text/javascript" src="/js/kickstart.js?3"></script>
@@ -21,7 +21,8 @@
 				<br>
 				<a href="/setlocale/english/">English</a> &nbsp;
 				<a href="/setlocale/spanish/">Español</a> &nbsp;
-				<a href="/setlocale/danish/">Dansk</a> &nbsp;
+				<a href="/setlocale/danish/">Dansk</a> <br>
+				<a href="/setlocale/bulgarian/">Български</a> &nbsp;
 				<a href="/setlocale/dutch/">Nederlands</a>
 			</div>
 			<h1>Anontune <sup><%!main-sup></sup></h1>
@@ -34,14 +35,7 @@
 						<span class="icon small" data-icon="A"></span>
 						<%!main-button-demo>
 					</a></li>
-					<li <%?set-login>><a href="/login/">
-						<span class="icon small" data-icon="O"></span>
-						<%!main-button-login>
-					</a></li>
-					<li <%?set-register>><a href="/register/">
-						<span class="icon small" data-icon="7"></span>
-						<%!main-button-register>
-					</a></li>
+					<%?menu-user>
 					<li <%?set-about>>
 						<a href="/about/">
 							<span class="icon small" data-icon="i"></span>

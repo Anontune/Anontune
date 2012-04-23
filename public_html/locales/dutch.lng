@@ -35,6 +35,8 @@ title-irc;									Praat met ons op IRC
 main-sup;									(heel erg beta)
 main-button-home;							Home
 main-button-login;							Inloggen
+main-button-logout;							Uitloggen
+main-button-player;							Naar de speler
 main-button-register;						Registreren
 main-button-demo;							Demo
 main-button-about;							Over

@@ -110,6 +110,31 @@ if($render_template === true)
 		}
 	}
 	
+	
+	$template['user-menu'] = new Templater();
+	
+	if(empty($_COOKIE['auth_username']))
+	{
+		// User is not logged in.
+		$template['user-menu']->Load("page.main.menu.guest");
+		$template['user-menu']->Compile(array(
+			'set-login'			=> $sSelectedLogin,
+			'set-register'		=> $sSelectedRegister
+		));
+	}
+	else
+	{
+		// User is logged in.
+		$template['user-menu']->Load("page.main.menu.user");
+		$template['user-menu']->Compile(array(
+			'username'			=> $_COOKIE['auth_username']
+		));
+	}
+	
+	$template['user-menu']->Localize($locale->strings);
+	$sUserMenu = $template['user-menu']->Render();
+	
+	
 	$template['main'] = new Templater();
 	$template['main']->Load("page.main");
 	$template['main']->Localize($locale->strings);
@@ -118,14 +143,13 @@ if($render_template === true)
 		'contents'			=> $sPageContents,
 		'set-home'			=> $sSelectedHome,
 		'set-demo'			=> $sSelectedDemo,
-		'set-login'			=> $sSelectedLogin,
-		'set-register'		=> $sSelectedRegister,
 		'set-about'			=> $sSelectedAbout,
 		'set-tools'			=> $sSelectedTools,
 		'set-contribute'	=> $sSelectedContribute,
 		'set-irc'			=> $sSelectedIrc,
 		'menu-about'		=> $sMenuAbout,
-		'menu-tools'		=> $sMenuTools
+		'menu-tools'		=> $sMenuTools,
+		'menu-user'			=> $sUserMenu
 	));
 
 	$template['main']->Output();

@@ -4,7 +4,7 @@ html, body
 {
 	height: 100%;
 	min-height: 100%;
-	font-family: Cantarell, sans-serif;
+	font-family: "PT Sans Caption", sans-serif;
 }
 
 body
@@ -45,6 +45,11 @@ h3
 
 /* Header styles */
 
+.top
+{
+	height: 100px;
+}
+
 .top h1
 {
 	font-size: 52px;
@@ -61,7 +66,18 @@ h3
 	float: right;
 	text-align: right;
 	margin-right: 16px;
-	margin-top: 16px;
+	margin-top: 12px;
+}
+
+.locale a
+{
+	color: gray;
+	text-decoration: none;
+}
+
+.locale a:hover
+{
+	color: black;
 }
 
 /* Menu styles */

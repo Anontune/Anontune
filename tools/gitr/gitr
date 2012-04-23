@@ -1,0 +1,127 @@
+#!/bin/sh
+
+# remote
+#	create - creates a new remote branch and imports it into the local repository (use this for collaborative feature/hotfix branches)
+#	delete - deletes a remote branch (NO CONFIRMATION ASKED)
+#	list - lists the available remote branches
+#	switch - switches to a remote branch (use sparingly)
+#	import - imports a remote branch into an identically named local branch
+# local
+#	create - creates a new local branch (use this for normal feature/hotfix branches)
+#	delete - deletes a local branch (NO CONFIRMATION ASKED)
+#	list - lists the available local branches
+#	switch - switches to a local branch
+# both
+#	delete - deletes both a remote branch and the local equivalent
+#	list - lists both remote and local branches
+
+while :
+do
+	case "$1" in
+		"remote")
+			case "$2" in
+				"create")
+					BRANCHNAME="$3"
+					git branch $BRANCHNAME
+					git checkout $BRANCHNAME
+					git push origin $BRANCHNAME
+					git checkout develop
+					git branch -D $BRANCHNAME
+					git branch --track $BRANCHNAME origin/$BRANCHNAME
+					git checkout $BRANCHNAME
+					echo "If all went well, the REMOTE branch $BRANCHNAME was created, and it should be your currently activated branch."
+					exit 0
+				;;
+				"delete")
+					BRANCHNAME="$3"
+					git push origin :$BRANCHNAME
+					echo "If all went well, the REMOTE branch $BRANCHNAME has been deleted. Note that your local branch is not automatically deleted."
+					exit 0
+				;;
+				"list")
+					git fetch
+					echo "List of currently available REMOTE branches:"
+					git branch -r
+					exit 0
+				;;
+				"switch")
+					BRANCHNAME="$3"
+					git checkout origin/$BRANCHNAME
+					exit 0
+				;;
+				"import")
+					BRANCHNAME="$3"
+					git fetch
+					git branch -D $BRANCHNAME
+					git branch --track $BRANCHNAME origin/$BRANCHNAME
+					git checkout $BRANCHNAME
+					echo "If all went well, the REMOTE branch $BRANCHNAME should now be imported and activated."
+					exit 0
+				;;
+				*)
+					echo "Invalid action: $2"
+					exit 0
+				;;
+			esac
+		;;
+		"local")
+			case "$2" in
+				"create")
+					BRANCHNAME="$3"
+					git branch $BRANCHNAME
+					git checkout $BRANCHNAME 
+					echo "If all went well, the LOCAL branch $BRANCHNAME was created, and it should be your currently activated branch."
+					exit 0
+				;;
+				"delete")
+					BRANCHNAME="$3"
+					git checkout develop
+					git branch -D $BRANCHNAME
+					echo "If all went well, the LOCAL branch $BRANCHNAME has been deleted."
+					exit 0
+				;;
+				"list")
+					echo "List of currently available LOCAL branches:"
+					git branch
+					exit 0
+				;;
+				"switch")
+					BRANCHNAME="$3"
+					git checkout $BRANCHNAME
+					exit 0
+				;;
+				*)
+					echo "Invalid action: $2"
+					exit 0
+				;;
+				esac
+			exit 0
+		;;
+		"both")
+			case "$2" in
+				"delete")
+					BRANCHNAME="$3"
+					git push origin :$BRANCHNAME
+					git checkout develop
+					git branch -D $BRANCHNAME
+					echo "If all went well, the LOCAL and REMOTE branch $BRANCHNAME has been deleted."
+					exit 0
+				;;
+				"list")
+					echo "List of currently available LOCAL and REMOTE branches:"
+					git branch -a
+					exit 0
+				;;
+				*)
+					echo "Invalid action: $2"
+					exit 0
+				;;
+				esac
+			exit 0
+		;;
+		*)
+			echo "Invalid destination: $1"
+			exit 0
+		;;
+	esac
+done
