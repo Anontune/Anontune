@@ -5,7 +5,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link href='http://fonts.googleapis.com/css?family=Paytone+One|Cantarell:400,700|PT+Sans+Caption:400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="/css/kickstart.css">
-		<link rel="stylesheet" type="text/css" href="/css/style.css?6">
+		<link rel="stylesheet" type="text/css" href="/css/style.css?7">
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script type="text/javascript" src="/js/prettify.js"></script>
 		<script type="text/javascript" src="/js/kickstart.js?3"></script>

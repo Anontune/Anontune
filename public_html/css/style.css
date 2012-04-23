@@ -45,6 +45,11 @@ h3
 
 /* Header styles */
 
+.top
+{
+	height: 100px;
+}
+
 .top h1
 {
 	font-size: 52px;
