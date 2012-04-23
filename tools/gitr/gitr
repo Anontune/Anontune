@@ -46,7 +46,7 @@ do
 				;;
 				"switch")
 					BRANCHNAME="$3"
-					git branch origin/$BRANCHNAME
+					git checkout origin/$BRANCHNAME
 					exit 0
 				;;
 				"import")
@@ -87,7 +87,7 @@ do
 				;;
 				"switch")
 					BRANCHNAME="$3"
-					git branch $BRANCHNAME
+					git checkout $BRANCHNAME
 					exit 0
 				;;
 				*)
