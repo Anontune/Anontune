@@ -26,29 +26,13 @@ require_once("include/mysql_con.php");
 
 //Hack
 //Things are getting retarded, we need to implement sessions soon.
-$_GET["username"] = isset($_GET["username"]) ? $_GET["username"] : "";
-$_GET["auth_username"] = isset($_GET["auth_username"]) ? $_GET["auth_username"] : "";
-$_GET["auth_password"] = isset($_GET["auth_password"]) ? $_GET["auth_password"] : "";
-if(isset($_COOKIE["username"]))
+$_GET["username"] = isset($_COOKIE["username"]) ? $_COOKIE["username"] : $_GET["username"];
+$_GET["auth_username"] = isset($_COOKIE["auth_username"]) ? $_COOKIE["auth_username"] : $_GET["auth_username"];
+$_GET["auth_password"] = isset($_COOKIE["auth_password"]) ? $_COOKIE["auth_password"] : $_GET["auth_password"];
+
+if(empty($_GET["username"]))
 {
-	if(!empty($_COOKIE["username"]))
-	{
-		$_GET["username"] = $_COOKIE["username"];
-	}
-}
-if(isset($_COOKIE["auth_username"]))
-{
-	if(!empty($_COOKIE["auth_username"]))
-	{
-		$_GET["auth_username"] = $_COOKIE["auth_username"];
-	}
-}
-if(isset($_COOKIE["auth_password"]))
-{
-	if(!empty($_COOKIE["auth_password"]))
-	{
-		$_GET["auth_password"] = $_COOKIE["auth_password"];
-	}
+	$_GET["username"] = $_GET["auth_username"];
 }
 
 
