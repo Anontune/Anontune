@@ -49,4 +49,7 @@ $template['page']->Compile(array(
 ));
 
 $sPageContents = $template['page']->Render();
+
+$sSelectedTools = "class=\"current\"";
+$sPageTitle = $locale->strings['tools-header'];
 ?>

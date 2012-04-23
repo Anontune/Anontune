@@ -48,6 +48,8 @@ $template['page']->Compile(array(
 	'items'		=> $sItems
 ));
 
-$sPageTitle = $sPageTitle = $locale->strings['title-about'];
 $sPageContents = $template['page']->Render();
+
+$sSelectedAbout = "class=\"current\"";
+$sPageTitle = $sPageTitle = $locale->strings['title-about'];
 ?>
