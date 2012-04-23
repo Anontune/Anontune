@@ -28,6 +28,19 @@ do
 					git branch -r
 					exit 0
 				;;
+				"switch")
+					BRANCHNAME="$3"
+					git branch origin/$BRANCHNAME
+					exit 0
+				;;
+				"import")
+					BRANCHNAME="$3"
+					git branch -D $BRANCHNAME
+					git branch --track $BRANCHNAME origin/$BRANCHNAME
+					git checkout $BRANCHNAME
+					echo "If all went well, the REMOTE branch $BRANCHNAME should now be imported and activated."
+					exit 0
+				;;
 				*)
 					echo "Invalid action: $2"
 					exit 0
@@ -51,8 +64,13 @@ do
 					exit 0
 				;;
 				"list")
-				echo "List of currently available LOCAL branches:"
+					echo "List of currently available LOCAL branches:"
 					git branch
+					exit 0
+				;;
+				"switch")
+					BRANCHNAME="$3"
+					git branch $BRANCHNAME
 					exit 0
 				;;
 				*)
@@ -73,7 +91,7 @@ do
 					exit 0
 				;;
 				"list")
-				echo "List of currently available LOCAL and REMOTE branches:"
+					echo "List of currently available LOCAL and REMOTE branches:"
 					git branch -a
 					exit 0
 				;;
