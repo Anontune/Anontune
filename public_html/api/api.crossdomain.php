@@ -45,7 +45,7 @@
 					
 					var object = JSON.parse(response);
 					
-					$.post(object.url + "?type=json", object.data, function(data){
+					$.post(object.url + "?format=json", object.data, function(data){
 						parent.postMessage(pad(request_id, 4) + data, "*");
 					});
 				})

@@ -44,15 +44,21 @@ else
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
 	$request_type = "post";
+	$datasource = $_POST;
 }
 elseif($_SERVER['REQUEST_METHOD'] == "GET")
 {
 	$request_type = "get";
+	$datasource = $_GET;
 }
 else
 {
 	die();
 }
+
+$api_public = $datasource['pubkey'];
+$api_private = $datasource['privkey'];
+$format = isset($_GET['format']) ? $_GET['format'] : "jsonp";
 
 if(!empty($version))
 {
@@ -115,11 +121,11 @@ else
 
 $sJsonObject = json_encode($sReturnObject);
 
-if(empty($_GET['type']) || $_GET['type'] == "jsonp")
+if($format == "jsonp")
 {
-	echo("var at_json = {$sJsonObject};");
+	echo("run_callback(\"{$reference}\", {$sJsonObject});");
 }
-elseif($_GET['type'] == "json")
+elseif($format == "json")
 {
 	echo($sJsonObject);
 }

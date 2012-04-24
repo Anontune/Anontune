@@ -5,15 +5,30 @@
 		<script type="text/javascript" src="http://api.anontune.local/1/api.js"></script>
 		<script type="text/javascript" src="json.js"></script>
 		<script>
-			var newrequest = new ApiRequest("/artist/4", {
-				'field1': "value1",
-				'field2': "value2"
-			})
-			
-			var reference = "001";
-			
-			queue_task(newrequest, reference, function(reference, response){
-				$('.response').html("(reference " + reference + ") " + response);
+			$(function(){
+				var newrequest = new ApiRequest("post", "/artist/4", {
+					'field1': "value1",
+					'field2': "value2"
+				})
+				
+				var reference = "abc";
+				
+				queue_task(newrequest, reference, function(reference, response){
+					console.log(response);
+					$('.response').html("(reference " + reference + ") " + response);
+				});
+				
+				var newrequest = new ApiRequest("get", "/artist/4", {
+					'field1': "value1",
+					'field2': "value2"
+				})
+				
+				var reference = "abd";
+				
+				queue_task(newrequest, reference, function(reference, response){
+					console.log(response);
+					$('.response').html("(reference " + reference + ") " + response);
+				});
 			});
 		</script>
 	</head>

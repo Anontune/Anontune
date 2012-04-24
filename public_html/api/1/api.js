@@ -4,6 +4,7 @@ var api_version = 1;
 var api_helper_queue = [];
 var api_helper_list = [];
 var api_task_queue = [];
+var api_callbacks = new Array();
 
 var api_last_request = 0;
 
@@ -38,10 +39,11 @@ function PostHelper()
 	}
 }
 
-function ApiRequest(uri, data)
+function ApiRequest(method, uri, data)
 {
 	this.uri = uri;
 	this.data = data;
+	this.method = method;
 }
 
 function Task(request, callback, reference)
@@ -58,8 +60,25 @@ function create_helper()
 
 function queue_task(request, reference, callback)
 {
-	api_task_queue.push(new Task(request, callback, reference));
-	pop_queue();
+	if(request.method == "post")
+	{
+		api_task_queue.push(new Task(request, callback, reference));
+		pop_queue();
+	}
+	else
+	{
+		console.log(request);
+		console.log(reference);
+		api_callbacks[reference] = callback;
+		console.log(api_callbacks);
+		$('<script type="text/javascript" src="' + api_endpoint + '/' + api_version + request.uri + '?format=jsonp&reference=' + reference + '"></script>').appendTo('body');
+	}
+}
+
+function run_callback(reference, data)
+{
+	console.log(api_callbacks);
+	api_callbacks[reference](reference, data);
 }
 
 function pop_queue()
@@ -125,7 +144,8 @@ $(function(){
 					target = api_helper_queue[i];
 					console.log(target);
 					target.busy = false;
-					target.callback(target.reference, response);
+					var jsonobj = JSON.parse(response);
+					target.callback(target.reference, jsonobj);
 					pop_queue();
 				}
 			}
