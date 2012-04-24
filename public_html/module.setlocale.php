@@ -27,6 +27,9 @@ $new_locale = $router->uParameters[1];
 
 switch($new_locale)
 {
+	case "french":
+		$_SESSION['prefered_locale'] = "french";
+		break;
 	case "dutch":
 		$_SESSION['prefered_locale'] = "dutch";
 		break;

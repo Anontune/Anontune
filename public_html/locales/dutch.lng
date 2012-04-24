@@ -63,9 +63,9 @@ about-header;								Over Anontune
 tools-header;								Anontune-hulpmiddelen
 contribute-header;							Bijdragen aan Anontune
 contribute-h1;								Ben je een ontwikkelaar?
-contribute-p1;								Hulp van ontwikkelaars is erg welkom. Als je met HTML, CSS, Javascript, PHP, of Python om kunt gaan - laat het ons dan weten. Als je ervaring hebt met het interpreteren van data, neem dan zeker contact met ons op! Je kunt ons vinden in het <a href="/irc/">IRC-kanaal</a>, of door een <a href="mailto:anontune@gmail.com">emailtje te sturen</a>. We hebben inmiddels ook een GIT-repository en bijbehorende Trac - deze vind je op <a href="http://dev.anontune.com/">dev.Anontune.com</a>.
+contribute-p1;								Hulp van ontwikkelaars is erg welkom. Als je met HTML, CSS, Javascript, PHP, of Python om kunt gaan - laat het ons dan weten. Als je ervaring hebt met het interpreteren van data, neem dan zeker contact met ons op! Je kunt ons vinden in het <a href="/irc/">IRC-kanaal</a>, of door een <a href="mailto:Anontune@gmail.com">emailtje te sturen</a>. We hebben inmiddels ook een GIT-repository en bijbehorende Trac - deze vind je op <a href="http://dev.Anontune.com/">dev.Anontune.com</a>.
 contribute-h2;								Geef je mening.
-contribute-p2;								Is er iets wat je erg op prijs stelt, iets waar je je aan ergert, of is er iets nieuws dat je graag op Anontune ziet? Neem dan contact met ons op via het <a href="/irc/">IRC-kanaal</a>, of <a href="mailto:anontune@gmail.com">e-mail ons</a>.
+contribute-p2;								Is er iets wat je erg op prijs stelt, iets waar je je aan ergert, of is er iets nieuws dat je graag op Anontune ziet? Neem dan contact met ons op via het <a href="/irc/">IRC-kanaal</a>, of <a href="mailto:Anontune@gmail.com">e-mail ons</a>.
 contribute-h3;								Financiele bijdragen
 contribute-h3a;								Bitcoin
 contribute-p3a1;							Behoorlijk anoniem

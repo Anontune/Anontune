@@ -28,7 +28,7 @@ title-login;								Entrar
 title-register;								Registrarse
 title-logout;								Salida
 title-demo;									Demo
-title-about;								Acerca de AnonTune
+title-about;								Acerca de Anontune
 title-contribute;							Donar
 title-irc;									Habla con nosotros en IRC
 
@@ -43,30 +43,30 @@ main-button-about;							Acerca de
 main-button-tools;							Herramientas
 main-button-contribute;						Donar
 main-button-irc;							Habla con nosotros!
-main-footer;								Eres un desarrollador? Clona Anontune y contribuye al proyecto! Puedes ver nuestro wiki de desarrollador <a href="http://dev.Anontune.com/">aqu&iaccute;</a>.
+main-footer;								Eres un desarrollador? Clona Anontune y contribuye al proyecto! Puedes ver nuestro wiki de desarrollador <a href="http://dev.Anontune.com/">aqu&iacute;</a>.
 
 home-header;								La nueva manera de encontrar m&uacute;sica.
-home-button1;								Prueba AnonTune sin registrarte
-home-button2;								Reg&iacute;strate en AnonTune, es gratis!
-home-button3;								Entra a tu cuenta de AnonTune
+home-button1;								Prueba Anontune sin registrarte
+home-button2;								Reg&iacute;strate en Anontune, es gratis!
+home-button3;								Entra a tu cuenta de Anontune
 home-h1;									Completamente gratis.
-home-p1;									No cobramos nada por usar AnonTune. Su uso es totalmente gratuito. Sin costos escondidos, ni suscripciones "premium".
+home-p1;									No cobramos nada por usar Anontune. Su uso es totalmente gratuito. Sin costos escondidos, ni suscripciones "premium".
 home-h2;									Importa las listas de reproducci&oacute;n de tu iPod ahora.
-home-p2;									Alguna vez quisiste compartir m&uacute;sica con tus amigos instant&aacute;neamente,sin tener que subirla toda a alg&uacute;n lado? Simplemente carga tu base de datos de m&uacute;sica de tu iPod y AnonTune se encargar&aacute; del resto y s&oacute;lamente te tomar&aacute; unos minutos!
+home-p2;									Alguna vez quisiste compartir m&uacute;sica con tus amigos instant&aacute;neamente,sin tener que subirla toda a alg&uacute;n lado? Simplemente carga tu base de datos de m&uacute;sica de tu iPod y Anontune se encargar&aacute; del resto y s&oacute;lamente te tomar&aacute; unos minutos!
 home-h3;									Escucha m&uacute;sica desde distinas fuentes.
-home-p3;									AnonTune no hospeda ning&uacute;n archivo de m&uacute;sica. Simplemente busca la m&uacute;sica en YouTube, Soundcloud, y otros sitios. El desarrollo de AnonTune nunca termina, y en el futuro se agregar&aacute;n muchas m&aacute;s fuentes!
+home-p3;									Anontune no hospeda ning&uacute;n archivo de m&uacute;sica. Simplemente busca la m&uacute;sica en YouTube, Soundcloud, y otros sitios. El desarrollo de Anontune nunca termina, y en el futuro se agregar&aacute;n muchas m&aacute;s fuentes!
 notfound-header;							La p&aacute;gina que solicitaste no est&aacute; disponible.
 notfound-p1a;								Te paras en la corriente, pero el agua se ha movido.
 notfound-p1b;								Si crees que algo debiera estar aqu&iacute;, entonces por favor then please <a href="/irc/">cont&aacute;ctanos</a>.
 notfound-p2;								Deseas saber m&aacute;s?
-notfound-button;							Ir a AnonTune!
-about-header;								Acerca de AnonTune
-tools-header;								Herramientas AnonTune
-contribute-header;							Donar a AnonTune
+notfound-button;							Ir a Anontune!
+about-header;								Acerca de Anontune
+tools-header;								Herramientas Anontune
+contribute-header;							Donar a Anontune
 contribute-h1;								Eres un desarrollador o programador?
-contribute-p1;								Los programadores y desarrolladores son bienvenidos. Si puedes manejar  HTML, Javascript, PHP, or Python, escr&iacute;benos. Si tienes experiencia "parseando" datos, definitivamente cont&aacute;ctanos. Puedes encontrarnos en nuestro <a href="/irc/">canal IRC</a>, o <a href="mailto:anontune@gmail.com">enviarnos un correo</a>.
+contribute-p1;								Los programadores y desarrolladores son bienvenidos. Si puedes manejar  HTML, Javascript, PHP, or Python, escr&iacute;benos. Si tienes experiencia "parseando" datos, definitivamente cont&aacute;ctanos. Puedes encontrarnos en nuestro <a href="/irc/">canal IRC</a>, o <a href="mailto:Anontune@gmail.com">enviarnos un correo</a>.
 contribute-h2;								Retroalimentaci&oacute;n del usuario
-contribute-p2;								Hay algo que te guste, algo que quieras que no est&eacute;, o algo que quieras que se agregue? O tienes otro tipo de retroalimentaci&oacute;n para los desarrolladores? Entonces cont&aacute;ctanos en nuestro <a href="/irc/">canal IRC</a>, o <a href="mailto:anontune@gmail.com">env&iacute;anos un correo</a>.
+contribute-p2;								Hay algo que te guste, algo que quieras que no est&eacute;, o algo que quieras que se agregue? O tienes otro tipo de retroalimentaci&oacute;n para los desarrolladores? Entonces cont&aacute;ctanos en nuestro <a href="/irc/">canal IRC</a>, o <a href="mailto:Anontune@gmail.com">env&iacute;anos un correo</a>.
 contribute-h3;								Donaciones
 contribute-h3a;								Bitcoin
 contribute-p3a1;							Muy an&oacute;nimo
@@ -78,8 +78,8 @@ contribute-p3c1;							Definitivamente nada an&oacute;nimo
 contribute-p3c2;							Pronto estar&aacute; la posibilidad de donar a trav&eacute;s de PayPal.
 contribute-h3d;								Otros m&eacute;todos.
 contribute-p3d;								Para donar a trav&eacute;s de otros m&eacute;todos, <a href="/irc/">cont&actanos</a>.
-demo-header;								Prueba AnonTune sin registrarte.
-demo-intro;									Quieres probar AnonTune sin registrarte, pero no quieres registrarte hasta estar seguro de que te guste? Selecciona un perfil de ejemplo abajo para una prueba r&aacute;pida. No olvides que no puedes modificar estos perfiels como usuario de demostraci&oacute;n. Registrarse es gratis!
+demo-header;								Prueba Anontune sin registrarte.
+demo-intro;									Quieres probar Anontune sin registrarte, pero no quieres registrarte hasta estar seguro de que te guste? Selecciona un perfil de ejemplo abajo para una prueba r&aacute;pida. No olvides que no puedes modificar estos perfiels como usuario de demostraci&oacute;n. Registrarse es gratis!
 demo-h1;									Top 100
 demo-p1;									Para ver una demostraci&oacute;n de un perfil con una lista de reproducci&oacute;n, y algunas canciones, dale un vistazo a la cuenta <em>demo</em>.
 demo-button1;								Escucha esta demostraci&oacute;n &gt;&gt;
@@ -90,29 +90,29 @@ demo-h3;									Cl&aacute;sica
 demo-p3;									Para una lista de m&uacute;sica cl&aacute;sica, visita la cuenta <em>classical</em>.
 demo-button3;								Escucha esta demostraci&oacute;n &gt;&gt;
 irc-header;									H&aacute;blanos en el IRC!
-irc-intro;									Tienes sugerencias, cr&iacute;ticas, solicitud de funcionalidad o preguntas - o quieres chatear un poco con los desarrolladores de AnonTune sus usuarios? &uacute;nete con nosotros en IRC!
+irc-intro;									Tienes sugerencias, cr&iacute;ticas, solicitud de funcionalidad o preguntas - o quieres chatear un poco con los desarrolladores de Anontune sus usuarios? &uacute;nete con nosotros en IRC!
 irc-h1;										Webchat
 irc-p1;										Si no tienes un cliente de IRC (o no sabes lo que es IRC), puedes usar nuestro webchat. No necesitas descargar o instalar nada, ya que lo ver&aacute;s en tu navegador de internet.
 irc-button1;								Usar el webchat
 irc-h2;										Con tu cliente propio
-irc-p2;										Si ya tienes un cliente de IRC, entonces s&iacute;mplemente con&eacute;ctate a <em>irc.cryto.net</em>, y &uacute;nete al canal #anontune. Conexiones normales se aceptan en el puerto 6667, y conexiones sobre SSL se aceptan en el puerto 6697. Tambi&eacute;n podr&aacute;s obtener m&aacute;s informaci&oacute;n sobre la red Cryto IRC, as&iacute; como las reglas de la red o las listas de hojas a las que te puedes conectar.
+irc-p2;										Si ya tienes un cliente de IRC, entonces s&iacute;mplemente con&eacute;ctate a <em>irc.cryto.net</em>, y &uacute;nete al canal #Anontune. Conexiones normales se aceptan en el puerto 6667, y conexiones sobre SSL se aceptan en el puerto 6697. Tambi&eacute;n podr&aacute;s obtener m&aacute;s informaci&oacute;n sobre la red Cryto IRC, as&iacute; como las reglas de la red o las listas de hojas a las que te puedes conectar.
 irc-button2a;								M&aacute;s informaci&oacute;n &gt;&gt;
 irc-button2b;								Conectar
-login-header;								Entrar a AnonTune.
+login-header;								Entrar a Anontune.
 login-label-username;						Usuario
 login-label-password;						Contrase&ntilde;a
 login-button;								Entrar
 login-success-header;						Has accedido.
 login-success-button;						Continuar al reproductor &gt;&gt;
 login-success-title;						Acceso exitoso!
-login-success-message;						Has accedido exit&oacute;samente a tu cuenta de AnonTune
+login-success-message;						Has accedido exit&oacute;samente a tu cuenta de Anontune
 login-error-missing-title;					Faltan campos requeridos
 login-error-missing-message;				Uno o m&aacute;s campos no han sido llenados. Todos los campos se requiren en esta forma.
 login-error-user-title;						El usuario no existe
 login-error-user-message;					Discula el usuario no existe. Si deseas registrate entonces <a href=\"/register/\">haz click aqu&iacute;</a>.
 login-error-password-title;					Contrase&ntilde;a incorrecta
 login-error-password-message;				Disculpa, la contrase&ntilde;a es incorrecta. Int&eacute;ntalo de nuevo.
-register-header;							Registrarse en AnonTune.
+register-header;							Registrarse en Anontune.
 register-label-username;					Usuario
 register-label-password;					Contrase&ntilde;a
 register-label-verify;						Verificar
@@ -146,4 +146,4 @@ register-error-taken-message;				El nombre de usuario ya est&aacute; ocupado, y 
 
 logout-header;								Salida.
 logout-title;								Salida exitosa.
-logout-message;								Ha salido de AnonTune, y est&aacute; ahora navegando este sitio como invitado.
+logout-message;								Ha salido de Anontune, y est&aacute; ahora navegando este sitio como invitado.
