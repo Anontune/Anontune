@@ -2,21 +2,53 @@
 <html>
 	<head>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script type="text/javascript" src="json.js"></script>
 		<script>
 			var debugEl;
 			
-			function apiRequest(endpoint, uri, helper, data)
+			var endpoint = "http://api.anontune.local";
+			var version = 1;
+			
+			var helper_queue = [];
+			var helper_list = [];
+			var task_queue = [];
+			
+			function PostHelper()
 			{
-				var object = {
-					'url': uri,
-					'data': data
-				};
-				helper.postMessage(JSON.stringify(object), endpoint);
+				this.busy = false;
+				this.element = $('<iframe src="' + endpoint + '/' + version + '/crossdomain/" width=1 height=1 border=0 frameborder=0></iframe>').appendTo('body')[0].contentWindow;
+				
+				helper_list.push(this);
+				
+				this.runTask = function(request, callback, reference)
+				{
+					console.log(request);
+					this.busy = true;
+					this.callback = callback;
+					this.reference = reference;
+					
+					var object = {
+						'url': "/" + version + request.uri,
+						'data': request.data
+					};
+					
+					this.element.postMessage(JSON.stringify(object), endpoint);
+				}
 			}
 			
-			function create_helper()
+			function ApiRequest()
 			{
-				$('<iframe src="http://api.anontune.local/1/crossdomain/" width=1 height=1></iframe>').appendTo('body');
+				this.uri = "/artist/4";
+				this.data = {
+					'test': "ohai"
+				};
+			}
+			
+			function Task(request, callback, reference)
+			{
+				this.request = request;
+				this.callback = callback;
+				this.reference = reference;
 			}
 
 			$(function(){
@@ -27,23 +59,78 @@
 					{
 						helper = event.originalEvent.source;
 						
-						apiRequest("http://api.anontune.local", "/2/artist/4", helper, {
-							'test': "ohai",
-							'herp': "derp"
-						});
+						for(i in helper_list)
+						{
+							if(helper_list[i].element == helper)
+							{
+								helper_queue.push(helper_list[i]);
+							}
+						}
+						
+						console.log(helper_queue);
 					}
 					else
 					{
-						alert(response);
-						
-						var object = JSON.parse(response);
-						console.log(object);
+						for(i in helper_queue)
+						{
+							if(helper_queue[i].element == helper)
+							{
+								target = helper_queue[i];
+								console.log(target);
+								target.busy = false;
+								target.callback(target.reference, response);
+								pop_queue();
+							}
+						}
 					}
-				})
-			})
+				});
+			});
+			
+			function create_helper()
+			{
+				var derp = new PostHelper();
+			}
+			
+			function queue_task(request, callback, reference)
+			{
+				task_queue.push(new Task(request, callback, reference));
+				pop_queue();
+			}
+			
+			function pop_queue()
+			{
+				if(task_queue.length > 0)
+				{
+					for(i in helper_queue)
+					{
+						var target = helper_queue[i];
+						if(target.busy === false)
+						{
+							var new_task = task_queue.shift();
+							target.runTask(new_task.request, new_task.callback, new_task.reference)
+							
+							if(task_queue.length == 0)
+							{
+								return;
+							}
+						}
+					}
+				}
+			}
+			
+			function create_task()
+			{
+				queue_task(new ApiRequest, function(reference, response){
+					$(".response").html($(".response").html() + "\n" + reference + ": " + response);
+				}, "tester");
+			}
 		</script>
 	</head>
 	<body>
 		<button onclick="create_helper();">Test</button>
+		<button onclick="create_task();">Task</button>
+		<pre class="response">
+			
+		</pre>
 	</body>
 </html>
