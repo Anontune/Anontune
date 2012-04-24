@@ -23,7 +23,8 @@
 				<a href="/setlocale/spanish/">Español</a> &nbsp;
 				<a href="/setlocale/danish/">Dansk</a> <br>
 				<a href="/setlocale/bulgarian/">Български</a> &nbsp;
-				<a href="/setlocale/dutch/">Nederlands</a>
+				<a href="/setlocale/dutch/">Nederlands</a>&nbsp;
+				<a href="/setlocale/french/">French</a>
 			</div>
 			<h1>Anontune <sup><%!main-sup></sup></h1>
 		</div>
