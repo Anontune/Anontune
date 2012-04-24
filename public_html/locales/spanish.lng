@@ -35,25 +35,29 @@ title-irc;									Habla con nosotros en IRC
 main-sup;									(muy beta)
 main-button-home;							Inicio
 main-button-login;							Entrar
+main-button-logout;							Salir
+main-button-player;							Ir al reproductor
 main-button-register;						Registrarse
 main-button-demo;							Demo
 main-button-about;							Acerca de
 main-button-tools;							Herramientas
 main-button-contribute;						Donar
 main-button-irc;							Habla con nosotros!
+main-footer;								Eres un desarrollador? Clona Anontune y contribuye al proyecto! Puedes ver nuestro wiki de desarrollador <a href="http://dev.Anontune.com/">aqu&iaccute;</a>.
 
 home-header;								La nueva manera de encontrar m&uacute;sica.
 home-button1;								Prueba AnonTune sin registrarte
-home-button2;								Registrate en AnonTune, es gratis!
+home-button2;								Reg&iacute;strate en AnonTune, es gratis!
 home-button3;								Entra a tu cuenta de AnonTune
 home-h1;									Completamente gratis.
-home-p1;									No cobranos nada por usas AnonTune. Su uso es totalmente gratuito. Sin costos escondidos, ni suscripciones "premium".
-home-h2;									Importa tus lista de reproducci&oacute;n de tu iPod ahora.
+home-p1;									No cobramos nada por usar AnonTune. Su uso es totalmente gratuito. Sin costos escondidos, ni suscripciones "premium".
+home-h2;									Importa las listas de reproducci&oacute;n de tu iPod ahora.
 home-p2;									Alguna vez quisiste compartir m&uacute;sica con tus amigos instant&aacute;neamente,sin tener que subirla toda a alg&uacute;n lado? Simplemente carga tu base de datos de m&uacute;sica de tu iPod y AnonTune se encargar&aacute; del resto y s&oacute;lamente te tomar&aacute; unos minutos!
 home-h3;									Escucha m&uacute;sica desde distinas fuentes.
 home-p3;									AnonTune no hospeda ning&uacute;n archivo de m&uacute;sica. Simplemente busca la m&uacute;sica en YouTube, Soundcloud, y otros sitios. El desarrollo de AnonTune nunca termina, y en el futuro se agregar&aacute;n muchas m&aacute;s fuentes!
 notfound-header;							La p&aacute;gina que solicitaste no est&aacute; disponible.
-notfound-p1;								Es posible que haya sido removida o renombrada - o quiz&aacute; nunca haya existido. Si crees que se supone que algo debiera estar aqu&iacute;, por favor  <a href="/irc/">cont&aacute;ctanos</a>.
+notfound-p1a;								Te paras en la corriente, pero el agua se ha movido.
+notfound-p1b;								Si crees que algo debiera estar aqu&iacute;, entonces por favor then please <a href="/irc/">cont&aacute;ctanos</a>.
 notfound-p2;								Deseas saber m&aacute;s?
 notfound-button;							Ir a AnonTune!
 about-header;								Acerca de AnonTune
@@ -64,9 +68,18 @@ contribute-p1;								Los programadores y desarrolladores son bienvenidos. Si pu
 contribute-h2;								Retroalimentaci&oacute;n del usuario
 contribute-p2;								Hay algo que te guste, algo que quieras que no est&eacute;, o algo que quieras que se agregue? O tienes otro tipo de retroalimentaci&oacute;n para los desarrolladores? Entonces cont&aacute;ctanos en nuestro <a href="/irc/">canal IRC</a>, o <a href="mailto:anontune@gmail.com">env&iacute;anos un correo</a>.
 contribute-h3;								Donaciones
-contribute-p3;								Quieres apoyar financieramente a AnonTune? Actualmente aceptamos donaciones de <a href="http://www.bitcoin.org/">Bitcoin</a>  en la siguiente direcci&oacute;n: <em>1Cw88g4o9n9Fpj8NchR4Lovp69A7yBgLJY</em>
-demo-header;								Prueba AnonTune sin registrate.
-demo-intro;									Quieres probar AnonTune sin registrate, pero no quieres registrate hasta estar seguro de que te guste? Selecciona un perfil de ejemplo abajo para una prueba r&aacute;pida. No olvides que no puedes modificar estos perfiels como usuario de demostraci&oacute;n. Registrarse es gratis!
+contribute-h3a;								Bitcoin
+contribute-p3a1;							Muy an&oacute;nimo
+contribute-p3a2;							1Cw88g4o9n9Fpj8NchR4Lovp69A7yBgLJY
+contribute-h3b;								Flattr
+contribute-p3b1;							Algo an&oacute;nimo
+contribute-h3c;								PayPal
+contribute-p3c1;							Definitivamente nada an&oacute;nimo
+contribute-p3c2;							Pronto estar&aacute; la posibilidad de donar a trav&eacute;s de PayPal.
+contribute-h3d;								Otros m&eacute;todos.
+contribute-p3d;								Para donar a trav&eacute;s de otros m&eacute;todos, <a href="/irc/">cont&actanos</a>.
+demo-header;								Prueba AnonTune sin registrarte.
+demo-intro;									Quieres probar AnonTune sin registrarte, pero no quieres registrarte hasta estar seguro de que te guste? Selecciona un perfil de ejemplo abajo para una prueba r&aacute;pida. No olvides que no puedes modificar estos perfiels como usuario de demostraci&oacute;n. Registrarse es gratis!
 demo-h1;									Top 100
 demo-p1;									Para ver una demostraci&oacute;n de un perfil con una lista de reproducci&oacute;n, y algunas canciones, dale un vistazo a la cuenta <em>demo</em>.
 demo-button1;								Escucha esta demostraci&oacute;n &gt;&gt;
