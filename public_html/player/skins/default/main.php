@@ -82,9 +82,9 @@ this.output_ytplayer = function(vid){
     at.clear_element("atp-ytapi");
     
     //Create flash player object.
-    var params = {allowScriptAccess: "always"};
+    var params = {allowScriptAccess: "always", allowFullScreen: "true"};
     var atts = {"id": id};
-    var url = "http://www.youtube.com/e/" + encodeURIComponent(vid) + "?enablejsapi=1&playerapiid=" + encodeURIComponent(id);
+    var url = "http://www.youtube.com/e/" + encodeURIComponent(vid) + "?enablejsapi=1&fs=1&playerapiid=" + encodeURIComponent(id);
     var width = at.player.skin.ytplayer_width;
     var height = document.getElementById("atp-main-middle-music-content").offsetHeight;
     //alert(height);
