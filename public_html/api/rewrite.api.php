@@ -17,15 +17,63 @@
  *  
  */
  
+$_ANONTUNE = true;
+require("includes/base.php");
+ 
 $query = $_SERVER['REQUEST_URI'];
-
 list($empty, $version, $path) = explode("/", $query, 3);
 
-if(empty($version))
+$sStatus = ANONTUNE_API_ERROR;
+$sErrorMessage = "No matching actions found.";
+$sData = array();
+
+if(!empty($version))
 {
+	$router = new CPHPRouter();
 	
+	$router->custom_query = $path;
+	$router->routes = array(
+		0 => array(
+			'^artist/[0-9]+$'			=> "api.get.artist.php",
+			'^album/[0-9]+$'			=> "api.get.album.php",
+			'^track/[0-9]+$'			=> "api.get.track.php",
+			'^playlist/[0-9]+$'			=> "api.get.playlist.php",
+			'^playlist/item/[0-9]+$'	=> "api.get.playlist.item.php"
+		)
+	);
+	
+	$router->RouteRequest();
+}
+else
+{
+	$sErrorMessage = "No API version specified.";
 }
 
-var_dump($empty, $version, $path);
- 
+if($sStatus == ANONTUNE_API_ERROR)
+{
+	/* An error occurred and no data is being returned. */
+	$sReturnObject = array(
+		'status'	=> "error",
+		'message'	=> $sErrorMessage,
+		'data'		=> array()
+	);
+}
+elseif($sStatus == ANONTUNE_API_WARNING)
+{
+	/* An issue occurred, but data is still sent. */
+	$sReturnObject = array(
+		'status'	=> "warning",
+		'message'	=> $sErrorMessage,
+		'data'		=> $sData
+	);
+}
+elseif($sStatus == ANONTUNE_API_SUCCESS)
+{
+	/* All went as expected, data is returned. */
+	$sReturnObject = array(
+		'status'	=> "success",
+		'message'	=> "",
+		'data'		=> $sData
+	);
+}
 ?>
