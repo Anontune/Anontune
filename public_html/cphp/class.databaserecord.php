@@ -19,6 +19,7 @@ abstract class CPHPDatabaseRecordClass extends CPHPBaseClass
 	public $verify_query = "";
 	public $table_name = "";
 	public $query_cache = 60;
+	public $id_field = "Id";
 	
 	public $prototype = array();
 	public $prototype_render = array();	
@@ -26,9 +27,9 @@ abstract class CPHPDatabaseRecordClass extends CPHPBaseClass
 	
 	public $sId = 0;
 	
-	public function __construct($uDataSource, $uCommunityId = 0)
+	public function __construct($uDataSource)
 	{
-		$this->ConstructDataset($uDataSource, $uCommunityId);
+		$this->ConstructDataset($uDataSource);
 	}
 	
 	public function ConstructDataset($uDataSource, $uCommunityId = 0)
@@ -91,7 +92,7 @@ abstract class CPHPDatabaseRecordClass extends CPHPBaseClass
 		
 		if($bind_datasets === true)
 		{
-			$this->sId = (is_numeric($uDataSource['Id'])) ? $uDataSource['Id'] : 0;
+			$this->sId = (is_numeric($uDataSource[$this->id_field])) ? $uDataSource[$this->id_field] : 0;
 			
 			$this->uData = $uDataSource;
 			
@@ -334,7 +335,7 @@ abstract class CPHPDatabaseRecordClass extends CPHPBaseClass
 				}
 				
 				$sQueryKeysValues = implode(", ", $sKeyValueList);
-				$query = "UPDATE {$this->table_name} SET {$sQueryKeysValues} WHERE `Id` = '{$this->sId}'";
+				$query = "UPDATE {$this->table_name} SET {$sQueryKeysValues} WHERE `{$this->id_field}` = '{$this->sId}'";
 			}
 			
 			if($result = mysql_query($query))
