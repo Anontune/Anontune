@@ -5,43 +5,45 @@
 		<script>
 			var debugEl;
 			
-			function go()
+			function apiRequest(endpoint, uri, helper, data)
 			{
-				var frame = $('<iframe src="http://api.anontune.local/1/crossdomain/" width=100 height=30></iframe>').appendTo('body');
-				debugEl = frame[0].contentWindow;
+				var object = {
+					'url': uri,
+					'data': data
+				};
+				helper.postMessage(JSON.stringify(object), endpoint);
 			}
 			
-			function go2()
+			function create_helper()
 			{
-				debugEl.postMessage("hai", "http://api.anontune.local");
+				$('<iframe src="http://api.anontune.local/1/crossdomain/" width=1 height=1></iframe>').appendTo('body');
 			}
-			
+
 			$(function(){
 				$(window).bind("message", function(event){
 					var response = event.originalEvent.data;
 					
 					if(response == "READY")
 					{
-						// add this frame to the list						
-						var test = {
-								'url': "/2/artist/4",
-								'data': {
-									'test': "ohai"
-								}
-						};
-						event.originalEvent.source.postMessage(JSON.stringify(test), "http://api.anontune.local");
+						helper = event.originalEvent.source;
+						
+						apiRequest("http://api.anontune.local", "/2/artist/4", helper, {
+							'test': "ohai",
+							'herp': "derp"
+						});
 					}
 					else
 					{
-						console.log(response);
+						alert(response);
+						
 						var object = JSON.parse(response);
+						console.log(object);
 					}
 				})
 			})
 		</script>
 	</head>
 	<body>
-		<button onclick="go();">Go</button>
-		<button onclick="go2();">Go2</button>
+		<button onclick="create_helper();">Test</button>
 	</body>
 </html>
