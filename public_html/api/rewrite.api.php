@@ -28,6 +28,32 @@ $sStatus = ANONTUNE_API_ERROR;
 $sErrorMessage = "No matching actions found.";
 $sData = array();
 
+if(!empty($_GET['reference']))
+{
+	$reference = $_GET['reference'];
+}
+elseif(!empty($_POST['reference']))
+{
+	$reference = $_POST['reference'];
+}
+else
+{
+	$reference = "";
+}
+
+if($_SERVER['REQUEST_METHOD'] == "POST")
+{
+	$request_type = "post";
+}
+elseif($_SERVER['REQUEST_METHOD'] == "GET")
+{
+	$request_type = "get";
+}
+else
+{
+	die();
+}
+
 if(!empty($version))
 {
 	$router = new CPHPRouter();
