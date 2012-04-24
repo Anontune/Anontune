@@ -37,6 +37,10 @@ function login($username, $password)
     setcookie("auth_password", $password, time() + ((3600 * 24) * 365), "/");
 }
 
+define("ANONTUNE_API_ERROR",	101);
+define("ANONTUNE_API_WARNING",	102);
+define("ANONTUNE_API_SUCCESS",	103);
+
 if(empty($_SESSION['prefered_locale']))
 {
 	$_SESSION['prefered_locale'] = "english";
