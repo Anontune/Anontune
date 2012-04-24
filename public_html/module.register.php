@@ -110,6 +110,7 @@ if(!empty($_POST['submit']))
 				$sUser->GenerateHash();
 				$sUser->InsertIntoDatabase();
 				
+				$_SESSION['user_id'] = $sUser->sId;
 				login($_POST['username'], $_POST['password']);
 				
 				$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_SUCCESS, $locale->strings['register-success-title'], $locale->strings['register-success-message']);

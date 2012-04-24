@@ -57,7 +57,8 @@ if(!empty($_POST['submit']))
 		else
 		{
 			login($_POST['username'], $_POST['password']);
-				
+			$_SESSION['user_id'] = $sUser->sId;
+			
 			$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_SUCCESS, $locale->strings['login-success-title'], $locale->strings['login-success-message']);
 			$sError .= $err->Render();
 			
