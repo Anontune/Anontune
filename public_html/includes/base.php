@@ -30,6 +30,11 @@ require("{$root_dir}includes/recaptchalib.php");
 
 require("{$root_dir}classes/class.user.php");
 require("{$root_dir}classes/class.page.php");
+require("{$root_dir}classes/class.artist.php");
+require("{$root_dir}classes/class.album.php");
+require("{$root_dir}classes/class.track.php");
+require("{$root_dir}classes/class.playlist.php");
+require("{$root_dir}classes/class.playlist.item.php");
 
 function login($username, $password)
 {
