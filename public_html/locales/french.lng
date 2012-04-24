@@ -95,7 +95,7 @@ irc-h1;										Webchat
 irc-p1;										Si vous n'avez pas de client IRC (ou ne savez pas ce qu'IRC est), alors vous pouvez utiliser notre webchat. Vous n'avez pas besoin de télécharger ou d'installer quoi que ce soit, il s'exécutera dans votre navigateur.
 irc-button1;								Utiliser le webchat
 irc-h2;										Avec votre propre client
-irc-p2;										Si vous avez déjà un client IRC, vous pouvez simplement vous connecter à <em>irc.cryto.net</em>, et rejoindre le channel #Anontune. Les connexions régulières sont acceptés sur le port 6667, et les connexions SSL sont acceptés sur le port 6697. Vous pouvez également obtenir plus d'informations sur le réseau Cypto IRC, telles que les règles du réseau ou une liste de servers IRC auxquels vous pouvez vous connecter.
+irc-p2;										Si vous avez déjà un client IRC, vous pouvez simplement vous connecter à <em>irc.cryto.net</em>, et rejoindre le channel #anontune. Les connexions régulières sont acceptés sur le port 6667, et les connexions SSL sont acceptés sur le port 6697. Vous pouvez également obtenir plus d'informations sur le réseau Cypto IRC, telles que les règles du réseau ou une liste de servers IRC auxquels vous pouvez vous connecter.
 irc-button2a;								Plus informations &gt;&gt;
 irc-button2b;								Connexion
 login-header;								Connectez-vous à Anontune.

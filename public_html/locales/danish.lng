@@ -82,7 +82,7 @@ irc-h1;										Webchat
 irc-p1;										Hvis du ikke har en IRC-klient (eller ikke ved, hvad IRC er), så kan du bruge vores webchat. Du behøver ikke at downloade eller installere noget. Det kører i din browser.
 irc-button1;								Brug webchat
 irc-h2;										Med din egen klient
-irc-p2;										Hvis du allerede har en IRC-klient, så kan du bare oprette forbindelse til <em>irc.cryto.net</em>, og deltag i #Anontune kanalen. Regelmæssige forbindelser er accepteret på port 6667, og SSL-forbindelser er accepteret på port 6697. Du kan også få mere information om Cryto IRC-netværket, såsom netværksmøder regler eller en liste over blade, du kan oprette forbindelse til.
+irc-p2;										Hvis du allerede har en IRC-klient, så kan du bare oprette forbindelse til <em>irc.cryto.net</em>, og deltag i #anontune kanalen. Regelmæssige forbindelser er accepteret på port 6667, og SSL-forbindelser er accepteret på port 6697. Du kan også få mere information om Cryto IRC-netværket, såsom netværksmøder regler eller en liste over blade, du kan oprette forbindelse til.
 irc-button2a;								Mere information &gt;&gt;
 irc-button2b;								Tilslut
 login-header;								Log ind til Anontune.

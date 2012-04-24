@@ -94,7 +94,7 @@ irc-h1;										Webchat
 irc-p1;										Als je geen IRC-client hebt (of niet weet wat IRC is), gebruik dan onze webchat. Je hoeft niets te downloaden of installeren, deze chat draait in je browser.
 irc-button1;								Naar de webchat
 irc-h2;										Met je eigen client
-irc-p2;										Als je al een client hebt, kun je met <em>irc.cryto.net</em>verbinden, en het #Anontune kanaal binnengaan. Normale verbindingen zijn mogelijk op poort 6667, en SSL-verbindingen op poort 6697. Je kunt ook meer informatie over het Cryto IRC-netwerk krijgen, zoals de netwerkregels of een lijst van servers.
+irc-p2;										Als je al een client hebt, kun je met <em>irc.cryto.net</em>verbinden, en het #anontune kanaal binnengaan. Normale verbindingen zijn mogelijk op poort 6667, en SSL-verbindingen op poort 6697. Je kunt ook meer informatie over het Cryto IRC-netwerk krijgen, zoals de netwerkregels of een lijst van servers.
 irc-button2a;								Meer informatie &gt;&gt;
 irc-button2b;								Verbinden
 login-header;								Inloggen op Anontune.
