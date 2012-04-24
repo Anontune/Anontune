@@ -46,7 +46,7 @@ class Track extends CPHPDatabaseRecordClass
 		),
 		'album' => array(
 			'Album'			=> "album_id"
-		),
+		)
 	);
 }
 ?>
