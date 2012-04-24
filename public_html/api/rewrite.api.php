@@ -35,11 +35,12 @@ if(!empty($version))
 	$router->custom_query = $path;
 	$router->routes = array(
 		0 => array(
-			'^artist/([0-9]+)$'			=> "api.get.artist.php",
-			'^album/([0-9]+)$'			=> "api.get.album.php",
-			'^track/([0-9]+)$'			=> "api.get.track.php",
-			'^playlist/([0-9]+)$'		=> "api.get.playlist.php",
-			'^playlist/item/([0-9]+)$'	=> "api.get.playlist.item.php"
+			'^crossdomain/?$'				=> "api.crossdomain.php",
+			'^artist/([0-9]+)/?$'			=> "api.get.artist.php",
+			'^album/([0-9]+)/?$'			=> "api.get.album.php",
+			'^track/([0-9]+)/?$'			=> "api.get.track.php",
+			'^playlist/([0-9]+)/?$'		=> "api.get.playlist.php",
+			'^playlist/item/([0-9]+)/?$'	=> "api.get.playlist.item.php"
 		)
 	);
 	
@@ -86,5 +87,12 @@ else
 
 $sJsonObject = json_encode($sReturnObject);
 
-echo("var at_json = {$sJsonObject};");
+if(empty($_GET['type']) || $_GET['type'] == "jsonp")
+{
+	echo("var at_json = {$sJsonObject};");
+}
+elseif($_GET['type'] == "json")
+{
+	echo($sJsonObject);
+}
 ?>
