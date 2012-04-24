@@ -33,6 +33,8 @@ if(!empty($version))
 	$router = new CPHPRouter();
 	
 	$router->custom_query = $path;
+	$router->allow_slash = true;
+	$router->ignore_query = true;
 	$router->routes = array(
 		0 => array(
 			'^crossdomain/?$'				=> "api.crossdomain.php",
