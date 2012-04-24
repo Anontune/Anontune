@@ -3,22 +3,20 @@
 	<head>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script type="text/javascript" src="json.js"></script>
-		<script>
-			var debugEl;
+		<script>			
+			var api_endpoint = "http://api.anontune.local";
+			var api_version = 1;
 			
-			var endpoint = "http://api.anontune.local";
-			var version = 1;
-			
-			var helper_queue = [];
-			var helper_list = [];
-			var task_queue = [];
+			var api_helper_queue = [];
+			var api_helper_list = [];
+			var api_task_queue = [];
 			
 			function PostHelper()
 			{
 				this.busy = false;
-				this.element = $('<iframe src="' + endpoint + '/' + version + '/crossdomain/" width=1 height=1 border=0 frameborder=0></iframe>').appendTo('body')[0].contentWindow;
+				this.element = $('<iframe src="' + api_endpoint + '/' + api_version + '/crossdomain/" width=1 height=1 border=0 frameborder=0></iframe>').appendTo('body')[0].contentWindow;
 				
-				helper_list.push(this);
+				api_helper_list.push(this);
 				
 				this.runTask = function(request, callback, reference)
 				{
@@ -28,11 +26,11 @@
 					this.reference = reference;
 					
 					var object = {
-						'url': "/" + version + request.uri,
+						'url': "/" + api_version + request.uri,
 						'data': request.data
 					};
 					
-					this.element.postMessage(JSON.stringify(object), endpoint);
+					this.element.postMessage(JSON.stringify(object), api_endpoint);
 				}
 			}
 			
@@ -59,24 +57,21 @@
 					{
 						helper = event.originalEvent.source;
 						
-						for(i in helper_list)
+						for(i in api_helper_list)
 						{
-							if(helper_list[i].element == helper)
+							if(api_helper_list[i].element == helper)
 							{
-								helper_queue.push(helper_list[i]);
+								api_helper_queue.push(api_helper_list[i]);
 							}
 						}
-						
-						console.log(helper_queue);
 					}
 					else
 					{
-						for(i in helper_queue)
+						for(i in api_helper_queue)
 						{
-							if(helper_queue[i].element == helper)
+							if(api_helper_queue[i].element == helper)
 							{
-								target = helper_queue[i];
-								console.log(target);
+								target = api_helper_queue[i];
 								target.busy = false;
 								target.callback(target.reference, response);
 								pop_queue();
@@ -93,23 +88,23 @@
 			
 			function queue_task(request, callback, reference)
 			{
-				task_queue.push(new Task(request, callback, reference));
+				api_task_queue.push(new Task(request, callback, reference));
 				pop_queue();
 			}
 			
 			function pop_queue()
 			{
-				if(task_queue.length > 0)
+				if(api_task_queue.length > 0)
 				{
-					for(i in helper_queue)
+					for(i in api_helper_queue)
 					{
-						var target = helper_queue[i];
+						var target = api_helper_queue[i];
 						if(target.busy === false)
 						{
-							var new_task = task_queue.shift();
+							var new_task = api_task_queue.shift();
 							target.runTask(new_task.request, new_task.callback, new_task.reference)
 							
-							if(task_queue.length == 0)
+							if(api_task_queue.length == 0)
 							{
 								return;
 							}
@@ -123,12 +118,14 @@
 				queue_task(new ApiRequest, function(reference, response){
 					$(".response").html($(".response").html() + "\n" + reference + ": " + response);
 				}, "tester");
+				$('.count').html($('.count').html() + "x");
 			}
 		</script>
 	</head>
 	<body>
 		<button onclick="create_helper();">Test</button>
 		<button onclick="create_task();">Task</button>
+		<pre class="count"></pre>
 		<pre class="response">
 			
 		</pre>
