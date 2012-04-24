@@ -13,16 +13,12 @@
 			var reference = "001";
 			
 			queue_task(newrequest, reference, function(reference, response){
-				alert("(reference " + reference + ") " + response);
+				$('.response').html("(reference " + reference + ") " + response);
 			});
-			
-			$('.count').html($('.count').html() + "x");
 		</script>
 	</head>
 	<body>
-		<button onclick="create_helper();">Test</button>
-		<button onclick="create_task();">Task</button>
-		<pre class="count"></pre>
+		<button onclick="create_helper();">Create helper</button>
 		<pre class="response">
 			
 		</pre>
