@@ -1,8 +1,8 @@
 <?php
 class Page extends CPHPDatabaseRecordClass
 {
-	public $fill_query = "SELECT * FROM cms_pages WHERE `Id` = '%d'";
-	public $verify_query = "SELECT * FROM cms_pages WHERE `Id` = '%d'";
+	public $fill_query = "SELECT * FROM cms_pages WHERE `id` = '%d'";
+	public $verify_query = "SELECT * FROM cms_pages WHERE `id` = '%d'";
 	public $table_name = "cms_pages";
 
 	public $prototype = array(

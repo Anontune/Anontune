@@ -1,8 +1,8 @@
 <?php
 class User extends CPHPDatabaseRecordClass
 {
-	public $fill_query = "SELECT * FROM user WHERE `Id` = '%d'";
-	public $verify_query = "SELECT * FROM user WHERE `Id` = '%d'";
+	public $fill_query = "SELECT * FROM user WHERE `id` = '%d'";
+	public $verify_query = "SELECT * FROM user WHERE `id` = '%d'";
 	public $table_name = "user";
 	
 	public $uPassword = "";
