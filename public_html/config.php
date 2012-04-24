@@ -15,7 +15,10 @@
  *  You should have received a copy of the GNU Affero Public License
  *  along with Anontune.  If not, see <http://www.gnu.org/licenses/>.
  *  
+ *  (c) 2011 Anontune developers
+ * 
  */
+
 $not_set = "v0id";
 $xmlstr = @file_get_contents(dirname(__file__) . DIRECTORY_SEPARATOR . "../config.xml");
 $config = new SimpleXMLElement($xmlstr);
