@@ -25,11 +25,11 @@ $recaptcha_publickey = "6LcVTs4SAAAAACpv7qr0TzAOGr1co613qR2iI900";
 $recaptcha_privatekey = "6LcVTs4SAAAAAD3MCA1Mm9n1Tjlj-PAzFvLipx2c";
 
 $_CPHP = true;
-require("cphp/base.php");
-require("recaptchalib.php");
+require("{$root_dir}cphp/base.php");
+require("{$root_dir}includes/recaptchalib.php");
 
-require("classes/class.user.php");
-require("classes/class.page.php");
+require("{$root_dir}classes/class.user.php");
+require("{$root_dir}classes/class.page.php");
 
 function login($username, $password)
 {
@@ -40,6 +40,8 @@ function login($username, $password)
 define("ANONTUNE_API_ERROR",	101);
 define("ANONTUNE_API_WARNING",	102);
 define("ANONTUNE_API_SUCCESS",	103);
+define("ANONTUNE_API_GET",		110);
+define("ANONTUNE_API_POST",		111);
 
 if(empty($_SESSION['prefered_locale']))
 {

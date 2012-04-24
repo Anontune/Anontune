@@ -11,21 +11,26 @@
  * licensing text.
  */
 
-require("include.constants.php");
+if(!isset($root_dir))
+{
+	$root_dir = "./";
+}
 
-require("cphp/config.php");
+require("{$root_dir}cphp/include.constants.php");
 
-require("include.dependencies.php");
-require("include.exceptions.php");
-require("include.datetime.php");
-require("include.misc.php");
+require("{$root_dir}cphp/config.php");
 
-require("include.memcache.php");
-require("include.mysql.php");
-require("include.session.php");
+require("{$root_dir}cphp/include.dependencies.php");
+require("{$root_dir}cphp/include.exceptions.php");
+require("{$root_dir}cphp/include.datetime.php");
+require("{$root_dir}cphp/include.misc.php");
 
-require("class.templater.php");
-require("class.localizer.php");
+require("{$root_dir}cphp/include.memcache.php");
+require("{$root_dir}cphp/include.mysql.php");
+require("{$root_dir}cphp/include.session.php");
+
+require("{$root_dir}cphp/class.templater.php");
+require("{$root_dir}cphp/class.localizer.php");
 
 $locale = new Localizer();
 $locale->Load($cphp_locale_name);

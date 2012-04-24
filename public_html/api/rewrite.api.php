@@ -18,7 +18,8 @@
  */
  
 $_ANONTUNE = true;
-require("includes/base.php");
+$root_dir = "../";
+require("../includes/base.php");
  
 $query = $_SERVER['REQUEST_URI'];
 list($empty, $version, $path) = explode("/", $query, 3);
@@ -34,11 +35,11 @@ if(!empty($version))
 	$router->custom_query = $path;
 	$router->routes = array(
 		0 => array(
-			'^artist/[0-9]+$'			=> "api.get.artist.php",
-			'^album/[0-9]+$'			=> "api.get.album.php",
-			'^track/[0-9]+$'			=> "api.get.track.php",
-			'^playlist/[0-9]+$'			=> "api.get.playlist.php",
-			'^playlist/item/[0-9]+$'	=> "api.get.playlist.item.php"
+			'^artist/([0-9]+)$'			=> "api.get.artist.php",
+			'^album/([0-9]+)$'			=> "api.get.album.php",
+			'^track/([0-9]+)$'			=> "api.get.track.php",
+			'^playlist/([0-9]+)$'		=> "api.get.playlist.php",
+			'^playlist/item/([0-9]+)$'	=> "api.get.playlist.item.php"
 		)
 	);
 	
@@ -76,4 +77,14 @@ elseif($sStatus == ANONTUNE_API_SUCCESS)
 		'data'		=> $sData
 	);
 }
+else
+{
+	// Umm, yeah, this is never supposed to happen. If this happens,
+	// you suck and you didn't use the API constants.
+	die("PANIC!");
+}
+
+$sJsonObject = json_encode($sReturnObject);
+
+echo("var at_json = {$sJsonObject};");
 ?>

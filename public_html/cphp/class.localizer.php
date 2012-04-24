@@ -32,8 +32,8 @@ class Localizer
 	
 	public function LoadInternal($locale)
 	{
-		global $cphp_locale_path, $cphp_locale_ext;
-		$lng_contents = file_get_contents("{$cphp_locale_path}/{$locale}.{$cphp_locale_ext}");
+		global $cphp_locale_path, $cphp_locale_ext, $root_dir;
+		$lng_contents = file_get_contents("{$root_dir}{$cphp_locale_path}/{$locale}.{$cphp_locale_ext}");
 		if($lng_contents !== false)
 		{
 			$lines = explode("\n", $lng_contents);

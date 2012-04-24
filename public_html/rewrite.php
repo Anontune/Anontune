@@ -20,6 +20,7 @@
  */
 
 $_ANONTUNE = true;
+$root_dir = "./";
 require("includes/base.php");
 
 $sPageTitle = "";
