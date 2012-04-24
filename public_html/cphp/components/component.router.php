@@ -29,7 +29,7 @@ class CPHPRouter extends CPHPBaseClass
 		}
 		else
 		{
-			if(isset($_SERVER['REQUEST_URI']))
+			if(!empty($_SERVER['REQUEST_URI']))
 			{
 				$requestpath = trim($_SERVER['REQUEST_URI']);
 			}
