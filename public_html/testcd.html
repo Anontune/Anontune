@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+	<head>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script>
+			var debugEl;
+			
+			function go()
+			{
+				var frame = $('<iframe src="http://api.anontune.local/1/crossdomain/" width=100 height=30></iframe>').appendTo('body');
+				debugEl = frame[0].contentWindow;
+			}
+			
+			function go2()
+			{
+				debugEl.postMessage("hai", "http://api.anontune.local");
+			}
+			
+			$(function(){
+				$(window).bind("message", function(event){
+					var response = event.originalEvent.data;
+					
+					if(response == "READY")
+					{
+						// add this frame to the list						
+						var test = {
+								'url': "/2/artist/4",
+								'data': {
+									'test': "ohai"
+								}
+						};
+						event.originalEvent.source.postMessage(JSON.stringify(test), "http://api.anontune.local");
+					}
+					else
+					{
+						console.log(response);
+						var object = JSON.parse(response);
+					}
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<button onclick="go();">Go</button>
+		<button onclick="go2();">Go2</button>
+	</body>
+</html>
