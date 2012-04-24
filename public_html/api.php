@@ -18,7 +18,6 @@
  */
  
 /*
-Version: 0.0.6 Alpha
 Description: The Anontune API.
 
 Guidelines: 
