@@ -24,5 +24,6 @@ $sArtist = new Artist($router->uParameters[1]);
 $sData["name"] = $sArtist->sName;
 
 $sStatus = ANONTUNE_API_SUCCESS;
-sleep(1);
+
+
 ?>

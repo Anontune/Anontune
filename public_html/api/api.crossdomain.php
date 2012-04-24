@@ -19,13 +19,28 @@
 	<head>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script type="text/javascript">
+			function pad(number, length) 
+			{
+				var str = '' + number;
+				while (str.length < length) 
+				{
+					str = '0' + str;
+				}
+
+				return str;
+			}
+
 			$(function(){
 				$(window).bind("message", function(event){
 					response = event.originalEvent.data;
+					
+					var request_id = response.substring(0, 4);
+					var response = response.substring(4);
+					
 					var object = JSON.parse(response);
 					
 					$.post(object.url + "?type=json", object.data, function(data){
-						parent.postMessage(data, "*");
+						parent.postMessage(pad(request_id, 4) + data, "*");
 					});
 				})
 				
