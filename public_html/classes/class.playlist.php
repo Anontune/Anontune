@@ -26,7 +26,8 @@ class Playlist extends CPHPDatabaseRecordClass
 	
 	public $prototype = array(
 		'string' => array(
-			'Name'			=> "name"
+			'Name'			=> "name",
+			'Command'		=> "cmd"
 		),
 		'numeric' => array(
 			'UserId'		=> "user_id",
