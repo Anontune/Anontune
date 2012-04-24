@@ -1,16 +1,22 @@
 <?php
 /*
- * CPHP is more free software. It is licensed under the WTFPL, which
- * allows you to do pretty much anything with it, without having to
- * ask permission. Commercial use is allowed, and no attribution is
- * required. We do politely request that you share your modifications
- * to benefit other developers, but you are under no enforced
- * obligation to do so :)
- * 
- * Please read the accompanying LICENSE document for the full WTFPL
- * licensing text.
+ *  This file is part of Anontune.
+ *
+ *  Anontune is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU Affero Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  Anontune is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU Affero Public License for more details.
+ *
+ *  You should have received a copy of the GNU Affero Public License
+ *  along with Anontune.  If not, see <http://www.gnu.org/licenses/>.
+ *  
  */
- 
+
 // Please don't touch this file unless you REALLY need to change it.
 // It provides crossdomain POST functionality for the API.
 ?>
