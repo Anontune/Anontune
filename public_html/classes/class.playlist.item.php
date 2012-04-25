@@ -59,5 +59,22 @@ class PlaylistItem extends CPHPDatabaseRecordClass
 			'Track'				=> "music_id"
 		)
 	);
+	
+	public $prototype_export = array(
+		'Title',
+		'Genre',
+		'ServiceResource',
+		'Album',
+		'Artist',
+		'Playlist',
+		'Track',
+		'PlayCount',
+		'SkipCount',
+		'TimesSkipped',
+		'TimesPlayed',
+		'TimesAdded',
+		'Year',
+		'ServiceId'
+	);
 }
 ?>
