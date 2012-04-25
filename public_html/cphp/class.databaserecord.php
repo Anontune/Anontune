@@ -404,7 +404,7 @@ abstract class CPHPDatabaseRecordClass extends CPHPBaseClass
 		// Exports the object as a nested array. Observes the export prototype.
 		$export_array = array();
 		
-		foreach($prototype_export as $field)
+		foreach($this->prototype_export as $field)
 		{
 			$variable_name = "s{$field}";
 			if(is_object($this->$variable_name))
