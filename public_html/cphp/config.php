@@ -19,7 +19,7 @@ $cphp_class_map = array(
 	'artist'					=> "Artist",
 	'track'						=> "Track",
 	'playlist'					=> "Playlist",
-	'playlistitem'				=> "PlaylistItem",
+	'playlistitem'				=> "PlaylistItem"
 );
 
 $cphp_locale_name = "english";
