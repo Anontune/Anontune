@@ -19,8 +19,9 @@
  
 $_ANONTUNE = true;
 $root_dir = "../";
+
 require("../includes/base.php");
- 
+
 $query = $_SERVER['REQUEST_URI'];
 list($empty, $version, $path) = explode("/", $query, 3);
 
