@@ -23,6 +23,7 @@ abstract class CPHPDatabaseRecordClass extends CPHPBaseClass
 	
 	public $prototype = array();
 	public $prototype_render = array();	
+	public $prototype_export = array();
 	public $uData = array();
 	
 	public $sId = 0;
@@ -362,6 +363,8 @@ abstract class CPHPDatabaseRecordClass extends CPHPBaseClass
 	
 	public function RetrieveChildren($type, $field)
 	{
+		// Not done yet!
+		
 		if(!isset($cphp_class_map[$type]))
 		{
 			$classname = get_class($this);
