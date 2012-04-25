@@ -42,20 +42,8 @@ else
 	$reference = "";
 }
 
-if($_SERVER['REQUEST_METHOD'] == "POST")
-{
-	$request_type = "post";
-	$datasource = $_POST;
-}
-elseif($_SERVER['REQUEST_METHOD'] == "GET")
-{
-	$request_type = "get";
-	$datasource = $_GET;
-}
-else
-{
-	die();
-}
+$request_type = ($_SERVER['REQUEST_METHOD'] == "POST") ? "post" : "get";
+$datasource = ($request_type == "post") ? $_POST : $_GET;
 
 $api_public = $datasource['pubkey'];
 $api_private = $datasource['privkey'];
