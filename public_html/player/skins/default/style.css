@@ -181,7 +181,8 @@ color: black;
 {
     padding-left: 5px;
     padding-right: 5px;
-    background: #5EA1D1;
+    background: #2E79AC;
+    font-weight: bold;
 }
 
 #atp-main-left-title, #atp-main-right-title
@@ -257,6 +258,11 @@ background: linear-gradient(top, rgba(226,226,226,1) 0%,rgba(214,214,214,1) 50%,
     display: block;
     height: 100%;
     width: 100%;
+}
+
+#atp-main-left .atp-main-cell-highlight a, #atp-main-right .atp-main-cell-highlight a
+{
+	color: white;
 }
 
 .atp-main-tabc
