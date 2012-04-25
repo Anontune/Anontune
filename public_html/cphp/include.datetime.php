@@ -178,4 +178,3 @@ function floor_to_day($timestamp)
 {
 	return floor($timestamp / (60 * 60 * 24)) * (60 * 60 * 24);
 }
-?>

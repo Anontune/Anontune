@@ -21,4 +21,3 @@ class ConstructorException extends Exception {}
 class MissingDataException extends Exception {}
 class DatabaseException extends Exception {}
 class TypeException extends Exception {}
-?>

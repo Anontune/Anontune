@@ -43,4 +43,3 @@ $cphp_components = array(
 	"router",
 	"errorhandler"
 );
-?>

@@ -94,9 +94,3 @@ function clean_array($arr)
 	}
 	return $result;
 }
-
-/*function is_empty($variable)
-{
-	return (trim($variable) == "");
-}*/
-?>

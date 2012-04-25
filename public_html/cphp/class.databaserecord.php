@@ -427,4 +427,3 @@ abstract class CPHPDatabaseRecordClass extends CPHPBaseClass
 		return $export_array;
 	}
 }
-?>
