@@ -25,6 +25,4 @@ $sData[0]["id"] = $sArtist->sId;
 $sData[0]["name"] = $sArtist->sName;
 
 $sStatus = ANONTUNE_API_SUCCESS;
-
-
 ?>

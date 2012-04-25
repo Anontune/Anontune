@@ -14,7 +14,12 @@
 if($_CPHP !== true) { die(); }
 
 $cphp_class_map = array(
-	'user'						=> "User"
+	'user'						=> "User",
+	'album'						=> "Album",
+	'artist'					=> "Artist",
+	'track'						=> "Track",
+	'playlist'					=> "Playlist",
+	'playlistitem'				=> "PlaylistItem",
 );
 
 $cphp_locale_name = "english";
