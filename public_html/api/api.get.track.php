@@ -20,14 +20,6 @@
 if($_ANONTUNE !== true) { die(); }
 
 $sTrack = new Track($router->uParameters[1]);
-
-/*$sData[0]["id"] = $sAlbum->sId;
-$sData[0]["title"] = $sAlbum->sTitle;
-$sData[0]["artist_id"] = $sAlbum->sArtistId;
-$sData[0]["is_valid"] = $sAlbum->sIsValid;
-$sData[0]["artist"]["id"] = $sAlbum->sArtist->sId;
-$sData[0]["artist"]["name"] = $sAlbum->sArtist->sName;*/
-
 $sData[0] = $sTrack->Export();
 
 $sStatus = ANONTUNE_API_SUCCESS;

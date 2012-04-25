@@ -62,26 +62,35 @@ $format = isset($_GET['format']) ? $_GET['format'] : "jsonp";
 
 if(!empty($version))
 {
-	$router = new CPHPRouter();
-	
-	$router->custom_query = $path;
-	$router->allow_slash = true;
-	$router->ignore_query = true;
-	$router->routes = array(
-		0 => array(
-			'^crossdomain/?$'				=> "api.crossdomain.php",
-			'^artist/([0-9]+)/?$'			=> "api.get.artist.php",
-			'^album/([0-9]+)/?$'			=> "api.get.album.php",
-			'^track/([0-9]+)/?$'			=> "api.get.track.php",
-			'^playlist/([0-9]+)/?$'		=> "api.get.playlist.php",
-			'^playlist/item/([0-9]+)/?$'	=> "api.get.playlist.item.php"
-		)
-	);
-	
-	$router->RouteRequest();
+	try
+	{
+		$router = new CPHPRouter();
+		
+		$router->custom_query = $path;
+		$router->allow_slash = true;
+		$router->ignore_query = true;
+		$router->routes = array(
+			0 => array(
+				'^crossdomain/?$'				=> "api.crossdomain.php",
+				'^artist/([0-9]+)/?$'			=> "api.get.artist.php",
+				'^album/([0-9]+)/?$'			=> "api.get.album.php",
+				'^track/([0-9]+)/?$'			=> "api.get.track.php",
+				'^playlist/([0-9]+)/?$'			=> "api.get.playlist.php",
+				'^playlist/item/([0-9]+)/?$'	=> "api.get.playlist.item.php"
+			)
+		);
+		
+		$router->RouteRequest();
+	}
+	catch (NotFoundException $e)
+	{
+		$sStatus = ANONTUNE_API_ERROR;
+		$sErrorMessage = "The specified item was not found.";
+	}
 }
 else
 {
+	$sStatus = ANONTUNE_API_ERROR;
 	$sErrorMessage = "No API version specified.";
 }
 
