@@ -40,5 +40,11 @@ class Playlist extends CPHPDatabaseRecordClass
 			'Parent'		=> "parent_id"
 		)
 	);
+	
+	public $prototype_export = array(
+		'Name',
+		'User',
+		'Parent'
+	);
 }
 ?>
