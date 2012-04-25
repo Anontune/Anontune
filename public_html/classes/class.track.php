@@ -48,5 +48,18 @@ class Track extends CPHPDatabaseRecordClass
 			'Album'			=> "album_id"
 		)
 	);
+	
+	public $prototype_export = array(
+		'Title',
+		'Artist',
+		'Album',
+		'TotalRating',
+		'TotalRaters',
+		'TotalLike',
+		'TotalDislike',
+		'PlayCount',
+		'SkipCount',
+		'IsValid'
+	);
 }
 ?>
