@@ -21,7 +21,8 @@ if($_ANONTUNE !== true) { die(); }
 
 $sArtist = new Artist($router->uParameters[1]);
 
-$sData["name"] = $sArtist->sName;
+$sData[0]["id"] = $sArtist->sId;
+$sData[0]["name"] = $sArtist->sName;
 
 $sStatus = ANONTUNE_API_SUCCESS;
 

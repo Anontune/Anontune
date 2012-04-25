@@ -67,17 +67,13 @@ function queue_task(request, reference, callback)
 	}
 	else
 	{
-		console.log(request);
-		console.log(reference);
 		api_callbacks[reference] = callback;
-		console.log(api_callbacks);
 		$('<script type="text/javascript" src="' + api_endpoint + '/' + api_version + request.uri + '?format=jsonp&reference=' + reference + '"></script>').appendTo('body');
 	}
 }
 
 function run_callback(reference, data)
 {
-	console.log(api_callbacks);
 	api_callbacks[reference](reference, data);
 }
 
@@ -92,8 +88,6 @@ function pop_queue()
 			{
 				var new_task = api_task_queue.shift();
 				target.runTask(new_task.request, new_task.callback, new_task.reference)
-				
-				console.log("Tasked helper " + i);
 				
 				if(api_task_queue.length == 0)
 				{
@@ -142,7 +136,6 @@ $(function(){
 				if(api_helper_queue[i].request_id == request_id)
 				{
 					target = api_helper_queue[i];
-					console.log(target);
 					target.busy = false;
 					var jsonobj = JSON.parse(response);
 					target.callback(target.reference, jsonobj);
