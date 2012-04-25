@@ -398,5 +398,26 @@ abstract class CPHPDatabaseRecordClass extends CPHPBaseClass
 		
 		return $this->DoRenderInternalTemplate();
 	}
+	
+	public function Export()
+	{
+		// Exports the object as a nested array. Observes the export prototype.
+		$export_array = array();
+		
+		foreach($prototype_export as $field)
+		{
+			$variable_name = "s{$field}";
+			if(is_object($this->$variable_name))
+			{
+				$export_array[$field] = $this->$variable_name->Export();
+			}
+			else
+			{
+				$export_array[$field] = $this->$variable_name;
+			}
+		}
+		
+		return $export_array;
+	}
 }
 ?>

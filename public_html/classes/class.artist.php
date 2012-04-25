@@ -29,5 +29,9 @@ class Artist extends CPHPDatabaseRecordClass
 			'Name'			=> "name"
 		)
 	);
+	
+	public $prototype_export = array(
+		'Name'
+	);
 }
 ?>

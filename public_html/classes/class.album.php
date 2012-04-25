@@ -38,5 +38,11 @@ class Album extends CPHPDatabaseRecordClass
 			'Artist'		=> "artist_id"
 		)
 	);
+	
+	public $prototype_export = array(
+		'Title',
+		'Artist',
+		'IsValid'
+	);
 }
 ?>
