@@ -6,7 +6,7 @@
 		<script type="text/javascript" src="json.js"></script>
 		<script>
 			$(function(){
-				var newrequest = new ApiRequest("post", "/playlist/38", {
+				var newrequest = new ApiRequest("post", "/track/400", {
 					'field1': "value1",
 					'field2': "value2"
 				})
@@ -14,11 +14,11 @@
 				var reference = "abc";
 				
 				queue_task(newrequest, reference, function(reference, response){
-					console.log(response);
+					response = JSON.stringify(response);
 					$('.response').html("(reference " + reference + ") " + response);
 				});
 				
-				/*var newrequest = new ApiRequest("get", "/artist/4", {
+				var newrequest = new ApiRequest("get", "/track/400", {
 					'field1': "value1",
 					'field2': "value2"
 				})
@@ -26,9 +26,9 @@
 				var reference = "abd";
 				
 				queue_task(newrequest, reference, function(reference, response){
-					console.log(response);
+					response = JSON.stringify(response);
 					$('.response').html("(reference " + reference + ") " + response);
-				});*/
+				});
 			});
 		</script>
 	</head>

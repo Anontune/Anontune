@@ -19,8 +19,16 @@
 
 if($_ANONTUNE !== true) { die(); }
 
-$sTrack = new Track($router->uParameters[1]);
-$sData[0] = $sTrack->Export();
+if($request_type == "get")
+{
+	$sTrack = new Track($router->uParameters[1]);
+	$sData[0] = $sTrack->Export();
+	$sStatus = ANONTUNE_API_SUCCESS;
+}
+else
+{
+	$sStatus = ANONTUNE_API_ERROR;
+	$sErrorMessage = "The {$request_type} method is not valid for this resource.";
+}
 
-$sStatus = ANONTUNE_API_SUCCESS;
 ?>
