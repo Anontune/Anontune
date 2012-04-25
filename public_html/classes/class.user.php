@@ -46,6 +46,13 @@ class User extends CPHPDatabaseRecordClass
 		)
 	);
 	
+	public $prototype_export = array(
+		'Username',
+		'Avatar',
+		'Age',
+		'IsActivated'
+	);
+	
 	public function GenerateHash()
 	{
 		if(!empty($this->uPassword))

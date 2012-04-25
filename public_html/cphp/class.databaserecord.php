@@ -409,7 +409,14 @@ abstract class CPHPDatabaseRecordClass extends CPHPBaseClass
 			$variable_name = "s{$field}";
 			if(is_object($this->$variable_name))
 			{
-				$export_array[$field] = $this->$variable_name->Export();
+				if(!empty($this->$variable_name->sId))
+				{
+					$export_array[$field] = $this->$variable_name->Export();
+				}
+				else
+				{
+					$export_array[$field] = null;
+				}
 			}
 			else
 			{
