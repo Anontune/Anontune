@@ -1,0 +1,149 @@
+_locale;					     es_MX.UTF-8,es_MX
+_datetime_short;				     %d/%m/%Y %H:%M:%S
+_datetime_long;				     %A %B %d, %Y %H:%M:%S
+_date_short;				     %d/%m/%Y
+_date_long;				     %A %B %d, %Y
+_time;					     %H:%M:%S
+		
+event-now;						agora
+event-future;					no futuro
+event-past;					no passado
+event-1second-ago;				há um segundo
+event-seconds-ago;				há %1$d segundos
+event-1minutes-ago;				há 1 minuto
+event-minutes-ago;				há %1$d minutos
+event-1hour-ago;					há 1 hora
+event-hours-ago;					há %1$d horas
+event-1day-ago;					há 1 d&iacute;a
+event-days-ago;					há %1$d d&iacute;as
+event-1week-ago;					há 1 semana
+event-weeks-ago;					há %1$d semanas
+event-1month-ago;				há 1 mês
+event-months-ago;				há %1$d meses
+event-1year-ago;					hace 1 eno
+event-years-ago;					hace %1$d anos
+
+title-home;				     Inicio
+title-login;					Entrar
+title-register;					Registar
+title-logout;					Saida
+title-demo;					Demo
+title-about;					Sobre o Anontune
+title-contribute;				Doar
+title-irc;						Fala conosco no IRC
+
+main-sup;						(muito beta)
+main-button-home;				Inicio
+main-button-login;				Entrar
+main-button-logout;				Sair
+main-button-player;				Ir para o reprodutor
+main-button-register;				Registar
+main-button-demo;				Demo
+main-button-about;				Sobre
+main-button-tools;				Ferramentas
+main-button-contribute;			Doar
+main-button-irc;					Habla conosco!
+main-footer;					És um programador? Clona Anontune e contribui para o projecto! Podes ver o nosso wiki de programador <a href="http://dev.Anontune.com/">aqui</a>.
+
+home-header;					A nova maneira de encontrar m&uacute;sica.
+home-button1;					Experimenta o Anontune sem te registares
+home-button2;					Regista-te no Anontune, é gratis!
+home-button3;					Entra na tua conta do Anontune
+home-h1;						Completamnte grátis e sem custo
+home-p1;						Nós não cobramos nada pelo uso do Anontune. É completamente e inteiramente grátis o seu uso. Não tem custos escondidos, nem subscrições "premium".
+home-h2;					     Importa as listas de reprodução diretamente do teu iPod.
+home-p2;						Alguma vez quiseste partilhar instantaneamente musicas do teu iPod com os teus amigo, sem teres de pôr toda em alguma sitio? Simplesmente carrega a base de dados do teu iPod e o Anontune trata do resto - e só irá demorar uns minutos!
+home-h3;						Ouve musica de várias fontes
+home-p3;						O Anontune nao hospeda nenhum ficheiro de música. Simplesmente procura a másica no YouTube, Soundcloud, e em outros sites. O desevolvimento de Anontune nunca terminará, e no futuro mais fontes irão ser adicionadas!
+notfound-header;					A p&aacute;gina que solicitaste não est&aacute; disponivel.
+notfound-p1a;					Você parou a corrente, mas a água moveu-se.
+notfound-p1b;					Se achas que algo deveira estar aqu&iacute;, então por favor <a href="/irc/">contacta-nos</a>.
+notfound-p2;					Queres saber mais?
+notfound-button;					Ir para o Anontune!
+about-header;					Sobre o Anontune
+tools-header;					Ferramentas Anontune
+contribute-header;				Doar para o Anontune
+contribute-h1;				     És um programador?
+contribute-p1;					Os programadores são bem-vindos. Se consegues manejar o HTML, Javascript, PHP, ou Python, contacta-nos. Se tens experiencia para analise de dados, então definitivamente contecta-nos. Podes nos encontrar no nosso <a href="/irc/">canal do IRC</a>, ou <a href="mailto:Anontune@gmail.com">envia-nos um e-mail</a>.
+contribute-h2;				     Opinião do utilizador
+contribute-p2;					H&aacute; alguma que gostas, alguma coisa que acreditas que não estaja, ou alguma  coisa que queiras que seja adicionada? Ou tens outro tipo de opinião para os programadores? Então contacta-nos no nosso <a href="/irc/">canal de IRC</a>, ou <a href="mailto:Anontune@gmail.com">envia-nos um e-mail</a>.
+contribute-h3;					Dações
+contribute-h3a;					Bitcoin
+contribute-p3a1;					Muito anonimo
+contribute-p3a2;			    1Cw88g4o9n9Fpj8NchR4Lovp69A7yBgLJY
+contribute-h3b;					Flattr
+contribute-p3b1;					Algo anonimo
+contribute-h3c;					PayPal
+contribute-p3c1;					Definitivamente nada anonimo
+contribute-p3c2;					Brevemente Haver&aacute; a possiblidade de doar a trav&eacute;s do PayPal.
+contribute-h3d;					Outros m&eacute;todos.
+contribute-p3d;					Para dnar a trav&eacute;s de outros m&eacute;todos, <a href="/irc/">contacta-nos</a>.
+demo-header;					Experimenta o Anontune sem te registares
+demo-intro;				     Queres experimentar o Anontune sem registares, mas não queres registar-te at&eacute; teres a certeza que gostas? Seleciona um perfil de exemplo em baixo para um exprimentação r&aacute;pida. Não te esqueças  que não puedes modificar estes perfis como utilizador de demostração. Regista-te é gratis!
+demo-h1;						Top 100
+demo-p1;						Para ver uma demonstração de um perfil com uma lista de reprodução, e algumas canções, dá um vista de olhos nesta conta <em>demo</em>.
+demo-button1;					Ouve esta demonstração &gt;&gt;
+demo-h2;						Pop e electr&oacute;nica
+demo-p2;						Para ver um perfil com a maioria de m&aucute;sicas pop, dance, e trance, experimenta a conta <em>Sooty</em>.
+demo-button2;					Ouve esta demonstração &gt;&gt;
+demo-h3;						Cl&aacute;ssica
+demo-p3;						Para uma lista de m&uacute;sica cl&aacute;sica, visita a conta <em>classical</em>.
+demo-button3;					Ouve esta demonstração &gt;&gt;
+irc-header;					Fala-nos no IRC!
+irc-intro;						Tens sugestões, criticas, solicitações de recursos ou perguntas - ou queres conversar um pouca com os programadores do Anontune ou com outros utilizadores? Junta-te a nós no IRC!
+irc-h1;						Webchat
+irc-p1;						Se não tens um cliente de IRC (ou não sabes o que é o IRC), podes usar o nosso webchat. Não é preciso descarregar ou instalar nada, ela urá funcionar no browser.
+irc-button1;					Usar o Webchat
+irc-h2;						Com o teu proprio cliente 
+irc-p2;						Se já tens um cliente de IRC, então simplesmente conecta-te em <em>irc.cryto.net</em>, e junta-te no canal #Anontune. Conexões normais são aceites na porta 6667, e conexões sobre SSL são aceites na porta 6697. Tambem poder&aacute;s obter m&aacute;is informações sobre a rede Cryto IRC, assim como as regras da rede ou as listas de folhas que te podes conectar.
+irc-button2a;				     M&aacute;is informação &gt;&gt;
+irc-button2b;					Conectar
+login-header;					Entrar no Anontune.
+login-label-username;				Utilizador
+login-label-password;		           Palavra-passe
+login-button;					Entrar
+login-success-header;				Entrada com sucesso.
+login-success-button;				Ir para o reprodutor &gt;&gt;
+login-success-title;				Entrada com sucesso!
+login-success-message;			Acedeste com sucesso a tua conta do Anontune
+login-error-missing-title;			Faltam campos obrigatórios
+login-error-missing-message;		Um ou m&aacute;is campos não foram preenchidos. Todos os campos são obrigatorios.
+login-error-user-title;			O Utilizador não existe
+login-error-user-message;			Desculpe, o utilizador não existe. Se quiseres registar-te, <a href=\"/register/\"> clica aqu&iacute;</a>.
+login-error-password-title;			Palavra-passe Errada
+login-error-password-message;		Desculpe, a palavra-passe está errada. Tenta novamente.
+register-header;					Regista-te no Anontune.
+register-label-username;			Utilizador
+register-label-password;		     Palavre-passe
+register-label-verify;			Verificar Palavra-passe
+register-label-captcha;		     Captcha
+register-hint-username;			a-z, A-Z, 0-9, max. 30 carateres
+register-hint-password;			min. 8 carateres
+register-hint-verify;				Escreve a mesma palavra-passe outra vez.
+register-button;					Registar
+register-success-header;		     Obrigado por se registrar!
+register-success-button;		     Ir para o reprodutor &gt;&gt;
+register-success-title;		     Registrado com sucesso!
+register-success-message;		     A tua conta foi criada com sucesso e agora estás comectado
+register-error-nocaptcha-title;		Falta o captcha
+register-error-nocaptcha-message;	Não preenheceu o captcha. Tente novamente.
+register-error-captcha-title;		O captcha á inv&aacute;lido
+register-error-captcha-message;		Não preencheu o captcha corretamente. Tente novamente.
+register-error-missing-title;		Faltam campos obrigatórios
+register-error-missing-message;		Um ou m&aacute;is campos não foram preenchidos. Todos os campos são obrigatorios.
+register-error-toolong-title;		Nome de utilizador demasiado largo
+register-error-toolong-message;		O nome de utilizador é demasiado largo, o nome de utilizador não pode ter mais de 30 caracteres.
+register-error-tooshort-title;		Palavra-passe demasiado curta
+register-error-tooshort-message;		A tua palavra-passe é demasiado curta e deve ter pelo menos 8 carateres.
+register-error-nomatch-title;		As palavras-passe não iguais
+register-error-nomatch-message;		As Palavra-passe que escreveste não são iguais. Por favor tenta novamente.
+register-error-begin-title;			Nome de utilizador inv&aacute;lido
+register-error-begin-message;		O teu nome de utilizador deve començar com uma letra ou um d&iacute;gito.
+register-error-username-title;		Nome de utilizador inv&aacute;lido
+register-error-username-message;		O nome de utilizador que escreveste contem carateres inv&aacute;lidos. Por favor utiliza apenas carateres entre a-z, A-Z, 0-9, e os carateres especiais -_[]{}\|`^
+register-error-taken-title;			O nome de utilizador já est&aacute; existe
+register-error-taken-message;		O nome de utilizador já est&aacute; existe, e não est&aacute; disponivel para registo. Por favor escolhe outro nome de utilizador.
+
+logout-header;					Saida.
+logout-title;					Saida com sucesso.
+logout-message;					Saiste da tua conta do Anontune, e est&aacutes; agora neste site como convitado.
