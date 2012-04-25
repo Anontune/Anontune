@@ -18,6 +18,7 @@
 #	list - lists the available remote branches
 #	switch - switches to a remote branch (use sparingly)
 #	import - imports a remote branch into an identically named local branch
+#	export - makes a local branch available on the remote server
 # local
 #	create - creates a new local branch (use this for normal feature/hotfix branches)
 #	delete - deletes a local branch (NO CONFIRMATION ASKED)
@@ -68,6 +69,14 @@ do
 					git branch --track $BRANCHNAME origin/$BRANCHNAME
 					git checkout $BRANCHNAME
 					echo "If all went well, the REMOTE branch $BRANCHNAME should now be imported and activated."
+					exit 0
+				;;
+				"export")
+					BRANCHNAME="$3"
+					git checkout $BRANCHNAME
+					git push origin $BRANCHNAME
+					git branch --track $BRANCHNAME origin/$BRANCHNAME
+					echo "If all went well, the LOCAL branch $BRANCHNAME has been exported to its remote counterpart."
 					exit 0
 				;;
 				*)
