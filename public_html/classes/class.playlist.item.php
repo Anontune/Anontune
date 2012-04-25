@@ -36,8 +36,8 @@ class PlaylistItem extends CPHPDatabaseRecordClass
 			'PlayCount'			=> "play_count",
 			'SkipCount'			=> "skip_count",
 			'TimesSkipped'		=> "time_skipped",
-			'TimesPlayed'		=> "time_played",
-			'TimesAdded'		=> "time_added",
+			'TimePlayed'		=> "time_played",
+			'TimeAdded'			=> "time_added",
 			'Year'				=> "year",
 			'PlaylistId'		=> "playlist_id",
 			'TrackId'			=> "music_id",
@@ -71,8 +71,8 @@ class PlaylistItem extends CPHPDatabaseRecordClass
 		'PlayCount',
 		'SkipCount',
 		'TimesSkipped',
-		'TimesPlayed',
-		'TimesAdded',
+		'TimePlayed',
+		'TimeAdded',
 		'Year',
 		'ServiceId'
 	);

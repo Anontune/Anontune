@@ -22,5 +22,16 @@ if($_ANONTUNE !== true) { die(); }
 $sPlaylist = new Playlist($router->uParameters[1]);
 
 $sData[0] = $sPlaylist->Export();
+$sData[0]['Items'] = array();
+
+if($result = mysql_query_cached("SELECT * FROM track WHERE `playlist_id` = '{$sPlaylist->sId}'"))
+{
+	foreach($result->data as $row)
+	{
+		$sPlaylistItem = new PlaylistItem($row);
+		$sData[0]['Items'][] = $sPlaylistItem->Export();
+	}
+}
+
 $sStatus = ANONTUNE_API_SUCCESS;
 ?>
