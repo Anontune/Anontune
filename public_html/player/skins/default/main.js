@@ -1,37 +1,3 @@
-<?php
-/*
- *  This file is part of Anontune.
- *
- *  Anontune is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU Affero Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  Anontune is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU Affero Public License for more details.
- *
- *  You should have received a copy of the GNU Affero Public License
- *  along with Anontune.  If not, see <http://www.gnu.org/licenses/>.
- *  
- *  (c) 2011 Anontune developers
- * 
- */
- 
-header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
-header("Cache-Control: no-cache");
-header("Pragma: no-cache");
-require_once(dirname(__file__) . DIRECTORY_SEPARATOR . "../../../global.php");
-//$img_path = $this_root_url . "/../../images/";
-$img_path = "/player/images/";
-/*
-Optimize player loading time . . . it's probably the height adjustment code.
-* Inconsistently named API calls, player functions skin functions
-* Use of NULL
-*/
-?>
-
 /***
 *    begin skin
 *    begin skin
@@ -317,7 +283,7 @@ temp = temp + "\r\n" + buf;
 temp = temp + "\r\n<tr id=\"" + row_id;
 temp = temp + "\">\r\n    <td class=\"atp-main-cell " + cell_class;
 temp = temp + "\" id=\"" + cell_id;
-temp = temp + "\">\r\n        <span class=\"atp-main-list\">\r\n            <img src=\"<?php echo $img_path; ?>" + p[i]["type"];
+temp = temp + "\">\r\n        <span class=\"atp-main-list\">\r\n            <img src=\"" + var_image_path + p[i]["type"];
 temp = temp + ".png\" style=\"float: left; position: relative; top: 2px;\"><a href=\"#\" onclick=\"document.search.q.value = ''; at.search_filter();" + p[i]["onclick"];
 temp = temp + " " + change_background;
 temp = temp + "\">&nbsp;" + p[i]["name"];
@@ -435,7 +401,7 @@ this.show_tab = function(id, is_main, no){
 
 this.main = function(){
     at.player.output_ytplayer = at.player.skin.output_ytplayer;
-    var skin_root_url = "<?php echo $this_root_url . '/'; ?>";
+    var skin_root_url = var_this_root_url + "/skins/default/";
     
     //Apply CSS
     var css = at.http_get(skin_root_url + "style.css");
@@ -462,10 +428,12 @@ this.main = function(){
         alert("Unable to load interface HTML.");
         return;
     }
+    
     var scripts = document.getElementsByTagName('script');
-    var this_parent = scripts[scripts.length - 1].parentNode;
+    var this_parent = $('body')[0];
     var container_height = this_parent.offsetHeight;
     var container_width = this_parent.offsetWidth;
+    
     this_parent.innerHTML = html + this_parent.innerHTML;
     
     //Set height.
@@ -473,7 +441,7 @@ this.main = function(){
     var top_nav_height = document.getElementById("atp-main-middle-title").offsetHeight; //33
     var bottom_nav_height = 0;//document.getElementById("atp-main-middle-resbar").offsetHeight; //36
     var footer_height = 0;
-    var main_height = container_height - 5;//- (top_nav_height + bottom_nav_height + 5);
+    var main_height = container_height - 5 - 35;//- (top_nav_height + bottom_nav_height + 5);
     document.getElementById("atp-main").style.height = main_height;
     
     var title_height = document.getElementById("atp-main-left-title").offsetHeight;

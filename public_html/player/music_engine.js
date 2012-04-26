@@ -1205,7 +1205,7 @@ fandub add to
     
         this.main = function(){
             query = at.urlencode(at.me.search.youtube.p["q"]);
-            ip_addr = "<?php echo $_SERVER['REMOTE_ADDR']; ?>";
+            ip_addr = var_ip_address;
             url = "http://gdata.youtube.com/feeds/api/videos?paid-content=false&safeSearch=strict&max-results=10&v=2&alt=json-in-script&format=5&callback=at.me.search.youtube.proc_results&q=" + query;
         
             if(ip_addr.match(/[0-9]+[.][0-9]+[.][0-9]+[.][0-9]+/gi) != null){

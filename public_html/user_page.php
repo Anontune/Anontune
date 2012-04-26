@@ -29,6 +29,7 @@ require_once("global.php");
 
 $username = isset($_GET["username"]) ? urldecode($_GET["username"]) : "";
 $username_s = htmlspecialchars($username);
+
 $auth_username = isset($_COOKIE["auth_username"]) ? $_COOKIE["auth_username"] : "";
 $auth_username_s = htmlspecialchars($auth_username);
 $auth_password = isset($_COOKIE["auth_password"]) ? $_COOKIE["auth_password"] : "";
@@ -122,6 +123,7 @@ width: 250px;
 border: 0px;
 color: white;
 }
+
 </style>
 <script type="text/javascript" src="/player/swfobject.js"></script>
 <script src="/netjs/netjs.js"></script>
@@ -158,7 +160,7 @@ function get_netjs(){
 function at_player_ready(){
     setInterval(at.me.output_tiles, 2000);
     at.skin = "default";
-    var skin_code_url = "<?php echo $this_root_url . '/player/skins/'; ?>" + at.skin + "/main.php";
+    var skin_code_url = "<?php echo $this_root_url . '/player/skins/'; ?>" + at.skin + "/main.js";
     //alert(skin_code_url);
     //alert(at.http_get);
     //return;
@@ -204,30 +206,20 @@ Don't remove it.
     height = parseInt(height); //0.90 * height
     container = document.getElementById("container");
     container.style.height = height - (document.getElementById("nav").offsetHeight + 60);
-    
-    //Create player.
-    <?php
-        $s_src = "/player/player.php?username=" . urlencode($username);
-        /*
-        if($auth_username != "")
-        {
-            $s_src = $s_src . "&auth_username=" . urlencode($auth_username);
-        }
-        if($auth_password != "")
-        {
-            $s_src = $s_src . "&auth_password=" . urlencode($auth_password);
-        }*/
-    ?>
-    var s_src = "<?php echo $s_src; ?>";
-    var script = document.createElement("script");
-    script.src = s_src;
-    container.appendChild(script);
-        
- 
 }
 </script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="/player/variables.php?username=<?php echo(urlencode($username)); ?>"></script>
+<script type="text/javascript" src="/player/player.js"></script>
+<script type="text/javascript">
+$(function(){
+	prepare();
+	at.player.prepare();
+	$('#loading').hide();
+});
+</script>
 </head>
-<body onload="prepare();">
+<body>
 <div id="nav">
 <a href="/" class="nav-link">Anontune</a>
 <?php
@@ -249,7 +241,7 @@ else
 <input type="text" name="q" id="q_field">
 </form>
 </div>
-<center>
+<center id="loading">
 <div style="position: absolute; top: 100px; width: 95%;">
 <center>
 Loading . . . Accept all security warnings.<br>

@@ -29,7 +29,7 @@ Those scpecial playlists should be virtual.
 Their file structure will be implemented in the player
 */
 ?>
-<div id="atp">
+<div id="atp" style="margin-top: 35px;">
     <div id="atp-ytapi"></div>
     <table id="atp-cmd">
         <tr>
