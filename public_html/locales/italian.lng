@@ -1,4 +1,4 @@
-_locale;									en_US.UTF-8,en_US
+_locale;									it_IT.UTF-8,it_IT
 _datetime_short;							%d/%m/%Y %H:%M:%S
 _datetime_long;								%A %B %d, %Y %H:%M:%S
 _date_short;								%d/%m/%Y
@@ -43,7 +43,7 @@ main-button-about;							About
 main-button-tools;							Strumenti
 main-button-contribute;						Collabora
 main-button-irc;							Contattaci!
-main-footer;								sei uno sviluppatore? Sostieni Anontune e collabora al progetto! Puoi trovare la nostra developer wiki <a href="http://dev.Anontune.com/">qui</a>.
+main-footer;								Sei uno sviluppatore? Sostieni Anontune e collabora al progetto! Puoi trovare la nostra developer wiki <a href="http://dev.Anontune.com/">qui</a>.
 
 home-header;								Il nuovo modo per trovare musica.
 home-button1;								Prova Anontune senza registrarti
@@ -64,24 +64,24 @@ about-header;								About Anontune
 tools-header;								Strumenti di Anontune
 contribute-header;							Cotribuisci ad Anontune
 contribute-h1;								Sei uno sviluppatore?
-contribute-p1;								Apprezziamo molto l'aiuto degli sviluppatori. Se sai come usare i linguaggi HTML, CSS, Javascript, PHP, o Python, allora scrivici. Se sei esperto di parsing, contattaci subito. Ci puoi trovare nel nostro <a href="/irc/">canale IRC</a>, o puoi <a href="mailto:Anontune@gmail.com">inviarci un'email</a>. Abbiamo anche un repository GIT e un corrispondente Trac setup su<a href="http://dev.Anontune.com/">dev.Anontune.com</a>.
+contribute-p1;								Apprezziamo molto l'aiuto degli sviluppatori. Se sai come usare i linguaggi HTML, CSS, Javascript, PHP, o Python, allora scrivici. Se sei esperto di parsing, contattaci subito. Ci puoi trovare nel nostro <a href="/irc/">canale IRC</a>, o puoi <a href="mailto:anontune@gmail.com">inviarci un'email</a>. Abbiamo anche un repository GIT e un corrispondente sistema Trac su <a href="http://dev.anontune.com/">dev.anontune.com</a>.
 contribute-h2;								Feedback utente
-contribute-p2;								C'è qualcosa che davvero ti piace, qualcosa che vuoi togliere o qualcosa che vuoi aggiungere? O hai qualche altro genere di feedback per gli sviluppatori? Allora contattaci tramite il nostro <a href="/irc/">canale IRC</a>, o <a href="mailto:Anontune@gmail.com">inviaci un'email</a>.
+contribute-p2;								C'è qualcosa che davvero ti piace, qualcosa che vuoi togliere o qualcosa che vuoi aggiungere? O hai qualche altro genere di feedback per gli sviluppatori? Allora contattaci tramite il nostro <a href="/irc/">canale IRC</a>, o <a href="mailto:anontune@gmail.com">inviaci un'email</a>.
 contribute-h3;								Donazioni
 contribute-h3a;								Bitcoin
-contribute-p3a1;							Quite anonymous
+contribute-p3a1;							Quasi anonimo
 contribute-p3a2;							1Cw88g4o9n9Fpj8NchR4Lovp69A7yBgLJY
 contribute-h3b;								Flattr
-contribute-p3b1;							Somewhat anonymous
+contribute-p3b1;							Abbastanza anonimo
 contribute-h3c;								PayPal
-contribute-p3c1;							Not anonymous at all
+contribute-p3c1;							Non anonimo
 contribute-p3c2;							La possibilità di effettuare donazioni tramite PayPal sarà presto disponibile.
 contribute-h3d;								Altri metodi
 contribute-p3d;								Per effettuare donazioni con altri metodi, <a href="/irc/">contattaci</a>.
 demo-header;								Prova Anontune senza registrarti.
-demo-intro;									Desideri provare Anontune ma non vuoi registrarti finchè non sei sicuro che ti piace? Scegli uno dei profili di esempio qui sotto per avere una veloce panoramica. Non dimenticare che non è possibile modificare questi profili come utente demo. La registrazione è gratuita!
+demo-intro;									Desideri provare Anontune ma non vuoi registrarti finchè non sei sicuro che ti piace? Scegli uno dei profili di esempio qui sotto per avere una veloce panoramica. Ricorda che non è possibile modificare questi profili come utente demo. La registrazione è gratuita!
 demo-h1;									Top 100
-demo-p1;									Per una semplice dimostrazione di un profilo con una playlist e alcune tracce, da un'occhiata all'account <em>demo</em>.
+demo-p1;									Per una semplice dimostrazione di un profilo con una playlist e alcune tracce, dai un'occhiata all'account <em>demo</em>.
 demo-button1;								Ascolta questa demo &gt;&gt;
 demo-h2;									Pop & Electronic
 demo-p2;									Per un profilo con pop, dance e trance prova l'account <em>Sooty</em>.
@@ -95,7 +95,7 @@ irc-h1;										Webchat
 irc-p1;										Se non possiedi un client IRC (o non sai cos'è IRC) puoi usare la nostra webchat. Non devi scaricare ne' installare nulla, funzionerà direttamente sul tuo browser.
 irc-button1;								Usa la webchat
 irc-h2;										Con il tuo client
-irc-p2;										Se già possiedi un client IRC, allora puoi semplicemente connetterti a <em>irc.cryto.net</em>, ed unirti al canale #Anontune. Le connessioni regolari sono accettate sulla porta 6667, e le connessioni SSL connections sono accettate sulla porta 6697. Puoi anche ottenere maggiori informazioni sul network Cryto IRC, come ad esempio le regole del network o la lista dei leaf ai quali puoi conneterti.
+irc-p2;										Se già possiedi un client IRC, allora puoi semplicemente connetterti a <em>irc.cryto.net</em>, ed unirti al canale #Anontune. Le connessioni regolari sono accettate sulla porta 6667, e le connessioni SSL sono accettate sulla porta 6697. Puoi anche ottenere maggiori informazioni sul network Cryto IRC, come ad esempio le regole del network o la lista dei leaf ai quali puoi connetterti.
 irc-button2a;								Maggiori informazioni &gt;&gt;
 irc-button2b;								Connetti
 login-header;								Effettua il login ad Anontune.
