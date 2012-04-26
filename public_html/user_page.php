@@ -29,6 +29,7 @@ require_once("global.php");
 
 $username = isset($_GET["username"]) ? urldecode($_GET["username"]) : "";
 $username_s = htmlspecialchars($username);
+
 $auth_username = isset($_COOKIE["auth_username"]) ? $_COOKIE["auth_username"] : "";
 $auth_username_s = htmlspecialchars($auth_username);
 $auth_password = isset($_COOKIE["auth_password"]) ? $_COOKIE["auth_password"] : "";
@@ -208,7 +209,7 @@ Don't remove it.
 }
 </script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="/player/variables.php?username=<?php urlencode($username); ?>"></script>
+<script type="text/javascript" src="/player/variables.php?username=<?php echo(urlencode($username)); ?>"></script>
 <script type="text/javascript" src="/player/player.js"></script>
 <script type="text/javascript">
 $(function(){
