@@ -21,7 +21,7 @@
 					<a href="/setlocale/bulgarian/"><img src="/images/flags/bg.png"></a> &nbsp;
 					<a href="/setlocale/dutch/"><img src="/images/flags/nl.png"></a>&nbsp;
 					<a href="/setlocale/portuguese/"><img src="/images/flags/pt.png"></a> &nbsp;
-					<a href="/setlocale/brazilian/"><img src="/images/flags/gb.png"></a> &nbsp;
+					<a href="/setlocale/brazilian/"><img src="/images/flags/br.png"></a> &nbsp;
 					<a href="/setlocale/french/"><img src="/images/flags/fr.png"></a>
 				</div>
 				<div class="icons">

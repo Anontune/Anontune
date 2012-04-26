@@ -33,6 +33,9 @@ switch($new_locale)
 	case "portuguese":
 		$_SESSION['prefered_locale'] = "portuguese";
 		break;
+	case "brazilian":
+		$_SESSION['prefered_locale'] = "brazil";
+		break;
 	case "french":
 		$_SESSION['prefered_locale'] = "french";
 		break;
