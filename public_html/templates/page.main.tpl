@@ -13,21 +13,24 @@
 	<body>
 		<div class="wrapper top">
 			<div class="locale">
-				<a href="/setlocale/english/"><img src="images/flags/gb.png"></a> &nbsp;
-				<a href="/setlocale/spanish/"><img src="images/flags/es.png"></a> &nbsp;
-				<a href="/setlocale/italian/"><img src="images/flags/it.png"></a> &nbsp;
-				<a href="/setlocale/danish/"><img src="images/flags/dk.png"></a> &nbsp;
-				<a href="/setlocale/bulgarian/"><img src="images/flags/bg.png"></a> &nbsp;
-				<a href="/setlocale/dutch/"><img src="images/flags/nl.png"></a>&nbsp;
-				<a href="/setlocale/portuguese/"><img src="images/flags/pt.png"></a> &nbsp;
-				<a href="/setlocale/brazilian/"><img src="images/flags/gb.png"></a> &nbsp;
-				<a href="/setlocale/french/"><img src="images/flags/fr.png"></a>
-				<br><br>
-				<a href="http://www.facebook.com/Anontune"><img src="/images/facebook.png"></a>
-				<a href="http://www.twitter.com/Anontune"><img src="/images/twitter.png"></a>
-				<a href="http://www.youtube.com/anontune"><img src="/images/youtube.png"></a>
-				<a href="http://flattr.com/thing/562402/Anontune"><img src="/images/flattr.png"></a>
-				<a href="/contribute/"><img src="/images/bitcoin.png"></a>
+				<div class="flags">
+					<a href="/setlocale/english/"><img src="images/flags/gb.png"></a> &nbsp;
+					<a href="/setlocale/spanish/"><img src="images/flags/es.png"></a> &nbsp;
+					<a href="/setlocale/italian/"><img src="images/flags/it.png"></a> &nbsp;
+					<a href="/setlocale/danish/"><img src="images/flags/dk.png"></a> &nbsp;
+					<a href="/setlocale/bulgarian/"><img src="images/flags/bg.png"></a> &nbsp;
+					<a href="/setlocale/dutch/"><img src="images/flags/nl.png"></a>&nbsp;
+					<a href="/setlocale/portuguese/"><img src="images/flags/pt.png"></a> &nbsp;
+					<a href="/setlocale/brazilian/"><img src="images/flags/gb.png"></a> &nbsp;
+					<a href="/setlocale/french/"><img src="images/flags/fr.png"></a>
+				</div>
+				<div class="icons">
+					<a href="http://www.facebook.com/Anontune"><img src="/images/facebook.png"></a>
+					<a href="http://www.twitter.com/Anontune"><img src="/images/twitter.png"></a>
+					<a href="http://www.youtube.com/anontune"><img src="/images/youtube.png"></a>
+					<a href="http://flattr.com/thing/562402/Anontune"><img src="/images/flattr.png"></a>
+					<a href="/contribute/"><img src="/images/bitcoin.png"></a>
+				</div>
 			</div>
 			<h1>Anontune <sup><%!main-sup></sup></h1>
 		</div>
