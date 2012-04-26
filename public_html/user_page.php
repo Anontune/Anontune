@@ -159,7 +159,7 @@ function get_netjs(){
 function at_player_ready(){
     setInterval(at.me.output_tiles, 2000);
     at.skin = "default";
-    var skin_code_url = "<?php echo $this_root_url . '/player/skins/'; ?>" + at.skin + "/main.php";
+    var skin_code_url = "<?php echo $this_root_url . '/player/skins/'; ?>" + at.skin + "/main.js";
     //alert(skin_code_url);
     //alert(at.http_get);
     //return;
