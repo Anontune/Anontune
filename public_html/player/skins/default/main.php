@@ -462,10 +462,12 @@ this.main = function(){
         alert("Unable to load interface HTML.");
         return;
     }
+    
     var scripts = document.getElementsByTagName('script');
-    var this_parent = scripts[scripts.length - 1].parentNode;
+    var this_parent = $('body')[0];
     var container_height = this_parent.offsetHeight;
     var container_width = this_parent.offsetWidth;
+    console.log(this_parent);
     this_parent.innerHTML = html + this_parent.innerHTML;
     
     //Set height.
@@ -473,7 +475,7 @@ this.main = function(){
     var top_nav_height = document.getElementById("atp-main-middle-title").offsetHeight; //33
     var bottom_nav_height = 0;//document.getElementById("atp-main-middle-resbar").offsetHeight; //36
     var footer_height = 0;
-    var main_height = container_height - 5;//- (top_nav_height + bottom_nav_height + 5);
+    var main_height = container_height - 5 - 35;//- (top_nav_height + bottom_nav_height + 5);
     document.getElementById("atp-main").style.height = main_height;
     
     var title_height = document.getElementById("atp-main-left-title").offsetHeight;

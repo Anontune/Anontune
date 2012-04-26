@@ -122,6 +122,7 @@ width: 250px;
 border: 0px;
 color: white;
 }
+
 </style>
 <script type="text/javascript" src="/player/swfobject.js"></script>
 <script src="/netjs/netjs.js"></script>
@@ -204,30 +205,20 @@ Don't remove it.
     height = parseInt(height); //0.90 * height
     container = document.getElementById("container");
     container.style.height = height - (document.getElementById("nav").offsetHeight + 60);
-    
-    //Create player.
-    <?php
-        $s_src = "/player/player.php?username=" . urlencode($username);
-        /*
-        if($auth_username != "")
-        {
-            $s_src = $s_src . "&auth_username=" . urlencode($auth_username);
-        }
-        if($auth_password != "")
-        {
-            $s_src = $s_src . "&auth_password=" . urlencode($auth_password);
-        }*/
-    ?>
-    var s_src = "<?php echo $s_src; ?>";
-    var script = document.createElement("script");
-    script.src = s_src;
-    container.appendChild(script);
-        
- 
 }
 </script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="/player/variables.php?username=<?php urlencode($username); ?>"></script>
+<script type="text/javascript" src="/player/player.js"></script>
+<script type="text/javascript">
+$(function(){
+	prepare();
+	at.player.prepare();
+	$('#loading').hide();
+});
+</script>
 </head>
-<body onload="prepare();">
+<body>
 <div id="nav">
 <a href="/" class="nav-link">Anontune</a>
 <?php
@@ -249,7 +240,7 @@ else
 <input type="text" name="q" id="q_field">
 </form>
 </div>
-<center>
+<center id="loading">
 <div style="position: absolute; top: 100px; width: 95%;">
 <center>
 Loading . . . Accept all security warnings.<br>
