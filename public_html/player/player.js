@@ -932,7 +932,7 @@ at.username = htmlspecialchars_decode(at.username, 'ENT_COMPAT');
 at.auth_username = htmlspecialchars_decode(at.auth_username, 'ENT_COMPAT');
 at.auth_password = htmlspecialchars_decode(at.auth_password, 'ENT_COMPAT');
     
-    var me_code_url = var_this_root_url + "/music_engine.php";
+    var me_code_url = var_this_root_url + "/music_engine.js";
     var me_code = at.http_get(me_code_url);
     if(me_code == false){
         alert("Failed to load music engine.");
