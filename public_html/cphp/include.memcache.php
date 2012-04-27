@@ -154,4 +154,3 @@ function file_get_contents_cached($path, $expiry = 3600)
 		}
 	}
 }
-?>

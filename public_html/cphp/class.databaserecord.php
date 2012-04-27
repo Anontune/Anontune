@@ -395,4 +395,3 @@ abstract class CPHPDatabaseRecordClass extends CPHPBaseClass
 		return $this->DoRenderInternalTemplate();
 	}
 }
-?>

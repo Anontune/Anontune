@@ -25,4 +25,3 @@ if($cphp_mysql_enabled === true)
 		}
 	}
 }
-?>

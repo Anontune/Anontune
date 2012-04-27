@@ -39,4 +39,3 @@ foreach($cphp_components as $component)
 {
 	require("components/component.{$component}.php");
 }
-?>

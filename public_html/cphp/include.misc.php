@@ -99,4 +99,3 @@ function clean_array($arr)
 {
 	return (trim($variable) == "");
 }*/
-?>

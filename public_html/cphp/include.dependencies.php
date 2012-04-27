@@ -99,4 +99,3 @@ function cphp_dependency_match($available, $required)
 		}
 	}
 }
-?>
