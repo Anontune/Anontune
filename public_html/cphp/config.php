@@ -34,6 +34,16 @@ $cphp_mysql_enabled = true;
 
 require("config.mysql.php");
 
+/* Please create a new file in this directory named config.mysql.php
+ * that holds the following contents (modified to the correct settings):
+
+$cphp_mysql_host = "localhost";
+$cphp_mysql_user = "anontune";
+$cphp_mysql_pass = "your-password";
+$cphp_mysql_db 	= "anontune";
+
+*/
+
 $cphp_components = array(
 	"router",
 	"errorhandler"
