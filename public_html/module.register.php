@@ -150,4 +150,3 @@ else
 
 $sSelectedRegister = "class=\"current\"";
 $sPageTitle = $locale->strings['title-register'];
-?>

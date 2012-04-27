@@ -30,4 +30,3 @@ $err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_SUCCESS, $locale->strings['lo
 $sPageContents .= $err->Render();
 
 $sPageTitle = $locale->strings['title-logout'];
-?>

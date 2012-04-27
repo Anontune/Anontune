@@ -161,7 +161,3 @@ else
 	// directly output whatever is in the buffer
 	echo($sPageContents);
 }
-
-
-?>
-

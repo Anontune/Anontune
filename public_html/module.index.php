@@ -28,4 +28,3 @@ $sPageContents = $template['page']->Render();
 
 $sSelectedHome = "class=\"current\"";
 $sPageTitle = $locale->strings['title-home'];
-?>

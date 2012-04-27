@@ -28,4 +28,3 @@ $sPageContents = $template['page']->Render();
 
 $sSelectedContribute = "class=\"current\"";
 $sPageTitle = $locale->strings['title-contribute'];
-?>

@@ -30,4 +30,3 @@ if($result = mysql_query_cached("SELECT * FROM user WHERE `username` = '{$sParam
 }
 
 $sErrorCode = 404;
-?>

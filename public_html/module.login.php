@@ -94,4 +94,3 @@ else
 
 $sSelectedLogin = "class=\"current\"";
 $sPageTitle = $locale->strings['title-login'];
-?>

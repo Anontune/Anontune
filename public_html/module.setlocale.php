@@ -58,4 +58,3 @@ switch($new_locale)
 
 header("Location: /");
 die();
-?>

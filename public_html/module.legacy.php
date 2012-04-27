@@ -44,4 +44,3 @@ else
 
 header("Location: {$new_location}");
 die();
-?>

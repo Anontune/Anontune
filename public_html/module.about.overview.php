@@ -54,4 +54,3 @@ $sPageContents = $template['page']->Render();
 
 $sSelectedAbout = "class=\"current\"";
 $sPageTitle = $sPageTitle = $locale->strings['title-about'];
-?>

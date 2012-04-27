@@ -28,4 +28,3 @@ $sPageContents = $template['page']->Render();
 
 $sSelectedDemo = "class=\"current\"";
 $sPageTitle = $locale->strings['title-demo'];
-?>

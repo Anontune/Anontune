@@ -28,4 +28,3 @@ $sPageContents = $template['page']->Render();
 
 $sSelectedIrc = "class=\"current\"";
 $sPageTitle = $locale->strings['title-irc'];
-?>
