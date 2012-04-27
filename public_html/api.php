@@ -1247,4 +1247,3 @@ header("Pragma: no-cache");
 echo $return_value;
 
 cleanup();
-?>

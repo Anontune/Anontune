@@ -40,4 +40,3 @@ if($url_root_part[strlen($url_root_part) - 1] != "/")
 }
 $root_url = "http://" . $url_root_part;
 $api_url = $root_url . "api.php";
-?>

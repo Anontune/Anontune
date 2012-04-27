@@ -34,4 +34,3 @@ else
 {
 	$sErrorCode = 404;
 }
-?>
