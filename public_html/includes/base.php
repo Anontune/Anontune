@@ -43,5 +43,3 @@ if(empty($_SESSION['prefered_locale']))
 }
 
 $locale->Load($_SESSION['prefered_locale']);
-
-?>
