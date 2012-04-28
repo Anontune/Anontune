@@ -33,8 +33,8 @@ require("classes/class.page.php");
 
 function login($username, $password)
 {
-    setcookie("auth_username", $username, time() + ((3600 * 24) * 365), "/");
-    setcookie("auth_password", $password, time() + ((3600 * 24) * 365), "/");
+	setcookie("auth_username", $username, time() + ((3600 * 24) * 365), "/");
+	setcookie("auth_password", $password, time() + ((3600 * 24) * 365), "/");
 }
 
 if(empty($_SESSION['prefered_locale']))
