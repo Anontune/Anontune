@@ -21,7 +21,6 @@
  
 require_once(dirname(__file__) . DIRECTORY_SEPARATOR . "../global.php");
 
-//Is empty.
 function is_empty($identifier)
 {
     global $not_set;
@@ -49,72 +48,72 @@ function is_empty($identifier)
         }
     }
     $code = "
-if(isset($identifier))
-{
-    if(isset($full_identifier))
-    {
-        if(is_bool($full_identifier))
-        {
-            //Bool to string that's false
-            //is usually set to an empty string
-            //I prefer 0.
-            if(!$full_identifier)
-            {
-                $full_identifier = '0';
-            }
-        }
-    }
-    if(is_array($identifier))
-    {
-        if(isset($full_identifier))
-        {
-            if(preg_match('/^\s*$/', (string) $full_identifier))
-            {
-                return 1;
-            }
-            if($full_identifier == '$not_set')
-            {
-                return 1;   
-            }
-            return 0;
-        }
-        return 1;
-    }
-    else
-    {
-        if('$identifier' != '$full_identifier')
-        {
-            return 1;
-        }
-        else
-        {
-            if(preg_match('/^\s*$/', (string) $identifier))
-            {
-                return 1;
-            }
-            if($identifier == '$not_set')
-            {
-                return 1;   
-            }
-            return 0;
-        }
-    }
-}
-return 1;";
+	if(isset($identifier))
+	{
+		if(isset($full_identifier))
+		{
+			if(is_bool($full_identifier))
+			{
+				//Bool to string that's false
+				//is usually set to an empty string
+				//I prefer 0.
+				if(!$full_identifier)
+				{
+					$full_identifier = '0';
+				}
+			}
+		}
+		if(is_array($identifier))
+		{
+			if(isset($full_identifier))
+			{
+				if(preg_match('/^\s*$/', (string) $full_identifier))
+				{
+					return 1;
+				}
+				if($full_identifier == '$not_set')
+				{
+					return 1;   
+				}
+				return 0;
+			}
+			return 1;
+		}
+		else
+		{
+			if('$identifier' != '$full_identifier')
+			{
+				return 1;
+			}
+			else
+			{
+				if(preg_match('/^\s*$/', (string) $identifier))
+				{
+					return 1;
+				}
+				if($identifier == '$not_set')
+				{
+					return 1;   
+				}
+				return 0;
+			}
+		}
+	}
+	return 1;";
     return $code;
 }
 
 function page_template($title, $body)
 {
     $html = "
-<html>
-<head>
-<title>$title</title>
-</head>
-<body>
-$body
-</body>
-</html>
+	<html>
+	<head>
+	<title>$title</title>
+	</head>
+	<body>
+	$body
+	</body>
+	</html>
     ";
     echo $html;
 }
@@ -177,7 +176,6 @@ function query($sql)
     $result = mysql_query($sql, $mysql_con);
     if(!$result)
     {
-        //echo "<p>$sql<p>";
         die('Invalid query: ' . mysql_error());
     }
     return $result;
@@ -197,7 +195,7 @@ function cleanup()
 function hash_password($password)
 {
     /*
-Take a password and hash in my way.
+	Take a password and hash in my way.
     */
     global $salt;
     return hash("sha256", md5(str_rot13($password . $salt)));
@@ -219,7 +217,6 @@ function check_credential($username, $password)
     $username = mysql_escape_string($username);
     $hash = mysql_escape_string(hash_password($password));
     $sql = "SELECT `id` FROM `user` WHERE `username`='$username' AND `hash`='$hash'";
-    #echo "SQL " . $sql;
     $result = query($sql);
     while($row = mysql_fetch_row($result))
     {
@@ -232,9 +229,9 @@ function check_credential($username, $password)
 function apply_qualifiers($fields)
 {
     /*
-The purpose of this function is to restrict the fields in a
-mysql result set by explicitally defining the fields to
-occur in the set. If ignore the whole set is used.
+	The purpose of this function is to restrict the fields in a
+	mysql result set by explicitally defining the fields to
+	occur in the set. If ignore the whole set is used.
     */
     
     global $not_set;
@@ -337,9 +334,9 @@ function chk_glob($identifiers, $super, $min_matches = "", $db_escape = 1)
 function double_quote_escape($str)
 {
     /*
-        Security patch. This might stop them from potentially
-        escaping the string limit and from there doing an XSS
-        attack.
+	Security patch. This might stop them from potentially
+	escaping the string limit and from there doing an XSS
+	attack.
     */
     $str = str_replace("\\", "", $str);
     $str = @ereg_replace("\"", "\\\"", $str);
@@ -349,9 +346,9 @@ function double_quote_escape($str)
 function single_quote_escape($str)
 {
     /*
-        Security patch. This might stop them from potentially
-        escaping the string limit and from there doing an XSS
-        attack.
+	Security patch. This might stop them from potentially
+	escaping the string limit and from there doing an XSS
+	attack.
     */
     $str = str_replace("\\", "", $str);
     $str = @ereg_replace('\'', '\\\'', $str);
@@ -360,18 +357,6 @@ function single_quote_escape($str)
 
 function assoc_array_to_json($ar)
 {
-    /*
-    s = 'var json = {\
-        "0": {\
-            "title": "h0h0h0",\
-            "artist": "ds"\
-        },\
-        "1": {\
-            "title": "wwawwa",\
-            "artist": "muse"\
-        }\
-    };';
-    */
     $json_name = double_quote_escape("at_json");
     $json = "var $json_name = {\r\n";
     $row_no = 0;
@@ -466,26 +451,6 @@ function get_username($user_id)
     return "";
 }
 
-
-/*
-function get_artist_lookup_id($artist)
-{
-    if(is_numeric($artist))
-    {
-        return $artist;
-    }
-    $sql = "SELECT id FROM artist_lookup WHERE name='$artist'";
-    $result = query($sql);
-    while($row = mysql_fetch_assoc($result))
-    {
-        mysql_free_result($result);
-        return $row["id"];
-    }
-    mysql_free_result($result);
-    return "";
-}
-*/
-
 function rec_exist($table_name, $criteria)
 {
     $sql = "SELECT `id` FROM `$table_name` WHERE $criteria";
@@ -505,22 +470,22 @@ function clean_data($s)
     {
         $s = "Unknown";
     }
-    #And symbol to have exactly 1 space before and after it.
+    // And symbol to have exactly 1 space before and after it.
     $s = preg_replace("/&+/", "&", $s);
     $s = preg_replace("/\s*&\s*/", " & ", $s);
-    #Replace underscores with spaces.
+    // Replace underscores with spaces.
     $s = preg_replace("/_/", " ", $s);
-    #Remove track no.
+    // Remove track no.
     $s = preg_replace("/([-~]\s*(track\s*)?[0-9]+\s*[-~])|(track[^a-zA-Z]*?\s*[0-9]+)|(\s+[0-9]+\s+)/i", "", $s);
-    //Only 1 space between tokens.
+    // Only 1 space between tokens.
     $s = preg_replace("/\s+/", " ", $s);
-    //Replace -dfsdf- etc with (sdfsdf)
+    // Replace -dfsdf- etc with (sdfsdf)
     $s = preg_replace("/[-~=]([^\s][\s\S]*?[^\s])[-~=]/", "[(]$1[)]", $s);
-    //Replace weird brackets.
+    // Replace weird brackets.
     $s = preg_replace("/[\[{<]/", "(", $s);
     $s = preg_replace("/[\]}>]/", ")", $s);
     $s = preg_replace("/[(][)]/", "", $s);
-    //make sure there are no unmatched brackets.
+    // make sure there are no unmatched brackets.
     $new_s = "";
     $open_p = 0;
     $len = strlen($s);
@@ -552,10 +517,10 @@ function clean_data($s)
         $new_s .= $s[$i];
     }
     $s = $new_s;
-    //Once space before an after a brace.
+    // Once space before an after a brace.
     $s = preg_replace("/\s*[(]\s*/", " (", $s);
     $s = preg_replace("/\s*[)]\s*/", ") ", $s);
-    //Only 1 space, no space before or after it.
+    // Only 1 space, no space before or after it.
     $s = preg_replace('/[\\\\\/]+/', '/', $s);
     $s = preg_replace("/\/+/", "/", $s);
     $s = preg_replace("/\\+/", "\\", $s);
@@ -563,22 +528,22 @@ function clean_data($s)
     $s = preg_replace("/[\s]*\\\\[\s]*/", "\\", $s);
     $s = " " . $s . " ";
     $s = preg_replace("/([^a-zA-Z]+[\\\\\/]+)|([\\\\\/]+[^a-zA-Z]+)/", "", $s);
-    //Fix erronious use of some symbols.
+    // Fix erronious use of some symbols.
     $s = preg_replace("/,+/", ",", $s);
     $s = preg_replace("/\s*,\s*/", ", ", $s);
     $s = preg_replace("/!+/", "!", $s);
     $s = preg_replace("/\s*!\s*/", "! ", $s);
     $s = preg_replace("/#/", "", $s);
     $s = preg_replace("/\s+[\.]+[\s\S]*?[\s]/", "", $s);
-    //Replace abbreviations.
+    // Replace abbreviations.
     $s = " " . $s . " ";
     $s = preg_replace("/[\s]+ver[.']?[\s]+/i", " Version ", $s);
     $s = preg_replace("/[\s]+vol[.']?[\s]+/i", " Volume ", $s);
     $s = preg_replace("/[\s]+ft[.']?[\s]+/i", " Featuring ", $s);
     $s = preg_replace("/[\s]+and[\s]+/i", " & ", $s);
     $s = preg_replace("/-/", " ", $s);
-    //Only capitalize the first letter of a word
-    //and acryonyms
+    // Only capitalize the first letter of a word
+    // and acryonyms
     $s = " " . $s . " ";
     $words = explode(" ", $s);
     $x = 0;
@@ -645,7 +610,7 @@ function clean_data($s)
             }
         }
     }
-    //Remove all spaces.
+    // Remove all spaces.
     $s = preg_replace("/[.]/", "", $s);
     $s = preg_replace("/^\s*([\s\S]*?)\s*$/", "$1", $s);
     $s = preg_replace("/\s+/", " ", $s);
@@ -655,73 +620,63 @@ function clean_data($s)
     {
         $s = "Unknown";
     }
-    #Remove leading numbers.
+    // Remove leading numbers.
     $s = preg_replace("/^[0-9]+[\s\S]*\s/", "", $s);
     return $s;
     /*
-echo clean("");
-echo clean("  dfsdf");
-echo clean("sdfsd && 7sxdfsdf &dfg");
-echo clean("  dfsdf__sdfsdf_");
-echo clean("~ track1");
-echo clean("track 9");
-echo clean("  dfsdf");
-echo clean("  dfsdf");
-echo clean("    ~   track  23423   ~");
-echo clean("    ~   23423   ~");
-echo clean("    track#$%#$   456456456");
-echo clean("      3453454  ");
-echo clean("sdfsdf   sdfsdf  d");
-echo clean("-sdfsdfsdf-");
-echo clean("~sdfsdf~");
-echo clean("=s345345345=");
-echo clean("[sdfsdf]");
-echo clean("{sdfsdf}");
-echo clean("<sdfsfsdf>");
-echo clean("(sfsdfsd (sdfsdf) (sdfsdf (sdfsdf sdf)))sdf ()()sdf");
-echo clean("sdfsdf  ( sdfsdf )   sdfsdf");
-echo clean("sdfsdf // sdfsdf sdf\ sdfsdf \\//");
-echo clean("sdfsdf,sdfsdfsd  , sdfsdf");
-echo clean("sdfsdf,,,sdfsdf ,sdfsd ,sdf");
-echo clean("sdfsdf~~!!sdfsdf");
-echo clean("sdfsdf ! sdfsdf !dsfsdf!");
-echo clean("sdfsdf#dfgsdfs##sdfsdf");
-echo clean("asdfasdf sdfasdfsadf .sdfasdfasdfasdf");
-echo clean("    sdfsdf Ver");
- echo clean("   sdfsdf vEr.");
- echo clean("   sdfsdf veR'");
- echo clean("   asdas   VER dfsdf");
- echo clean("       sdfsdf Vol");
- echo clean("   sdfsdf vOl.");
- echo clean("   sdfsdf voL'");
- echo clean("   asdas   VOL dfsdf");
- echo clean("   adasds Ft sfsdf");
- echo clean("   asdasd fT. asdasd");
- echo clean("   asdasd ft' asdasd");
- echo clean("   asdasd FT asdasd");
- echo clean("   eminem and asdasd");
-echo clean("    sdfsdf - sdfsdf");
- echo clean("   dfgdfg. dfgdfg. ");
- echo clean("sfsdf dsdfd.sdfsdf. sdf.sdf.sdf. asfc/bdfh jsdr\efw");
- echo clean("d.d.d sdfsdf f.f. .f.f. SDFSDF D.D");
- echo clean("   sdfsdfsdf   ");
- echo clean("  sdfsdf    sdfsdfsdf    dsfsdf");
- echo clean(" sdfsdf | sdfsfdf");    
+	echo clean("");
+	echo clean("  dfsdf");
+	echo clean("sdfsd && 7sxdfsdf &dfg");
+	echo clean("  dfsdf__sdfsdf_");
+	echo clean("~ track1");
+	echo clean("track 9");
+	echo clean("  dfsdf");
+	echo clean("  dfsdf");
+	echo clean("    ~   track  23423   ~");
+	echo clean("    ~   23423   ~");
+	echo clean("    track#$%#$   456456456");
+	echo clean("      3453454  ");
+	echo clean("sdfsdf   sdfsdf  d");
+	echo clean("-sdfsdfsdf-");
+	echo clean("~sdfsdf~");
+	echo clean("=s345345345=");
+	echo clean("[sdfsdf]");
+	echo clean("{sdfsdf}");
+	echo clean("<sdfsfsdf>");
+	echo clean("(sfsdfsd (sdfsdf) (sdfsdf (sdfsdf sdf)))sdf ()()sdf");
+	echo clean("sdfsdf  ( sdfsdf )   sdfsdf");
+	echo clean("sdfsdf // sdfsdf sdf\ sdfsdf \\//");
+	echo clean("sdfsdf,sdfsdfsd  , sdfsdf");
+	echo clean("sdfsdf,,,sdfsdf ,sdfsd ,sdf");
+	echo clean("sdfsdf~~!!sdfsdf");
+	echo clean("sdfsdf ! sdfsdf !dsfsdf!");
+	echo clean("sdfsdf#dfgsdfs##sdfsdf");
+	echo clean("asdfasdf sdfasdfsadf .sdfasdfasdfasdf");
+	echo clean("    sdfsdf Ver");
+	echo clean("   sdfsdf vEr.");
+	echo clean("   sdfsdf veR'");
+	echo clean("   asdas   VER dfsdf");
+	echo clean("       sdfsdf Vol");
+	echo clean("   sdfsdf vOl.");
+	echo clean("   sdfsdf voL'");
+	echo clean("   asdas   VOL dfsdf");
+	echo clean("   adasds Ft sfsdf");
+	echo clean("   asdasd fT. asdasd");
+	echo clean("   asdasd ft' asdasd");
+	echo clean("   asdasd FT asdasd");
+	echo clean("   eminem and asdasd");
+	echo clean("    sdfsdf - sdfsdf");
+	echo clean("   dfgdfg. dfgdfg. ");
+	echo clean("sfsdf dsdfd.sdfsdf. sdf.sdf.sdf. asfc/bdfh jsdr\efw");
+	echo clean("d.d.d sdfsdf f.f. .f.f. SDFSDF D.D");
+	echo clean("   sdfsdfsdf   ");
+	echo clean("  sdfsdf    sdfsdfsdf    dsfsdf");
+	echo clean(" sdfsdf | sdfsfdf");    
     */
 }
 
 function add_tags()
 {
-    /*
-    """Removed. The tags are junk.
-    if music_tag_list != None:
-        for music_tag in music_tag_list:
-            music_tag = MySQLdb.escape_string(music_tag)
-            q = \"\"\"INSERT INTO tag (id, name, entity_lookup_id, target_id, user_id) VALUES ('%s', '%s', '%s', '%s', '%s')\"\"\" % ("NULL", music_tag, "4", music_id, "1")
-            mysql_db.do_sql(q)
-    """
-    
-    */
     return 1;
 }
 
@@ -737,7 +692,7 @@ function mysql_get($sql)
 
 function mysql_exist_ab($table_name, $fields)
 {
-    //Build criteria.
+    // Build criteria.
     $criteria = "";
     foreach($fields as $col => $value)
     {
@@ -745,14 +700,14 @@ function mysql_exist_ab($table_name, $fields)
     }
     $criteria = substr($criteria, 0, strlen($criteria) - 5);
     
-    //Check if it exists.
+    // Check if it exists.
     $id = rec_exist($table_name, $criteria);
     return $id;
 }
 
 function mysql_insert_ab($table_name, $fields)
 {
-    //Build insert statement.
+    // Build insert statement.
     $sql = "INSERT INTO `$table_name` (";
     foreach($fields as $col => $value)
     {
@@ -767,17 +722,17 @@ function mysql_insert_ab($table_name, $fields)
     $sql = substr($sql, 0, strlen($sql) - 2);
     $sql .= ")";
     
-    //Execute query.
+    // Execute query.
     query($sql);
     
-    //Store ID.
+    // Store ID.
     $id = mysql_insert_id();
     return $id; 
 }
 
 function mysql_update_ab($table_name, $fields)
 {
-    //Build SQL.
+    // Build SQL.
     $sql = "UPDATE `$table_name` SET ";
     foreach($fields as $col => $value)
     {
@@ -789,22 +744,19 @@ function mysql_update_ab($table_name, $fields)
     $sql = substr($sql, 0, strlen($sql) - 2);
     $sql .= " WHERE `id`='" . $fields["id"] . "'";
     
-    //Execute query.
+    // Execute query.
     query($sql);
-    //echo "<p>$sql<p>";
+    // echo "<p>$sql<p>";
     return $fields["id"];
 }
 
 function mysql_get_ab($table_name, $fields, $criteria="")
 {
-    //Build SQL.
+    // Build SQL.
     $sql = "SELECT ";
     foreach($fields as $col => $value)
     {
-        //if($col != "id")
-        //{
-            $sql .= "`$col`,";   
-        //}
+		$sql .= "`$col`,";
     }
     $sql = substr($sql, 0, strlen($sql) - 1);
     $sql .= " FROM `$table_name`";
@@ -812,14 +764,9 @@ function mysql_get_ab($table_name, $fields, $criteria="")
     {
         $sql .= " WHERE $criteria";   
     }
-    //echo "<p>";
-    //echo $sql;
-    //echo "<p>";
-    
-    //Execute and return result.
-    //echo $sql;
+
+    // Execute and return result.
     $result = mysql_get($sql);
-    //$result = query($sql);
     return $result;
 }
 
