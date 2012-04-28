@@ -20,4 +20,3 @@
  */
  
 require("../test.php");
-?>

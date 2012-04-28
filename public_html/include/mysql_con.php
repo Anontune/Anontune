@@ -28,4 +28,3 @@ if($mysql_con == FALSE)
 
 #Select database.
 if(mysql_select_db($config->database->name, $mysql_con) == FALSE) die("unable to select DB");
-?>

@@ -844,7 +844,3 @@ function update_music_totals($id, $amount, $op)
     }
     return $id;
 }
-
-
-
-?>
