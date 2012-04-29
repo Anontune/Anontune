@@ -16,13 +16,14 @@
 				<div class="flags">
 					<a href="/setlocale/english/"><img src="/images/flags/gb.png"></a> &nbsp;
 					<a href="/setlocale/spanish/"><img src="/images/flags/es.png"></a> &nbsp;
+					<a href="/setlocale/french/"><img src="/images/flags/fr.png"></a> &nbsp;
 					<a href="/setlocale/italian/"><img src="/images/flags/it.png"></a> &nbsp;
 					<a href="/setlocale/danish/"><img src="/images/flags/dk.png"></a> &nbsp;
 					<a href="/setlocale/bulgarian/"><img src="/images/flags/bg.png"></a> &nbsp;
-					<a href="/setlocale/dutch/"><img src="/images/flags/nl.png"></a>&nbsp;
+					<a href="/setlocale/dutch/"><img src="/images/flags/nl.png"></a> &nbsp;
 					<a href="/setlocale/portuguese/"><img src="/images/flags/pt.png"></a> &nbsp;
 					<a href="/setlocale/brazilian/"><img src="/images/flags/br.png"></a> &nbsp;
-					<a href="/setlocale/french/"><img src="/images/flags/fr.png"></a>
+					<a href="/setlocale/chinese/"><img src="/images/flags/cn.png"></a>
 				</div>
 				<div class="icons">
 					<a href="http://www.facebook.com/Anontune"><img src="/images/facebook.png"></a>

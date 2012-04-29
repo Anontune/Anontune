@@ -1,0 +1,149 @@
+
+_locale;								zh_CN.UTF-8
+_datetime_short;							%d/%m/%Y %H:%M:%S
+_datetime_long;								%A %B %d, %Y %H:%M:%S
+_date_short;								%d/%m/%Y
+_date_long;								%A %B %d, %Y
+_time;									%H:%M:%S
+		
+event-now;								现在
+event-future;								将来
+event-past;								过去
+event-1second-ago;							一秒钟之前
+event-seconds-ago;							%1$d seconds ago
+event-1minutes-ago;							一分钟之前
+event-minutes-ago;							%1$d minutes ago
+event-1hour-ago;							一小时之前
+event-hours-ago;							%1$d hours ago
+event-1day-ago;								一天前
+event-days-ago;								%1$d days ago
+event-1week-ago;							一星期之前
+event-weeks-ago;							%1$d weeks ago
+event-1month-ago;							一个月之前
+event-months-ago;							%1$d months ago
+event-1year-ago;							一年前
+event-years-ago;							%1$d years ago
+
+title-home;								主页
+title-login;								登陆
+title-register;								注册
+title-logout;								登出
+title-demo;								演示
+title-about;								关于Anontune
+title-contribute;							 添加到
+title-irc;								 用在线聊天系统和我们交谈
+
+main-sup;								(very beta)
+main-button-home;							主页
+main-button-login;							登陆
+main-button-logout;							登出
+main-button-player;							 前往播放器
+main-button-register;						 	注册
+main-button-demo;							演示
+main-button-about;							关于
+main-button-tools;							工具
+main-button-contribute;						 	添加到
+main-button-irc;							和我们交谈
+main-footer;								您是一个开发者吗？来Anontune并且加入到这个工程中去！您就可以看到我们的开发者维基网站 <a href="http://dev.Anontune.com/">here</a>.
+home-header;								寻找音乐的新方法
+home-button1;								试试不用注册的Anontune
+home-button2;								注册Anontune-免费的
+home-button3;								登陆您的Anontune账户
+home-h1;								完全免费，没有任何费用
+home-p1;								使用Anontune，我们不会对您收取任何费用，它是完全免费使用的。没有陷阱，没有隐含消费，没有溢价订阅费。
+home-h2;								从您的iPod上面导入播放列表
+home-p2;								想要立刻和您的朋友分享您iPod上面的音乐吗？不用到处找地方去上传全部音乐，只要把iPod的数据库上传到Anontune，剩下的事情Anontune就都替您做了-而这一切只需要几分钟时间。
+home-h3;								可以从多个源头听音乐
+home-p3;								本身并不保存音乐，它是从YouTube, Soundcloud,还有一些其他网站搜索音乐，Anontune的开发是永远不会停止的，将来还会有更多的资源会添加进去。
+notfound-header;							您访问的页面不存在
+notfound-p1a;								您踩在水流中，但是水已经流走了
+notfound-p1b;								如果您认为这儿应该有些东西，那么请<a href="/irc/">联系我们</a>.
+notfound-p2;								想了解更多？
+notfound-button;							进入Anontune！
+about-header;								关于Anontune
+tools-header;								Anontune工具
+contribute-header;							加入Anontune
+contribute-h1;								您是一个开发者吗？
+contribute-p1;								我们非常欢迎开发者，如果您掌握了HTML, CSS, Javascript, PHP, 或者Python,那么赶快加入我们吧。如果您曾经做过数据分析，那么更要联系我们。您可以在<a href="/irc/">IRC channel</a>找到我们，或者通过<a href="mailto:anontune@gmail.com">给我们发电子邮件。我们还有一个GIT储藏和先关的Trac安装在<a href="http://dev.Anontune.com/">dev.anontune.com</a>. 
+contribute-h2;								用户反馈
+contribute-p2;								如果您真的喜欢某些东西，或者想要添加什么东西，或者您对其他的开发者有什么反馈，那么请在线联系我们<a href="/irc/">在线联系系统</a>,或者通过 <a href="mailto:anontune@gmail.com"> 给我们发电子邮件</a>
+contribute-h3;								捐赠财务 
+contribute-h3a;								几分硬币
+contribute-p3a1;							相当不知名的
+contribute-p3a2;							1Cw88g4o9n9Fpj8NchR4Lovp69A7yBgLJY
+contribute-h3b;								Flattr
+contribute-p3b1;							某些不知名的
+contribute-h3c;								贝宝
+contribute-p3c1;							根本不知名
+contribute-p3c2;							很快就可以用paypal来捐赠了
+contribute-h3d;								其他方法
+contribute-p3d;								用其他方法捐赠，<a href="/irc/">联系我们</a>
+demo-header;								不需注册，试用Anontune
+demo-intro;								希望试用Anontune，直到确定喜欢它还不想注册？选择下面的一个试用账号先试用一下。别忘了 作为试用用户，您是不能更改个人资料的，注册是完全免费的！                       
+demo-h1;								最热100
+demo-p1;								想看看简单的只有一条播放列表和一些轨道的演示，到<em> 演示<em>账户来看看吧
+demo-button1;								听演示曲
+demo-h2;								流行和电子
+demo-p2;								有很多流行、舞曲和催眠曲的描述，请尝试<em>乌黑的<em>
+demo-button2;								听演示曲
+demo-h3;								古典
+demo-p3;								找古典的播放列表，访问<em>古典<em>
+demo-button3;								听演示曲
+irc-header;								在线和我们交谈
+irc-intro;								如果您有什么问题、建议、批评或者要求--或者您只想和开发者或者其他用户随便聊聊，加入在线聊天系统吧！
+irc-h1;									网页版聊天
+irc-p1;									如果您没有在线聊天系统客户端（或者您根本不知道什么是在线聊天系统），那么您可以用我们的网页版聊天工具，您不需要下载和安装任何东西，它会在您的浏览器上工作。
+irc-button1;								用网页版聊天
+irc-h2;									用您自己的客户端
+irc-p2;									如果您已经安装了在线聊天系统的客户端，那么您就可以很容易的连接到<em>irc.cryto.net<em>，并且加入 #Anontune频道，普通的连接可以到6667线，SSL连接可以到6697，您在在线聊天系统网络还可以得到更多信息，比如网络规则或者您可以连接上的分页的列表。
+irc-button2a;								更多信息&gt;&gt
+irc-button2b;								连接
+login-header;								登陆Anontune
+login-label-username;							用户名
+login-label-password;							密码
+login-button;								登陆
+login-success-header;							您已经登陆了
+login-success-button;							继续使用播放器&gt;&gt
+login-success-title;							登陆成功
+login-success-message;							您已经成功的登陆到您的Anontune账户
+login-error-missing-title;						要求的内容没有填写
+login-error-missing-message;						一项或者几项内容没有填写，这个表格的所有内容都必须填写。
+login-error-user-title;							用户不存在
+login-error-user-message;						对不起，用户名不存在，如果您想要注册，请<a href=\"/register/\">点击这里</a>.
+login-error-password-title;						密码不正确
+login-error-password-message;						对不起，密码不正确，请重新输入
+register-header;							注册Anontune
+register-label-username;						用户名
+register-label-password;						密码
+register-label-verify;							验证
+register-label-captcha;							验证码
+register-hint-username;							最多30个字符
+register-hint-password;							最少8个字符
+register-hint-verify;							再输入一次密码
+register-button;							注册
+register-success-header;						感谢您的注册
+register-success-button;						继续前往播放器 &gt;&gt;
+register-success-title;							注册成功
+register-success-message;						您的账号已经注册成功，现在您已经登录了。
+register-error-nocaptcha-title;						丢失验证码
+register-error-nocaptcha-message;					您没有输入验证码，请重新输入
+register-error-captcha-title;						不合法的验证码
+register-error-captcha-message;						您没有输入正确的验证码，请重新输入。
+register-error-missing-title;						要求的内容遗漏了
+register-error-missing-message;						一项或者几项内容没有填写，这个表格的所有内容都必须填写。
+register-error-toolong-title;						用户名太长
+register-error-toolong-message;						您的用户名太长了，用户名不能超过30个字符
+register-error-tooshort-title;						密码太短了
+register-error-tooshort-message;					不变的密码太短了，它必须达到最少8个字符
+register-error-nomatch-title;						密码不匹配
+register-error-nomatch-message;						您输入的密码不匹配，请重新输入。
+register-error-begin-title;						非法的用户名
+register-error-begin-message;						您的用户名必须是一个字母或者一个数字开头的。
+register-error-username-title;						不合法用户名
+register-error-username-message;					您输入的用户名包含非法字符，请只使用a-z, A-Z, 0-9,和一些特殊字符-_[]{}\|`^等
+register-error-taken-title;						用户名已经被他人使用了
+register-error-taken-message;						您输入的用户名已经被他人使用，您不能再注册了，请选择另外的用户名。
+
+logout-header;								登出
+logout-title;								登出成功
+logout-message;								您已经登出Anontune，您现在是以游客的身份流量。
