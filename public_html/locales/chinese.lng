@@ -1,4 +1,3 @@
-
 _locale;								zh_CN.UTF-8
 _datetime_short;							%d/%m/%Y %H:%M:%S
 _datetime_long;								%A %B %d, %Y %H:%M:%S
@@ -30,14 +29,14 @@ title-register;								注册
 title-logout;								登出
 title-demo;								演示
 title-about;								关于Anontune
-title-contribute;							 添加到
-title-irc;								 用在线聊天系统和我们交谈
+title-contribute;							添加到
+title-irc;								用在线聊天系统和我们交谈
 
 main-sup;								(very beta)
 main-button-home;							主页
 main-button-login;							登陆
 main-button-logout;							登出
-main-button-player;							 前往播放器
+main-button-player;							前往播放器
 main-button-register;						 	注册
 main-button-demo;							演示
 main-button-about;							关于
