@@ -174,7 +174,7 @@ temp = temp + "\r\n<tr id=\"" + row_id;
 temp = temp + "\">\r\n    <td id=\"" + cell_id;
 temp = temp + "a\" class=\"atp-main-cell " + cell_class;
 temp = temp + "\" width=\"" + left_cell_width;
-temp = temp + "px\">\r\n        <span class=\"atp-main-list\">\r\n            <a href=\"#\" onclick=\"at.enable_me_results = 1; if(at.me.play_track(" + i;
+temp = temp + "px\">\r\n        <span class=\"atp-main-list\">\r\n            <a style='margin-left: 1px;' href=\"#\" onclick=\"at.enable_me_results = 1; if(at.me.play_track(" + i;
 temp = temp + ", " + container;
 temp = temp + ")) " + change_background;
 temp = temp + "\">" + title_safe;
@@ -268,7 +268,7 @@ this.load_playlists = function(){
     //Todo: Load from API.
     var format = function(p){
         var buf = "";
-        var cell_class = "atp-row-dark";
+        var cell_class = "";
         var class_list = {"atp-row-dark": "atp-row-light", "atp-row-light": "atp-row-dark"};
         var cell_id = "";
         var row_id = "";
@@ -284,13 +284,13 @@ temp = temp + "\r\n<tr id=\"" + row_id;
 temp = temp + "\">\r\n    <td class=\"atp-main-cell " + cell_class;
 temp = temp + "\" id=\"" + cell_id;
 temp = temp + "\">\r\n        <span class=\"atp-main-list\">\r\n            <img src=\"" + var_image_path + p[i]["type"];
-temp = temp + ".png\" style=\"float: left; position: relative; top: 2px;\"><a href=\"#\" onclick=\"document.search.q.value = ''; at.search_filter();" + p[i]["onclick"];
+temp = temp + ".png\" style=\"float: left; position: relative; top: 2px; margin-right: 2px;\"><a href=\"#\" onclick=\"document.search.q.value = ''; at.search_filter();" + p[i]["onclick"];
 temp = temp + " " + change_background;
 temp = temp + "\">&nbsp;" + p[i]["name"];
 temp = temp + "</a>\r\n        </span>\r\n    </td>\r\n</tr>\r\n            " + "";
 
             buf = temp;
-            cell_class = class_list[cell_class];
+            //cell_class = class_list[cell_class];
         }
         return buf;
     };
@@ -431,7 +431,7 @@ this.main = function(){
     
     var scripts = document.getElementsByTagName('script');
     var this_parent = $('body')[0];
-    var container_height = this_parent.offsetHeight;
+    var container_height = this_parent.offsetHeight - 30;
     var container_width = this_parent.offsetWidth;
     
     this_parent.innerHTML = html + this_parent.innerHTML;

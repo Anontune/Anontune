@@ -239,7 +239,7 @@ this.release_mutex = function(){
 
 this.fina = function(){
     if(!at.me.results.length){
-        document.getElementById("atp-main-middle-music-tiles").innerHTML = '<center><div class="tile_table" style="width: 100%;"><div class="tile_tr"><center><div class="tile_td"><div style="width: 1px;">&nbsp;</div></div><div class="tile_td"><div style="width: 300px;" class="tile_box"><div style="height: 50px; float: left;"> </div><span style="font-size: 22px; text-align: left; float: left; margin-left: 10px; margin-top: 8px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; width: 209px;"><form style="margin: 0px; white-space: nowrap; padding: 0px; display: block;" onsubmit="at.me.me_search(); return false;" id="me_search"><input style="width: 200px; float: left; margin-top: 13px; white-space: nowrap; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; text-align: center; display: block; border: 1px solid gray; -moz-border-radius: 15px; border-radius: 15px; background: none repeat scroll 0% 0% rgb(125, 126, 125); color: white;" name="me_q"/></form></span><a onclick="at.me.me_search();" href="#"><img style="float: left; margin-top: 22px;" src="search.png"/></a></div></div></center></div></div> </center>';
+        document.getElementById("atp-main-middle-music-tiles").innerHTML = '<center><div class="tile_table" style="width: 100%;"><div class="tile_tr"><center><div class="tile_td"><div style="width: 1px;">&nbsp;</div></div><div class="tile_td"><div style="width: 300px;" class="tile_box"><div style="height: 50px; float: left;"> </div><span style="font-size: 22px; text-align: left; float: left; margin-left: 10px; margin-top: 8px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; width: 209px;"><form style="margin: 0px; white-space: nowrap; padding: 0px; display: block;" onsubmit="at.me.me_search(); return false;" id="me_search"><input style="width: 200px; float: left; margin-top: 13px; white-space: nowrap; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; text-align: center; display: block; border: 1px solid gray; -moz-border-radius: 15px; border-radius: 15px; background: none repeat scroll 0% 0% rgb(125, 126, 125); color: white;" name="me_q"/></form></span><a onclick="at.me.me_search();" href="#"><img style="float: left; margin-top: 22px;" src="/search.png"/></a></div></div></center></div></div> </center>';
         document.getElementById("me_search")["me_q"].value = "Not found.";
     }   
     
@@ -297,7 +297,7 @@ this.output_tiles = function(){
 			h = cl[h];
             larger = at.me.results[i]["q"].length > at.me.results[i].serv_prov.length ? at.me.results[i]["q"].length : at.me.results[i].serv_prov.length;
             width = larger * 11;
-            html += '<tr><td class="' + h + '"><img src="/' + at.htmlspecialchars(at.me.results[i].serv_prov) + '.png" style="float: left;">&nbsp;<span style="font-size: 22px; "><u><a href="#" style="color: black;" onclick=\'at.enable_me_results = 0; at.me.play.' + at.htmlspecialchars(at.me.results[i].serv_prov) + '.serv_res = at.me.results[' + i + ']["serv_res"]; at.me.play.' + at.htmlspecialchars(at.me.results[i].serv_prov) + '.main();\' title="' + at.htmlspecialchars(at.me.results[i]["q"]) + '">&nbsp;' + at.htmlspecialchars(at.me.results[i]["q"]) + '&nbsp;-&nbsp;' + (at.me.results[i].serv_prov == "fshared" ? "4shared" : at.htmlspecialchars(at.me.results[i].serv_prov)) + '</a></u></span></td></tr>';
+            html += '<tr><td class="' + h + '"><span style="font-size: 15px; "><a href="#" style="color: black;" onclick=\'at.enable_me_results = 0; at.me.play.' + at.htmlspecialchars(at.me.results[i].serv_prov) + '.serv_res = at.me.results[' + i + ']["serv_res"]; at.me.play.' + at.htmlspecialchars(at.me.results[i].serv_prov) + '.main();\' title="' + at.htmlspecialchars(at.me.results[i]["q"]) + '"><img src="/' + at.htmlspecialchars(at.me.results[i].serv_prov) + '.png" style="float: left; margin-top: 2px;">&nbsp;' + at.htmlspecialchars(at.me.results[i]["q"]) + '</a></span></td></tr>';
         }
 
         html += '</table>';
@@ -460,7 +460,7 @@ without searching for it.
         this.main = function(){
             //Output HTML.
             if(at.me.play.soundcloud.serv_res != null){
-                html = '<p><iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F' + at.htmlspecialchars(at.me.play.soundcloud.serv_res) + '&show_artwork=true&auto_play=true&buying=flase&liking=false&show_comments=false&show_user=false&sharing=false&show_playcount=false"></iframe>';
+                html = '<p><center><iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F' + at.htmlspecialchars(at.me.play.soundcloud.serv_res) + '&show_artwork=true&auto_play=true&buying=flase&liking=false&show_comments=false&show_user=false&sharing=false&show_playcount=false"></iframe></center>';
                 document.getElementById("atp-main-middle-music-content").innerHTML = html;
             }
         };
@@ -478,7 +478,7 @@ without searching for it.
 				/*
                 html = '<p><iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F' + at.htmlspecialchars(at.me.play.soundcloud.serv_res) + '&show_artwork=true&auto_play=true&buying=flase&liking=false&show_comments=false&show_user=false&sharing=false&show_playcount=false"></iframe>';
 				*/
-				html = '<embed type="application/x-shockwave-flash" src="http://www.google.com/reader/ui/3523697345-audio-player.swf" flashvars="audioUrl=' + at.me.play.exfm.serv_res + '&autoPlay=true" width="400" height="27" quality="best"></embed>';
+				html = '<p><center><embed type="application/x-shockwave-flash" src="http://www.google.com/reader/ui/3523697345-audio-player.swf" flashvars="audioUrl=' + at.me.play.exfm.serv_res + '&autoPlay=true" width="400" height="27" quality="best"></embed></center>';
                 document.getElementById("atp-main-middle-music-content").innerHTML = html;
             }
         };
