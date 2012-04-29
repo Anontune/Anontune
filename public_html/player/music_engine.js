@@ -27,6 +27,8 @@ This code is pig disgusting, stop copy and pasting code you lazy assholes.
 
 me = new function(){
 
+this.pl_scroll = null;
+
 //Used by asynch functions to store their return val.
 this.ret = null;
 //Real time buffer of search results.
@@ -73,9 +75,12 @@ this.me_search = function(){
 
     q = document.getElementById("me_search")["me_q"].value;
     at.me.q = q;
+
     at.me.search.youtube.p = {"start_index": 0, "q": q, "result_no": 5, "id": null, "callback_name": "at.me.search.soundcloud.main"};
-    at.me.search.soundcloud.p = {"start_index": 0, "q": q, "result_no": 5, "id": null, "callback_name": "at.me.play_asynch_proc"};
+    at.me.search.soundcloud.p = {"start_index": 0, "q": q, "result_no": 5, "id": null, "callback_name": "at.me.search.exfm.main"};
+	at.me.search.exfm.p = {"start_index": 0, "q": q, "result_no": 5, "id": null, "callback_name": "at.me.play_asynch_proc"};
     at.me.search.youtube.main();
+
     //at.me.search.soundcloud.main();
     return 1;
 }
@@ -97,6 +102,8 @@ this.play_track = function(track_i, pl_i){
     at.me.results_no = null;
     at.me.final_tiles = 0;
     */
+
+	at.me.pl_scroll = document.getElementById("atp-main-right-content").scrollTop;
     
     //Delete old song.
     at.me.reset_music_container();
@@ -270,6 +277,8 @@ this.output_tiles = function(){
     //Results have changed, output new tiles.
     //|| (netjs.http.lock && !at.me.final_tiles && l != 0)
     if(at.me.results_no != l || (!netjs.http.lock && !at.me.final_tiles && l != 0)){
+		document.getElementById('atp-main-right-content').scrollTop = 0;
+
         //Build HTML here.
         title_table_width = 0;
         for(var i = 0; i < l; i++){
@@ -277,20 +286,22 @@ this.output_tiles = function(){
             width = larger * 11;
             title_table_width += larger;
         }
-        html = '<div class="tile_table"><div class="tile_tr">';
+		html = '<table border="0"><tr><td><a href="#" onclick="if(at.pl_i != null) { at.enable_me_results = 0; at.player.skin.load_playlist(at.pl_i); document.getElementById(\'atp-main-right-content\').scrollTop = at.me.pl_scroll; }">Close</a></td></tr>';
         if(netjs.http.lock){
-            html += '<div class="tile_td"><div class="tile_box" style="width: 70px; "><img src="loading.gif"></div></div>';
+            //html += '<div class="tile_td"><div class="tile_box" style="width: 70px; "><img src="loading.gif"></div></div>';
         }
         
-        
+        cl = {"atp-row-dark": "atp-row-light", "atp-row-light": "atp-row-dark"};
+		h = "atp-row-dark";
         for(var i = l - 1; i != -1; i--){
+			h = cl[h];
             larger = at.me.results[i]["q"].length > at.me.results[i].serv_prov.length ? at.me.results[i]["q"].length : at.me.results[i].serv_prov.length;
             width = larger * 11;
-            html += '<div class="tile_td"><div class="tile_box" style="width: ' + (width + 80) + 'px;"><img src="/' + at.htmlspecialchars(at.me.results[i].serv_prov) + '.png" style="margin-top: 4px; float:left;"><span style="font-size: 22px; text-align: left; float: left;  margin-left: 10px; margin-top: 8px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; width: ' + width + 'px;"><u><a href="#" style="color: white;" onclick=\'at.enable_me_results = 0; at.me.play.' + at.htmlspecialchars(at.me.results[i].serv_prov) + '.serv_res = at.me.results[' + i + ']["serv_res"]; at.me.play.' + at.htmlspecialchars(at.me.results[i].serv_prov) + '.main();\' title="' + at.htmlspecialchars(at.me.results[i]["q"]) + '">' + at.htmlspecialchars(at.me.results[i]["q"]) + '</a></u><br>-&nbsp;' + (at.me.results[i].serv_prov == "fshared" ? "4shared" : at.htmlspecialchars(at.me.results[i].serv_prov)) + '</span></div></div>';
+            html += '<tr><td class="' + h + '"><img src="/' + at.htmlspecialchars(at.me.results[i].serv_prov) + '.png" style="float: left;">&nbsp;<span style="font-size: 22px; "><u><a href="#" style="color: black;" onclick=\'at.enable_me_results = 0; at.me.play.' + at.htmlspecialchars(at.me.results[i].serv_prov) + '.serv_res = at.me.results[' + i + ']["serv_res"]; at.me.play.' + at.htmlspecialchars(at.me.results[i].serv_prov) + '.main();\' title="' + at.htmlspecialchars(at.me.results[i]["q"]) + '">&nbsp;' + at.htmlspecialchars(at.me.results[i]["q"]) + '&nbsp;-&nbsp;' + (at.me.results[i].serv_prov == "fshared" ? "4shared" : at.htmlspecialchars(at.me.results[i].serv_prov)) + '</a></u></span></td></tr>';
         }
-        html += '<div class="tile_td"><div class="tile_box" style="width: 300px;"><div style="height: 50px; float: left;">&nbsp;</div><span style="font-size: 22px; text-align: left; float: left;  margin-left: 10px; margin-top: 8px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; width: 209px;"><form id="me_search" onsubmit="at.me.me_search(); return false;" style="margin: 0px; white-space: nowrap; padding: 0px; display: block;"><input name="me_q" style="width: 200px; float: left; margin: 0px; white-space: nowrap; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; text-align: center; display: block; background: #7D7E7D; color: white; border: 1px solid gray; -moz-border-radius: 15px; border-radius: 15px;"></form></span><a href="#" onclick="at.me.me_search();"><img src="/search.png" style="float:left; margin-top: 8px;"></a></div></div>';
-        html += '</div></div>';
-        document.getElementById(tid).innerHTML = html;
+
+        html += '</table>';
+        document.getElementById("atp-main-right-content").innerHTML = html;
         if(!netjs.http.lock && !at.me.final_tiles){
             at.me.final_tiles = 1;
         }
@@ -450,6 +461,24 @@ without searching for it.
             //Output HTML.
             if(at.me.play.soundcloud.serv_res != null){
                 html = '<p><iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F' + at.htmlspecialchars(at.me.play.soundcloud.serv_res) + '&show_artwork=true&auto_play=true&buying=flase&liking=false&show_comments=false&show_user=false&sharing=false&show_playcount=false"></iframe>';
+                document.getElementById("atp-main-middle-music-content").innerHTML = html;
+            }
+        };
+    };
+
+    this.exfm = new function(){
+        this.track_i = null;
+        this.pl_i = null;
+        this.callback_name = null;
+        this.serv_res = null;
+        this.tile_list = null;
+        this.main = function(){
+            //Output HTML.
+            if(at.me.play.exfm.serv_res != null){
+				/*
+                html = '<p><iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F' + at.htmlspecialchars(at.me.play.soundcloud.serv_res) + '&show_artwork=true&auto_play=true&buying=flase&liking=false&show_comments=false&show_user=false&sharing=false&show_playcount=false"></iframe>';
+				*/
+				html = '<embed type="application/x-shockwave-flash" src="http://www.google.com/reader/ui/3523697345-audio-player.swf" flashvars="audioUrl=' + at.me.play.exfm.serv_res + '&autoPlay=true" width="400" height="27" quality="best"></embed>';
                 document.getElementById("atp-main-middle-music-content").innerHTML = html;
             }
         };
@@ -1106,6 +1135,101 @@ fandub add to
             at.me.future_callback(at.me.search.fshared.p["callback_name"]);
         };
     };
+
+    this.exfm = new function(){
+    /*
+    Limitations
+    -------------
+    API call restrictions
+    */
+        //Params section.
+        this.p = [];
+
+    	this.limit = 10;
+		this.result = null;
+
+        this.main = function(){
+
+            query = at.me.search.exfm.p["q"];
+			url = "http://ex.fm/api/v3/song/search/" + encodeURIComponent(query) + "?start=0&results=" + encodeURIComponent(at.me.search.exfm.limit);
+            
+			if(window.XMLHttpRequest){ // Mozilla, Safari, ...
+                httpRequest = new XMLHttpRequest();
+            } else if (window.ActiveXObject){ // IE
+                  try {
+                    httpRequest = new ActiveXObject("Msxml2.XMLHTTP");
+                  } 
+                  catch (e) {
+                    try {
+                      httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+                    } 
+                    catch (e) {}
+                  }
+            }
+            
+            if (!httpRequest) {
+                at.me.ret = 0;
+                at.me.future_callback(at.me.search.exfm.p["callback_name"]);
+                return;
+            }
+            httpRequest.onreadystatechange = at.me.search.exfm.check_results;
+            httpRequest.open('GET', url);
+            httpRequest.send();
+        };
+        
+        this.check_results = function(){
+            if (httpRequest.readyState === 4) {
+                if (httpRequest.status === 200) {
+					at.me.search.exfm.proc_results(httpRequest.responseText);
+                }
+                else{
+                    at.me.search.exfm.proc_results(null);
+                }
+            }
+        };
+        
+        this.proc_results = function(r){
+            if(r == null){
+                at.me.ret = 0;
+            	at.me.future_callback(at.me.search.exfm.p["callback_name"]);
+                return;
+            }
+	
+            eval("r = " + r);
+
+			if(r["status_text"] == "OK" && r["status_code"] == "200"){
+				//alert("aaa");
+		        var results = [];
+				//alert(r["songs"].length);
+		        for(i = 0; i < r["songs"].length; i++){
+					if(r["songs"][i]["title"] != null && r["songs"][i]["artist"] != null && r["songs"][i]["url"] != null){
+						//alert("yes");
+				        //Add to real time results.
+				        res = at.me.new_result({"q": r["songs"][i]["title"], "serv_res": r["songs"][i]["url"], "serv_prov": "exfm"});
+				        at.me.results.push(res);
+				        
+				        //Add to all results.
+				        results.push(res);
+					}
+		        }
+		        
+		        //Return all results.
+		        if(results != []){
+		            at.me.ret = results;
+		        }
+			}
+            
+            //Final callback.
+            at.me.future_callback(at.me.search.exfm.p["callback_name"]);
+        };
+    };
+
+
+
+
+
+
+
     
     this.soundcloud = new function(){
     /*
@@ -1206,7 +1330,7 @@ fandub add to
         this.main = function(){
             query = at.urlencode(at.me.search.youtube.p["q"]);
             ip_addr = var_ip_address;
-            url = "http://gdata.youtube.com/feeds/api/videos?paid-content=false&safeSearch=strict&max-results=10&v=2&alt=json-in-script&format=5&callback=at.me.search.youtube.proc_results&q=" + query;
+            url = "http://gdata.youtube.com/feeds/api/videos?safeSearch=strict&max-results=10&v=2&alt=json-in-script&format=5&callback=at.me.search.youtube.proc_results&q=" + query;
         
             if(ip_addr.match(/[0-9]+[.][0-9]+[.][0-9]+[.][0-9]+/gi) != null){
                 url += "&restriction=" + at.urlencode(ip_addr);

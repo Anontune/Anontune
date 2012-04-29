@@ -129,6 +129,7 @@ color: white;
 <script src="/netjs/netjs.js"></script>
 <script src="/player/diff_match_patch.js"></script>
 <script>
+
 //alert(document.cookie);
 
 function c_test(){

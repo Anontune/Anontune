@@ -93,10 +93,18 @@ function onYouTubePlayerReady(playerId) {
         if(!at.pls[pl_i]["tracks"][track_i]["artist_name"].match(/^(\s*unknown\s*)|(\s+)$/i)){
         q += " - " + at.pls[pl_i]["tracks"][track_i]["artist_name"];
     }
+
+	/*
     at.me.search.youtube.p = {"start_index": 0, "q": q, "result_no": 5, "id": null, "callback_name": "at.me.search.soundcloud.main"};
     at.me.search.soundcloud.p = {"start_index": 0, "q": q, "result_no": 5, "id": null, "callback_name": "symbolic"};
     at.me.search.youtube.main();
-    }
+	*/
+    at.me.search.youtube.p = {"start_index": 0, "q": q, "result_no": 5, "id": null, "callback_name": "at.me.search.soundcloud.main"};
+    at.me.search.soundcloud.p = {"start_index": 0, "q": q, "result_no": 5, "id": null, "callback_name": "at.me.search.exfm.main"};
+	at.me.search.exfm.p = {"start_index": 0, "q": q, "result_no": 5, "id": null, "callback_name": "symbolic"};
+    at.me.search.youtube.main();
+	}
+    
     
     //Get image.
     if(at.enable_artist_art){
@@ -524,7 +532,7 @@ this.play_track = function(track_i, pl_i){ //YouTube player container ID.
         //&restriction="
         ip_addr = var_ip_address;
         
-        yt_api_call = "http://gdata.youtube.com/feeds/api/videos?paid-content=false&safeSearch=strict&max-results=1&v=2&alt=json-in-script&format=5&callback=atyt&q=" + query;
+        yt_api_call = "http://gdata.youtube.com/feeds/api/videos?safeSearch=strict&max-results=1&v=2&alt=json-in-script&format=5&callback=atyt&q=" + query;
         if(ip_addr.match(/[0-9]+[.][0-9]+[.][0-9]+[.][0-9]+/gi) != null){
             yt_api_call += "&restriction=" + at.urlencode(ip_addr);
         }
