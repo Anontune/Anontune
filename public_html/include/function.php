@@ -21,6 +21,18 @@
  
 require_once(dirname(__file__) . DIRECTORY_SEPARATOR . "../global.php");
 
+function valid_ref()
+{
+	global $root_url;
+	$ref = isset($_SERVER["HTTP_REFERER"]) ? $_SERVER["HTTP_REFERER"] : "";
+	$ref = parse_url($ref);
+	if($ref == FALSE) return 0;
+	if(!isset($ref["host"])) return 0;
+	$ref = $ref["host"];
+	if(strpos($root_url, $ref) === false) return 0;
+	return 1;
+}
+
 function is_empty($identifier)
 {
 	global $not_set;

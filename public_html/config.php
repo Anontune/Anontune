@@ -19,6 +19,8 @@
  * 
  */
 
+session_start();
+
 $not_set = "v0id";
 $xmlstr = @file_get_contents(dirname(__file__) . DIRECTORY_SEPARATOR . "../config.xml");
 $config = new SimpleXMLElement($xmlstr);

@@ -93,7 +93,7 @@ body
 	float: left;
 	padding-left: 8px; padding-right: 8px;
 	text-decoration: none;
-	font-size: 19px;
+	font-size: 14px;
 	font-family: sans-serif;
 }
 #footer

@@ -171,14 +171,14 @@ this.load_playlist = function(index){
                 var temp = "";
 temp = temp + "\r\n" + buf;
 temp = temp + "\r\n<tr id=\"" + row_id;
-temp = temp + "\">\r\n    <td id=\"" + cell_id;
+temp = temp + "\">\r\n    <td onmouseover=\"cell_bg = document.getElementById('" + cell_id + "a').style.backgroundColor; document.getElementById('" + cell_id + "a').style.backgroundColor='white'; document.getElementById('" + cell_id + "b').style.backgroundColor='white';\" onmouseout=\"document.getElementById('" + cell_id + "a').style.backgroundColor=cell_bg; document.getElementById('" + cell_id + "b').style.backgroundColor=cell_bg;\" id=\"" + cell_id;
 temp = temp + "a\" class=\"atp-main-cell " + cell_class;
 temp = temp + "\" width=\"" + left_cell_width;
 temp = temp + "px\">\r\n        <span class=\"atp-main-list\">\r\n            <a style='margin-left: 1px;' href=\"#\" onclick=\"at.enable_me_results = 1; if(at.me.play_track(" + i;
 temp = temp + ", " + container;
 temp = temp + ")) " + change_background;
 temp = temp + "\">" + title_safe;
-temp = temp + "</a>\r\n        </span>\r\n    </td>\r\n    <td id=\"" + cell_id;
+temp = temp + "</a>\r\n        </span>\r\n    </td>\r\n    <td onmouseover=\"cell_bg = document.getElementById('" + cell_id + "a').style.backgroundColor; document.getElementById('" + cell_id + "a').style.backgroundColor='white'; document.getElementById('" + cell_id + "b').style.backgroundColor='white';\" onmouseout=\"document.getElementById('" + cell_id + "a').style.backgroundColor=cell_bg; document.getElementById('" + cell_id + "b').style.backgroundColor=cell_bg;\" id=\"" + cell_id;
 temp = temp + "b\" class=\"atp-main-cell " + cell_class;
 temp = temp + "\">\r\n        <span class=\"atp-main-list\">\r\n            <a href=\"#\" onclick=\"if(at.me.play_track(" + i;
 temp = temp + ", " + container;
@@ -281,7 +281,7 @@ this.load_playlists = function(){
             var temp = "";
 temp = temp + "\r\n" + buf;
 temp = temp + "\r\n<tr id=\"" + row_id;
-temp = temp + "\">\r\n    <td class=\"atp-main-cell " + cell_class;
+temp = temp + "\">\r\n    <td onmouseover=\"cell_bg = this.style.backgroundColor; this.style.backgroundColor='white'\" onmouseout=\"this.style.backgroundColor=cell_bg;\" class=\"atp-main-cell " + cell_class;
 temp = temp + "\" id=\"" + cell_id;
 temp = temp + "\">\r\n        <span class=\"atp-main-list\">\r\n            <img src=\"" + var_image_path + p[i]["type"];
 temp = temp + ".png\" style=\"float: left; position: relative; top: 2px; margin-right: 2px;\"><a href=\"#\" onclick=\"document.search.q.value = ''; at.search_filter();" + p[i]["onclick"];

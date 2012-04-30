@@ -286,7 +286,7 @@ this.output_tiles = function(){
             width = larger * 11;
             title_table_width += larger;
         }
-		html = '<table border="0"><tr><td><a href="#" onclick="if(at.pl_i != null) { at.enable_me_results = 0; at.player.skin.load_playlist(at.pl_i); document.getElementById(\'atp-main-right-content\').scrollTop = at.me.pl_scroll; }">Close</a></td></tr>';
+		html = '<table border="0"><tr><td><a href="#" onclick="if(at.pl_i != null) { at.enable_me_results = 0; at.player.skin.load_playlist(at.pl_i); document.getElementById(\'atp-main-right-content\').scrollTop = at.me.pl_scroll; }">Close results</a></td></tr>';
         if(netjs.http.lock){
             //html += '<div class="tile_td"><div class="tile_box" style="width: 70px; "><img src="loading.gif"></div></div>';
         }
@@ -297,7 +297,7 @@ this.output_tiles = function(){
 			h = cl[h];
             larger = at.me.results[i]["q"].length > at.me.results[i].serv_prov.length ? at.me.results[i]["q"].length : at.me.results[i].serv_prov.length;
             width = larger * 11;
-            html += '<tr><td class="' + h + '"><span style="font-size: 15px; "><a href="#" style="color: black;" onclick=\'at.enable_me_results = 0; at.me.play.' + at.htmlspecialchars(at.me.results[i].serv_prov) + '.serv_res = at.me.results[' + i + ']["serv_res"]; at.me.play.' + at.htmlspecialchars(at.me.results[i].serv_prov) + '.main();\' title="' + at.htmlspecialchars(at.me.results[i]["q"]) + '"><img src="/' + at.htmlspecialchars(at.me.results[i].serv_prov) + '.png" style="float: left; margin-top: 2px;">&nbsp;' + at.htmlspecialchars(at.me.results[i]["q"]) + '</a></span></td></tr>';
+            html += '<tr><td onmouseover="cell_bg = this.style.backgroundColor; this.style.backgroundColor=\'white\'" onmouseout="this.style.backgroundColor=cell_bg;" class="' + h + '"><span style="font-size: 15px; "><a href="#" style="color: black;" onclick=\'at.enable_me_results = 0; at.me.play.' + at.htmlspecialchars(at.me.results[i].serv_prov) + '.serv_res = at.me.results[' + i + ']["serv_res"]; at.me.play.' + at.htmlspecialchars(at.me.results[i].serv_prov) + '.main();\' title="' + at.htmlspecialchars(at.me.results[i]["q"]) + '"><img src="/' + at.htmlspecialchars(at.me.results[i].serv_prov) + '.png" style="float: left; margin-top: 2px;">&nbsp;' + at.htmlspecialchars(at.me.results[i]["q"]) + '</a></span></td></tr>';
         }
 
         html += '</table>';

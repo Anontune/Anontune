@@ -1133,12 +1133,14 @@ while(1) //Makes error handling easier.
 						}
 						break;
 					case "insert_rating":
+						break;
 						if(chk_glob("type,target_id,amount,username", $_GET))
 						{
 							$return_value = insert_update_rating($type, $target_id, $amount, "", $c);
 						}
 						break;
 					case "update_rating":
+						break;
 						$min = 1;
 						chk_glob("type,target_id,amount", $_GET, $min);
 						if(chk_glob("id,username", $_GET))
@@ -1147,25 +1149,26 @@ while(1) //Makes error handling easier.
 						}
 						break;
 					case "delete_rating":
+						break;
 						if(chk_glob("id,username", $_GET))
 						{
 							$return_value = delete_rating($id, $c);
 						}
 						break;
 					case "insert_playlist":
-						if(chk_glob("name,parent_id,cmd,username", $_GET))
+						if(chk_glob("name,parent_id,cmd,username", $_GET) && valid_ref())
 						{
 							$return_value = insert_update_playlist($name, $parent_id, $cmd, "", $c);
 						}
 						break;
 					case "update_playlist":
-						if(chk_glob("name,parent_id,cmd,id,username", $_GET))
+						if(chk_glob("name,parent_id,cmd,id,username", $_GET) && valid_ref())
 						{
 							$return_value = insert_update_playlist($name, $parent_id, $cmd, $id, $c);
 						}
 						break;
 					case "delete_playlist":
-						if(chk_glob("id,username", $_GET))
+						if(chk_glob("id,username", $_GET) && valid_ref())
 						{
 							$return_value = delete_playlist($id, $c);
 						}
@@ -1178,7 +1181,7 @@ while(1) //Makes error handling easier.
 						$db_escape = 0;
 						//THESE PARAMETERS ARE NOT DB ESCAPED.
 						chk_glob($opt, $_GET, $min, $db_escape);
-						if(chk_glob("title,artist_name,playlist_id,username", $_GET, "", $db_escape))
+						if(chk_glob("title,artist_name,playlist_id,username", $_GET, "", $db_escape) && valid_ref())
 						{
 							$return_value = insert_update_track($title, $artist_name, $playlist_id, $album_title, $genre, $year, $time_played, $play_count, $skip_count, $time_skipped, $time_added, $rating_amount, $service_provider, $service_resource, $number, "", $c);
 						}
@@ -1191,7 +1194,7 @@ while(1) //Makes error handling easier.
 						$min = 1;
 						$db_escape = 0;
 						//THESE PARAMETERS ARE NOT DB ESCAPED.
-						if(chk_glob($opt, $_GET, $min, $db_escape))
+						if(chk_glob($opt, $_GET, $min, $db_escape) && valid_ref())
 						{
 							if(chk_glob("id,username", $_GET, "", $db_escape))
 							{
@@ -1200,7 +1203,7 @@ while(1) //Makes error handling easier.
 						}
 						break;
 					case "delete_track":
-						if(chk_glob("id,username", $_GET))
+						if(chk_glob("id,username", $_GET) && valid_ref())
 						{
 							$return_value = delete_track($id, $c);
 						}
