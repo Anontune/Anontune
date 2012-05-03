@@ -24,14 +24,6 @@ require_once(dirname(__file__) . DIRECTORY_SEPARATOR . "../global.php");
 function valid_ref()
 {
 	global $root_url;
-	if(isset($SERVER["REMOTE_ADDR"]))
-	{
-		if($SERVER["REMOTE_ADDR"] == "127.0.0.1" || $SERVER["REMOTE_ADDR"] == "78.46.172.17")
-		{
-			return 1;
-		}
-	}
-
 	$ref = isset($_SERVER["HTTP_REFERER"]) ? $_SERVER["HTTP_REFERER"] : "";
 	$ref = parse_url($ref);
 	if($ref == FALSE) return 0;
