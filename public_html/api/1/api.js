@@ -138,6 +138,7 @@ $(function(){
 					target = api_helper_queue[i];
 					target.busy = false;
 					var jsonobj = JSON.parse(response);
+					alert(target.reference);
 					target.callback(target.reference, jsonobj);
 					pop_queue();
 				}
