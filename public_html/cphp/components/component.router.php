@@ -11,7 +11,7 @@
  * licensing text.
  */
 
-cphp_dependency_provides("cphp_router", "1.0");
+cphp_dependency_provides("cphp_router", "1.1");
 
 class CPHPRouter extends CPHPBaseClass
 {
