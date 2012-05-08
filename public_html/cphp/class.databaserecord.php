@@ -31,6 +31,7 @@ abstract class CPHPDatabaseRecordClass extends CPHPBaseClass
 	public function __construct($uDataSource)
 	{
 		$this->ConstructDataset($uDataSource);
+		$this->EventConstructed();
 	}
 	
 	public function ConstructDataset($uDataSource, $uCommunityId = 0)
@@ -346,6 +347,8 @@ abstract class CPHPDatabaseRecordClass extends CPHPBaseClass
 					$this->sId = mysql_insert_id();
 				}
 				
+				$this->PurgeCache();
+				
 				return $result;
 			}
 			else
@@ -426,4 +429,8 @@ abstract class CPHPDatabaseRecordClass extends CPHPBaseClass
 		
 		return $export_array;
 	}
+	
+	// Define events
+	
+	protected function EventConstructed() { }
 }
