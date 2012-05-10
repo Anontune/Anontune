@@ -20,7 +20,7 @@
  */
 
 $not_set = "v0id";
-$xmlstr = @file_get_contents(dirname(__file__) . DIRECTORY_SEPARATOR . "../config.xml");
+$xmlstr = @file_get_contents("/etc/anontune/config.xml");
 $config = new SimpleXMLElement($xmlstr);
 
 $script_home_path = realpath(dirname(__FILE__) . DIRECTORY_SEPARATOR . "..");
