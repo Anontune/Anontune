@@ -1,0 +1,149 @@
+_locale;									en_US.UTF-8,en_US
+_datetime_short;							%d/%m/%Y %H:%M:%S
+_datetime_long;								%A %B %d, %Y %H:%M:%S
+_date_short;								%d/%m/%Y
+_date_long;									%A %B %d, %Y
+_time;										%H:%M:%S
+		
+event-now;									jetzt
+event-future;								in der Zukunft
+event-past;									in der Vergangenheit
+event-1second-ago;							vor 1 Sekunde
+event-seconds-ago;							vor %1$d Sekunden
+event-1minutes-ago;							vor 1 Minute
+event-minutes-ago;							vor %1$d Minuten
+event-1hour-ago;							vor 1 Stunde
+event-hours-ago;							vor %1$d Stunden
+event-1day-ago;								vor 1 Tag
+event-days-ago;								vor %1$d Tagen
+event-1week-ago;							vor 1 Woche
+event-weeks-ago;							vor %1$d Wochen
+event-1month-ago;							vor 1 Monat
+event-months-ago;							vor %1$d Monaten
+event-1year-ago;							vor 1 Jahr
+event-years-ago;							vor %1$d Jahren
+
+title-home;									Home
+title-login;								Einloggen
+title-register;								Registrieren
+title-logout;								Ausloggen
+title-demo;									Demo
+title-about;								Über Anontune
+title-contribute;							Mitwirken
+title-irc;									Sprich zu uns im IRC
+
+main-sup;									(sehr beta)
+main-button-home;							Home
+main-button-login;							Einloggen
+main-button-logout;							Ausloggen
+main-button-player;							Gehe zum Player
+main-button-register;						Registrieren
+main-button-demo;							Demo
+main-button-about;							Über
+main-button-tools;							Werkzeuge
+main-button-contribute;						Mitwirken
+main-button-irc;							Sprich zu uns!
+main-footer;								Bist du ein Entwickler? Fork Anontune und arbeite am Projekt mit! Du findest unsere Entwickler Wiki <a href="http://dev.Anontune.com/">hier</a>.
+
+home-header;								Der neue Weg Musik zu finden.
+home-button1;								Probiere Anontune ohne Registrierung
+home-button2;								Registriere Dich für Anontune - Es ist Kostenlos!
+home-button3;								Einloggen fur dein Anontune Konto
+home-h1;									Völlig kostenlos, ohne Berechnung.
+home-p1;									Wir berechnen Dir nichts für die Benutzung von Anontune. Es ist vollkommen und gänzlich frei. Keine Fallen, keine versteckten Kosten, keine Premium Abos.
+home-h2;									Importiere Playlisten direkt von deinem iPod.
+home-p2;									Wolltest Du schon immer sofort deine Musik auf Deinem iPod mit Deinen Freunden teilen, ohne das Ihr es irgendwo Hochladen müsst? Lade einfach Deine iPod-Musik-Datenbank und Anontune wird den Rest erledigen - Und das tolle daran, es wird nur ein paar Minuten dauern!
+home-h3;									Höre Musik aus verschiedenen Quellen.
+home-p3;									Anontune hostet keine Musikdaten. Es sucht nach Musik auf Youtube, Soundcloud und anderen Webseiten. Die Weiterentwicklung hört niemals auf, und in der Zukunft werden viele weitere Quellen hinzugefügt.
+notfound-header;							Diese Seite existiert nicht.
+notfound-p1a;								Du steigst in den Bach, aber das Wasser hat sich weiterentwickelt.
+notfound-p1b;								Wenn Du glaubst, etwas fehlt hier , dann wende Dich bitte an <a href="/irc/">Kontakt</a>.
+notfound-p2;								Willst Du mehr Wissen?
+notfound-button;							Gehe zu Anontune!
+about-header;								Über Anontune
+tools-header;								Anontune Werkzeuge
+contribute-header;							Mitwirken an Anontune
+contribute-h1;								Bist Du ein Entwickler?
+contribute-p1;								Wir begrüßen die Hilfe von Entwicklern sehr. Wenn Du weisst, wie mit HTML, CSS, Javascript, PHP, Python umzugehen ist, dann schreibe uns. Wenn Du beim Parsen von Daten sehr erfahren bist, dann kontaktiere uns auf jeden Fall. Du findest uns in unserem <a href="/irc/"> IRC-Channel</ a>, <a href="mailto:Anontune@gmail.com"> oder sende uns einfach eine Email </ a>. Wir haben auch eine Git-Repository und entsprechenden Trac Setup unter <a href="http://dev.Anontune.com/"> dev.Anontune.com </ a>.
+contribute-h2;								Benutzer Feedback
+contribute-p2;								Gibt es etwas was du richtig magst, oder etwas was du nicht magst, oder sollte Deiner Meinung nach etwas hinzugefügt werden? Oder gibt es etwas anderes was Du den Entwicklern sagen möchtest? Dann Kontaktiere uns in unserem <a href="/irc/"> IRC Channel</a> oder per <a href="mailto:Anontune@gmail.com">Email</a>. 
+contribute-h3;								Finanzielle Spenden
+contribute-h3a;								Bitcoin
+contribute-p3a1;							Sehr Anonymous
+contribute-p3a2;							1Cw88g4o9n9Fpj8NchR4Lovp69A7yBgLJY
+contribute-h3b;								Flattr
+contribute-p3b1;							Irgendwie Anonymous
+contribute-h3c;								PayPal
+contribute-p3c1;							Nicht Anonymus im geringsten Sinn
+contribute-p3c2;							Die Möglichkeit per PayPal zu spenden kommt bald.
+contribute-h3d;								Andere Möglichkeiten
+contribute-p3d;								Um über andere Möglichkeiten zu spenden, <a href="/irc/">Kontaktiere uns</a>.
+demo-header;								Probiere Anontune ohne Registrierung.
+demo-intro;									Willst Du Anontune ausprobieren, aber willst dich nicht Registrieren bis Du sicher bist, dass Du es magst? Wähle einfach eins der Demo Profile für einen schnellen Testlauf. Allerdings kannst du diese Demo Profile als Demo User nicht verändern; Die Registrierung ist Kostenlos!
+demo-h1;									Top 100
+demo-p1;									Für eine einfache Demonstration eines Profils mit einer Playlist und ein paar Tranks schau dir den <em>Demo</em> Account an.
+demo-button1;								Höre dir diese Demo Playlist an &gt;&gt;
+demo-h2;									Pop & Elektronik
+demo-p2;									Für ein Profil mit überwiegend Pop, Dance und Trance probiere das <em>Mainstream</em> Profil.
+demo-button2;								Höre dir diese Demo Playlist an &gt;&gt;
+demo-h3;									Klassik
+demo-p3;									Für eine Playlist mit Klassischer Musik, probiere das <em>Klassik</em> Profil.
+demo-button3;								Höre dir diese Demo Playlist an &gt;&gt;
+irc-header;									Sprich mit uns im IRC!
+irc-intro;									Hast Du Vorschläge, Fragen, Kritik oder möchtest ein Feature hinzugefügt haben - oder möchtest Du nur ein bisschen mit den Entwicklern oder anderen Anontune Usern Chaten? Besuche uns im IRC! 
+irc-h1;										Webchat
+irc-p1;										Wenn u kein IRC Client hast (oder nicht weisst was IRC ist) kannst Du auch unseren Webchat nutzen. Du musst nichts Downloaden oder Installieren der Webchat läuft in deinem Browser.
+irc-button1;								Benutze den Webchat
+irc-h2;										Mit deinem eigenem Client
+irc-p2;										Wenn du bereits einen IRC CLient hast, kannst Du dich einfach mit <em>irc.cryto.net</em> verbinden und unseren Channel #anontune besuchen. Einfache Verbindungen sind über den Port 6667 und SSL Verbindungen über den Port 6697 möglich. Dort kannst du auch noch mehr über Informationen über das Cryto IRC Netzwerk erfahren z.B. Netzwerk Regeln oder einer Liste von Räumen die die besuchen kannst.
+irc-button2a;								Mehr Informationen &gt;&gt;
+irc-button2b;								Verbinde
+login-header;								Einloggen für Anontune.
+login-label-username;						Benutzername
+login-label-password;						Passwort
+login-button;								Einloggen
+login-success-header;						Du wurdest eingeloggt.
+login-success-button;						Fortfahren zum Player &gt;&gt;
+login-success-title;						Erfolgreich eingeloggt!
+login-success-message;						Du wurdest erfolgreich bei deinem Anontune Account angemeldet.
+login-error-missing-title;					Erforderliche Felder fehlen
+login-error-missing-message;				Ein oder mehr Felder wurden nicht ausgefüllt. Es sind alle Felder erforderlich.
+login-error-user-title;						Benutzer existiert nicht.
+login-error-user-message;					Entschuldigung dieser Nutzername existiert nicht. Wenn Du dich registrieren willst dann <a href=\"/register/\">klicke hier</a>.
+login-error-password-title;					Falsches Passwort
+login-error-password-message;				Entschuldigung dieses Passwort ist falsch, Probiere es noch einmal.
+register-header;							Registriere dich für Anontune.
+register-label-username;					Benutzername
+register-label-password;					Passwort
+register-label-verify;						Überprüfen
+register-label-captcha;						Captcha
+register-hint-username;						a-z, A-Z, 0-9, max. 30 Buchstaben
+register-hint-password;						min. 8 Buchstaben
+register-hint-verify;						Wiederhole da Password
+register-button;							Register
+register-success-header;					Danke für die Registrierung
+register-success-button;					Weiter zum Player &gt;&gt;
+register-success-title;						Erfolgreich Registriert!
+register-success-message;					Dein Account wurde erfolgreich erstellt! Du bist jetzt eingeloggt.
+register-error-nocaptcha-title;				Fehlendes captcha
+register-error-nocaptcha-message;			Sie haben kein captcha eingetragen. Bitte probiere es nochmal.
+register-error-captcha-title;				Falsches captcha
+register-error-captcha-message;				Du hast nicht das richtige Captcha eingetragen. Bitte probiere es nochmal.
+register-error-missing-title;				Erforderliche Felder fehlen.
+register-error-missing-message;				Ein oder mehr Felder wurden nicht ausgefüllt. Es sind alle Felder erforderlich.
+register-error-toolong-title;				Benutzername zu lang.
+register-error-toolong-message;				Der Benutzername den du eingetragen hast ist zu lang. Er darf nicht länger als 30 Buchstaben sein.
+register-error-tooshort-title;				Passwort zu kurz
+register-error-tooshort-message;			Dein Passwort ist zu kurz. Es muss mindestens 8 Buchstaben haben.
+register-error-nomatch-title;				Passwörter stimmen nicht überein
+register-error-nomatch-message;				Die Passworter die Du eingetragen hast stimmen nicht überein. Bitte probiere es nochmal.
+register-error-begin-title;					Falscher Benutzername
+register-error-begin-message;				Dein Benutzername muss mit einer Zahl oder einem Buchstaben beginnen.
+register-error-username-title;				Falscher Benutzername
+register-error-username-message;			Der Benutzername enthält falsche Zeichen. Bitte nur Buchstaben a-z, A-Z, 0-9, und spezielle Zeichen -_[]{}\|`^ verwenden
+register-error-taken-title;					Benutzername bereits vergeben
+register-error-taken-message;				Der Benutzername ist bereits in Benutzung und steht nicht mehr zur Registrierung bereit. Bitte wähle einen anderen Benutzernamen.
+
+logout-header;								Ausgeloggt.
+logout-title;								Erfolgreich Ausgeloggt.
+logout-message;								Du hast dich von Anontune ausgeloggt, Du besuchst die Seite nun als Gast.

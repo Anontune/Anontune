@@ -3,6 +3,7 @@
 	<head>
 		<title>Anontune - <%?title></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="Description" content="The open social music platform.">
 		<link href='http://fonts.googleapis.com/css?family=Paytone+One|Cantarell:400,700|PT+Sans+Caption:400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="/css/kickstart.css">
 		<link rel="stylesheet" type="text/css" href="/css/style.css?8">
