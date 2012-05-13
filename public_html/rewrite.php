@@ -61,6 +61,7 @@ if(empty($force_index))
 			'^/(login_register\.php)$'				=> "module.legacy.php",
 			'^/login\.php\?action=(logout)$'		=> "module.legacy.php",
 			'^/09/04/2012/(import-ipod)/?$'			=> "module.legacy.php",
+			'^/contact/?$'							=> "module.contact.php",
 			'^/user\.php\?username=(.+)$'			=> "module.notfound.php"
 		),
 		1 => array(

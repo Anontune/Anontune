@@ -40,11 +40,6 @@
 			<div class="wrapper">
 				<ul class="menu no-style-menu">
 					<li <%?set-home>><a href="/">Home</a></li>
-					<li <%?set-demo>><a href="/demo/">
-						<span class="icon small" data-icon="A"></span>
-						<%!main-button-demo>
-					</a></li>
-					<%?menu-user>
 					<li <%?set-about>>
 						<a href="/about/">
 							<span class="icon small" data-icon="i"></span>
@@ -54,6 +49,15 @@
 							<%?menu-about>
 						</ul>
 					</li>
+					<li <%?set-demo>><a href="/demo/">
+						<span class="icon small" data-icon="A"></span>
+						<%!main-button-demo>
+					</a></li>
+					<li <%?set-demo>><a href="/forum">
+						<span class="icon small" data-icon="u"></span>
+						Forum
+					</a></li>
+					<%?menu-user>
 					<li <%?set-tools>>
 						<a href="/tools/">
 							<span class="icon small" data-icon="Z"></span>
@@ -67,9 +71,9 @@
 						<span class="icon small" data-icon="h"></span>
 						<%!main-button-contribute>
 					</a></li>
-					<li <%?set-irc>><a href="/irc/" class="highlighted">
-						<span class="icon small" data-icon='"'></span>
-						<%!main-button-irc>
+					<li <%?set-irc>><a href="/contact/">
+						<span class="icon small" data-icon='8'></span>
+						Contact
 					</a></li>
 				</ul>
 			</div>
