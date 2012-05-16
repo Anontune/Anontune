@@ -17,8 +17,11 @@
  *  
  */
  
+
 /*
-Description: The Anontune API.
+This module provides the API for Anontune. It consists of a series of functions, each of which is probably an API call. All API calls go to this module e.g. api.php?c=apicallname&parm1=test&param2=test. A table of cases is used to handle each API call name based on the c parameter. Hence this allows for API calls to have variable names and arguments for flexibility. An API call may be privileged or unprivileged. If it's privileged it will need a way to authenticate against a user. Each user has a different access level and there is a simple access matrix for privileged API calls. At the bottom of this module is the handler part which decides which API call to make. Each API call can return api_failure in which case there will be an error, or api_success which may or may not include data. All data (if any) is returned as JSON. API calls here may also be called as standalone functions. 
+
+This module needs to be fixed to use sessions and API keys. Another problem with it has been described as "register globals light" referring to the way API parameters are placed into globally defined variables in this module. Not a good idea. Currently there are also security issues including CSRF. It's possible this module will be thrown out in the future, however it's advisable to try fix it rather than throw it out considering this file is more than a thousand lines long. There is also the eval()s here which need to be removed. This module really needs to be object orientated. The API functions also need to be reprototyped to take a params variable (should be easy.)
 
 Guidelines: 
 * Naming is from the perspective of call. For example get_artist doesn't take a parameter called artist_name, no, it takes something called name, because it obviously refers to the artist name.
@@ -35,6 +38,7 @@ Todo:
 * Refractor.
 * Developer keys.
 * Params parameter for api functions.
+* Sessions
 
 */
 set_time_limit(0);
@@ -54,6 +58,13 @@ if(empty($_GET["username"]))
 //Import functions that aren't API calls.
 function api_success($value="", $c="")
 {
+	/*
+	Takes an array and returns it as JSON.
+	The output is "pretty" and allows humans to read it.
+	Recent versions of PHP provide a function to do this but
+	that wasn't always the case.
+	*/
+
 	//Value must be an array.
 	if(!is_array($value))
 	{
@@ -91,6 +102,11 @@ function api_success($value="", $c="")
 }
 function api_failure($value="", $c="")
 {
+	/*
+	Takes an array holding an error message and
+	returns that as JSON.
+	*/
+
 	//Value must be an array.
 	if(!is_array($value))
 	{
@@ -118,6 +134,12 @@ function api_failure($value="", $c="")
 }
 
 #All possible parameters.
+/*
+Used by "register globals light" . . . These variables receive
+the value of the value connected to a key in an associative array. Currently
+this is used to easily extract data from the super globals $_GET array to pluck
+the API call's data and make it accessible bellow.
+*/
 $c = "";
 $username = "";
 $password = "";
@@ -151,8 +173,24 @@ $service_resource = "";
 
 //API functions.
 $return_value = api_failure(array("Invalid API call"), "main");
+/*
+Our first API function. Notice the $c parameter. It's used to indicate whether the function was
+called by the API or from an internal part of the code. If it's called from the API then the output should
+be JSON otherwise the output should be a normal PHP array. This allows the API functions to be used internally
+and externally. $c will contain the name of the API call -- c=api_call_name if it was called from
+the API, otherwise it will be empty "".
+*/
 function get_track($title, $artist_name, $playlist_id, $album_title, $genre, $year, $time_played, $play_count, $skip_count, $time_skipped, $time_added, $user_id, $music_id, $service_provider, $service_resource, $number, $id, $c="")
 {
+	/*
+	Return information for a track based on a track id. Here such information may be defined by using "qualifiers."
+	A qualifier is where you explicitly set which information to return e.g. title=1. By define, all of the
+	information is returned but if title were set to 1 then only the title would be returned. In the API handling
+	code qualifiers often appear for the get functions, and they are optional. What is not optional, however, is
+	the ID.
+
+	Used by the get_track API call.
+	*/
 	$table_name = "track";
 	$fields = array("id" => $id);
 	$id = mysql_exist_ab($table_name, $fields);
@@ -219,6 +257,11 @@ function get_track($title, $artist_name, $playlist_id, $album_title, $genre, $ye
 
 function get_artist($id, $c="")
 {
+	/*
+	Get an artist name based on an ID.
+
+	Used by the get_artist API call.
+	*/
 	if(is_numeric($id) == 0)
 	{
 		$name = $id;
@@ -237,6 +280,12 @@ function get_artist($id, $c="")
 
 function get_album($id, $c="")
 {
+	/*
+	Get an album name based on an ID.
+
+	Used by the get_album API call.
+	*/
+
 	if(is_numeric($id) == 0)
 	{
 		$title = $id;
@@ -256,6 +305,18 @@ function get_album($id, $c="")
 
 function add_artist($name, $c="")
 {
+	/*
+	Anontune retains two main sets of information for music:
+	The music table and the track table. The music table is all of our
+	unique information for music in the database. The track table is the
+	user's copy of their music. If a user adds a track we don't already
+	know about to their playlist then it is added to our music table, also.
+
+	What add_artist does is adds a unique artist to the artist table.
+
+	Used by the add_artist API call and the insert_update_track function.
+	*/
+
 	/*
 	No direct access for users.
 	*/
@@ -277,6 +338,13 @@ function add_artist($name, $c="")
 
 function add_album($title, $artist_id, $c="")
 {
+	/*
+	Adds a unique album to the album table. An album is owned by an
+	artist, hence this information is associated.
+
+	Used by the add_album API call and the insert_update_track function.
+	*/
+
 	/*
 	No direct access for users.
 	*/
@@ -307,6 +375,13 @@ function add_album($title, $artist_id, $c="")
 
 function add_music($title, $artist_id, $album_id, $c="")
 {
+	/*
+	A track is owned by an artist, and may be contained in an album.
+	This function adds a unique track to the music table.
+
+	Used by the add_music API call and the insert_update_track function.
+	*/
+
 	/*
 	No direct access for users.
 	*/
@@ -352,7 +427,16 @@ function add_music($title, $artist_id, $album_id, $c="")
 function insert_update_rating($type, $target_id, $amount, $id="", $c="")
 {
 	/*
-When a user rates a track their rating is against music not the track.
+	Users may rate their own tracks, however such a rating isn't against their music.
+	It's against our table of unique music which also includes a track such as their own.
+	Ratings shouldn't be done against user data. The main website should make reference to
+	user data but rather a main repository of such data. If we were to do it the other
+	way, when a user deletes their track, all the information refering to such a track
+	would be broken.
+
+	So: When a user rates a track their rating is against music not the track.
+
+	Used by insert_rating, update_rating, delete_rating API calls and insert_update_track function.
 	*/
 	global $user_id;
 	
@@ -476,6 +560,12 @@ When a user rates a track their rating is against music not the track.
 
 function delete_rating($id, $c="")
 {
+	/*
+	Deletes a user's rating against a main track. This function also adjusts averages and
+	stuff like that.
+
+	Used by delete_rating API call and insert_update_track function.
+	*/
 	global $user_id;
 	
 	//Get rating.
@@ -504,6 +594,15 @@ function delete_rating($id, $c="")
 
 function get_playlists($c="")
 {
+	/*
+	A user has a collection of lists for music called playlists and each playlist
+	may or may not have music associated with it. This function returns the names
+	of those lists based on a username. These names and IDs may then be used to
+	retrieve the playlist's actual content.
+
+	Used by the get_playlists API call.
+	*/
+
 	global $user_id;
 	$sql = "SELECT * FROM `playlist` WHERE `user_id`='$user_id'";
 	$row = mysql_get($sql);
@@ -518,6 +617,11 @@ function get_playlists($c="")
 
 function get_playlist($title, $artist_name, $album_title, $genre, $year, $time_played, $play_count, $skip_count, $time_skipped, $time_added, $service_provider, $service_resource, $number, $id, $c="")
 {
+	/*
+	Given a playlist ID return the tracks in it.
+
+	Used by the get_playlist API call.
+	*/
 	$table_name = "playlist";
 	$fields = array("id" => $id);
 	$id = mysql_exist_ab($table_name, $fields);
@@ -587,10 +691,14 @@ function get_playlist($title, $artist_name, $album_title, $genre, $year, $time_p
 
 function insert_update_playlist($name, $parent_id="0", $cmd="0", $id="", $c="")
 {
-/*
-This function breaks the API standard by returning
-an ID if it exists and not an error.
-*/
+	/*
+	Allows new playlists to be created, deleted, or updated.
+
+	This function breaks the API standard by returning
+	an ID if it exists and not an error.
+
+	Used by the insert_playlist, update_playlist, delete_playlist API calls.
+	*/
 	global $user_id;
 	
 	//Update playlist if it exists and belongs to user.
@@ -642,6 +750,12 @@ an ID if it exists and not an error.
 
 function delete_track($id, $c="")
 {
+	/*
+	Delete's a user's track from a playlist and any ratings that were made against it.
+	(Thereby updating the global track rating information.)
+
+	Used by the delete_track API call.
+	*/
 	global $user_id;
 	
 	//Check track exists.
@@ -676,6 +790,11 @@ function delete_track($id, $c="")
 
 function delete_playlist($id, $c="")
 {
+	/*
+	Deletes a playlist given it's ID.
+
+	Used by the delete_playlist API call.
+	*/
 	global $user_id;
 	
 	//Check it exists.
@@ -704,10 +823,16 @@ function delete_playlist($id, $c="")
 
 function insert_update_track($title, $artist_name, $playlist_id, $album_title, $genre, $year, $time_played, $play_count, $skip_count, $time_skipped, $time_added, $rating_amount, $service_provider, $service_resource, $number, $id="", $c="")
 {
-/*
-This function breaks the API standard by returning
-an ID if it exists and not an error.
-*/
+	/*
+	Allows a new track to be inserted or updated in an existing playlist.
+	Much of the information this function supports is optional, however at
+	the very least every track must have a name and artist.
+
+	This function breaks the API standard by returning
+	an ID if it exists and not an error.
+
+	Used by the insert_track and update_track API calls.
+	*/
 	global $user_id;
 	global $not_set;
 	
@@ -984,7 +1109,12 @@ an ID if it exists and not an error.
 
 function upload_ipod_db($username, $c="")
 {
+	/*
+	This function handles accepting an uploaded iPod database. It will create the required
+	directory structure on the server so other scripts can read and process that user's database.
 
+	Used by the upload_ipod_db API calls.
+	*/
 	global $user_id;
 	global $config;
 
@@ -1039,6 +1169,13 @@ function upload_ipod_db($username, $c="")
 }
 
 //Make calls.
+/*
+This code handles making the API calls. It unpacks all of the information in an API request or
+HTTP GET request and passes it on to the appropriate call. It will check the API call
+is allowed to run and exists, handling any errors that occur along the way. Note: This
+function doesn't actually run forever and none of the API calls are cached to prevent
+browser issues.
+*/
 while(1) //Makes error handling easier.
 {
 	chk_glob("c", $_GET);

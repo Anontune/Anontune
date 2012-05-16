@@ -1,3 +1,41 @@
+/*
+The Anontune player's code.
+
+The purpose of this code is to load and manipulate playlists of tracks in
+memory. It's organization looks like this:
+
+at - General namespace. Functions not specifically related to the player are here.
+at.api - Contains all stuff that interacts with the JSON API or api.php.
+at.player - Contains all the player related functions.
+at.player.add_track - Adds a track to a playlist.
+at.player.del_track - Delete a track from a playlist.
+at.player.edit_track - Edit track information for an existing track in a playlist.
+at.player.play_track - Don't use this.
+at.player.track_ended - Called when a track ends so at.player.next_track can be called.
+at.player.open_pl - Updates path information. In the future playlists will be hierarchical.
+at.player.add_pl - Add a new playlist.
+at.player.del_pl - Delete an existing playlist.
+at.player.edit_pl - Edit an existing playlist.
+at.player.load_pls - Loads all the playlists for a user into memory.
+at.player.load_pl - Loads all the track information for a playlist into memory.
+at.player.next_track - Play the next track in a playlist relative to the currently active track.
+at.player.prev_track - Play the previous track in a playlist relative to the currently active track.
+at.player.shuffle - Shuffle all the tracks in the active playlist.
+at.player.new_pl - Create a structure to hold a playlist.
+at.player.new_track - Create a structure to hold a track.
+at.skin - Skin namespace. All of the skin's code will be available through this namespace.
+
+Those aren't all the functions in this module but the main ones.
+
+Problems:
+* Because the API isn't asynchronous when the API is used it locks up the menu. I propose we queue
+all such API calls and have the interface update instantly regardless of what happens on the
+server.
+* Reorganize the code so it is clearer.
+*/
+
+
+
 function htmlspecialchars_decode (string, quote_style) {
     // http://kevin.vanzonneveld.net
     // +   original by: Mirek Slugen

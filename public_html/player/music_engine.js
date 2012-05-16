@@ -22,7 +22,21 @@
 /*
 The brain of Anontune.
 
-This code is pig disgusting, stop copy and pasting code you lazy assholes.
+This module enables the player to find music. The music engine consists of a number
+of components called "routes." Each route describes a way to find, filter, play, and
+optionally download music. A route for YouTube would enable the player to search
+YouTube for music and play it.
+
+Because not every place for music has an API that we can use, the music engine
+may also use sockets. Traditionally, this hasn't been possible with the web however
+new technology Anontune are working on allows this to be possible. There are routes
+here which use sockets. The 4shared route is an example. Currently only YouTube,
+Soundcloud and Last.fm are supported.
+
+This module is divied into the me namespace. Under this namespace there is a search,
+play, and filter namespace. Then, under those namespace the routes are defined.
+This module will have to be rewritten and rethought. It's too hard to update and
+manage.
 */
 
 me = new function(){
@@ -45,27 +59,32 @@ this.pl_i = null;
 this.q = null;
 
 this.kill_netjs_http_open = function(){
-/*
-The purpose of this function is to try
-and kill searching for alternative results
-which occurs per song request if and only if
-the user chooses another song.
+	/*
+	The purpose of this function is to try
+	and kill searching for alternative results
+	which occurs per song request if and only if
+	the user chooses another song.
 
-But it's kind of like trying to stop a car once
-it's going 200 mph -- it's gradual as you apply
-the breaks. We have to do that here because
-searching for multiple results at the same time
-causes conflicts.
+	But it's kind of like trying to stop a car once
+	it's going 200 mph -- it's gradual as you apply
+	the breaks. We have to do that here because
+	searching for multiple results at the same time
+	causes conflicts.
 
-See, normally when you write code you do
-so under the assumption that you actually
-want to complete what ever task you coded
-. . . but in this case the user potentially doesn't
-want to.
-*/
+	See, normally when you write code you do
+	so under the assumption that you actually
+	want to complete what ever task you coded
+	. . . but in this case the user potentially doesn't
+	want to.
+	*/
 }
 
 this.me_search = function(){
+/*
+This function isn't used but don't remove it in case
+I'm wrong.
+*/
+
     //Cleanup.
     at.me.results = [];
     at.me.results_no = null;
@@ -87,6 +106,16 @@ this.me_search = function(){
 
 //Wrapper 
 this.play_track = function(track_i, pl_i){
+	/*
+	Takes a track index in a playlist (defined by it's playlist index)
+	and uses auto play to play the song.
+
+	There is a function exactly like this in the player. Currently this
+	just uses that, and all the code refers to this instead of the one
+	in the player until a better auto-play function is implemented here.
+	*/
+
+
     //Are they trying to play the same song?
     /*if(at.me.track_i == track_i && at.me.pl_i == pl_i){
         alert("You've already selected this, dumbass.");
@@ -121,6 +150,11 @@ this.play_track = function(track_i, pl_i){
 }
 
 this.play_asynch_proc = function(){
+	/*
+	This function isn't currently used but don't delete it.
+	The 4shared route makes use of it to search 4shared.
+	*/
+
     //Kill current HTTP requests.
     if(netjs.http.lock && netjs.http.lock == 0){
         //Fuck up netjs.js.
@@ -167,6 +201,10 @@ this.play_asynch_proc = function(){
 }
 
 this.get_image = new function(){
+	/*
+	This function uses bing search to find images or
+	artists. It works but it's not currently in use. Don't delete this.
+	*/
     this.p = [];
     
     this.main = function(){
@@ -238,6 +276,10 @@ this.release_mutex = function(){
 }
 
 this.fina = function(){
+	/*
+	Call when all the search routes are done. It does nothing unless no
+	results were found.
+	*/
     if(!at.me.results.length){
         document.getElementById("atp-main-middle-music-tiles").innerHTML = '<center><div class="tile_table" style="width: 100%;"><div class="tile_tr"><center><div class="tile_td"><div style="width: 1px;">&nbsp;</div></div><div class="tile_td"><div style="width: 300px;" class="tile_box"><div style="height: 50px; float: left;"> </div><span style="font-size: 22px; text-align: left; float: left; margin-left: 10px; margin-top: 8px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; width: 209px;"><form style="margin: 0px; white-space: nowrap; padding: 0px; display: block;" onsubmit="at.me.me_search(); return false;" id="me_search"><input style="width: 200px; float: left; margin-top: 13px; white-space: nowrap; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; text-align: center; display: block; border: 1px solid gray; -moz-border-radius: 15px; border-radius: 15px; background: none repeat scroll 0% 0% rgb(125, 126, 125); color: white;" name="me_q"/></form></span><a onclick="at.me.me_search();" href="#"><img style="float: left; margin-top: 22px;" src="/search.png"/></a></div></div></center></div></div> </center>';
         document.getElementById("me_search")["me_q"].value = "Not found.";
@@ -246,6 +288,10 @@ this.fina = function(){
 }
 
 this.future_callback = function(callback_name){
+	/*
+	This function is used to allow a function to end and clean itself up without
+	allowing forgetting about passing control on.
+	*/
     if(callback_name == "symbolic") return;
     s = "setTimeout(function (){ eval(\"" + callback_name + "();\"); }, 50);";
     //alert(s);
@@ -271,6 +317,11 @@ this.new_result = function(p){
 }
 
 this.output_tiles = function(){
+	/*
+	Tile used to refer to the results in the horizontal black bar but it now refers
+	to outputting results in the vertical bar on the right (track bar.) This function
+	is called every x seconds to allow new results to appear in real time.
+	*/
     var l = at.me.results.length;
     var tid = "atp-main-middle-music-tiles";
     
@@ -313,6 +364,10 @@ this.output_tiles = function(){
 
 this.clean_html = function(s){
     //decodeURIComponent(html_entity_decode(result[1].replace(/\s+/gi, " ")));
+	/*
+	Converts data from HTML elements back to plain-text. There can be a lot of
+	crap like HTML symbols and stuff like that.
+	*/
     
     //Remove tags from text and convert symbols.
     html_tag = /<[^<>]+>/gi
@@ -326,6 +381,10 @@ this.clean_html = function(s){
 }
 
 this.like = function(s1, s2){
+/*
+Returns whether or not s1 is like s2 (similar.) Function
+is boolean.
+*/
     loc = 1;
     //dmp.Match_Distance = parseFloat(s1.length > s2.length ? s1.length : s2.length);
     dmp.Match_Distance = 5;
@@ -368,13 +427,13 @@ this.serv_lookup = {"1": "youtube", "youtube": "1"};
 
 
 this.reset_music_container = function(){
-/*
-The functions in the ME change the music
-container a lot and some of these changes
-may destroy things for future functions
-so this restores the state. Call it before
-outputting a new player.
-*/
+	/*
+	The functions in the ME change the music
+	container a lot and some of these changes
+	may destroy things for future functions
+	so this restores the state. Call it before
+	outputting a new player.
+	*/
     at.clear_element("atp-main-middle-music-content-yt");
     html = '<center><div id="atp-main-middle-music-content-yt"></div></center>';
     document.getElementById("atp-main-middle-music-content").innerHTML = html;
@@ -382,6 +441,13 @@ outputting a new player.
 };
 
 this.play = new function(){
+	/*
+	Play namespace. All routes take a resource and use individual methods to
+	paly that resource. This has been proven to cause inconsistent behavior so we will
+	probably use jPlayer if it can avoided through those means. This might be impossible for
+	routes like YouTube which insist on their own player and make it hard to use third
+	parties.
+	*/
     //this.serv_prov = null;
     //this.serv_res = null;
     //this.tile_list = null;
@@ -401,11 +467,12 @@ this.play = new function(){
                 html = '<center><p><embed src="' + at.htmlspecialchars(at.me.play.fshared.serv_res) + '" width="420" height="250" allowfullscreen="true" allowscriptaccess="always"  flashvars="autostart=true"></embed><p>If this stops working sign into your account at www.4shared.com. -- Registration is quick and free if you don\'t have an account. Do it, trust me it\'s worth it.';
                 document.getElementById("atp-main-middle-music-content").innerHTML = html;
             }
-/*
-Use global filter if specific one is undefined
-otherwise use them both. Global can always be
-turned off if undesirable.
-*//* Ignore all this crap for now.
+		/*
+		Use global filter if specific one is undefined
+		otherwise use them both. Global can always be
+		turned off if undesirable.
+		*/
+			/* Ignore all this crap for now.
             var filter = null;
             if(typeof(at.me.filter.fshared) == "undefined"){
                 filter = function(){ at.me.filter.globf.main(); };
@@ -525,6 +592,11 @@ without searching for it.
 
 
 this.filter = new function(){
+	/*
+	The global filter defines an algorithm used to filter irrelevant music results.
+	A route may define their own algorithm or use the global one which works well but
+	requires more research to avoid eliminating potentially valid results.
+	*/
     
     this.globf = new function(){
         //Params.
@@ -560,18 +632,16 @@ this.filter = new function(){
                         r_t.splice(k, 1);
                     }
                 }
-/*
-I know what you're thinking but this approach just seems stupid.
-The relevance of search results returned by YouTube, Google,
-Bing, etc, are not to be discarded based on their divergence from
-the stated query. This is because they are returned based on
-several metrics which would be thrown out if we go with this
-approach. I'm talking about behavioral approaches but let us
-test this theory. The qualifiers seem fine and go well with
-this filter.
-
-No prove me wrong faggot, im a genius
-*/
+				/*
+				I know what you're thinking but this approach just seems stupid.
+				The relevance of search results returned by YouTube, Google,
+				Bing, etc, are not to be discarded based on their divergence from
+				the stated query. This is because they are returned based on
+				several metrics which would be thrown out if we go with this
+				approach. I'm talking about behavioral approaches but let us
+				test this theory. The qualifiers seem fine and go well with
+				this filter.
+				*/
                 
                 //Count redundancy relative to q (rough.)
                 red_no = r_t.length; //Start at 100% redundancy.
@@ -620,23 +690,23 @@ No prove me wrong faggot, im a genius
                     /fandub/gi, /piano/i
                 ];
                 ///piano/i
-/*
-Todo: Code a tool that applies the filter to all your music. Store whether it got through or it didn't. Then look for false positives and false negatives and correct filter.
+				/*
+				Todo: Code a tool that applies the filter to all your music. Store whether it got through or it didn't. Then look for false positives and false negatives and correct filter.
 
-concat redundant terms by \s and then apply
+				concat redundant terms by \s and then apply
 
-False positives:
-original mix
-part 1
-original version
+				False positives:
+				original mix
+				part 1
+				original version
 
 
-Problems: Above regexs could potentially be parts of common
-words that are found which would be a false positive but making
-it more accurate you lose flexibility.
-piano, guitar, violin . . .etc?
-demo?
-*/
+				Problems: Above regexs could potentially be parts of common
+				words that are found which would be a false positive but making
+				it more accurate you lose flexibility.
+				piano, guitar, violin . . .etc?
+				demo?
+				*/
                 //Todo, catch artists with same song title
                 
                 //Apply dis-qualifiers.
@@ -683,45 +753,50 @@ demo?
 };
 
 this.meta_search = new function(){
-/*
-Todo: . . . In order to avoid warnings from the big
-search engines for automated queries we will instead use
-multiple search engines and switch between them. That way
-we aren't hitting one hard and there will be less probability
-of getting banned. Google offers 100 free API calls -- switch
-between this and normal Google search too -- switch up the
-queries.
+	/*
+	Todo: . . . In order to avoid warnings from the big
+	search engines for automated queries we will instead use
+	multiple search engines and switch between them. That way
+	we aren't hitting one hard and there will be less probability
+	of getting banned. Google offers 100 free API calls -- switch
+	between this and normal Google search too -- switch up the
+	queries.
 
-For now, just use bing. Haven't been able to reproduce the
-Bing captcha. Make sure to use regex on the captcha page
-for the image we found.
+	For now, just use bing. Haven't been able to reproduce the
+	Bing captcha. Make sure to use regex on the captcha page
+	for the image we found.
 
-I heard that Bing and Yahoo use the same results
-but would getting banned on one get you banned on the other?
-Suppose Yahoo could be a contender for the meta-search engine
-too.
+	I heard that Bing and Yahoo use the same results
+	but would getting banned on one get you banned on the other?
+	Suppose Yahoo could be a contender for the meta-search engine
+	too.
 
-But for now, avoid Google and use Bing. The meta-search engine
-is a future prospect. Bing is actually good enough for our
-purposes. Hopefully we don't get banned because then the
-alternative is 4shared search, which fucking sucks.
+	But for now, avoid Google and use Bing. The meta-search engine
+	is a future prospect. Bing is actually good enough for our
+	purposes. Hopefully we don't get banned because then the
+	alternative is 4shared search, which fucking sucks.
 
-Oh yeah -- solving the Google captcha needs cookies enabled
-so http.open will need a cookie engine. A captcha seems to
-give us a ~5 minute window for more searches and ~55 queries.
-These limits fluctuate wildly indicating we have no 
-fucking clue how the algorithm really works. lol true
-*/
+	Oh yeah -- solving the Google captcha needs cookies enabled
+	so http.open will need a cookie engine. A captcha seems to
+	give us a ~5 minute window for more searches and ~55 queries.
+	These limits fluctuate wildly indicating we have no 
+	fucking clue how the algorithm really works. lol true
+	*/
 };
 
 this.search = new function(){
     this.bing = new function(){
 /*
-Notes: This function doesn't return real time
-results. It doesn't need to. It also doesn't set
-song_title, and song_artist in it's results but it
-does set desc.
+Searches for stuff using the bing search engine.
 */
+
+
+		/*
+		Notes: This function doesn't return real time
+		results. It doesn't need to. It also doesn't set
+		song_title, and song_artist in it's results but it
+		does set desc.
+		*/
         //Todo: Upgrade this so the max results specifiers and
         //offset code work. Also, use the glob filter on results.
         //Params section.
@@ -799,18 +874,22 @@ does set desc.
     //Be nice Google. Don't be evil.
     //I'll seriously buy an API key when I can afford to.
     this.google_hack = new function(){
-/*
-Works -- but a few things need to be changed, didn't
-restore it after development but easily fixed. Leave it
-for now.
+		/*
+		Searched for stuff using the Google search engine. Used to work but doesn't any
+		more. We won't use this because Google stops bots like us from doing automated
+		searches through a captcha. Annoying, I know.
 
-Notes: This function doesn't return real time
-results. It doesn't need to. It also doesn't set
-song_title, and song_artist in it's results but it
-does set desc.
+		Works -- but a few things need to be changed, didn't
+		restore it after development but easily fixed. Leave it
+		for now.
 
-Strip out the Google captcha and find a way to silve it.
-*/
+		Notes: This function doesn't return real time
+		results. It doesn't need to. It also doesn't set
+		song_title, and song_artist in it's results but it
+		does set desc.
+
+		Strip out the Google captcha and find a way to silve it.
+		*/
         //Todo: Upgrade this so the max results specifiers and
         //offset code work. Also, use the glob filter on results.
         //Params section.
@@ -933,14 +1012,17 @@ Strip out the Google captcha and find a way to silve it.
         };
     };
     
-    //Coup de grace, faggots.
     this.fshared = new function(){
-/*
-Limitations
--------------
-Traffic: >900MB / 24h = 300 songs / 24h (@3mb / song)
-Login: Required
-*/
+		/*
+		Searches 4shared for music. This route actually uses Google dorks
+		or should I say Bing dorks to find the actual music. This is because
+		4shared's search sucks.
+
+		Limitations
+		-------------
+		Traffic: >900MB / 24h = 300 songs / 24h (@3mb / song)
+		Login: Required
+		*/
         //Todo: upgrade this to return multiple results
         //currently it's not done because it takes too long
         //and we don't want to keep Bob waiting for his illegal
@@ -978,10 +1060,10 @@ Login: Required
         };
         this.asynch_callback = function(){
             //callback = function(){
-/*
-This function is contrived. Fuck I hate asynch callbacks.
-Someone needs to fix this shit. Fix Stratified Javascript.
-*/
+			/*
+			This function is contrived. Fuck I hate asynch callbacks.
+			Someone needs to fix this shit. Fix Stratified Javascript.
+			*/
             //Set bing results.
             if(at.me.search.fshared.bing_results == null){
                 if(typeof(at.me.ret[0]) != "object"){
@@ -1014,20 +1096,20 @@ Someone needs to fix this shit. Fix Stratified Javascript.
                     alert(me.ret[k]["q"]);
                 }*/
                 /*
-Todo: Strip qualifiers fails if they appear in the title
-at the end of it and the title has been truncated (such as what)
-occurs in search engines. Also use the filter on the title
-on the download page. Bing, not in title function?
+	Todo: Strip qualifiers fails if they appear in the title
+	at the end of it and the title has been truncated (such as what)
+	occurs in search engines. Also use the filter on the title
+	on the download page. Bing, not in title function?
 
-Todo: Implement Javascript clean and apply to result.
+	Todo: Implement Javascript clean and apply to result.
 
-Don't get the title from the <h1> get it from the title
-on the download page
-why the fuck is that not found error occurring? -- mutex I think
-why is that first result being chopped off? -- invalid regex
-fandub add to
+	Don't get the title from the <h1> get it from the title
+	on the download page
+	why the fuck is that not found error occurring? -- mutex I think
+	why is that first result being chopped off? -- invalid regex
+	fandub add to
 
-705 -- original mix false positive
+	705 -- original mix false positive
                 */
                 
                 //Apply global filter.
@@ -1138,6 +1220,9 @@ fandub add to
 
     this.exfm = new function(){
     /*
+	Search ex.fm for music. Currently doesn't detect dead links.
+	This will need to be fixed or worked around if possible.
+
     Limitations
     -------------
     API call restrictions

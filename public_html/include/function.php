@@ -19,10 +19,21 @@
  * 
  */
  
+/*
+Provides generic functions that couldn't justify their own module. Much of
+Anontune uses these functions, especially the API.
+*/
+
 require_once(dirname(__file__) . DIRECTORY_SEPARATOR . "../global.php");
 
 function valid_ref()
 {
+	/*
+	Band aid for the CSRF API issue. It obviously isn't flawless. This function
+	checks the refer is an Anontune domain returning true or false based on
+	that. Referers can be spoofed, it's not flawless.
+	*/
+
 	global $root_url;
 	$ref = isset($_SERVER["HTTP_REFERER"]) ? $_SERVER["HTTP_REFERER"] : "";
 	$ref = parse_url($ref);
@@ -35,6 +46,34 @@ function valid_ref()
 
 function is_empty($identifier)
 {
+	/*
+	This is a custom implementation of PHP's empty function based on how a certain
+	developer expected the function to behave.
+
+	Back in the day, Anontune devs were experimenting
+	with meta-programming. New tools and ideas were created allowing any
+	programming language to be arbitrarily rewritten and extended. It worked by defining high-level
+	abstractions or macros in an XML file which could then be used in a specific module once
+	enabled. The macro was then resolved recursively so with our processor
+	to the underlying code used in a particular module so you could, for example,
+	do cool stuff like add multi-like Python-style strings to Javascript (in fact, we did.)
+
+	Macros could be written in any programming language, and could themselves consist of other macros.
+	This was possible because most programming languages are what's called "Turing-complete."
+	Hypothetically speaking, any problem that can be solved in one Turing-complete programming
+	language can be solved in another, therefore we were able to hack programming languages themselves
+	in any way we liked due to the underlying flexibility of a Turing-complete language.
+
+	However, this made everything messy and complicated. They added evals to the code. Debugging became
+	intense and compiling the macros slowed down our editor; It also meant other developers would
+	need to understand our macro system and use our editor . . . so we don't use them anymore
+	but is_empty was a function that returns PHP code implementing a custom empty function. We
+	had a macro that we could use: IS_EMPTY -- like it were a function, which would then
+	be replaced with eval(is_empty(identifier)). (Required because of how PHP works.)
+
+	Obviously, this was just a little too intense/experimental and we don't use macros
+	anymore. But that's what this function did. Hope you enjoyed the hist0ry. Ph33r.
+	*/
 	global $not_set;
 	$full_identifier = $identifier;
 	$len = strlen($identifier);
@@ -117,6 +156,10 @@ function is_empty($identifier)
 
 function page_template($title, $body)
 {
+	/*
+	1337 template function. Smarty ain't got nothing on this shit.
+	*/
+
 	$html = "
 	<html>
 	<head>
@@ -136,6 +179,7 @@ function table_lookup($name)
 	When inserting new entities always append to the end. Never
 	change existing entities. Code refers to this for dynamic.
 	*/
+
 	static $table = array("mood",
 	"user",
 	"album",
@@ -168,6 +212,7 @@ function group_lookup($name)
 	When inserting new entities always append to the end. Never
 	change existing entities. Code refers to this for dynamic.
 	*/
+
 	static $table = array("user", "moderator", "super moderator", "admin");
 	if(is_numeric($name))
 	{
@@ -184,6 +229,10 @@ function group_lookup($name)
 
 function query($sql)
 {
+	/*
+	Wrapper for mysql queries.
+	*/
+
 	global $mysql_con;
 	$result = mysql_query($sql, $mysql_con);
 	if(!$result)
@@ -196,6 +245,11 @@ function query($sql)
 
 function cleanup()
 {
+	/*
+	This function is called at the end of any PHP script that
+	executes to close the MySQL connection (if open.)
+	*/
+
 	global $mysql_con;
 	if($mysql_con != 0)
 	{
@@ -215,6 +269,10 @@ function hash_password($password)
 
 function activation_code()
 {
+	/*
+	Generate an random activation code.
+	*/
+
 	$len = 20;
 	$code = "";
 	for($i = 0; $i < $len; $i++)
@@ -226,6 +284,12 @@ function activation_code()
 
 function check_credential($username, $password)
 {
+	/*
+	Check whether a password is correct for a given username or
+	check whether a username is correct for a given password.
+	Will fail if the username doesn't exist.
+	*/
+
 	$username = mysql_escape_string($username);
 	$hash = mysql_escape_string(hash_password($password));
 	$sql = "SELECT `id` FROM `user` WHERE `username`='$username' AND `hash`='$hash'";
@@ -242,7 +306,7 @@ function apply_qualifiers($fields)
 {
 	/*
 	The purpose of this function is to restrict the fields in a
-	mysql result set by explicitally defining the fields to
+	mysql result set by explicitly defining the fields to
 	occur in the set. If ignore the whole set is used.
 	*/
 	
@@ -279,7 +343,7 @@ function chk_glob($identifiers, $super, $min_matches = "", $db_escape = 1)
 {
 	/*
 		Using $_GET, $_POST, $_COOKIE, $_SERVER arrays are annoying
-		because before you use them you have the check that the value
+		because before you use them you have to check that the value
 		exists. Then you have to escape it so there is a lot of code
 		duplication and it's boring. There is also no succinct way of
 		knowing whether the allocation was successful. This function
@@ -302,7 +366,7 @@ function chk_glob($identifiers, $super, $min_matches = "", $db_escape = 1)
 		{
 			/*
 			Otherwise we will copy this into the global var and since
-			NULL is used to siginify the global var to be set wasn't
+			NULL is used to signify the global var to be set wasn't
 			set in the super global then we will get wrong results.
 			*/
 			if($super["$identifier"] == $not_set)
@@ -369,6 +433,15 @@ function single_quote_escape($str)
 
 function assoc_array_to_json($ar)
 {
+	/*
+	Takes an array and outputs it as JSON.
+	Array may contain other arrays. Have a play with it
+	to see how it works. The JSON output is also pretty in that
+	it is human readable. This function was coded because at the
+	time PHP had no such function (or we didn't know about it) 
+	and the API needed it.
+	*/
+
 	$json_name = double_quote_escape("at_json");
 	$json = "var $json_name = {\r\n";
 	$row_no = 0;
@@ -418,6 +491,10 @@ function assoc_array_to_json($ar)
 
 function mysql_result_to_assoc_array($result)
 {
+	/*
+	Pulls a mysql row into an array.
+	*/
+
 	$ar = array("");
 	$i = 0;
 	while($row = mysql_fetch_assoc($result))
@@ -431,6 +508,10 @@ function mysql_result_to_assoc_array($result)
 
 function get_user_id($username)
 {
+	/*
+	Takes a username and return's it's ID in the username table.
+	*/
+
 	if(is_numeric($username))
 	{
 		return $username;
@@ -448,6 +529,10 @@ function get_user_id($username)
 
 function get_username($user_id)
 {
+	/*
+	Takes an ID for a user and returns their username from the user table.
+	*/
+
 	if(is_numeric($user_id) == 0)
 	{
 		return $user_id;
@@ -465,6 +550,11 @@ function get_username($user_id)
 
 function rec_exist($table_name, $criteria)
 {
+	/*
+	Returns 0 if $criteria is false for the table called $table_name.
+	Otherwise returning the id for the item based on the criteria.
+	*/
+
 	$sql = "SELECT `id` FROM `$table_name` WHERE $criteria";
 	$result = query($sql);
 	while($row = mysql_fetch_assoc($result))
@@ -478,6 +568,15 @@ function rec_exist($table_name, $criteria)
 
 function clean_data($s)
 {
+	/*
+	HUGE function. Basically, this function is used to "clean" the song titles,
+	artists, genres, album names, and stuff like that from user's iPods. Typically
+	they will have a track called #1 EminEM00-~`-love_the_way_u_lie.mp3 on their
+	iPods rather than just Love The Way You Lie - Eminem. Cleaning up the data
+	helps ensure song titles are all in a common format thereby saving space
+	in the database and allowing songs to more easily be search-able.
+	*/
+
 	if(preg_match("/^[\s]*$/", $s))
 	{
 		$s = "Unknown";
@@ -694,6 +793,10 @@ function add_tags()
 
 function mysql_get($sql)
 {
+	/*
+	Wrapper for select SQL. Reduces code duplication.
+	*/
+
 	$result = query($sql);
 	if(mysql_num_rows($result) == 0)
 	{
@@ -704,6 +807,13 @@ function mysql_get($sql)
 
 function mysql_exist_ab($table_name, $fields)
 {
+	/*
+	Wrapper for rec_exists. This function tasks an array of
+	fields in the form field_name => field_value to check
+	if it exists in a particular table. 
+	E.g. select * from table where (foreach field . . . and)
+	*/
+
 	// Build criteria.
 	$criteria = "";
 	foreach($fields as $col => $value)
@@ -719,6 +829,11 @@ function mysql_exist_ab($table_name, $fields)
 
 function mysql_insert_ab($table_name, $fields)
 {
+	/*
+	Allows an array of field_name => value pairs to
+	easily be inserted in a particular table.
+	*/
+
 	// Build insert statement.
 	$sql = "INSERT INTO `$table_name` (";
 	foreach($fields as $col => $value)
@@ -744,6 +859,12 @@ function mysql_insert_ab($table_name, $fields)
 
 function mysql_update_ab($table_name, $fields)
 {
+	/*
+	Takes a list of field_name => value pairs and
+	replaces them for a row in a table identified by
+	the special field id => value.
+	*/
+
 	// Build SQL.
 	$sql = "UPDATE `$table_name` SET ";
 	foreach($fields as $col => $value)
@@ -764,6 +885,11 @@ function mysql_update_ab($table_name, $fields)
 
 function mysql_get_ab($table_name, $fields, $criteria="")
 {
+	/*
+	Mysql SELECT (for each fields) WHERE criteria = criteria
+	Just an abstraction.
+	*/
+
 	// Build SQL.
 	$sql = "SELECT ";
 	foreach($fields as $col => $value)
@@ -785,6 +911,10 @@ function mysql_get_ab($table_name, $fields, $criteria="")
 
 function update_music_totals($id, $amount, $op)
 {
+	/*
+	Updates the music totals for a particular music record for the amount specified.
+	Operation may be either addition or subtraction.
+	*/
 	if($amount < 1 or $amount > 100)
 	{
 		return "";

@@ -1,0 +1,35 @@
+HTMLKickStart - www.99lime.com
+
+The styles we use on the main website come are from the HTML KickStart Project curtsy of 99lime.com. It's like being about to rapidly prototype and deploy the stuff people actually see because this normally takes time. It takes time because by default, a HTML element looks horrible so invariably designers are forced to spend all this time prettying it up. HTML KickStart does that and more, because there are some non-standard HTML elements it provides too. This allows us to rapidly create web applications without huge amounts of bloat and time wasted. The main website uses it and we intend to use it in the new player.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Chosen - http://harvesthq.github.com/chosen/
+
+Chosen is used to make "unwieldy select boxes much more user-friendly." We use it for this purpose. It's a plugin for jQuery.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Facybox - http://fancybox.net/
+
+FancyBox is a tool for displaying images, html content and multi-media in a Mac-style "lightbox" that floats overtop of web page. 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Tiptip - http://code.drewwilson.com/entry/tiptip-jquery-plugin
+
+We use this for our tool tips.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Prettify 
+
+No idea. documentation--;
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Style.css
+
+The website's custom styles.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

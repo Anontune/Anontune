@@ -24,7 +24,9 @@
 					<a href="/setlocale/dutch/"><img src="/images/flags/nl.png"></a> &nbsp;
 					<a href="/setlocale/portuguese/"><img src="/images/flags/pt.png"></a> &nbsp;
 					<a href="/setlocale/brazilian/"><img src="/images/flags/br.png"></a> &nbsp;
-					<a href="/setlocale/chinese/"><img src="/images/flags/cn.png"></a>
+					<a href="/setlocale/chinese/"><img src="/images/flags/cn.png"></a> &nbsp;
+					<a href="/setlocale/german/"><img src="/images/flags/de.png"></a> &nbsp;
+					<a href="/setlocale/russian/"><img src="/images/flags/ru.png"></a>
 				</div>
 				<div class="icons">
 					<a href="http://www.facebook.com/Anontune"><img src="/images/facebook.png"></a>
@@ -34,12 +36,11 @@
 					<a href="/contribute/"><img src="/images/bitcoin.png"></a>
 				</div>
 			</div>
-			<h1>Anontune <sup><%!main-sup></sup></h1>
+			<h1><a href="/" style="text-decoration: none; color: black;">Anontune </a><sup><%!main-sup></sup></h1>
 		</div>
 		<div class="menu-style">
 			<div class="wrapper">
 				<ul class="menu no-style-menu">
-					<li <%?set-home>><a href="/">Home</a></li>
 					<li <%?set-about>>
 						<a href="/about/">
 							<span class="icon small" data-icon="i"></span>

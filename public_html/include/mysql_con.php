@@ -18,7 +18,7 @@
  *  (c) 2011 Anontune developers
  * 
  */
- 
+
 #Connect to DB.
 $mysql_con = mysql_connect($config->database->host, $config->database->username, $config->database->password);
 if($mysql_con == FALSE)

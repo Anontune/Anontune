@@ -1,5 +1,11 @@
 <?php
+
+/*
+Module used to pass server-side variables to Javascript.
+*/
+
 require_once(dirname(__file__) . DIRECTORY_SEPARATOR . "../global.php");
+
 
 $username = isset($_GET["username"]) ? htmlspecialchars(double_quote_escape(urldecode($_GET["username"]))) : "";
 $auth_username = isset($_COOKIE["auth_username"]) ? htmlspecialchars(double_quote_escape($_COOKIE["auth_username"])) : "";

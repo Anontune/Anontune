@@ -2,6 +2,11 @@
 *    begin skin
 *    begin skin
 */
+
+/*
+This module defines all the application logic for the skin interface.
+*/
+
 skin = new function(){
     
 this.main_tab = 0;
