@@ -17,5 +17,3 @@ class Page extends CPHPDatabaseRecordClass
 		)
 	);
 }
-?>
-

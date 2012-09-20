@@ -60,9 +60,9 @@ about-header;								Om Anontune
 tools-header;								Anontune Værktøjer
 contribute-header;							Bidrag til Anontune
 contribute-h1;								Er du en udvikler?
-contribute-p1;								Vi modtager meget gerne hjælp fra udviklere. Hvis du ved, hvordan man håndterer HTML, CSS, Javascript, PHP eller Python, så send os en linje. Hvis du har erfaring af parsing af data, så skynd dig at kontakte os. Du kan finde os i vores <a href="/irc/">IRC kanal</ a>, eller ved at <a href="mailto:anontune@gmail.com">at sende os en e-mail</a>.
+contribute-p1;								Vi modtager meget gerne hjælp fra udviklere. Hvis du ved, hvordan man håndterer HTML, CSS, Javascript, PHP eller Python, så send os en linje. Hvis du har erfaring af parsing af data, så skynd dig at kontakte os. Du kan finde os i vores <a href="/irc/">IRC kanal</ a>, eller ved at <a href="mailto:Anontune@gmail.com">at sende os en e-mail</a>.
 contribute-h2;								Brugerfeedback
-contribute-p2;								Er der noget du kan lide, noget du ville have væk, eller noget du ønsker at se tilføjet? Eller har du nogen anden form for feedback til udviklerne? Så kontakt os i vores <a href="/irc/">IRC kanal</a>, eller ved at <a href="mailto:anontune@gmail.com">at sende os en e-mail</a>.
+contribute-p2;								Er der noget du kan lide, noget du ville have væk, eller noget du ønsker at se tilføjet? Eller har du nogen anden form for feedback til udviklerne? Så kontakt os i vores <a href="/irc/">IRC kanal</a>, eller ved at <a href="mailto:Anontune@gmail.com">at sende os en e-mail</a>.
 contribute-h3;								Donationer
 contribute-p3;								Ønsker du at yde økonomisk støtte til Anontune? Vi accepterer i øjeblikket <a href="http://www.bitcoin.org/">Bitcoin</a> donationer på følgende adresse: <br><em>1Cw88g4o9n9Fpj8NchR4Lovp69A7yBgLJY</em>
 demo-header;								Prøv Anontune uden registrering.

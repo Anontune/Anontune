@@ -1,0 +1,11 @@
+The previous music_engine was pig disgusting. The filter algorithm
+sucked as did the layout of the whole module. A brittle maze of
+spaghetti code.
+
+Goals for the new module:
+* Easily extensible and module design
+* HTML stored in the skin code
+* Improved filter algorithm
+* More flexability and fault-tollerance
+
+Problems in the previous version:

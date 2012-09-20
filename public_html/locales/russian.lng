@@ -1,0 +1,145 @@
+﻿_locale;                                                                        ru_RU.UTF-8,ru_RU
+_datetime_short;                                                        %d/%m/%Y %H:%M:%S
+_datetime_long;                                                         %A %B %d, %Y %H:%M:%S
+_date_short;                                                            %d/%m/%Y
+_date_long;                                                                     %A %B %d, %Y
+_time;                                                                          %H:%M:%S
+event-now;                                                                      now
+event-future;                                                           in the future
+event-past;                                                                     in the past
+event-1second-ago;                                                      1 second ago
+event-seconds-ago;                                                      %1$d seconds ago
+event-1minutes-ago;                                                     1 minute ago
+event-minutes-ago;                                                      %1$d minutes ago
+event-1hour-ago;                                                        1 hour ago
+event-hours-ago;                                                        %1$d hours ago
+event-1day-ago;                                                         1 day ago
+event-days-ago;                                                         %1$d days ago
+event-1week-ago;                                                        1 week ago
+event-weeks-ago;                                                        %1$d weeks ago
+event-1month-ago;                                                       1 month ago
+event-months-ago;                                                       %1$d months ago
+event-1year-ago;                                                        1 year ago
+event-years-ago;                                                        %1$d years ago
+
+title-home;                                                                     Главная
+title-login;                                                            Вход
+title-register;                                                         Регистрация
+title-logout;                                                           Logged out
+title-demo;                                                                     Демо
+title-about;                                                            About Anontune
+title-contribute;                                                       Содействие
+title-irc;                                                                      Говорите с нами в IRC
+main-sup;                                                                       (very beta)
+main-button-home;                                                       Главная
+main-button-login;                                                      Логин
+main-button-logout;                                                     Выход
+main-button-player;                                                     К пользователю
+main-button-register;                                                   Регистрация
+main-button-demo;                                                       Демо
+main-button-about;                                                      About
+main-button-tools;                                                      Инструменты
+main-button-contribute;                                         Способствовать
+main-button-irc;                                                        Обращайтесь к нам!
+main-footer;                                                            Are you a developer? Fork Anontune and contribute to the project! You can find our developer wiki <a href="http://dev.Anontune.com/">here</a>.
+home-header;                                                            Новый способ найти музыку.
+home-button1;                                                           Попробуйте Anontune без регистрации
+home-button2;                                                           Зарегистрируйтесь в Anontune - это бесплатно!
+home-button3;                                                           Войдите в свой логин Anontune
+home-h1;                                                                        Совершенно бесплатно, бесплатно.
+home-p1;                                                                        Мы не берем ничего у вас за использование Anontune. Это целиком и полностью бесплатна для пользования. Нет уловок, никаких скрытых расходов, не «премиум» подписки.
+home-h2;                                                                        Импортируту ваш плей-лист с iPod.
+home-p2;                                                                        Сразу хотелось бы мгновенно обмениваться музыкой на ваш IPod с друзьями, без необходимости загружать все это где-то? Просто загрузите ваш IPod музыкальную базу данных, Anontune сделает все остальное - и это займет всего несколько минут!
+home-h3;                                                                        Слушайте музыку с разных источников.
+home-p3;                                                                        Anontune само по себе не принимает любые музыкальные файлы. Он просто ищет музыку на YouTube, Soundcloud и других веб-сайтах. Развитие Anontune никогда не останавливается, и в будущем многие другие источники будут добавлены!
+notfound-header;                                                        Нет страницы
+notfound-p1a;                                                           You step in the stream, but the water has moved on.
+notfound-p1b;                                                           Если вы считаете, что-то должно быть здесь, то, пожалуйста, <a href="/irc/">Контакты</a>.
+notfound-p2;                                                            Хотите узнать больше?
+notfound-button;                                                        К Anontune!
+about-header;                                                           О Anontune
+tools-header;                                                           Anontune инструменты
+contribute-header;                                                      Contributing to Anontune
+contribute-h1;                                                          Вы разработчик?
+contribute-p1;                                                          We very much welcome help from developers. If you know how to handle HTML, CSS, Javascript, PHP, or Python, then drop us a line. If you are experienced at parsing data, then definitely contact us. You can find us in our <a href="/irc/">IRC channel</a>, or by <a href="mailto:Anontune@gmail.com">sending us an email</a>. We also have a GIT repository and corresponding Trac setup at <a href="http://dev.Anontune.com/">dev.Anontune.com</a>.
+contribute-h2;                                                          Отзывы пользователей
+contribute-p2;                                                          Is there something you really like, something you want gone, or something you want to see added? Or do you have any other kind of feedback for the developers? Then contact us in our <a href="/irc/">IRC channel</a>, or by <a href="mailto:Anontune@gmail.com">sending us an email</a>.
+contribute-h3;                                                          Финансовые пожертвования
+contribute-h3a;                                                         Bitcoin
+contribute-p3a1;                                                        Quite anonymous
+contribute-p3a2;                                                        1Cw88g4o9n9Fpj8NchR4Lovp69A7yBgLJY
+contribute-h3b;                                                         Flattr
+contribute-p3b1;                                                        Somewhat anonymous
+contribute-h3c;                                                         PayPal
+contribute-p3c1;                                                        Not anonymous at all
+contribute-p3c2;                                                        The possibility to donate through PayPal is coming soon.
+contribute-h3d;                                                         Other methods
+contribute-p3d;                                                         Чтобы пожертвовать другими методами, <a href="/irc/">свяжитесь с нами</a>.
+demo-header;                                                            Попробуйте Anontune без регистрации.
+demo-intro;                                                                     Хотите проверить Anontune, но не хотите регистрироваться, пока вы уверены, что Вам нравится? Выберите один из профилей пример ниже для быстрого выполнения теста. Не забывайте, что вы не можете изменить эти профили в качестве демо-пользователей, регистрация абсолютно бесплатна!
+demo-h1;                                                                        Топ 100
+demo-p1;                                                                        Для простого демо профиль один плейлист, и несколько треков, посмотрите на демо  <em>demo</em> аккаунт.
+demo-button1;                                                           Слушайте демо &gt;&gt;
+demo-h2;                                                                        Pop & Electronic
+demo-p2;                                                                        For a profile with mostly pop, dance, and trance try the <em>Sooty</em> account.
+demo-button2;                                                           Слушайте демо &gt;&gt;
+demo-h3;                                                                        Classical
+demo-p3;                                                                        For a playlist with classical music, visit the <em>classical</em> account.
+demo-button3;                                                           Слушайте демо &gt;&gt;
+irc-header;                                                                     Говорите с нами в IRC!
+irc-intro;                                                                      Есть ли у вас предложения, критические замечания, пожелания или вопросы - или вы просто хотите поболтать немного с Anontune разработчиков и других пользователей Anontune? Присоединяйтесь к нам в IRC!
+irc-h1;                                                                         веб-чат
+irc-p1;                                                                         Если у вас нет клиента IRC (или не знаю, что это IRC), то вы можете воспользоваться нашим чате. Вам не нужно загружать или устанавливать что-либо, он будет работать в вашем браузере.
+irc-button1;                                                            Использование веб-чата
+irc-h2;                                                                         С собственным клиентом
+irc-p2;                                                                         Если у вас уже есть IRC-клиент, то вы можете просто подключить к <em>irc.cryto.net</em>, и присоединиться к # Anontune канала. Регулярные связи принимаются на порт 6667, а SSL соединения принимаются на порт 6697. Вы также можете получить более подробную информацию о Cryto IRC сети, такие как сетевые правила и список листья можно подключиться.
+irc-button2a;                                                           Более подробная информация &gt;&gt;
+irc-button2b;                                                           Соединение
+login-header;                                                           Войти в Anontune.
+login-label-username;                                           Имя пользователя
+login-label-password;                                           Пароль
+login-button;                                                           Вход
+login-success-header;                                           You have been logged in.
+login-success-button;                                           Continue to the player &gt;&gt;
+login-success-title;                                            Успешно вошли в систему!
+login-success-message;                                          Вы успешно вошли в свой Anontune аккаунт.
+login-error-missing-title;                                      Обязательные для заполнения поля отсутствует
+login-error-missing-message;                            Одно или более полей не были заполнены. Все поля требуются заполнения в этой форме.
+login-error-user-title;                                         Пользователь не существует
+login-error-user-message;                                       Извините, но имя пользователя не существует. Если вы хотите зарегистрироваться, а затем <a href=\"/register/\">нажмите здесь</a>.
+login-error-password-title;                                     Неверный пароль
+login-error-password-message;                          Извини, но пароль неверный. Пожалуйста, попробуйте еще раз.
+register-header;                                                        Зарегистрируйтесь в Anontune.
+register-label-username;                                        Имя пользователя
+register-label-password;                                        Пароль
+register-label-verify;                                          Повторите
+register-label-captcha;                                         Капча
+register-hint-username;                                         a-z, A-Z, 0-9, max. 30 characters
+register-hint-password;                                         мин. 8 characters
+register-hint-verify;                                           Введите одинаковый пароль
+register-button;                                                        Регистрация
+register-success-header;                                        Спасибо за регистрицию!
+register-success-button;                                        Continue to the player &gt;&gt;
+register-success-title;                                         Успешно зарегистрировались!
+register-success-message;                                       Ваш аккаунт был успешно создан, и вы сейчас зашли
+register-error-nocaptcha-title;                         Ошибка капчи
+register-error-nocaptcha-message;                       Вы не ввели капчу. Пожалуйста, попробуйте еще раз.
+register-error-captcha-title;                           Неверная капча
+register-error-captcha-message;                         Вы не ввели правильный капчи. Пожалуйста, попробуйте еще раз.
+register-error-missing-title;                           Обязательные для заполнения поля отсутствует
+register-error-missing-message;                         Одно или несколько полей были не заполняются все поля обязательны для заполнения в этой форме.
+register-error-toolong-title;                           Имя пользователя слишком большой
+register-error-toolong-message;                         Вы ввели слишком длинный имя пользователя. Это не может быть длиннее 30 символов.
+register-error-tooshort-title;                          Пароль слишком короткий
+register-error-tooshort-message;                        Ваш пароль слишком короткий. Она должен быть не менее 8 символов.
+register-error-nomatch-title;                           Пароли не совпадают
+register-error-nomatch-message;                         Введенные вами пароли не совпадают. Пожалуйста, попробуйте еще раз.
+register-error-begin-title;                                     Неверное имя пользователя
+register-error-begin-message;                           Ваше имя пользователя должно начинаться с буквы или числа.
+register-error-username-title;                          Неверное имя пользователя
+register-error-username-message;                        Ваше имя пользователя содержит недопустимые символы. Пожалуйста, используйте только символы a-z, A-Z, 0-9, и специальные символы -_[]{}\|`^
+register-error-taken-title;                                     Имя пользователя уже используется
+register-error-taken-message;                            Введенное имя пользователя уже использется, и не доступен для регистрации. Пожалуйста, выберите другое имя пользователя.
+logout-header;                                                          Вышел из системы.
+logout-title;                                                           Успешно вышли из системы
+logout-message;                                                         Вы вышли из Anontune, и вы сейчас просматриваете сайт как гость.

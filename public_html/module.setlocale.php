@@ -15,6 +15,8 @@
  *  You should have received a copy of the GNU Affero Public License
  *  along with Anontune.  If not, see <http://www.gnu.org/licenses/>.
  *  
+ *  (c) 2011 Anontune developers
+ * 
  */
 
 if($_ANONTUNE !== true) { die(); }
@@ -25,6 +27,24 @@ $new_locale = $router->uParameters[1];
 
 switch($new_locale)
 {
+	case "russian":
+		$_SESSION['prefered_locale'] = "russian";
+		break;
+	case "german":
+		$_SESSION['prefered_locale'] = "german";
+		break;
+	case "italian":
+		$_SESSION['prefered_locale'] = "italian";
+		break;
+	case "portuguese":
+		$_SESSION['prefered_locale'] = "portuguese";
+		break;
+	case "brazilian":
+		$_SESSION['prefered_locale'] = "brazil";
+		break;
+	case "french":
+		$_SESSION['prefered_locale'] = "french";
+		break;
 	case "dutch":
 		$_SESSION['prefered_locale'] = "dutch";
 		break;
@@ -37,6 +57,9 @@ switch($new_locale)
 	case "bulgarian":
 		$_SESSION['prefered_locale'] = "bulgarian";
 		break;
+	case "chinese":
+		$_SESSION['prefered_locale'] = "chinese";
+		break;
 	default:
 		$_SESSION['prefered_locale'] = "english";
 		break;
@@ -44,4 +67,3 @@ switch($new_locale)
 
 header("Location: /");
 die();
-?>

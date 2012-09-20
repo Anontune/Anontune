@@ -64,9 +64,9 @@ about-header;								About Anontune
 tools-header;								Anontune Tools
 contribute-header;							Contributing to Anontune
 contribute-h1;								Are you a developer?
-contribute-p1;								We very much welcome help from developers. If you know how to handle HTML, CSS, Javascript, PHP, or Python, then drop us a line. If you are experienced at parsing data, then definitely contact us. You can find us in our <a href="/irc/">IRC channel</a>, or by <a href="mailto:anontune@gmail.com">sending us an email</a>. We also have a GIT repository and corresponding Trac setup at <a href="http://dev.Anontune.com/">dev.anontune.com</a>.
+contribute-p1;								We very much welcome help from developers. If you know how to handle HTML, CSS, Javascript, PHP, or Python, then drop us a line. If you are experienced at parsing data, then definitely contact us. You can find us in our <a href="/irc/">IRC channel</a>, or by <a href="mailto:Anontune@gmail.com">sending us an email</a>. We also have a GIT repository and corresponding Trac setup at <a href="http://dev.Anontune.com/">dev.Anontune.com</a>.
 contribute-h2;								User feedback
-contribute-p2;								Is there something you really like, something you want gone, or something you want to see added? Or do you have any other kind of feedback for the developers? Then contact us in our <a href="/irc/">IRC channel</a>, or by <a href="mailto:anontune@gmail.com">sending us an email</a>.
+contribute-p2;								Is there something you really like, something you want gone, or something you want to see added? Or do you have any other kind of feedback for the developers? Then contact us in our <a href="/irc/">IRC channel</a>, or by <a href="mailto:Anontune@gmail.com">sending us an email</a>.
 contribute-h3;								Financial donations
 contribute-h3a;								Bitcoin
 contribute-p3a1;							Quite anonymous
@@ -95,7 +95,7 @@ irc-h1;										Webchat
 irc-p1;										If you don't have an IRC client (or don't know what IRC is) then you can use our webchat. You don't need to download or install anything, it will run in your browser.
 irc-button1;								Use the webchat
 irc-h2;										With your own client
-irc-p2;										If you already have an IRC client, then you can simply connect to <em>irc.cryto.net</em>, and join the #Anontune channel. Regular connections are accepted on port 6667, and SSL connections are accepted on port 6697. You can also get more information about the Cryto IRC network, such as network rules or a list of leafs you can connect to.
+irc-p2;										If you already have an IRC client, then you can simply connect to <em>irc.cryto.net</em>, and join the #anontune channel. Regular connections are accepted on port 6667, and SSL connections are accepted on port 6697. You can also get more information about the Cryto IRC network, such as network rules or a list of leafs you can connect to.
 irc-button2a;								More information &gt;&gt;
 irc-button2b;								Connect
 login-header;								Log in to Anontune.

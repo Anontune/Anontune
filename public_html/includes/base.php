@@ -15,8 +15,10 @@
  *  You should have received a copy of the GNU Affero Public License
  *  along with Anontune.  If not, see <http://www.gnu.org/licenses/>.
  *  
+ *  (c) 2011 Anontune developers
+ * 
  */
-
+ 
 if($_ANONTUNE !== true) { die(); }
 
 $recaptcha_publickey = "6LcVTs4SAAAAACpv7qr0TzAOGr1co613qR2iI900";
@@ -31,8 +33,8 @@ require("classes/class.page.php");
 
 function login($username, $password)
 {
-    setcookie("auth_username", $username, time() + ((3600 * 24) * 365), "/");
-    setcookie("auth_password", $password, time() + ((3600 * 24) * 365), "/");
+	setcookie("auth_username", $username, time() + ((3600 * 24) * 365), "/");
+	setcookie("auth_password", $password, time() + ((3600 * 24) * 365), "/");
 }
 
 if(empty($_SESSION['prefered_locale']))
@@ -41,5 +43,3 @@ if(empty($_SESSION['prefered_locale']))
 }
 
 $locale->Load($_SESSION['prefered_locale']);
-
-?>

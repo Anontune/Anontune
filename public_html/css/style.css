@@ -80,6 +80,11 @@ h3
 	color: black;
 }
 
+.locale .flags
+{
+	margin-bottom: 14px;
+}
+
 /* Menu styles */
 
 .menu li a

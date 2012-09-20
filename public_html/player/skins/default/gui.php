@@ -1,4 +1,24 @@
 <?php
+/*
+ *  This file is part of Anontune.
+ *
+ *  Anontune is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU Affero Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  Anontune is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU Affero Public License for more details.
+ *
+ *  You should have received a copy of the GNU Affero Public License
+ *  along with Anontune.  If not, see <http://www.gnu.org/licenses/>.
+ *  
+ *  (c) 2011 Anontune developers
+ * 
+ */
+ 
 require_once(dirname(__file__) . DIRECTORY_SEPARATOR . "../../../global.php");
 //$img_path = $this_root_url . "/../../images/";
 $img_path = "/player/images/";
@@ -9,7 +29,8 @@ Those scpecial playlists should be virtual.
 Their file structure will be implemented in the player
 */
 ?>
-<div id="atp">
+<center>
+<div id="atp" style="margin-top: 45px;">
     <div id="atp-ytapi"></div>
     <table id="atp-cmd">
         <tr>
@@ -77,10 +98,10 @@ Their file structure will be implemented in the player
             <td id="atp-main-middle">
                 <div id="atp-main-middle-title">
                     <center style="padding-top: 3px;">
-<a href="#" onclick="at.player.skin.show_tab('atp-main-middle-music', 1, 0);" title="Show now playing."><img src="<?php echo $img_path; ?>music.png"></a>
+<!-- <a href="#" onclick="at.player.skin.show_tab('atp-main-middle-music', 1, 0);" title="Show now playing."><img src="<?php echo $img_path; ?>music.png"></a>-->
 <!-- at.player.skin.show_tab('atp-main-middle-information', 1, 0); -->
-<a href="#" onclick="at.player.shuffle(at.pl_i); at.player.skin.load_playlist(at.pl_i);"><img src="<?php echo $img_path; ?>shuffle.png" alt="shuffle" title="Shuffle active playlist."></a>
-<a href="#" onclick="at.player.toggle_loop();"><img src="<?php echo $img_path; ?>loop.png" alt="loop" title="Loop active song."></a>
+<a href="#" onclick="at.player.shuffle(at.pl_i); at.player.skin.load_playlist(at.pl_i);" style="text-decoration: underline; color: black;"><img src="<?php echo $img_path; ?>shuffle.png" alt="shuffle" title="Shuffle active playlist." style="margin-right: 3px;">Shuffle</a>
+<a href="#" onclick="at.player.toggle_loop();" style="text-decoration: underline; color: black;"><img src="<?php echo $img_path; ?>loop.png" alt="loop" title="Loop active song." style="margin-right: 3px;">Loop</a>
 <!--<img src="<?php echo $img_path; ?>emasis.png">
 <img src="<?php echo $img_path; ?>lyrics.png">
 <img src="<?php echo $img_path; ?>fullscreen.png">
@@ -161,3 +182,4 @@ Their file structure will be implemented in the player
     </table>
     -->
 </div>
+</center>

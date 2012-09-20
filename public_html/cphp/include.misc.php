@@ -1,4 +1,16 @@
 <?php
+/*
+ * CPHP is more free software. It is licensed under the WTFPL, which
+ * allows you to do pretty much anything with it, without having to
+ * ask permission. Commercial use is allowed, and no attribution is
+ * required. We do politely request that you share your modifications
+ * to benefit other developers, but you are under no enforced
+ * obligation to do so :)
+ * 
+ * Please read the accompanying LICENSE document for the full WTFPL
+ * licensing text.
+ */
+
 if($_CPHP !== true) { die(); }
 
 function random_string($length)
@@ -83,8 +95,26 @@ function clean_array($arr)
 	return $result;
 }
 
+function pretty_dump($input)
+{
+	ob_start();
+	
+	var_dump($input);
+	
+	$output = ob_get_contents();
+	ob_end_clean();
+	
+	while(preg_match("/^[ ]*[ ]/m", $output) == 1)
+	{
+		$output = preg_replace("/^([ ]*)[ ]/m", "$1&nbsp;&nbsp;&nbsp;", $output);
+	}
+	
+	$output = nl2br($output);
+	
+	echo($output);
+}
+
 /*function is_empty($variable)
 {
 	return (trim($variable) == "");
 }*/
-?>
