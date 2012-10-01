@@ -24,8 +24,8 @@ this.search = function(){
 		var url = "http://www.musicbrainz.org/ws/2/release-group/?query=release:" + at.urlencode(q[0]);
 		var xml = at.http_get(url);
 		var json_string = X2JS.xml_str2json(xml);
-		alert(json_string.metadata._created);
-		alert(json_string.metadata["release-group-list"]["release-group"][0].id);
+		//alert(json_string.metadata._created);
+		//alert(json_string.metadata["release-group-list"]["release-group"][0].id);
 		//alert(xml.metadata._created);
 		//alert(json_string);
 	}
