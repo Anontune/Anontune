@@ -47,6 +47,7 @@ else
 <head>
 <title>Anontune - <?php echo $username_s; ?></title>
 
+<<<<<<< HEAD
 <link href="favicon.ico" rel="SHORTCUT ICON">
 <link href='http://fonts.googleapis.com/css?family=Paytone+One|Cantarell:400,700|PT+Sans+Caption:400,700' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -56,14 +57,98 @@ else
 <script type="text/javascript" src="http://www.youtube.com/iframe_api"></script>
 
 
+=======
+<style>
+html, body
+{
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	height: 100%;
+}
+body
+{
+	background: #F7F8F9;
+}
+#container
+{
+	width: 99%;
+	position: relative;
+	top: 5px;
+	margin-left:auto;
+	margin-right:auto;
+}
+#ads
+{
+	position: relative;
+	top: 45px;
+}
+#nav
+{
+	position: absolute;
+	top: 0px;
+	padding: 0px;
+	border: 0px;
+	margin: 0px;
+	width: 100%;
+	height: 35px;
+	background: black;
+	text-shadow: 0 1px 0 #FFFFFF;
+}
+.nav-link, .nav-link a:link, .nav-link a:active, .nav-link a:hover, .nav-link a:visited
+{
+	border: 0px;
+	color: white;
+	line-height: 35px;
+	dispay: bock;
+	float: left;
+	padding-left: 8px; padding-right: 8px;
+	text-decoration: none;
+	font-size: 14px;
+	font-family: sans-serif;
+}
+#footer
+{
+	position: absolute;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin: 0px;
+	bottom: 0px;
+	font-size: 18;
+	width: 100%;
+	text-align: center;
+}
+
+#q_field
+{
+	background: #7d7e7d; /* Old browsers */
+   
+	
+height: 20px; 
+font-size: 12px;
+margin-top: 8px;
+margin-right: 5px;
+width: 250px;
+border: 0px;
+color: white;
+}
+
+</style>
+<script type="text/javascript" src="/player/swfobject.js"></script>
+>>>>>>> 043cf38bbe9f10a89b03465ee18f220ba08d039d
 <script src="/netjs/netjs.js"></script>
 <script src="/player/diff_match_patch.js"></script>
 <script src="/player/xml2json.js"></script>
 <script src="/js/date.format.js"></script>
 <script>
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 043cf38bbe9f10a89b03465ee18f220ba08d039d
 //alert(document.cookie);
 
 function c_test(){
@@ -93,8 +178,13 @@ function get_netjs(){
 }
 
 function at_player_ready(){
+<<<<<<< HEAD
 	//setInterval(at.me.output_tiles, 2000);
 	at.skin = "troll";
+=======
+	setInterval(at.me.output_tiles, 2000);
+	at.skin = "default";
+>>>>>>> 043cf38bbe9f10a89b03465ee18f220ba08d039d
 	var skin_code_url = "<?php echo $this_root_url . '/player/skins/'; ?>" + at.skin + "/main.js";
 	//alert(skin_code_url);
 	//alert(at.http_get);
@@ -111,13 +201,19 @@ function at_player_ready(){
 	//alert(skin_code);
 	
 	//Open first playlist.
+<<<<<<< HEAD
 	/*
+=======
+>>>>>>> 043cf38bbe9f10a89b03465ee18f220ba08d039d
 	if(at.pls.length){
 		at.player.skin.load_playlist(0);
 		at.player.skin.load_playlists();	
 		at.player.skin.highlight_main('atp-playlistc0', 1);
 	}
+<<<<<<< HEAD
 	*/
+=======
+>>>>>>> 043cf38bbe9f10a89b03465ee18f220ba08d039d
 }
 
 function prepare(){
@@ -134,12 +230,28 @@ Don't remove it.
 	
 	//Initialize diff engine.
 	//dmp = new diff_match_patch();
+<<<<<<< HEAD
 }
 </script>
+=======
+	
+	//Set height of container.
+	var body = document.body,
+	html = document.documentElement;
+	var height = Math.max( body.scrollHeight, body.offsetHeight, 
+	html.clientHeight, html.scrollHeight, html.offsetHeight );
+	height = parseInt(height); //0.90 * height
+	container = document.getElementById("container");
+	container.style.height = height - (document.getElementById("nav").offsetHeight + 60);
+}
+</script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+>>>>>>> 043cf38bbe9f10a89b03465ee18f220ba08d039d
 <script type="text/javascript" src="/player/variables.php?username=<?php echo(urlencode($username)); ?>"></script>
 <script type="text/javascript" src="/player/player.js"></script>
 <script type="text/javascript">
 $(function(){
+<<<<<<< HEAD
 	//prepare();
 	at.player.prepare();
 	//$('#loading').hide();
@@ -176,10 +288,16 @@ $(document).ready(function(){
 		alert(event.jPlayer.error.type);
 	});
 	*/
+=======
+	prepare();
+	at.player.prepare();
+	$('#loading').hide();
+>>>>>>> 043cf38bbe9f10a89b03465ee18f220ba08d039d
 });
 </script>
 </head>
 <body>
+<<<<<<< HEAD
 <div class="nav_top">
 <div class="nav_top_wrapper">
 <a href="/">Home</a>
@@ -192,6 +310,20 @@ if($is_authed){
 else
 {
 	echo "<a href='/login/'>Login</a>";
+=======
+<div id="nav">
+<a href="/" class="nav-link">Anontune</a>
+<?php
+if($is_authed)
+{
+	echo '<a href="/09/04/2012/import-ipod/" class="nav-link">Import</a>';
+	echo '<a href="/login.php?action=logout" class="nav-link">Logout</a>';
+}
+else
+{
+	echo '<a href="/at-login-2/" class="nav-link">Login</a>';
+	echo '<a href="/at-register/" class="nav-link">Register</a>';  
+>>>>>>> 043cf38bbe9f10a89b03465ee18f220ba08d039d
 }
 ?>
 <a href="/register/">Register</a>
@@ -205,6 +337,19 @@ else
 ?>
 <div class="date"></div>
 </div>
+<<<<<<< HEAD
 </div>
+=======
+<center id="loading">
+<div style="position: absolute; top: 100px; width: 95%;">
+<center>
+Loading . . . Accept all security warnings.<br>
+Java NOT required. Firefox recommended.<br>
+</center>
+</div>
+<div id="container"></div>
+<!--<div id="footer">&copy; 2012 Anontune - All rights reserved</div>-->
+</center>
+>>>>>>> 043cf38bbe9f10a89b03465ee18f220ba08d039d
 </body>
 </html>
