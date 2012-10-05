@@ -264,14 +264,14 @@ Thought this was tacky
 
 .add_track_input
 {
-	width: 170px;
-	margin-right: 10px;
-	float: left;
+	width: 171px;
 }
 
 .add_artist_input
 {
-	width: 171px;
+	width: 170px;
+	margin-right: 10px;
+	float: left;
 }
 
 .search_bar

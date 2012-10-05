@@ -10,22 +10,65 @@ This module defines all the application logic for the skin interface.
 skin = new function(){
     
 this.result_no = 0;
+this.menu_filter_timeout = null;
+this.pls_scroll_top = 0;
+
+this.menu_filter = function(){
+    filter = $(".search_input").val();
+    
+    //Show changes.
+    if(at.pl_i != null){ //Open pl.
+		//Apply to open pl.
+		if(filter == ""){
+			for(var i = 0; i < at.pls[at.pl_i]["tracks"].length; i++){
+				at.pls[at.pl_i]["tracks"][i]["filter"] = true;
+			}
+			at.player.swap_pl_by_filter();
+			at.player.skin.load_playlist(at.pl_i);
+			$(".menu_list").scrollTop(0);
+			return;
+		}
+		
+		at.player.set_search('at.pls[' + at.pl_i + ']["tracks"]', ["title", "artist_name"], filter);
+		at.player.swap_pl_by_filter();
+		at.player.skin.load_playlist(at.pl_i);
+	}
+	else{ //List pl.
+		//Apply to playlists.
+		at.player.set_search('at.pls', ["name"], filter);
+		at.player.swap_pls_by_filter();
+		at.player.skin.load_playlists();
+	}
+    
+    $(".menu_list").scrollTop(0);
+    at.player.skin.menu_filter_timeout = null;
+}
+
+this.try_schedule_menu_filter = function(){
+	if(at.player.skin.menu_filter_timeout == null){ //Schedule.
+		at.player.skin.menu_filter_timeout = setTimeout("at.player.skin.menu_filter();", 1000);
+	}
+	else{ //Reschedule.
+		clearTimeout(at.player.skin.menu_filter_timeout);
+		at.player.skin.menu_filter_timeout = setTimeout("at.player.skin.menu_filter();", 1000);
+	}
+}
 
 this.search = function(){
 	var q = $(".search_input").val();
 	q = q.split(/\s*-\s*/);
 	if(q.length >= 2){
 		//at.enable_te_next = false;
-		at.player.skin.auto_play({"title": q[0], "artist": q[1]});
-		$(".add_track_input").val(q[0]);
-		$(".add_artist_input").val(q[1]);
+		at.player.skin.auto_play({"title": q[1], "artist": q[0]});
+		$(".add_track_input").val(q[1]);
+		$(".add_artist_input").val(q[0]);
 	}
 	if(q.length == 1){ //Artist discogrpahy.
 		var url = "http://www.musicbrainz.org/ws/2/release-group/?query=release:" + at.urlencode(q[0]);
 		var xml = at.http_get(url);
 		var json_string = X2JS.xml_str2json(xml);
-		alert(json_string.metadata._created);
-		alert(json_string.metadata["release-group-list"]["release-group"][0].id);
+		//alert(json_string.metadata._created);
+		//alert(json_string.metadata["release-group-list"]["release-group"][0].id);
 		//alert(xml.metadata._created);
 		//alert(json_string);
 	}
@@ -100,6 +143,7 @@ this.add_playlist = function(){
 	"parent_id": "0",
 	"cmd": "0"});
 	at.player.skin.load_playlists();
+	$('.menu_list').scrollTop($('.menu_list')[0].scrollHeight);
 }
 
 this.del_playlist = function(pl_i){
@@ -128,6 +172,7 @@ this.add_track = function(){
 	"artist_name": artist,
 	"playlist_id": at.pls[at.pl_i]["id"]}, at.pl_i);
 	at.player.skin.load_playlist(at.pl_i);
+	$('.menu_list').scrollTop($('.menu_list')[0].scrollHeight);
 }
 
 this.del_track = function(track_i, pl_i){
@@ -180,10 +225,11 @@ this.load_playlist = function(index){
 	close_menu = {"menu_icon": "/images/troll/list_playlist.png",
 	"title": "Back",
 	"description": "Close " + at.pls[index]["name"],
-	"main_onclick": "at.player.skin.load_playlists();",
+	"main_onclick": "at.pl_i = null; at.player.skin.load_playlists(); $(\".menu_list\").scrollTop(at.player.skin.pls_scroll_top);",
 	"action_icon": "/images/troll/action_delete.png",
 	"action_onclick": "at.player.skin.load_playlists();"}
 	menu_list.push(close_menu);
+	
 	for(i = 0; i < at.pls[index]["tracks"].length; i++){
 		main_onclick = 'at.enable_te_next = true; at.track_i = ' + i + '; ';
 		main_onclick += 'at.player.skin.auto_play({"title": ';
@@ -218,7 +264,13 @@ this.menu_html = function(menu_list){
 	 **/
 	 menu_html = "";
 	 for(i = 0; i < menu_list.length; i++){
-		 menu_html += "<div class='menu_list_row'>";
+		 menu_html += "<div class='menu_list_row'";
+		 /*
+		 if(typeof(menu_list[i]["background"]) != undefined){
+			 menu_html += " style='background: " + menu_list[i]["background"] + "'";
+		 }
+		 */
+		 menu_html += ">";
 		 if(menu_list[i]["menu_icon"] != null){
 			menu_html += "<div class='menu_list_icon'>";
 			menu_html += "<a onclick='" + menu_list[i]["main_onclick"] + "'><img src='";
@@ -248,7 +300,7 @@ this.load_playlists = function(){
 			"menu_icon": "/images/troll/list_playlist.png",
 			"title": at.pls[i]["name"],
 			"description": at.pls[i]["tracks"].length + " songs",
-			"main_onclick": "at.player.skin.load_playlist(" + i + ");",
+			"main_onclick": "at.player.skin.pls_scroll_top = $(\".menu_list\").scrollTop(); at.pl_i = " + i + "; at.player.skin.load_playlist(" + i + "); $(\".menu_list\").scrollTop(0);",
 			"action_icon": "/images/troll/action_delete.png",
 			"action_onclick": "at.player.skin.del_playlist(" + i + ");"
 		};
@@ -465,6 +517,7 @@ this.main = function(){
 	setInterval("at.player.skin.result_change()", 2000);
 	
 	at.player.skin.hide_overlay();
+	$(".menu_list").scrollTop(0);
 }
 
 };

@@ -234,32 +234,6 @@ this.asyncRequest = function(url, callback)
 	req.send(null);
 }
 
-this.check_search_filter = function(){
-    filter = document.search.q.value;
-    if(filter != at.q){
-        at.search_filter();
-    }
-    at.q = filter;
-}
-
-this.search_filter = function(){
-    filter = document.search.q.value;
-    
-    //Apply to playlists.
-    at.player.set_search('at.pls', ["name"], filter);
-    
-    //Apply to active playlist.
-    if(at.pl_i != null){
-        at.player.set_search('at.pls[' + at.pl_i + ']["tracks"]', ["title", "artist_name"], filter);
-        
-        //Show changes.
-        at.player.skin.load_playlist(at.pl_i);
-    }
-    
-    //Show changes.
-    at.player.skin.load_playlists();
-}
-
 this.urlencode = function(s){
     return encodeURIComponent(s);
 }
@@ -783,14 +757,7 @@ this.next_track = function(){
         if(track_no){
             //alert("vvv");
             for(i = at.track_i; i < track_no; i++){
-                //alert("ccc");
-                if(i + 1 != track_no){
-                    if(at.pls[at.pl_i]["tracks"][i + 1]["filter"])
-                    {
-                        //alert("yes");
-                        continue;
-                    }
-                }
+
                 //alert("here");
                 if(i + 1 == track_no){ //It's the last track.
                     //Start at top.
@@ -833,10 +800,6 @@ this.prev_track = function(){
                 return;
 			}
             for(i = at.track_i; i < track_no; i--){
-                if(i != 0){
-                    if(at.pls[at.pl_i]["tracks"][i - 1]["filter"]) continue;
-                }
-                
                 if(i == 0){ //It's the last track.
                     //Start at bottom.
                     i = track_no - 2;
@@ -915,6 +878,37 @@ this.status = function(){
     
 }
 
+this.swap_pl_by_filter = function(){
+	if(at.pl_i == null) return;
+	var new_pl = [];
+	for(var i = 0; i < at.pls[at.pl_i]["tracks"].length; i++){
+		if(at.pls[at.pl_i]["tracks"][i]["filter"] === false){
+			new_pl.push(at.pls[at.pl_i]["tracks"][i]);
+		}
+	}
+	for(var i = 0; i < at.pls[at.pl_i]["tracks"].length; i++){
+		if(at.pls[at.pl_i]["tracks"][i]["filter"] === true){
+			new_pl.push(at.pls[at.pl_i]["tracks"][i]);
+		}
+	}
+	at.pls[at.pl_i]["tracks"] = new_pl; //Swapped.
+}
+
+this.swap_pls_by_filter = function(){
+	var new_pls = [];
+	for(var i = 0; i < at.pls.length; i++){
+		if(at.pls[i]["filter"] === false){
+			new_pls.push(at.pls[i]);
+		}
+	}
+	for(var i = 0; i < at.pls.length; i++){
+		if(at.pls[i]["filter"] === true){
+			new_pls.push(at.pls[i]);
+		}
+	}
+	at.pls = new_pls; //Swapped.
+}
+
 this.set_search = function(set, fields, query){
     /*
 Example Usage: set_search('pls[0]["tracks"]', {"title", "artist"}, "eminem");
@@ -968,7 +962,7 @@ this.new_track = function(params){
         "service_resource": null,
         "title": "New Title",
         "artist_name": "New Artist",
-        "filter": false
+        "filter": true
     };
     
     //Overwrite with dynamic params.

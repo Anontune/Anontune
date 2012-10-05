@@ -54,12 +54,17 @@ support google style queries
 			<div class="website_title">
 				<a href="#">Anontune</a>
 			</div>
-			<input type="text" class="search_input text_input" spellcheck="false" autocomplete="off" placeholder="Search for music . . ."/>
+			<form onsubmit="at.player.skin.search(); return false;">
+			<input type="text" class="search_input text_input" spellcheck="false" autocomplete="off" placeholder="Search for music . . ." onkeypress="at.player.skin.try_schedule_menu_filter();"/>
 			<button class="search_button add_button" onclick="at.player.skin.search();">Search</button>
+			</form>
 		</div>
 		<div class="add_track">
-			<input type="text" class="add_track_input text_input" spellcheck="false" autocomplete="off" placeholder="Title" id="add_track_input" name="add_track_input"/><input type="text" class="add_artist_input text_input" spellcheck="false" autocomplete="off" placeholder="Artist" id="add_artist_input" name="add_artist_input"/>
+			<form onsubmit="return false;">
+			<input type="text" class="add_artist_input text_input" spellcheck="false" autocomplete="off" placeholder="Artist" id="add_artist_input" name="add_artist_input"/>
+			<input type="text" class="add_track_input text_input" spellcheck="false" autocomplete="off" placeholder="Title" id="add_track_input" name="add_track_input"/>
 			<button class="add_track_button add_button" onclick="at.player.skin.add_track();">Add</button>
+			</form>
 		</div>
 	</div>
 </div>
@@ -67,8 +72,10 @@ support google style queries
 <div class="bottom_bar">
 <div class="table_row_wrapper">
 <div class="playlist_add">
+<form onsubmit="return false;">
 <input type="text" class="add_playlist_input text_input" placeholder="New Playlist" spellcheck="false" autocomplete="off" id="add_playlist_input" name="add_playlist_input"/>
 <button class="add_playlist_button add_button" onclick="at.player.skin.add_playlist();">Add</button>
+</form>
 </div>
 <div class="player_controls" id="player_controls">
 <span class="loop_control"><a href="#" onclick="at.player.skin.enable_loop();" title="Loop"><img src="/images/troll/loop.png"></a></span>
