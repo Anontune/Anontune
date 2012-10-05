@@ -3,7 +3,6 @@ The Anontune player's code.
 
 The purpose of this code is to load and manipulate playlists of tracks in
 memory. It's organization looks like this:
-<<<<<<< HEAD:public_html/player/player.js
 
 at - General namespace. Functions not specifically related to the player are here.
 at.api - Contains all stuff that interacts with the JSON API or api.php.
@@ -27,40 +26,6 @@ at.player.new_track - Create a structure to hold a track.
 at.skin - Skin namespace. All of the skin's code will be available through this namespace.
 
 Those aren't all the functions in this module but the main ones.
-=======
-
-at - General namespace. Functions not specifically related to the player are here.
-at.api - Contains all stuff that interacts with the JSON API or api.php.
-at.player - Contains all the player related functions.
-at.player.add_track - Adds a track to a playlist.
-at.player.del_track - Delete a track from a playlist.
-at.player.edit_track - Edit track information for an existing track in a playlist.
-at.player.play_track - Don't use this.
-at.player.track_ended - Called when a track ends so at.player.next_track can be called.
-at.player.open_pl - Updates path information. In the future playlists will be hierarchical.
-at.player.add_pl - Add a new playlist.
-at.player.del_pl - Delete an existing playlist.
-at.player.edit_pl - Edit an existing playlist.
-at.player.load_pls - Loads all the playlists for a user into memory.
-at.player.load_pl - Loads all the track information for a playlist into memory.
-at.player.next_track - Play the next track in a playlist relative to the currently active track.
-at.player.prev_track - Play the previous track in a playlist relative to the currently active track.
-at.player.shuffle - Shuffle all the tracks in the active playlist.
-at.player.new_pl - Create a structure to hold a playlist.
-at.player.new_track - Create a structure to hold a track.
-at.skin - Skin namespace. All of the skin's code will be available through this namespace.
-
-Those aren't all the functions in this module but the main ones.
-
-Problems:
-* Because the API isn't asynchronous when the API is used it locks up the menu. I propose we queue
-all such API calls and have the interface update instantly regardless of what happens on the
-server.
-* Reorganize the code so it is clearer.
-*/
-
-
->>>>>>> 043cf38bbe9f10a89b03465ee18f220ba08d039d:public_html/player/player.js
 
 Problems:
 * Because the API isn't asynchronous when the API is used it locks up the menu. I propose we queue
@@ -138,7 +103,6 @@ function onPlayerReady(event){
 	at.player.hook_youtube();
 }
 
-<<<<<<< HEAD:public_html/player/player.js
 function onPlayerStateChange(event){
     if(event.data == YT.PlayerState.ENDED){
 		at.player.track_ended();
@@ -154,61 +118,6 @@ function onPlayerStateChange(event){
 		at.player.skin.disable_play();
 	}
 }
-=======
-//Get youtube player instance when possible.
-function onYouTubePlayerReady(playerId) {
-    var ytplayer = document.getElementById(playerId);
-  
-    //Play track.
-    ytplayer.playVideo();
-    
-    //Add an event listener.
-    ytplayer.addEventListener("onStateChange", "at.player.track_ended");
-    at.ytplayer = ytplayer;
-    
-    if(at.enable_me_results){
-        at.me.track_i = at.track_i;
-        at.me.pl_i = at.pl_i;
-        var track_i = at.track_i;
-        var pl_i = at.pl_i;
-        
-        //Cleanup.
-        at.me.results = [];
-        at.me.results_no = null;
-        at.me.final_tiles = 0;
-        
-        q = at.pls[pl_i]["tracks"][track_i]["title"];
-        if(!at.pls[pl_i]["tracks"][track_i]["artist_name"].match(/^(\s*unknown\s*)|(\s+)$/i)){
-        q += " - " + at.pls[pl_i]["tracks"][track_i]["artist_name"];
-    }
-
-	/*
-    at.me.search.youtube.p = {"start_index": 0, "q": q, "result_no": 5, "id": null, "callback_name": "at.me.search.soundcloud.main"};
-    at.me.search.soundcloud.p = {"start_index": 0, "q": q, "result_no": 5, "id": null, "callback_name": "symbolic"};
-    at.me.search.youtube.main();
-	*/
-    at.me.search.youtube.p = {"start_index": 0, "q": q, "result_no": 5, "id": null, "callback_name": "at.me.search.soundcloud.main"};
-    at.me.search.soundcloud.p = {"start_index": 0, "q": q, "result_no": 5, "id": null, "callback_name": "at.me.search.exfm.main"};
-	at.me.search.exfm.p = {"start_index": 0, "q": q, "result_no": 5, "id": null, "callback_name": "symbolic"};
-    at.me.search.youtube.main();
-	}
-    
-    
-    //Get image.
-    if(at.enable_artist_art){
-        at.me.get_image.p["q"] = at.pls[at.pl_i]["tracks"][at.track_i]["artist_name"];
-        at.me.get_image.p["callback_name"] = "at.me.play_asynch_proc";
-        if(netjs.http.lock){
-            at.me.get_image.write_image(null);
-            //at.me.play_asynch_proc();
-        }
-        else{
-            at.me.get_image.main();
-            //at.me.play_asynch_proc();
-        }
-    }
-    
->>>>>>> 043cf38bbe9f10a89b03465ee18f220ba08d039d:public_html/player/player.js
 
 function onPlayerError(event){
 	//Try next result.
@@ -238,11 +147,6 @@ this.auth_username = var_auth_username;
 //Password we execute at.api calls under. This allows making calls with more privileged accounts.
 //todo: WARNING Insecure, use cookies.
 this.auth_password = var_auth_password;
-<<<<<<< HEAD:public_html/player/player.js
-=======
-//YouTube player element. E.G. ytplayer.stopVideo();.
-this.ytplayer = null;
->>>>>>> 043cf38bbe9f10a89b03465ee18f220ba08d039d:public_html/player/player.js
 //Autoplay opened playlist?
 this.autoplay = true;
 //Will a track before the first or after last wrap around playback?
@@ -1082,10 +986,7 @@ this.prepare = function(){
 	at.auth_username = htmlspecialchars_decode(at.auth_username, 'ENT_COMPAT');
 	at.auth_password = htmlspecialchars_decode(at.auth_password, 'ENT_COMPAT');
     
-<<<<<<< HEAD:public_html/player/player.js
     /*
-=======
->>>>>>> 043cf38bbe9f10a89b03465ee18f220ba08d039d:public_html/player/player.js
     var me_code_url = var_this_root_url + "/music_engine.js";
     var me_code = at.http_get(me_code_url);
     if(me_code == false){
@@ -1109,14 +1010,6 @@ this.prepare = function(){
 *    end anontune
 *    end anontune
 ***/
-<<<<<<< HEAD:public_html/player/player.js
-=======
-//alert(at.http_get);
-//alert(at.skin);
-//Show player.
-
-//at.player.show();
->>>>>>> 043cf38bbe9f10a89b03465ee18f220ba08d039d:public_html/player/player.js
 
 
 me = new function(){
