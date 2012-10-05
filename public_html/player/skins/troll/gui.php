@@ -46,25 +46,6 @@ support google style queries
 </div>
 
 <div class="menu_list">
-	<div class="menu_list_row">
-		<div class="menu_list_icon"><a onclick="alert('test');"><img src="/images/troll/list_youtube.png"></a></div>
-		<div class="menu_list_text">
-		<a onclick="alert('test');">
-			<div class="menu_list_title">Hire Me</div>
-			<div class="menu_list_description">Dr Syntax</div>
-		</a>
-		</div>
-		<div class="menu_list_action"><a onclick="alert('test2');"><img src="/images/troll/action_delete.png"></a></div>
-	</div>
-	<div class="menu_list_row">
-		<div class="menu_list_icon"><img src="/images/troll/list_unknown.png"></div>
-		<div class="menu_list_text">
-			<div class="menu_list_title">Hire Me</div>
-			<div class="menu_list_description">Dr Syntax</div>
-		</div>
-		<div class="menu_list_action"><img src="/images/troll/action_delete.png"></div>
-	</div>
-	<div class='menu_list_row'><div class='menu_list_icon'><a onclick='alert("test1");'><img src='/images/troll/list_youtube.png'></a></div><div class='menu_list_text'><a onclick='alert("test1");'><div class='menu_list_title'>le title</div><div class='menu_list_description'>le_description</div></a></div><div class='menu_list_action'><a onclick='alert("test2");'><img src='/images/troll/action_delete.png'></a></div></div>
 </div>
 
 <div class="logo_bar">
@@ -73,7 +54,7 @@ support google style queries
 			<div class="website_title">
 				<a href="#">Anontune</a>
 			</div>
-			<input type="text" class="search_input text_input" spellcheck="false" autocomplete="off" placeholder="Search for music as title - artist . . ."/>
+			<input type="text" class="search_input text_input" spellcheck="false" autocomplete="off" placeholder="Search for music . . ."/>
 			<button class="search_button add_button" onclick="at.player.skin.search();">Search</button>
 		</div>
 		<div class="add_track">
@@ -133,81 +114,6 @@ support google style queries
 <a href="#">Close lyrics</a>
 <p>
 <div class="lyrics">
-Drain the veins in my head<br>
-Clean out the reds in my eyes to get by security lines<br>
-Dear x-ray machine<br>
-Pretend you don't know me so well<br>
-I wont tell if you lied<br>
-Cry, cause the droughts been brought up<br>
-Drinkin' cause you're lookin so good in your starbucks cup<br>
-I complain for the company that I keep<br>
-The windows for sleeping rearrange<br>
-And I'm nobody<br>
-Well who's laughing now
-<p>
-I'm leaving your town again<br>
-And I'm over the ground that you've been spinning<br>
-And I'm up in the air said baby hell yeah<br>
-Well honey I can see your house from here<br>
-If the plane goes down, damn<br>
-I'll remember where the love was found<br>
-If the plane goes down, damn
-<p>
-Damn, I should be so lucky<br>
-Even only 24 hours under your touch<br>
-You know I need you so much<br>
-I cannot wait to call you<br>
-And tell you that I landed somewhere<br>
-And hand you a square of the airport<br>
-And walk you through the maze of the map<br>
-That I'm gazing at<br>
-Gracefully unnamed and feeling guilty for the luck<br>
-And the look that you gave me<br>
-You make me somebody<br>
-Ain't nobody knows me<br>
-Not even me can see it, yet I bet I'm
-<p>
-I'm leaving your town again love<br>
-But I'm over the ground that you've been spinning<br>
-And I'm up in the air, said baby hell yeah<br>
-Oh honey I can see your house from here<br>
-If the plane goes down, damn<br>
-I'll remember where the love was found<br>
-If the plane goes down, damn<br>
-<p>
-You keep me high minded<br>
-You get me high<br>
-<p>
-Flax seeds, well they tear me open<br>
-And supposedly you can crawl right through me<br>
-Taste these teeth please<br>
-And undress me from these sweaters better hurry<br>
-Cause I'm keeping upward bound now<br>
-Oh maybe I'll build my house on your cloud<br>
-Here I'm tumbling for you<br>
-Stumbling through the work that I have to do<br>
-Don't mean to harm you
-<p>
-By leaving your town again love<br>
-But I'm over the ground that you've been spinning<br>
-But I'm up in the air, said baby hell yeah<br>
-Oh honey I can see your house from here<br>
-If the plane goes down, damn<br>
-I'll remember where the love was found<br>
-If the plane goes down, damn<br>
-I'll remember where the love was found<br>
-If the plane goes down, damn<br>
-Well I'll remember where the love was found<br>
-If the plane goes down, damn
-<p>
-Who do you<br>
-Think you are, are, are, are<br>
-To keep me so oh cold, cold<br>
-You keep me high minded<br>
-You keep me high minded
-<p>
-You get me high minded<br>
-You get me high
 </div>
 <p>
 <a href="#">Close lyrics</a>
@@ -276,7 +182,7 @@ You get me high
 <div class="play_view_bottom_bar">
 	<div class="search_result_no">(<a href="#" onclick="at.player.skin.show_search_view();">0 Results</a>)</div>
 	<div class="play_view_nav_bottom">
-	<!--<a href="#">Add</a>|--><a href="#" onclick="at.player.skin.auto_play(null);">Retry</a><br>
+	<!--<a href="#">Add</a>|--><a href="#" onclick="at.player.skin.auto_play(null);">Wrong song?</a><br>
 	<!--
 	<a href="#">Reply</a>
 	<a href="#">Share</a>
@@ -287,55 +193,7 @@ You get me high
 	</div>
 </div>
 
-<!-- jplayer stuff:
-		<div id="jp_container_1" class="jp-video jp-video-360p">
-			<div class="jp-type-single">
-				<div id="jquery_jplayer_1" class="jp-jplayer"></div>
-				<div class="jp-gui">
-					<div class="jp-video-play">
-						<a href="javascript:;" class="jp-video-play-icon" tabindex="1">play</a>
-					</div>
-					<div class="jp-interface">
-						<div class="jp-progress">
-							<div class="jp-seek-bar">
-								<div class="jp-play-bar"></div>
-							</div>
-						</div>
-						<div class="jp-current-time"></div>
-						<div class="jp-duration"></div>
-						<div class="jp-controls-holder">
-							<ul class="jp-controls">
-								<li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
-								<li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
-								<li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
-								<li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
-								<li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
-								<li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
-							</ul>
-							<div class="jp-volume-bar">
-								<div class="jp-volume-bar-value"></div>
-							</div>
-							<ul class="jp-toggles">
-								<li><a href="javascript:;" class="jp-full-screen" tabindex="1" title="full screen">full screen</a></li>
-								<li><a href="javascript:;" class="jp-restore-screen" tabindex="1" title="restore screen">restore screen</a></li>
-								<li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a></li>
-								<li><a href="javascript:;" class="jp-repeat-off" tabindex="1" title="repeat off">repeat off</a></li>
-							</ul>
-						</div>
-						<div class="jp-title">
-							<ul>
-								<li>Big Buck Bunny Trailer</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="jp-no-solution">
-					<span>Update Required</span>
-					To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
-				</div>
-			</div>
-		</div>
--->
+
 </div>
 </div>
 
