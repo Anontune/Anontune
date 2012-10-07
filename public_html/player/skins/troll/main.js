@@ -489,8 +489,8 @@ this.play_resource = function(result){
 	$(".song_title_heading").html(title);
 	if(result["type"] == "youtube"){
 		ytplayer = new YT.Player('ytplayer', {
-			height: '390',
-			width: '640',
+			height: $(".play_view").height() - 90,
+			width: $(".play_view").width() - 200,
 			playerVars: { 'autoplay': 1},
 			videoId: result["data"]["vid"],
 			events: {

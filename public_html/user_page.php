@@ -176,6 +176,12 @@ $(document).ready(function(){
 		alert(event.jPlayer.error.type);
 	});
 	*/
+	$(window).resize(function() {
+	  if(ytplayer !== null){
+			$("#ytplayer").height($(".play_view").height() - 90);
+			$("#ytplayer").width($(".play_view").width() - 200);
+		}
+	});
 });
 </script>
 </head>
