@@ -33,6 +33,7 @@ all such API calls and have the interface update instantly regardless of what ha
 server.
 * Reorganize the code so it is clearer.
 */
+json_string = null;
 dmp = new diff_match_patch();
 X2JS = new X2JS();
 function htmlspecialchars_decode (string, quote_style) {
@@ -724,15 +725,16 @@ this.hook_jplayer = function(){
 	$("#jplayer").bind($.jPlayer.event.pause, function(event){
 		at.player.skin.disable_play();
 	});
-	$("#jplayer").bind($.jPlayer.event.progress, function(event){
-		//Todo: fix move error
-		//Only call if progress buffered is positive.
-		//Could possibly fix 304 moved error
-		if(at.me.peh != null){
-			clearTimeout(at.me.peh);
-			at.me.peh = null;
+	$("#jplayer").bind($.jPlayer.event.timeupdate, function(event){
+		//Fixes moved, and false 200 OK.
+		if(event.jPlayer.status.currentTime){
+			if(at.me.peh != null){
+				clearTimeout(at.me.peh);
+				at.me.peh = null;
+			}
 		}
 	});
+	//Fixes 404.
 	$("#jplayer").bind($.jPlayer.event.error, function(event){
 		at.player.skin.auto_play(null);
 		return;

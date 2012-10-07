@@ -19,6 +19,7 @@ this.menu_filter = function(){
     //Show changes.
     if(at.pl_i != null){ //Open pl.
 		//Apply to open pl.
+		at.player.skin.sort_pl_recent();
 		if(filter == ""){
 			for(var i = 0; i < at.pls[at.pl_i]["tracks"].length; i++){
 				at.pls[at.pl_i]["tracks"][i]["filter"] = true;
@@ -32,15 +33,17 @@ this.menu_filter = function(){
 		at.player.set_search('at.pls[' + at.pl_i + ']["tracks"]', ["title", "artist_name"], filter);
 		at.player.swap_pl_by_filter();
 		at.player.skin.load_playlist(at.pl_i);
+		$(".menu_list").scrollTop(0);
 	}
+	/*
 	else{ //List pl.
 		//Apply to playlists.
 		at.player.set_search('at.pls', ["name"], filter);
 		at.player.swap_pls_by_filter();
 		at.player.skin.load_playlists();
 	}
+	*/
     
-    $(".menu_list").scrollTop(0);
     at.player.skin.menu_filter_timeout = null;
 }
 
@@ -55,6 +58,8 @@ this.try_schedule_menu_filter = function(){
 }
 
 this.search = function(){
+	at.player.skin.help();
+	return;
 	var q = $(".search_input").val();
 	q = q.split(/\s*-\s*/);
 	if(q.length >= 2){
@@ -66,9 +71,29 @@ this.search = function(){
 	if(q.length == 1){ //Artist discogrpahy.
 		var url = "http://www.musicbrainz.org/ws/2/release-group/?query=release:" + at.urlencode(q[0]);
 		var xml = at.http_get(url);
-		var json_string = X2JS.xml_str2json(xml);
+		json_string = X2JS.xml_str2json(xml);
+		var discography = [];
+		
+		/*
+		for(var i = 0; i < json_string.metadata["release-group-list_asArray"][0]["release-group_asArray"].length; i++){
+			var release_group = json_string.metadata["release-group-list_asArray"][0]["release-group_asArray"][i];
+			var album = release_group["title"];
+			var release_list = release_group["release-list_asArray"][0];
+			for(var j = 0; j < release_list.length; j++){
+				var release = release_list[j]["release_asArray"][0];
+				var title = release["title"];
+				alert(title);
+				return;
+			}
+			
+			//for(var j = 0; j < release_group["release-list"].length; i++
+			alert(album);
+			return;
+		}
+		*/
+		
 		//alert(json_string.metadata._created);
-		//alert(json_string.metadata["release-group-list"]["release-group"][0].id);
+		alert(json_string.metadata["release-group-list"]);
 		//alert(xml.metadata._created);
 		//alert(json_string);
 	}
@@ -119,7 +144,7 @@ this.license = function(){
 }
 
 this.help = function(){
-	at.player.skin.show_overlay("Help", "Check the contact link and someone may be available to answer your questions.");
+	at.player.skin.show_overlay("Help", "Search isn't done yet but to play music is quite simple. First, create a new playlist and open it. Then add tracks to the playlist. You will need to know the artist and title of the song at this point.");
 }
 
 this.date = function(){
@@ -143,7 +168,7 @@ this.add_playlist = function(){
 	"parent_id": "0",
 	"cmd": "0"});
 	at.player.skin.load_playlists();
-	$('.menu_list').scrollTop($('.menu_list')[0].scrollHeight);
+	$('.menu_list').scrollTop(0);
 }
 
 this.del_playlist = function(pl_i){
@@ -172,7 +197,7 @@ this.add_track = function(){
 	"artist_name": artist,
 	"playlist_id": at.pls[at.pl_i]["id"]}, at.pl_i);
 	at.player.skin.load_playlist(at.pl_i);
-	$('.menu_list').scrollTop($('.menu_list')[0].scrollHeight);
+	$('.menu_list').scrollTop(0);
 }
 
 this.del_track = function(track_i, pl_i){
@@ -207,6 +232,41 @@ this.show_overlay = function(title, content){
 	$(".overlay_view_title").show();
 	$(".overlay").show();
 }
+
+this.sort_pl_recent = function(){
+	if(at.pl_i == null) return;
+	var sorted = null;
+	var swap = null;
+	while(sorted != false){
+		sorted = false;
+		for(var i = 0; i < at.pls[at.pl_i]["tracks"].length - 1; i++){
+			swap = at.pls[at.pl_i]["tracks"][i];
+			
+			if(parseInt(at.pls[at.pl_i]["tracks"][i]["id"]) < parseInt(at.pls[at.pl_i]["tracks"][i + 1]["id"])){
+				sorted = true;
+				at.pls[at.pl_i]["tracks"][i] = at.pls[at.pl_i]["tracks"][i + 1];
+				at.pls[at.pl_i]["tracks"][i + 1] = swap;
+			}
+		}
+	}
+}
+
+this.sort_pls_recent = function(){
+	var sorted = null;
+	var swap = null;
+	while(sorted != false){
+		sorted = false;
+		for(var i = 0; i < at.pls.length - 1; i++){
+			swap = at.pls[i];
+			
+			if(parseInt(at.pls[i]["id"]) < parseInt(at.pls[i + 1]["id"])){
+				sorted = true;
+				at.pls[i] = at.pls[i + 1];
+				at.pls[i + 1] = swap;
+			}
+		}
+	}	
+}
     
 this.load_playlist = function(index){ 
     var id = at.pls[index]["id"];
@@ -220,6 +280,11 @@ this.load_playlist = function(index){
     
     //Change active container.
     var container = at.pl_i = index;
+    
+	//Sort from least recent to most recent.
+	if(at.player.skin.menu_filter_timeout == null || $(".search_input").val() == ""){
+		at.player.skin.sort_pl_recent();
+	}
     
 	menu_list = [];
 	close_menu = {"menu_icon": "/images/troll/list_playlist.png",
@@ -293,14 +358,18 @@ this.menu_html = function(menu_list){
 
 this.load_playlists = function(){
     at.player.load_pls();
+    at.player.skin.sort_pls_recent();
 	menu_list = [];
 	for(i = 0; i < at.pls.length; i++){
 		//"menu_icon": "/images/troll/list_playlist.png",
+		main_onclick = "at.player.skin.pls_scroll_top = $(\".menu_list\").scrollTop(); at.pl_i = " + i;
+		main_onclick += '; if($(".search_input").val() == "") { at.player.skin.load_playlist(' + i;
+		main_onclick += ")}else{ at.player.skin.menu_filter_timeout = true; at.player.skin.menu_filter(); } $(\".menu_list\").scrollTop(0);";
 		menu = {
 			"menu_icon": "/images/troll/list_playlist.png",
 			"title": at.pls[i]["name"],
 			"description": at.pls[i]["tracks"].length + " songs",
-			"main_onclick": "at.player.skin.pls_scroll_top = $(\".menu_list\").scrollTop(); at.pl_i = " + i + "; at.player.skin.load_playlist(" + i + "); $(\".menu_list\").scrollTop(0);",
+			"main_onclick": main_onclick,
 			"action_icon": "/images/troll/action_delete.png",
 			"action_onclick": "at.player.skin.del_playlist(" + i + ");"
 		};
@@ -379,6 +448,8 @@ this.auto_play = function(q){
 	//Start asynch processes that add results.
 	if(q != null){
 		at.me.find_results({query: at.me.new_query(q)});
+		$(".add_artist_input").val(q["artist"]);
+		$(".add_track_input").val(q["title"]);
 	}
 }
 
@@ -430,11 +501,6 @@ this.play_resource = function(result){
 		});
 	}
 	if(result["type"] == "exfm"){
-				if(at.me.peh != null){
-			clearTimeout(at.me.peh);
-			at.me.peh = null;
-		}
-		
 		//Hook.
 		at.player.hook_jplayer();
 		//alert(result["data"]["url"]);

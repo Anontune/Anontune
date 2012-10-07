@@ -32,8 +32,16 @@ a:link, a:active, a:hover, a:visited
 
 .play_view_nav_bottom a
 {
-	margin-left: 8px; margin-right: 8px;
+	margin-left: 8px;
+	margin-right: 8px;
+	color: white;
+	font-family: "PT Sans Caption",sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	text-decoration: underline;
+	outline: none;
 }
+
 
 /* Layout */
 
