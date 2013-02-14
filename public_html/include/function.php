@@ -3,7 +3,7 @@
  *  This file is part of Anontune.
  *
  *  Anontune is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU Affero Public License as published by
+ *  it under the terms of the GNU Affero Public License as published byu
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
@@ -232,8 +232,8 @@ function query($sql)
 	/*
 	Wrapper for mysql queries.
 	*/
-
 	global $mysql_con;
+
 	$result = mysql_query($sql, $mysql_con);
 	if(!$result)
 	{

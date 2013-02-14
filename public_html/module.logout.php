@@ -21,8 +21,9 @@
 
 if($_ANONTUNE !== true) { die(); }
 
-setcookie("auth_username", "",  time() - ((3600 * 24) * 370), "/");
-setcookie("auth_password", "", time() - ((3600 * 24) * 370), "/");
+$_SESSION["auth_username"] = "";
+$_SESSION["auth_password"] = "";
+$_SESSION["username"] = "";
 
 $sPageContents = "<h2>{$locale->strings['logout-header']}</h2>";
 

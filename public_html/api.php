@@ -44,16 +44,22 @@ Todo:
 set_time_limit(0);
 require_once("global.php");
 require_once("include/mysql_con.php");
+require_once("include/function.php");
+require_once("include/auth_token.php");
+
+@session_start(); 
 
 //Hack
-$_GET["username"] = isset($_COOKIE["username"]) ? $_COOKIE["username"] : $_GET["username"];
-$_GET["auth_username"] = isset($_COOKIE["auth_username"]) ? $_COOKIE["auth_username"] : $_GET["auth_username"];
-$_GET["auth_password"] = isset($_COOKIE["auth_password"]) ? $_COOKIE["auth_password"] : $_GET["auth_password"];
+//$_GET["username"] = isset($_SESSION["username"]) ? $_SESSION["username"] : $_GET["username"];
+//$_GET["auth_username"] = isset($_COOKIE["auth_username"]) ? $_COOKIE["auth_username"] : $_GET["auth_username"];
+//$_GET["auth_password"] = isset($_COOKIE["auth_password"]) ? $_COOKIE["auth_password"] : $_GET["auth_password"];
 
+/*
 if(empty($_GET["username"]))
 {
 	$_GET["username"] = $_GET["auth_username"];
 }
+*/
 
 //Import functions that aren't API calls.
 function api_success($value="", $c="")
@@ -140,6 +146,7 @@ the value of the value connected to a key in an associative array. Currently
 this is used to easily extract data from the super globals $_GET array to pluck
 the API call's data and make it accessible bellow.
 */
+$auth_token = "";
 $c = "";
 $username = "";
 $password = "";
@@ -1238,17 +1245,21 @@ while(1) //Makes error handling easier.
 			
 		//Authentication required.
 		default:
-			if(!chk_glob("auth_username,auth_password", $_GET))
+			if(!chk_glob("auth_token", $_GET))
 			{
 				break;
 			}
 			//Check credentials.
-			if(!check_credential($auth_username, $auth_password))
+			if(verify_token($auth_token) != 1)
 			{
 				break;
 			}
 			
 			//Grab group.
+			if(isset($_SESSION["auth_username"]))
+			{
+				$auth_username = $_SESSION["auth_username"];
+			}
 			$sql = "SELECT `group` FROM `user` WHERE `username`='$auth_username'";
 			$result = mysql_get($sql);
 			$group = $result[0]["group"];
@@ -1293,13 +1304,13 @@ while(1) //Makes error handling easier.
 						}
 						break;
 					case "insert_playlist":
-						if(chk_glob("name,parent_id,cmd,username", $_GET) && valid_ref())
+						if(chk_glob("name,parent_id,cmd,username", $_GET))
 						{
 							$return_value = insert_update_playlist($name, $parent_id, $cmd, "", $c);
 						}
 						break;
 					case "update_playlist":
-						if(chk_glob("name,parent_id,cmd,id,username", $_GET) && valid_ref())
+						if(chk_glob("name,parent_id,cmd,id,username", $_GET))
 						{
 							$return_value = insert_update_playlist($name, $parent_id, $cmd, $id, $c);
 						}
@@ -1331,7 +1342,7 @@ while(1) //Makes error handling easier.
 						$min = 1;
 						$db_escape = 0;
 						//THESE PARAMETERS ARE NOT DB ESCAPED.
-						if(chk_glob($opt, $_GET, $min, $db_escape) && valid_ref())
+						if(chk_glob($opt, $_GET, $min, $db_escape))
 						{
 							if(chk_glob("id,username", $_GET, "", $db_escape))
 							{
@@ -1340,7 +1351,7 @@ while(1) //Makes error handling easier.
 						}
 						break;
 					case "delete_track":
-						if(chk_glob("id,username", $_GET) && valid_ref())
+						if(chk_glob("id,username", $_GET))
 						{
 							$return_value = delete_track($id, $c);
 						}
@@ -1376,6 +1387,19 @@ while(1) //Makes error handling easier.
 						break;
 				}
 			}
+
+			//Append new auth_token to $return_value;
+			$options = "";
+			$options["ip_addr"] = "this";
+			$options["expiry"] = 2 * 24 * 60 * 60; //2 days.
+			$options["user_agent"] = "this";
+			$options["uses"] = "1";
+			$options["referer"] = "this";
+			$options["auth_username"] = $_SESSION["auth_username"];
+			$options["auth_password"] = $_SESSION["auth_password"];
+			$auth_token = create_token($options);
+			$return_value_len = strlen($return_value);
+			$return_value = substr($return_value, 0, $return_value_len - 4) . ",\r\n\t\"auth_token\": \"" . $auth_token . "\"\r\n};";
 	}
 	break;
 }

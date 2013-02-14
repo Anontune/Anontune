@@ -30,9 +30,9 @@ require_once("global.php");
 $username = isset($_GET["username"]) ? urldecode($_GET["username"]) : "";
 $username_s = htmlspecialchars($username);
 
-$auth_username = isset($_COOKIE["auth_username"]) ? $_COOKIE["auth_username"] : "";
+$auth_username = isset($_SESSION["auth_username"]) ? $_SESSION["auth_username"] : "";
 $auth_username_s = htmlspecialchars($auth_username);
-$auth_password = isset($_COOKIE["auth_password"]) ? $_COOKIE["auth_password"] : "";
+$auth_password = isset($_SESSION["auth_password"]) ? $_SESSION["auth_password"] : "";
 $auth_password_s = htmlspecialchars($auth_password);
 if($username == $auth_username && $username != "" && $auth_username != "")
 {
