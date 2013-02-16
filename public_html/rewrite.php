@@ -19,6 +19,14 @@
  * 
  */
 
+//Hack to keep sessions alive after browser close:
+$domain = explode(".", $_SERVER['HTTP_HOST']);
+$domain = "." . $domain[count($domain) - 2] . "." . $domain[count($domain) - 1];
+session_name('ANONTUNE');
+session_set_cookie_params(time() + (2 * 24 * 60 * 60), '/', $domain, false, false);
+session_start();
+//This code is joepie91 certified. Just ask him.
+
 $_ANONTUNE = true;
 require("includes/base.php");
 

@@ -23,3 +23,9 @@ require_once(dirname(__file__) . DIRECTORY_SEPARATOR . "config.php");
 //require("include/mysql_con.php");
 require_once(dirname(__file__) . DIRECTORY_SEPARATOR . "include/function.php");
 $action = empty($_GET["action"]) ? "" : $_GET["action"];
+
+$domain = explode(".", $_SERVER['HTTP_HOST']);
+$domain = "." . $domain[count($domain) - 2] . "." . $domain[count($domain) - 1];
+session_name('ANONTUNE');
+session_set_cookie_params(time() + (2 * 24 * 60 * 60), '/', $domain, false, false);
+session_start();

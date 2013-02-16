@@ -157,8 +157,11 @@ this.date = function(){
 
 
 this.add_playlist = function(){
-	if(at.auth_password == ""){
-		alert("You need to be logged in to do this.");
+	if(var_username == var_auth_username && var_username != "" && var_auth_username != ""){
+		1;
+	}
+	else{
+		alert("You need to be logged in as the account owner to do this.");
 		return;
 	}
 	name = $("#add_playlist_input").val();
@@ -172,8 +175,11 @@ this.add_playlist = function(){
 }
 
 this.del_playlist = function(pl_i){
-	if(at.auth_password == ""){
-		alert("You need to be logged in to do this.");
+	if(var_username == var_auth_username && var_username != "" && var_auth_username != ""){
+		1;
+	}
+	else{
+		alert("You need to be logged in as the account owner to do this.");
 		return;
 	}
 	at.player.del_pl(pl_i);
@@ -181,8 +187,11 @@ this.del_playlist = function(pl_i){
 }
 
 this.add_track = function(){
-	if(at.auth_password == ""){
-		alert("You need to be logged in to do this.");
+	if(var_username == var_auth_username && var_username != "" && var_auth_username != ""){
+		1;
+	}
+	else{
+		alert("You need to be logged in as the account owner to do this.");
 		return;
 	}
 	track = $("#add_track_input").val();
@@ -201,8 +210,11 @@ this.add_track = function(){
 }
 
 this.del_track = function(track_i, pl_i){
-	if(at.auth_password == ""){
-		alert("You need to be logged in to do this.");
+	if(var_username == var_auth_username && var_username != "" && var_auth_username != ""){
+		1;
+	}
+	else{
+		alert("You need to be logged in as the account owner to do this.");
 		return;
 	}
 	at.player.del_track(track_i, pl_i);

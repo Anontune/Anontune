@@ -333,6 +333,10 @@ Warning: Overwriting at.pl_i declaration.
     at.json = null;
     //Main call.
     url = var_api_url + "?c=" + at.urlencode(c) + "&auth_username=" + at.urlencode(at.auth_username) + "&auth_password=" + at.urlencode(at.auth_password) + "&username=" + at.urlencode(at.username);
+	//Append auth_token if set.
+	if(var_auth_token != ""){
+		url = url + "&auth_token=" + at.urlencode(var_auth_token);
+	}
     //Append all the params.
     for(param in params){
         url = url + "&" + at.urlencode(param) + "=" + at.urlencode(params[param]);    
@@ -398,6 +402,11 @@ Warning: Overwriting at.pl_i declaration.
                 //}
                 return false;
             }
+
+			if(typeof(at.json["auth_token"]) != "undefined"){
+				var_auth_token = at.json["auth_token"];
+				//alert(var_auth_token);
+			}
         }
     }
 

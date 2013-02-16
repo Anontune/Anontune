@@ -1389,6 +1389,11 @@ while(1) //Makes error handling easier.
 			}
 
 			//Append new auth_token to $return_value;
+			if(empty($return_value))
+			{
+				//Placeholder.
+				$return_value = "var at_json = {\r\n\t\"0\": \"x\"\r\n};";
+			}
 			$options = "";
 			$options["ip_addr"] = "this";
 			$options["expiry"] = 2 * 24 * 60 * 60; //2 days.

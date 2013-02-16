@@ -34,6 +34,7 @@ $auth_username = isset($_SESSION["auth_username"]) ? $_SESSION["auth_username"] 
 $auth_username_s = htmlspecialchars($auth_username);
 $auth_password = isset($_SESSION["auth_password"]) ? $_SESSION["auth_password"] : "";
 $auth_password_s = htmlspecialchars($auth_password);
+
 if($username == $auth_username && $username != "" && $auth_username != "")
 {
 	$is_authed = 1;

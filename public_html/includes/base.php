@@ -34,6 +34,8 @@ require("classes/class.page.php");
 function login($username, $password)
 {
 	//echo "<script>alert(document.cookie);</script>";
+	//echo $username;
+	//echo $password;
 	$_SESSION['auth_password'] = $password;
 	$_SESSION['auth_username'] = $username;
 	$_SESSION['username']      = $username;

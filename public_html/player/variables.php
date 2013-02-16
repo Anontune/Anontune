@@ -4,15 +4,29 @@
 Module used to pass server-side variables to Javascript.
 */
 
+//echo $_SESSION["auth_username"];
+//echo $_SESSION["auth_password"];
+
+
 require_once(dirname(__file__) . DIRECTORY_SEPARATOR . "../global.php");
 require_once("../include/mysql_con.php");
 require_once("../include/function.php");
 require_once("../include/auth_token.php");
 
-@session_start();
+session_start();
+//echo $_SESSION["auth_username"];
+//echo $_SESSION["auth_password"];
 
 $username = isset($_GET["username"]) ? htmlspecialchars(double_quote_escape(urldecode($_GET["username"]))) : "";
-//$auth_username = isset($_SESSION["auth_username"]) ? htmlspecialchars(double_quote_escape($_SESSION["auth_username"])) : "";
+$auth_username = isset($_SESSION["auth_username"]) ? htmlspecialchars(double_quote_escape($_SESSION["auth_username"])) : "";
+$auth_password = "";
+if(isset($_SESSION["auth_password"]))
+{
+	if(!empty($_SESSION["auth_password"]))
+	{
+		$auth_password = "present";
+	}
+}
 //$auth_password = isset($_SESSION["auth_password"]) ? htmlspecialchars(double_quote_escape($_SESSION["auth_password"])) : "";
 $ip_address = $_SERVER['REMOTE_ADDR'];
 
@@ -43,8 +57,8 @@ TODO: Fix this shit
 echo("
 var var_auth_token = '{$auth_token}';
 var var_username = '{$username}';
-var var_auth_username = '';
-var var_auth_password = '';
+var var_auth_username = '{$auth_username}';
+var var_auth_password = '{$auth_password}';
 var var_api_url = '{$api_url}';
 var var_ip_address = '{$ip_address}';
 var var_this_root_url = '{$this_root_url}';
