@@ -56,6 +56,7 @@ if(!empty($_POST['submit']))
 		}
 		else
 		{
+			$_SESSION["group"] = $sUser->sGroupId;
 			login($_POST['username'], $_POST['password']);
 				
 			$err = new CPHPErrorHandler(CPHP_ERRORHANDLER_TYPE_SUCCESS, $locale->strings['login-success-title'], $locale->strings['login-success-message']);

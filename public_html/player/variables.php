@@ -29,6 +29,7 @@ if(isset($_SESSION["auth_password"]))
 }
 //$auth_password = isset($_SESSION["auth_password"]) ? htmlspecialchars(double_quote_escape($_SESSION["auth_password"])) : "";
 $ip_address = $_SERVER['REMOTE_ADDR'];
+$group = isset($_SESSION["group"]) ? $_SESSION["group"] : 0;
 
 $options = "";
 $options["ip_addr"] = "this";
@@ -63,5 +64,6 @@ var var_api_url = '{$api_url}';
 var var_ip_address = '{$ip_address}';
 var var_this_root_url = '{$this_root_url}';
 var var_image_path = '/player/images/';
+var var_group = {$group};
 ");
 ?>

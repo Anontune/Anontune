@@ -140,9 +140,30 @@ Don't remove it.
 <script type="text/javascript" src="/player/variables.php?username=<?php echo(urlencode($username)); ?>"></script>
 <script type="text/javascript" src="/player/player.js"></script>
 <script type="text/javascript">
+function radio_active(){
+	if(at.radio){
+		$("#radio_link").css('font-weight', 'bold');
+		html = "Greetings, good sir, and welcome to Anontune's radio mode.<p>What radio mode does, is turn a user's profile into a kind of radio station. If the profile is yours, then any music you play will be broadcast to other users currently on your profile - but only if they too have radio mode enabled. If this profile isn't yours, then you may hear some music start to play shortly. That is the last song the DJ broadcast, and a new song will be heard when it finishes (if the DJ is currently broadcasting.)";
+		at.player.skin.show_overlay("Radio Mode: Enabled", html);
+		if(!at.is_account_owner){
+			at.player.next_track();
+		}
+	}
+	if(!at.radio){
+		$("#radio_link").css('font-weight', 'normal');
+		if(at.play_broadcast_timeout != null){
+			clearTimeout(at.play_broadcast_timeout);
+		}
+		at.play_broadcast_timeout = null;
+		$('body').css('cursor', 'auto');
+		at.title = null;
+		at.artist_name = null;
+	}
+}
 $(function(){
 	//prepare();
 	at.player.prepare();
+	radio_active();
 	//$('#loading').hide();
 });
 </script>
@@ -184,6 +205,8 @@ $(document).ready(function(){
 		}
 	});
 });
+
+
 </script>
 </head>
 <body>
@@ -207,6 +230,7 @@ else
 <a href="/tools/">Tools</a>
 <a href="#" onclick="at.player.skin.help();">Help</a>
 <a href="#" onclick="at.player.skin.license();">License</a>
+<a href="#" onclick="at.radio = at.radio ? 0 : 1; radio_active();" id="radio_link">Radio</a>
 <?php
 	echo "<a href='#'>" . $username_s . "</a>";
 ?>

@@ -5,6 +5,8 @@
 
 /*
 This module defines all the application logic for the skin interface.
+Auto_play is being stacked on the stack and it's raping everything.
+Multiple errors?
 */
 
 skin = new function(){
@@ -12,6 +14,8 @@ skin = new function(){
 this.result_no = 0;
 this.menu_filter_timeout = null;
 this.pls_scroll_top = 0;
+this.ytplayer_width = 0;
+this.ytplayer_height = 0;
 
 this.menu_filter = function(){
     filter = $(".search_input").val();
@@ -313,6 +317,10 @@ this.load_playlist = function(index){
 		main_onclick += 'at.pls[' + index + ']["tracks"][' + i + ']["title"]';
 		main_onclick += ', "artist": at.pls[' + index + ']["tracks"][' + i + ']["artist_name"]';
 		main_onclick += '});';
+		main_onclick += 'if(at.radio && at.group == 1 && at.is_account_owner || at.radio && at.group == 4) { ';
+		main_onclick += 'at.api.call({"title": at.pls[' + index + ']["tracks"][' + i + ']["title"],';
+		main_onclick += '"artist_name": at.pls[' + index + ']["tracks"][' + i + ']["artist_name"]}, "update_now_playing", 1, 1); } '
+		main_onclick += 'else { at.radio = 0; radio_active(); }';
 		menu = {
 			"menu_icon": "/images/troll/list_unknown.png",
 			"title": at.pls[index]["tracks"][i]["title"],
@@ -396,10 +404,34 @@ this.show_main_view = function(name){
 	
 	//Hide everything.
 	for(var i = 0; i < views.length; i++){
-		$(views[i]).hide();
+		//This line crashed the player in a number of browsers by disabling the flash applets.
+		//1 line patch... took 2 days to find this.
+		//$(views[i]).hide();
 		$(views[i]).css("z-index", "5");
 		$(views[i]).css("visibility", "hidden");
 	}
+
+	//Restore ytplayer.
+	/*
+	if(name == ".play_view"){
+		if(at.player.skin.ytplayer_width != 0){
+			$("#ytplayer").css("width", at.player.skin.ytplayer_width - 200 + "px");
+		}
+		if(at.player.skin.ytplayer_height != 0){
+			$("#ytplayer").css("height", at.player.skin.ytplayer_height + "px");
+		}
+	}
+	else{ //Hide ytplayer.
+		if(at.player.skin.ytplayer_width == 0 && $("#ytplayer").width() != 0){
+			at.player.skin.ytplayer_width = $("#ytplayer").width();
+		}
+		if(at.player.skin.ytplayer_height == 0 && $("#ytplayer").height() != 0){
+			at.player.skin.ytplayer_height = $("#ytplayer").height();
+		}
+		$("#ytplayer").css("height", "1");
+		$("#ytplayer").css("width", "1");
+	}
+	*/
 	
 	//Show name.
 	$(name).show();
@@ -450,6 +482,13 @@ this.result_change = function(){
 }
 
 this.auto_play = function(q){
+	/*
+Note: For future reference.
+If any error events occur for jPlayers during this call,
+the error handler is instructed to again call this function.
+Thus, infinite loops are possible.
+	*/
+
 	//Add button in searching thing to cancel.
 	at.player.skin.result_no = 0;
 	at.player.skin.reset_play_view();
@@ -472,12 +511,17 @@ this.reset_play_view = function(){
 	//at.player.skin.result_no = -1;
 	//$(".search_result_no").html('(<a href="#" onclick="at.player.skin.show_search_view();">0</a>)');
 	//$(".results_list").html('<a href="#" onclick="at.player.skin.show_play_view();">Back</a>');
+	//$("#jPlayer").show();
 	if(ytplayer != null){
 		//ytplayer.stopVideo();
 		ytplayer.destroy();
 		ytplayer = null;
 	}
-	$("#jplayer").jPlayer("stop");
+	if(typeof($("#jPlayer").jPlayer.status) != "undefined"){
+		if(typeof($("#jplayer").jPlayer.status.media["mp3"]) != "undefined"){
+			$("#jplayer").jPlayer("stop");
+		}
+	}
 	$(".song_title_heading").html("");
 	if(at.me.peh != null){
 		clearTimeout(at.me.peh);
@@ -487,8 +531,12 @@ this.reset_play_view = function(){
 		clearTimeout(at.me.sr);
 		at.me.sr = null;
 	}
-	
-	
+}
+
+this.radio_waiting = function(){
+	var waiting = "Now waiting for new track to broadcast . . .";
+	$('body').css('cursor', 'wait');
+	$(".song_title_heading").html(waiting);
 }
 
 this.play_resource = function(result){
@@ -499,11 +547,14 @@ this.play_resource = function(result){
 
 	var title = "&#9834&nbsp;" + at.htmlspecialchars(result["meta"]["title"] + " - " + result["meta"]["artist"]) + "&#9835;";
 	$(".song_title_heading").html(title);
+
+	//at.player.skin.show_play_view();
+	at.player.skin.show_play_view();
 	if(result["type"] == "youtube"){
 		ytplayer = new YT.Player('ytplayer', {
 			height: $(".play_view").height() - 90,
 			width: $(".play_view").width() - 200,
-			playerVars: { 'autoplay': 1},
+			playerVars: { 'autoplay': 1, "wmode": "transparent"},
 			videoId: result["data"]["vid"],
 			events: {
 				'onReady': onPlayerReady,
@@ -515,14 +566,12 @@ this.play_resource = function(result){
 	if(result["type"] == "exfm"){
 		//Hook.
 		at.player.hook_jplayer();
-		//alert(result["data"]["url"]);
 		
 		//Play.
 		$("#jplayer").jPlayer("setMedia", {
 			mp3: result["data"]["url"]
 		}).jPlayer("play");
 	}
-	at.player.skin.show_play_view();
 }
 
 this.lazy_programmers = function(){
@@ -533,6 +582,11 @@ this.lazy_programmers = function(){
 this.main = function(){
 	//menu = [{"menu_icon": "/images/troll/list_youtube.png", "title": "le title", "description": "le_description", "main_onclick": "alert(\"test1\");", "action_icon": "/images/troll/action_delete.png", "action_onclick": "alert(\"test2\");"}];
 	//alert(at.player.skin.menu_html(menu));
+	var isIE = /*@cc_on!@*/false; //Hack to detect IE.
+	if(isIE){
+		document.write("Thank you for noticing this notice.<br>Your noticing has been noticed.<p>Please be advised it has come to our attention that Internet Explorer is bad,<br>and you should feel bad for using it.<br>Thus Anontune does not support IE.<p>Please come back with a proper browser.<br>We recommend <a href='http://www.google.com/chrome'>Google Chrome</a> or <a href='http://www.mozilla.org/en-US/firefox/new/'>Mozilla Firefox</a>.<p>If you feel this error is in mistake, please contact <a href='mailto:cats@anontune.com'>cats@anontune.com</a>.<br>-Anontune Dev Team, 2013");
+		return;
+	}
 	
     at.player.output_ytplayer = at.player.skin.output_ytplayer;
     var skin_root_url = var_this_root_url + "/skins/troll/";

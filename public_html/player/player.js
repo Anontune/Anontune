@@ -33,6 +33,7 @@ all such API calls and have the interface update instantly regardless of what ha
 server.
 * Reorganize the code so it is clearer.
 */
+jplayer_event = null;
 json_string = null;
 dmp = new diff_match_patch();
 X2JS = new X2JS();
@@ -139,7 +140,7 @@ at = new function(){
 this.json = null;
 //Allow Anontune Java applets to run.
 //Good place to disable it if you have security issues :).
-this.enable_java = 1;
+this.enable_java = 0;
 //OWner of current user page.
 this.username = var_username;
 //alert(this.username);
@@ -184,6 +185,19 @@ this.res_hooked = false;
 this.enable_te_next = true;
 //Track ended mutex.
 this.track_ended_locked = false;
+//Is authed individual owner of this profile?
+this.is_account_owner = var_auth_username == var_username ? 1 : 0;
+//Enable radio mode.
+this.radio = var_username == "radio" ? 1 : 0;
+//this.radio = var_auth_username == var_username ? 0 : 1;
+//What group is authed individual in?
+this.group = var_group; //0 = guest, 1 = registered, ? = ?, 4 = admin
+//Radio track title.
+this.title = null;
+//Radio track artist_name.
+this.artist_name = null;
+//Recursive play_broadcast_timeout.
+this.play_broadcast_timeout = null;
 
 this.release_track_ended_lock = function(){
 	at.track_ended_locked = false;
@@ -716,7 +730,12 @@ this.hook_jplayer = function(){
 		$("#jplayer").jPlayer("pause");
 	}
 	at.player.stop_track = function(){
-		$("#jplayer").jPlayer("stop");
+		if(typeof($("#jPlayer").jPlayer.status) != "undefined"){
+			if(typeof($("#jplayer").jPlayer.status.media["mp3"]) != "undefined"){
+				$("#jplayer").jPlayer("stop");
+			}
+		}
+		return;
 	}
 	
 	//Events.
@@ -745,8 +764,9 @@ this.hook_jplayer = function(){
 	});
 	//Fixes 404.
 	$("#jplayer").bind($.jPlayer.event.error, function(event){
+		jplayer_event = event;
 		at.player.skin.auto_play(null);
-		return;
+		//return;
 		if(event.jPlayer.error.type == $.jPlayer.error.URL || event.jPlayer.error.type == $.jPlayer.error.URL_NOT_SET){
 			at.player.skin.auto_play(null);
 		}
@@ -758,9 +778,8 @@ this.hook_jplayer = function(){
 this.replay_track = null;
 
 this.next_track = function(){
-
     //if(at.loop) return;
-    if(at.pl_i != null && at.track_i != null){
+    if(at.pl_i != null && at.track_i != null && (!at.radio || at.is_account_owner)){
         track_no = at.pls[at.pl_i]["tracks"].length;
         //alert(track_no);
         //alert(at.track_i);
@@ -794,6 +813,46 @@ this.next_track = function(){
             }
         }
     }
+
+	if(at.radio && !at.is_account_owner){
+		at.player.skin.radio_waiting();
+
+		function play_broadcast(){
+			//alert("Yes");
+			//Get broadcast track.
+			if(!at.api.call({}, "get_now_playing", 0, 1)){
+				return;
+			}
+
+			//Nothing new, try again.
+			if(at.json[0]["title"] == at.title && at.json[0]["artist_name"] == at.artist_name){
+				if(at.play_broadcast_timeout != null){
+					clearTimeout(at.play_broadcast_timeout);
+				}
+				at.play_broadcast_timeout = setTimeout(play_broadcast, 5000);
+				return;
+			}
+
+			//Set broadcast track.
+			at.title = at.json[0]["title"];
+			at.artist_name = at.json[0]["artist_name"];
+
+			//Play broadcast track.
+			at.player.skin.auto_play({"title": at.title, "artist": at.artist_name})
+
+			//Cleanup.
+			if(at.play_broadcast_timeout != null){
+				clearTimeout(at.play_broadcast_timeout);
+			}
+			at.play_broadcast_timeout = null;
+			$('body').css('cursor', 'auto');
+		}
+
+		if(at.play_broadcast_timeout == null){ //Only one "thread" active at a time.
+			play_broadcast();
+		}
+		
+	}
 }
 this.prev_track = function(){
     //if(at.loop) return;
@@ -1243,14 +1302,20 @@ me = new function(){
 		//Play result.
 		if(p != null){
 			at.me.results[p]["played"] = true;
+			//alert(at.me.results[p]);
 			at.player.skin.play_resource(at.me.results[p]);
 		}
 		else{
 			//Reschedual.
-			if(floor - 20 < 0) floor = 0; //No more limits.
-			else floor = floor - 20;
+			if(floor - 20 < 0){
+				floor = 0; //No more limits.
+			}
+			else{
+				floor = floor - 20;
+			}
 			at.me.sr = setTimeout("at.me.select_result(" + floor + ");", 1000);
 		}
+
 	}
 	
 };

@@ -262,6 +262,34 @@ function get_track($title, $artist_name, $playlist_id, $album_title, $genre, $ye
 	}
 }
 
+function get_now_playing($c="")
+{
+	global $user_id;
+	$sql = "SELECT `title`,`artist_name` FROM `user` WHERE `id`='$user_id'";
+	$row = mysql_get($sql);
+	if(eval(is_empty('$row')))
+	{
+		//return api_failure(array("This does not exist."), $c);
+		return api_success(array(), $c);
+	}
+	
+	return api_success($row, $c);
+}
+
+function update_now_playing($title, $artist_name, $c="")
+{
+	global $user_id;
+	$sql = "UPDATE `user` SET `title`=\"$title\",`artist_name`=\"$artist_name\" WHERE `id`='$user_id'";
+	$row = mysql_query($sql);
+	if(eval(is_empty('$row')))
+	{
+		//return api_failure(array("This does not exist."), $c);
+		return api_success(array(), $c);
+	}
+	
+	return api_success("done", $c);
+}
+
 function get_artist($id, $c="")
 {
 	/*
@@ -1202,6 +1230,12 @@ while(1) //Makes error handling easier.
 	switch($c)
 	{
 		//No authentication required.
+		case "get_now_playing":
+			if(chk_glob("username", $_GET))
+			{
+				$return_value = get_now_playing($c);
+			}
+			break;
 		case "get_artist":
 			if(chk_glob("id", $_GET))
 			{
@@ -1249,31 +1283,39 @@ while(1) //Makes error handling easier.
 			{
 				break;
 			}
+
+			//Get auth_username from token.
+			$sql = "SELECT `auth_user_id` FROM `auth_token` WHERE `token`='" . mysql_real_escape_string($auth_token, $mysql_con) . "'";
+			$result = mysql_get($sql);
+			if($result == "") break;
+			$sql = "SELECT `username`,`group` FROM `user` WHERE `id`=" . $result[0]["auth_user_id"];
+			$result = mysql_get($sql);
+			if($result == "") break;
+			$auth_username = $result[0]["username"];
+			$group = $result[0]["group"];	
+
 			//Check credentials.
 			if(verify_token($auth_token) != 1)
 			{
 				break;
 			}
 			
-			//Grab group.
-			if(isset($_SESSION["auth_username"]))
-			{
-				$auth_username = $_SESSION["auth_username"];
-			}
-			$sql = "SELECT `group` FROM `user` WHERE `username`='$auth_username'";
-			$result = mysql_get($sql);
-			$group = $result[0]["group"];
-			
 			//User access level.
 			if($group >= 1)
 			{
-				//Users can only do user API calls against users if it is them.
+				//Users can only do user API calls against themself.
 				if($username != $auth_username && $group == "1")
 				{
 					break;
 				}
 				switch($c)
 				{
+					case "update_now_playing":
+						if(chk_glob("username,title,artist_name", $_GET))
+						{
+							$return_value = update_now_playing($title, $artist_name, $c);
+						}
+						break;
 					case "upload_ipod_db":
 						if(chk_glob("username", $_GET))
 						{

@@ -938,7 +938,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#004d9bc1', e
 .overlay
 {
 	position: absolute;
-	top: 55px;
+	top: 50px;
 	bottom: 20px;
 	left: 18px;
 	right: 18px;
@@ -946,7 +946,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#004d9bc1', e
 	overflow-x: hidden;
 	display:table-cell;
 	vertical-align:middle;
-	text-align: center;
+	text-align: left;
+	padding: 8px;
+	background: white;
 }
 
 .overlay_view_watermark img
