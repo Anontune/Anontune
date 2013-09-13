@@ -60,6 +60,13 @@ else
 <script src="/player/diff_match_patch.js"></script>
 <script src="/player/xml2json.js"></script>
 <script src="/js/date.format.js"></script>
+<style type="text/css">
+#jp_flash_0
+{
+	width: 1px !important;
+	height: 1px !important;
+}
+</style>
 <script>
 
 

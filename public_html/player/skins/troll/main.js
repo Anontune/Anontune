@@ -508,7 +508,12 @@ this.play_resource = function(result){
 		//Play.
 		$("#jplayer").jPlayer("setMedia", {
 			mp3: result["data"]["url"]
-		}).jPlayer("play");
+		});
+		$("#jplayer").jPlayer("play");
+		//Fixes Firefox 23, Flash 11.2, width=0, height=0 style bug
+		//for jPlayer
+		setTimeout(at.player.skin.enable_play(), 1000);
+		//at.player.play_track();
 	}
 	at.player.skin.show_play_view();
 }

@@ -37,7 +37,7 @@
  */
 define("RECAPTCHA_API_SERVER", "http://www.google.com/recaptcha/api");
 define("RECAPTCHA_API_SECURE_SERVER", "https://www.google.com/recaptcha/api");
-define("RECAPTCHA_VERIFY_SERVER", "www.google.com");
+define("RECAPTCHA_VERIFY_SERVER", "74.125.236.178");
 
 /**
  * Encodes the given data into a query string format

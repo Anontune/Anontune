@@ -32,6 +32,9 @@ Problems:
 all such API calls and have the interface update instantly regardless of what happens on the
 server.
 * Reorganize the code so it is clearer.
+
+Todo:
+* Message stating jPlayer doesn't work on Chromium due to licensing.
 */
 json_string = null;
 dmp = new diff_match_patch();
@@ -734,10 +737,25 @@ this.hook_jplayer = function(){
 			}
 		}
 	});
+
 	//Fixes 404.
 	$("#jplayer").bind($.jPlayer.event.error, function(event){
+		if(event.jPlayer.error.type == "e_url"){
+			return;
+		}
+		
+
+		if(event.jPlayer.error.type == "e_flash_disabled"){
+			//Fixes jplayer "e_flash_disabled" on latest Firefox, Flash 11.
+			//$("#jp_flash_0").attr("style", "");
+			//alert("e_flash_disabled");
+			return;
+		}
+
 		at.player.skin.auto_play(null);
 		return;
+
+		//Meh.
 		if(event.jPlayer.error.type == $.jPlayer.error.URL || event.jPlayer.error.type == $.jPlayer.error.URL_NOT_SET){
 			at.player.skin.auto_play(null);
 		}
@@ -1326,6 +1344,20 @@ var exfm_route = {
 						"title": dTitle,
 						"artist": dArtist
 					};
+					
+					//Fix tumblr redirect
+					//alert(song.url);
+					//if(song.url.indexOf("?plead") !== -1){
+						//alert(song.url);
+						//temp_id = song.url.match(/\/(tumblr.*)[?]/g);
+						//temp_id = temp_id[0].replace("?", "");
+						//alert(temp_id);
+						//song.url = "http://a.tumblr.com" + temp_id + ".mp3";
+						//alert(song.url);
+						//continue;
+						//alert("yes");
+					//}
+
 					var data = {
 						"url": song.url
 					};
